@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgdeu0go0ls4i"]
+
+[ext_resource type="Script" path="res://Code/ViewportShader.gd" id="1_1g37h"]
+[ext_resource type="Shader" path="res://Shaders/scene_1_screen.gdshader" id="2_f3tbo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w04jt"]
+shader = ExtResource("2_f3tbo")
+shader_parameter/BeerActive = false
+shader_parameter/MilkActive = false
+
+[node name="ViewportShader" type="CanvasLayer"]
+script = ExtResource("1_1g37h")
+
+[node name="ColorRect" type="ColorRect" parent="." groups=["ScreenShader"]]
+z_index = 5
+material = SubResource("ShaderMaterial_w04jt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true

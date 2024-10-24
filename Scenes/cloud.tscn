@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjo3tyrcnwg8"]
+
+[ext_resource type="Script" path="res://Code/Cloud.gd" id="1_idrcn"]
+[ext_resource type="Texture2D" uid="uid://dntco8bqge61y" path="res://Assets/Cloud1.png" id="2_8we18"]
+[ext_resource type="Texture2D" uid="uid://b1mur3gjam0k6" path="res://Assets/Cloud2.png" id="2_pbxyo"]
+[ext_resource type="Texture2D" uid="uid://bokm2u1lctnvt" path="res://Assets/Cloud1_2.png" id="3_c5veu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60x7f"]
+size = Vector2(100, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd8hy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pbxyo")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8we18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c5veu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7nxa"]
+size = Vector2(88, 18)
+
+[node name="Cloud" type="StaticBody2D"]
+position = Vector2(94, 60)
+script = ExtResource("1_idrcn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_60x7f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wd8hy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 13)
+shape = SubResource("RectangleShape2D_d7nxa")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

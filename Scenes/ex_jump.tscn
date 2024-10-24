@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdo52cggixso6"]
+
+[ext_resource type="Texture2D" uid="uid://clxir35e0pi6l" path="res://Assets/balljump.png" id="1_qqju3"]
+[ext_resource type="Script" path="res://Code/ex_jump.gd" id="1_s6ewa"]
+[ext_resource type="Texture2D" uid="uid://bpi3651im55ya" path="res://Assets/balljump_2.png" id="2_ynxde"]
+[ext_resource type="Texture2D" uid="uid://b4ujjlhpvoc7r" path="res://Assets/balljump_3.png" id="3_71lj2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nd0rn"]
+radius = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ki3u6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qqju3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ynxde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_71lj2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ExJump" type="Area2D"]
+script = ExtResource("1_s6ewa")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nd0rn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ki3u6")
+autoplay = "default"
+frame = 2
+frame_progress = 0.514213
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

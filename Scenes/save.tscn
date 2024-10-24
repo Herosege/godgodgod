@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://cydymvelvpn0e"]
+
+[ext_resource type="Script" path="res://Code/Save.gd" id="1_o88w2"]
+[ext_resource type="Texture2D" uid="uid://bomrfswouk8d7" path="res://Assets/save1_1.png" id="2_fw5fr"]
+[ext_resource type="Texture2D" uid="uid://dbrt0ssutlcma" path="res://Assets/save1_2.png" id="3_480c2"]
+[ext_resource type="AudioStream" uid="uid://cj84qte3h8h4a" path="res://Assets/Sound/SaveSE.ogg" id="4_6l35c"]
+[ext_resource type="Texture2D" uid="uid://bcsofgwfweihn" path="res://Assets/save1_3.png" id="4_6nfui"]
+[ext_resource type="Texture2D" uid="uid://16uxg18dmrsx" path="res://Assets/save1_4.png" id="5_lkq8k"]
+
+[sub_resource type="Gradient" id="Gradient_unopl"]
+offsets = PackedFloat32Array(0, 0.519481)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_shwfb"]
+gradient = SubResource("Gradient_unopl")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uehmx"]
+radius = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wtvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fw5fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_480c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6nfui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lkq8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Save" type="Area2D"]
+script = ExtResource("1_o88w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("GradientTexture2D_shwfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_uehmx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_8wtvq")
+autoplay = "default"
+frame_progress = 0.8632
+
+[node name="SaveSE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6l35c")
+
+[node name="SaveCD" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

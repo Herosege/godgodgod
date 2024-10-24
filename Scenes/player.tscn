@@ -1,0 +1,177 @@
+[gd_scene load_steps=22 format=3 uid="uid://c4bj4xgj6l01p"]
+
+[ext_resource type="Texture2D" uid="uid://b67hblyynrg5w" path="res://Assets/player.png" id="1_dqe2t"]
+[ext_resource type="Script" path="res://Code/player.gd" id="1_xtj4b"]
+[ext_resource type="Texture2D" uid="uid://c0liv5y7ot5yv" path="res://Assets/player1.png" id="3_0fbga"]
+[ext_resource type="Texture2D" uid="uid://kbicolobgxch" path="res://Assets/ciucmok.png" id="3_4coqo"]
+[ext_resource type="AudioStream" uid="uid://bht4xdi2x151c" path="res://Assets/Sound/jumpSE.ogg" id="4_u0b8i"]
+[ext_resource type="Texture2D" uid="uid://ba6qbo4vjbp6r" path="res://Assets/player2.png" id="4_uspv3"]
+[ext_resource type="Script" path="res://Code/Weapon.gd" id="5_ats0k"]
+[ext_resource type="Texture2D" uid="uid://dpvcodw8c2nvr" path="res://Assets/axe_lowq.png" id="5_lbh8g"]
+[ext_resource type="AudioStream" uid="uid://760fgi8h3y4y" path="res://Assets/Sound/hit2.ogg" id="6_3e1ar"]
+[ext_resource type="Texture2D" uid="uid://bwm644m15yv8c" path="res://Assets/axe_lowq_3.png" id="7_d7puv"]
+[ext_resource type="Texture2D" uid="uid://bimw6ttqvji4x" path="res://Assets/axe_lowq_4.png" id="8_u4cp5"]
+[ext_resource type="Texture2D" uid="uid://c3fr43sbnfb51" path="res://Assets/axe_lowq_5.png" id="9_c24d2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dadx3"]
+size = Vector2(12, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo4u0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dqe2t")
+}],
+"loop": true,
+"name": &"standard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0fbga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uspv3")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_100fb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lbh8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d7puv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u4cp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c24d2")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lbh8g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5eme"]
+size = Vector2(51, 54)
+
+[sub_resource type="Curve" id="Curve_sq76m"]
+_data = [Vector2(0, 1), 0.0, -0.126796, 0, 0, Vector2(1, 0), -2.82575, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tgqwm"]
+curve = SubResource("Curve_sq76m")
+
+[sub_resource type="Curve" id="Curve_4b5ms"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_753v2"]
+curve = SubResource("Curve_4b5ms")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fw6ms"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 300.0
+initial_velocity_max = 350.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 300, 0)
+radial_accel_curve = SubResource("CurveTexture_753v2")
+scale_over_velocity_min = 0.1
+scale_over_velocity_max = 10.0
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_tgqwm")
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_xtj4b")
+TimePeak = 0.25
+TimeFall = 0.25
+JumpStr = 65.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_dadx3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lo4u0")
+animation = &"standard"
+autoplay = "walking"
+frame_progress = 0.338306
+metadata/_edit_lock_ = true
+
+[node name="Weapons" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(8, 0)
+
+[node name="Weapon" type="Node2D" parent="AnimatedSprite2D/Weapons"]
+script = ExtResource("5_ats0k")
+
+[node name="HitSE" type="AudioStreamPlayer" parent="AnimatedSprite2D/Weapons/Weapon"]
+stream = ExtResource("6_3e1ar")
+volume_db = -10.0
+pitch_scale = 1.1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Weapon"]
+position = Vector2(7, 1)
+sprite_frames = SubResource("SpriteFrames_100fb")
+animation = &"Attack"
+frame = 3
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Weapon" groups=["damage"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Weapons/Weapon/Area2D"]
+position = Vector2(17.5, -1)
+shape = SubResource("RectangleShape2D_b5eme")
+
+[node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon"]
+wait_time = 0.05
+one_shot = true
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="BufferTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="BloodParticles" type="GPUParticles2D" parent="."]
+process_mode = 3
+z_index = 2
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_fw6ms")
+texture = ExtResource("3_4coqo")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="JumpSE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_u0b8i")
+volume_db = -8.0
+pitch_scale = 1.1
+
+[connection signal="animation_finished" from="AnimatedSprite2D/Weapons/Weapon/AnimatedSprite2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="AnimatedSprite2D/Weapons/Weapon/Area2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timers/CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="Timers/BufferTimer" to="." method="_on_buffer_timer_timeout"]

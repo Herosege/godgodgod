@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj6xpr0fo640s"]
+
+[ext_resource type="Script" path="res://Code/hud.gd" id="1_doaym"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_miau3"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_2i7at"]
+font_size = 48
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2uy1"]
+font_size = 40
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Hud" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_doaym")
+
+[node name="SaveHint" type="Label" parent="." groups=["SHint"]]
+visible = false
+z_index = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -23.0
+offset_right = 56.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press s to save"
+label_settings = SubResource("LabelSettings_miau3")
+
+[node name="Saved" type="Label" parent="." groups=["SLabel"]]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SAVED"
+label_settings = SubResource("LabelSettings_2i7at")
+
+[node name="DeadHint" type="Label" parent="."]
+process_mode = 3
+visible = false
+z_index = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.5
+offset_top = -28.0
+offset_right = 70.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "press r to restart"
+label_settings = SubResource("LabelSettings_miau3")
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_u2uy1")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=3 uid="uid://cuhp31gm5v1ae"]
+
+[ext_resource type="Script" path="res://Code/gate.gd" id="1_bgwwt"]
+[ext_resource type="Texture2D" uid="uid://df6yae4nd6csv" path="res://Assets/rings/0001.png" id="1_d7uem"]
+[ext_resource type="Texture2D" uid="uid://d0e3lm3us7xro" path="res://Assets/doors.png" id="2_7htov"]
+[ext_resource type="Texture2D" uid="uid://covaiajx2tal4" path="res://Assets/rings/0002.png" id="2_ft374"]
+[ext_resource type="Texture2D" uid="uid://mk3bkxvvmcqa" path="res://Assets/rings/0003.png" id="3_mq0eh"]
+[ext_resource type="Texture2D" uid="uid://dv21w22javp7d" path="res://Assets/rings/0004.png" id="4_4wdfv"]
+[ext_resource type="Texture2D" uid="uid://n35hbj6x6uhc" path="res://Assets/rings/0005.png" id="5_w6s3l"]
+[ext_resource type="Texture2D" uid="uid://cnjm41fxyaxj4" path="res://Assets/rings/0006.png" id="6_75k6q"]
+[ext_resource type="Texture2D" uid="uid://b35i1bcgfabbx" path="res://Assets/rings/0007.png" id="7_ws6t3"]
+[ext_resource type="Texture2D" uid="uid://biix5v3gf5l6x" path="res://Assets/rings/0008.png" id="8_ktds4"]
+[ext_resource type="Texture2D" uid="uid://dy5f8p38v72rn" path="res://Assets/rings/0009.png" id="9_wnkra"]
+[ext_resource type="Texture2D" uid="uid://b4t52i70cn20m" path="res://Assets/rings/0010.png" id="10_b8ixy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvg8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7htov")
+}],
+"loop": true,
+"name": &"gate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d7uem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ft374")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mq0eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4wdfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w6s3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_75k6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ws6t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ktds4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wnkra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b8ixy")
+}],
+"loop": true,
+"name": &"rings",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2v4b"]
+size = Vector2(64, 128)
+
+[node name="Gate" type="Area2D"]
+script = ExtResource("1_bgwwt")
+GateType = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tvg8o")
+animation = &"gate"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j2v4b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

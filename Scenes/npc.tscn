@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://wbilhro3m8w2"]
+
+[ext_resource type="Script" path="res://Code/npc.gd" id="1_pjvq1"]
+[ext_resource type="Texture2D" uid="uid://c31sf87uj2dak" path="res://Assets/someone.png" id="2_1t24h"]
+[ext_resource type="Texture2D" uid="uid://d2je32rrur5xq" path="res://Assets/curse.png" id="2_bmj3w"]
+[ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="3_2a7dd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf1j7"]
+size = Vector2(48, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nmfyg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bmj3w")
+}],
+"loop": true,
+"name": &"curse",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1t24h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8cu3x"]
+font = ExtResource("3_2a7dd")
+font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="idk" type="Node2D"]
+script = ExtResource("1_pjvq1")
+type = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_kf1j7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nmfyg")
+animation = &"curse"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.0
+offset_top = -328.0
+offset_right = 59.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8cu3x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
