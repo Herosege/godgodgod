@@ -31,6 +31,8 @@ var JumpAmount = 1
 @onready var FGrav = -(-2.0 * JumpStr) / pow(TimeFall,2)
 
 func _ready():
+	CRoomPos.x = floor(global_position.x / VPort.x)
+	CRoomPos.y = floor(global_position.y / VPort.y)
 	global_position = Globals.SavedPos[0]
 	#global_position = Vector2(2050,400)
 	SignalBus.Death.connect(_on_die)
@@ -78,6 +80,10 @@ func CheckInputs():
 func MoveDirection():
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
+	if Input.is_action_pressed("Slowdown"):
+		VertSpeed = 25
+	else:
+		VertSpeed = 200
 	if direction:
 		velocity.x += direction * VertSpeed + AddVel.x / 10
 		$AnimatedSprite2D.scale.x = direction

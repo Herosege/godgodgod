@@ -50,12 +50,15 @@ func _ready():
 	#onen - main
 	#SavedPos[0] = Vector2(4100,-100)
 	
+	#henryk - main
+	SavedPos[0] = Vector2(3600,800)
+	
 	#SecretMilk - main
 	#SavedPos[0] = Vector2(1450,160)
 	
 	#Boss - curse
-	SavedPos[0] = Vector2(1480,380)
-	SavedPos[1] = 1
+	#SavedPos[0] = Vector2(1480,380)
+	#SavedPos[1] = 1
 
 func _process(delta):
 	
