@@ -101,10 +101,18 @@ func load_game(file,DataName,def):
 			return def
 		
 		var data = json.get_data()
+		
 		if !data:
 			return def
 		if !data.has(DataName):
 			return def
+		
+		if typeof(data[DataName]) != typeof(def):
+			print("corrupted save data ",typeof(def)," and ",typeof(data[DataName]))
+			return def
+			
+		
+		
 		return data[DataName]
 
 func save_game(file,SaveCont):
