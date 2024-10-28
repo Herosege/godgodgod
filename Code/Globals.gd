@@ -42,26 +42,32 @@ enum {VoidSpaghetti}
 var BossKilled = [false]
 
 func _ready():
+	VSync = load_game("user://config.conf","VSync",VSync)
+	MVol = load_game("user://config.conf","MusicVolume",MVol)
+	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
+	
 	SignalBus.Save.connect(SaveData)
 	#BeerRoom - Curse
 	#SavedPos[0] = Vector2(-600,1290)
 	#SavedPos[1] = 1
 	
 	#onen - main
-	#SavedPos[0] = Vector2(4100,-100)
+	SavedPos[0] = Vector2(4100,-100)
 	
 	#henryk - main
-	SavedPos[0] = Vector2(3600,800)
+	#SavedPos[0] = Vector2(3600,800)
 	
 	#SecretMilk - main
 	#SavedPos[0] = Vector2(1450,160)
+	
+	#connector - main
+	#SavedPos[0] = Vector2(1860,290)
 	
 	#Boss - curse
 	#SavedPos[0] = Vector2(1480,380)
 	#SavedPos[1] = 1
 
 func _process(delta):
-	
 	SaveTime+=delta
 	
 	if Input.is_action_just_pressed("debug"):
@@ -73,6 +79,7 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		for i in Items[0].size():
 			Items[0][i] = true
+		SpecialItem = true
 
 func SaveData(type):
 	if type == 0:
@@ -126,3 +133,9 @@ func read_file(FilePath):
 		return
 	var content = file.get_as_text()
 	return content
+
+#settings
+
+var SEVol = 100.0
+var MVol = 100.0
+var VSync = true

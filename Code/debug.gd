@@ -10,7 +10,7 @@ var VPort = Vector2(640,480)
 func _ready():
 	visible = false
 	if Activ:
-		for x in range(-8,8):
+		for x in range(-8,16):
 			for y in range(-8,8):
 				var Spr = Sprite2D.new()
 				Spr.texture = FImg

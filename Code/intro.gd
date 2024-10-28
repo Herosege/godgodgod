@@ -21,3 +21,7 @@ func _on_texture_button_pressed():
 	Globals.EffectActive = Globals.load_game("user://dinomemories.save","EffectActive",Globals.EffectActive)
 	Globals.SaveTime = Globals.load_game("user://dinomemories.save","SaveTime",Globals.SaveTime)
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])
+
+
+func _on_texture_button_2_pressed():
+	$SettingsMenu.visible = true

@@ -3,7 +3,7 @@ extends Area2D
 @export var SType = 0
 @export var MoveGroup = 0
 
-var Anims = ["Flower","Spike","BSpike","Soul"]
+var Anims = ["Flower","Spike","BSpike","Soul","BridgeSpike"]
 
 @onready var PrevPos = position
 
@@ -14,9 +14,9 @@ func _ready():
 		add_to_group("group" + str(MoveGroup))
 	match MoveGroup:
 		1:
-			start_tween(Vector2(0.0,30.0),0.3)
+			start_tween(Vector2(0.0,28.0),0.33)
 		2:
-			start_tween(Vector2(0.0,-30.0),0.3)
+			start_tween(Vector2(0.0,-28.0),0.33)
 
 func _process(delta):
 	pass

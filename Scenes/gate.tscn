@@ -1,13 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuhp31gm5v1ae"]
+[gd_scene load_steps=19 format=3 uid="uid://cuhp31gm5v1ae"]
 
 [ext_resource type="Script" path="res://Code/gate.gd" id="1_bgwwt"]
 [ext_resource type="Texture2D" uid="uid://df6yae4nd6csv" path="res://Assets/rings/0001.png" id="1_d7uem"]
 [ext_resource type="Texture2D" uid="uid://d0e3lm3us7xro" path="res://Assets/doors.png" id="2_7htov"]
 [ext_resource type="Texture2D" uid="uid://covaiajx2tal4" path="res://Assets/rings/0002.png" id="2_ft374"]
 [ext_resource type="Texture2D" uid="uid://mk3bkxvvmcqa" path="res://Assets/rings/0003.png" id="3_mq0eh"]
+[ext_resource type="Texture2D" uid="uid://xek6p8rntc2h" path="res://Assets/NoiseT1.png" id="3_u8qmv"]
 [ext_resource type="Texture2D" uid="uid://dv21w22javp7d" path="res://Assets/rings/0004.png" id="4_4wdfv"]
+[ext_resource type="Texture2D" uid="uid://dkcrvoxe0lj4v" path="res://Assets/NoiseT2.png" id="4_qekyk"]
+[ext_resource type="Texture2D" uid="uid://cyfgpqjp6dan3" path="res://Assets/NoiseT3.png" id="5_hab7j"]
 [ext_resource type="Texture2D" uid="uid://n35hbj6x6uhc" path="res://Assets/rings/0005.png" id="5_w6s3l"]
 [ext_resource type="Texture2D" uid="uid://cnjm41fxyaxj4" path="res://Assets/rings/0006.png" id="6_75k6q"]
+[ext_resource type="Texture2D" uid="uid://cscw67nut3ut7" path="res://Assets/NoiseT4.png" id="6_d2l1r"]
 [ext_resource type="Texture2D" uid="uid://b35i1bcgfabbx" path="res://Assets/rings/0007.png" id="7_ws6t3"]
 [ext_resource type="Texture2D" uid="uid://biix5v3gf5l6x" path="res://Assets/rings/0008.png" id="8_ktds4"]
 [ext_resource type="Texture2D" uid="uid://dy5f8p38v72rn" path="res://Assets/rings/0009.png" id="9_wnkra"]
@@ -22,6 +26,23 @@ animations = [{
 "loop": true,
 "name": &"gate",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u8qmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qekyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hab7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d2l1r")
+}],
+"loop": true,
+"name": &"noise",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -69,6 +90,7 @@ GateType = 0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tvg8o")
 animation = &"gate"
+frame_progress = 0.327655
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j2v4b")

@@ -1,7 +1,7 @@
 extends Area2D
 
-enum {Gate,Rings}
-@export_enum("Gate","Rings") var GateType 
+enum {Gate,Rings,NoiseT}
+@export_enum("Gate","Rings","Noise") var GateType 
 @export_enum("DoomedExistance","CurseWorld") var WhereTo 
 @export var Coords = Vector2(0,0)
 
@@ -12,6 +12,9 @@ func _ready():
 			$CollisionShape2D.shape.size = Vector2(64,128)
 		Rings:
 			$AnimatedSprite2D.play("rings")
+			$CollisionShape2D.shape.size = Vector2(32,32)
+		NoiseT:
+			$AnimatedSprite2D.play("noise")
 			$CollisionShape2D.shape.size = Vector2(32,32)
 
 func _process(delta):

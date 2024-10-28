@@ -35,6 +35,7 @@ func _on_area_2d_body_entered(body):
 				$Label.visible = true
 				$Label.text = Globals.read_file("res://Misc/dialogues/cursegod.txt")
 				if !Globals.SpecialItem:
+					Globals.SpecialItem = true
 					SignalBus.emit_signal("GetItem","wife")
 
 func _on_area_2d_body_exited(body):

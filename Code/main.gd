@@ -4,7 +4,7 @@ var Pos
 
 @onready var PNode = get_tree().get_first_node_in_group("player")
 @onready var G1 = get_tree().get_nodes_in_group("group1")
-@onready var MusicColl = [null,$Music,$Music2]  
+@onready var MusicColl = [null,$Music,$Music2,$Music3]  
 
 var T = 0.0
 
@@ -14,22 +14,30 @@ func _ready():
 	Globals.CArea = 0 
 	for i in G1.size():
 		Pos = G1[i].position.y
+	if Globals.SpecialItem:
+		$ImpStuff/BridgeGate.queue_free()
+		$Npcs/idk.queue_free()
 
 func _process(delta):
 	T+=delta/2
 	if PrevRoom != PNode.CRoomPos:
-		CPlaying = UpdateMusic()
-		for i in MusicColl.size():
-			if MusicColl[i]:
-				MusicColl[i].playing = i == CPlaying
+		if PNode.CRoomPos.x == 3 || PNode.CRoomPos == Vector2(6,1):
+			CPlaying = 0
+			UpdateMusic()
+		if PNode.CRoomPos.x < 3 and !$Music.playing:
+			CPlaying = 1
+			UpdateMusic()
+		if PNode.CRoomPos.x > 3 and PNode.CRoomPos.y >= 0 and !$Music2.playing:
+			CPlaying = 2
+			UpdateMusic()
+		if PNode.CRoomPos.x >= 7 and !$Music3.playing:
+			CPlaying = 3
+			UpdateMusic()
 	PrevRoom = PNode.CRoomPos
 
 var PrevRoom : Vector2
 
 func UpdateMusic():
-	if PNode.CRoomPos.x == 3 || PNode.CRoomPos == Vector2(6,1):
-		return 0
-	if PNode.CRoomPos.x < 3 and !$Music.playing:
-		return 1
-	if PNode.CRoomPos.x > 3 and PNode.CRoomPos.y >= 0 and !$Music2.playing:
-		return 2
+	for i in MusicColl.size():
+			if MusicColl[i]:
+				MusicColl[i].playing = i == CPlaying

@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 50.0
+const InitHealth = 55.0
 var Health = InitHealth
 
 var CAtt = 0
@@ -41,7 +41,7 @@ func _process(delta):
 				if $Att2Timer.is_stopped() and !$PreAtt2Timer.is_stopped():
 					for i in 9-AttVariant:
 						Shoot(Vector2(1920+(i*StepAmt)+(AttVariant*StepAmt),0) , Vector2(2000+i*StepAmt-AttVariant*StepAmt,580))
-					$Att2Timer.start(0.33-(TimeRed*0.13))
+					$Att2Timer.start(0.42-(TimeRed*0.15))
 					AttVariant += 1 
 					AttVariant %= 2
 			2:
@@ -54,9 +54,9 @@ func _process(delta):
 			3:
 				position = position.lerp(Vector2(2240,300),0.4)
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
-					for i in 10+AttVariant:
-						Shoot(global_position, Vector2( cos( ( TAU / (10 + AttVariant) ) * i ) + global_position.x 
-						, sin( ( TAU / (10 + AttVariant) ) * i ) + global_position.y) )
+					for i in 12+AttVariant:
+						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i ) + global_position.x 
+						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) )
 					$Att2Timer.start(0.8-float(AttVariant)/5-(TimeRed*0.1))
 					AttVariant += 1 
 					AttVariant %= 4

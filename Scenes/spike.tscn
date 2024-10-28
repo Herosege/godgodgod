@@ -1,12 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://e4u652bapnde"]
+[gd_scene load_steps=17 format=3 uid="uid://e4u652bapnde"]
 
 [ext_resource type="Texture2D" uid="uid://cnaryqestn8jn" path="res://Assets/flower2_1.png" id="1_1aatu"]
 [ext_resource type="Script" path="res://Code/spike.gd" id="1_vfvso"]
 [ext_resource type="Texture2D" uid="uid://deagluoneaglr" path="res://Assets/spikeb.png" id="2_h4k2u"]
+[ext_resource type="Texture2D" uid="uid://blrp7x4me5h7a" path="res://Assets/spiken.png" id="3_moeiv"]
 [ext_resource type="Texture2D" uid="uid://fclmslsrxu8c" path="res://Assets/flower2_3.png" id="3_qb5mk"]
 [ext_resource type="Texture2D" uid="uid://bvob37cdu3yaw" path="res://Assets/Spike1_1.png" id="4_4hn5p"]
+[ext_resource type="Texture2D" uid="uid://cuiulk1rbbuf5" path="res://Assets/spiken2.png" id="4_hmdww"]
 [ext_resource type="Texture2D" uid="uid://5g0jp31j8nds" path="res://Assets/flower2_2.png" id="4_j836w"]
 [ext_resource type="Texture2D" uid="uid://chpiatvxx4l6l" path="res://Assets/Spike1_2.png" id="5_foh3o"]
+[ext_resource type="Texture2D" uid="uid://dn3vaqons3y4a" path="res://Assets/spiken3.png" id="5_on5ol"]
 [ext_resource type="Texture2D" uid="uid://cpx3ndaq6aqsq" path="res://Assets/Spike1_3.png" id="6_4kcyh"]
 [ext_resource type="Texture2D" uid="uid://bn0ef77phrts4" path="res://Assets/Spike2_1.png" id="6_f5lwb"]
 [ext_resource type="Texture2D" uid="uid://clu53cmv41bk8" path="res://Assets/Spike2_2.png" id="7_8uk2g"]
@@ -23,6 +26,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"BSpike",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_moeiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hmdww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_on5ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_on5ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hmdww")
+}],
+"loop": true,
+"name": &"BridgeSpike",
 "speed": 5.0
 }, {
 "frames": [{
@@ -84,8 +107,8 @@ shape = SubResource("RectangleShape2D_pw0f4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_8ncys")
-animation = &"Soul"
+animation = &"BridgeSpike"
 autoplay = "Flower"
-frame_progress = 0.796621
+frame_progress = 0.446229
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
