@@ -8,14 +8,12 @@ var AreaScenes = [
 enum area {wonderful_place, curse_world}
 
 var CArea : int
-
 var SavedPos = [
 	Vector2(109,206), #Coords
 	0 #Area
 ]
 
 var ShaderType = 0
-
 var DisableAction = false
 
 enum {
@@ -31,15 +29,15 @@ var EffectActive = [false,false]
 var SaveTime = 0.0
 
 var SpecialItem = false
-
 var Items = [
 	[false,false],#Passives
 	[false,false,false]#Weapons
 ]
 
 enum {VoidSpaghetti}
-
 var BossKilled = [false]
+
+var EnemiesKilled = 0
 
 func _ready():
 	VSync = load_game("user://config.conf","VSync",VSync)
@@ -52,7 +50,10 @@ func _ready():
 	#SavedPos[1] = 1
 	
 	#onen - main
-	SavedPos[0] = Vector2(4100,-100)
+	#SavedPos[0] = Vector2(4100,-100)
+	
+	#Bridge - main
+	SavedPos[0] = Vector2(5200,-220)
 	
 	#henryk - main
 	#SavedPos[0] = Vector2(3600,800)
@@ -66,6 +67,9 @@ func _ready():
 	#Boss - curse
 	#SavedPos[0] = Vector2(1480,380)
 	#SavedPos[1] = 1
+	
+	#TestGrounds - main
+	#SavedPos[0] = Vector2(2350,-1260)
 
 func _process(delta):
 	SaveTime+=delta
@@ -79,6 +83,7 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		for i in Items[0].size():
 			Items[0][i] = true
+		Items[Weapon][Axe] = true
 		SpecialItem = true
 
 func SaveData(type):

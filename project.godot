@@ -35,6 +35,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 Audio=""
+killplayer=""
 
 [input]
 

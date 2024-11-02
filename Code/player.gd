@@ -5,22 +5,12 @@ class_name PlayerMain
 @onready var CoyTimer = get_node("Timers/CoyoteTimer")
 @onready var BufTimer = get_node("Timers/BufferTimer")
 
-var VertSpeed = 200
-
-var LastSave : Vector2
-
-var AddVel : Vector2
-
-var CRoomPos = Vector2.ZERO
-
-var VPort = Vector2(640,480)
-
 #Jump
 const MinVelY = 130
+const initVertSpeed = 200
 
 var CanBufferJump = false
 var CanCoyote = false
-
 var JumpAmount = 1
 
 @export var TimePeak : float 
@@ -30,6 +20,17 @@ var JumpAmount = 1
 @onready var JGrav = -(-2.0 * JumpStr) / pow(TimePeak,2)
 @onready var FGrav = -(-2.0 * JumpStr) / pow(TimeFall,2)
 
+var VertSpeed = 200
+var AddVel : Vector2
+
+var LastSave : Vector2
+
+var CRoomPos = Vector2.ZERO
+var VPort = Vector2(640,480)
+
+var MovementVel : Vector2
+var AdditVel : Vector2
+
 func _ready():
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
@@ -38,10 +39,10 @@ func _ready():
 	SignalBus.Death.connect(_on_die)
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.GetWeapon.connect(GetWeapon)
+	SignalBus.EnemyKilled.connect(OnEnemyKilled)
+	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
 
 func _physics_process(delta):
-	
-	
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
@@ -49,6 +50,7 @@ func _physics_process(delta):
 		AddVel = AddVel.lerp(Vector2(0,0),0.1)
 	velocity.y += GetGravity() * delta
 	velocity.y = clamp(velocity.y,-2000,2000)
+	
 	CheckInputs()
 	MoveDirection()
 	
@@ -84,21 +86,26 @@ func MoveDirection():
 		VertSpeed = 25
 	else:
 		VertSpeed = 200
+	
 	if direction:
-		velocity.x += direction * VertSpeed + AddVel.x / 10
+		MovementVel.x += direction * VertSpeed + AddVel.x / 10
 		$AnimatedSprite2D.scale.x = direction
 		$AnimatedSprite2D.animation = "walking" 
 	else:
 		$AnimatedSprite2D.animation = "standard"
-		velocity.x = lerp(velocity.x, 0.0, 0.9)
+		MovementVel.x = lerp(MovementVel.x , 0.0, 0.9)
 	#if is_on_floor():
 		#velocity.x = move_toward(velocity.x, 0, VertSpeed/1.5)
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, VertSpeed/10)
 	if is_on_floor():
-		velocity.x = lerp(velocity.x, 0.0, 0.54)
+		MovementVel.x = lerp(MovementVel.x, 0.0, 0.54)
+		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, 0.49)
+		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
+		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
+		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/2.7)
+	velocity.x = MovementVel.x + AdditVel.x
 
 #Timers
 
@@ -144,3 +151,16 @@ func GetWeapon(type):
 func _on_boss_trigger_body_entered(body):
 	if body.is_in_group("player"):
 		SignalBus.emit_signal("TriggerBoss",1)
+
+func OnEnemyKilled(type):
+	match type:
+		0:
+			JumpAmount += 1
+
+func OnLaunchPlayer(Vel,Str):
+	AdditVel.x = Vel.x * initVertSpeed * Str
+	velocity.y = Vel.y * JumpStr * Str
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("killplayer"):
+		Die()

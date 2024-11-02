@@ -11,6 +11,8 @@ var T = 0.0
 var CPlaying 
 
 func _ready():
+	$ImpStuff/Label.visible = !Globals.EnemiesKilled
+	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
 	for i in G1.size():
 		Pos = G1[i].position.y
@@ -41,3 +43,6 @@ func UpdateMusic():
 	for i in MusicColl.size():
 			if MusicColl[i]:
 				MusicColl[i].playing = i == CPlaying
+
+func OnEnemyKilled(type):
+	$ImpStuff/Label.visible = false

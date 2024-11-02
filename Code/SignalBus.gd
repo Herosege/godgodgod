@@ -13,7 +13,10 @@ signal HudMessage(message)
 signal TriggerBoss(Type)
 signal BossDead(Type)
 signal GetWeapon(Type)
+signal EnemyKilled(Type)
 
 signal Save(Type)
 
 signal GetItem(Type)
+
+signal LaunchPlayer(Vel)

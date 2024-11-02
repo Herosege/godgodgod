@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4bj4xgj6l01p"]
+[gd_scene load_steps=23 format=3 uid="uid://c4bj4xgj6l01p"]
 
 [ext_resource type="Texture2D" uid="uid://b67hblyynrg5w" path="res://Assets/player.png" id="1_dqe2t"]
 [ext_resource type="Script" path="res://Code/player.gd" id="1_xtj4b"]
@@ -67,7 +67,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5eme"]
-size = Vector2(51, 54)
+size = Vector2(44, 54)
 
 [sub_resource type="Curve" id="Curve_sq76m"]
 _data = [Vector2(0, 1), 0.0, -0.126796, 0, 0, Vector2(1, 0), -2.82575, 0.0, 0, 0]
@@ -99,6 +99,9 @@ scale_over_velocity_min = 0.1
 scale_over_velocity_max = 10.0
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_tgqwm")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsy25"]
+radius = 7.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_xtj4b")
@@ -138,7 +141,7 @@ frame_progress = 1.0
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Weapon" groups=["damage"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Weapons/Weapon/Area2D"]
-position = Vector2(17.5, -1)
+position = Vector2(21, -1)
 shape = SubResource("RectangleShape2D_b5eme")
 
 [node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon"]
@@ -171,7 +174,14 @@ stream = ExtResource("4_u0b8i")
 volume_db = -8.0
 pitch_scale = 1.1
 
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_lsy25")
+
 [connection signal="animation_finished" from="AnimatedSprite2D/Weapons/Weapon/AnimatedSprite2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="AnimatedSprite2D/Weapons/Weapon/Area2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timers/CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/BufferTimer" to="." method="_on_buffer_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
