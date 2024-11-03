@@ -1,14 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyb6t4vffx05"]
+[gd_scene load_steps=3 format=3 uid="uid://dyb6t4vffx05"]
 
 [ext_resource type="Script" path="res://Code/settings_menu.gd" id="1_m0fgx"]
-
-[sub_resource type="Gradient" id="Gradient_ibetq"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t4b43"]
-gradient = SubResource("Gradient_ibetq")
-fill = 1
-fill_from = Vector2(0.5, 0.504854)
-fill_to = Vector2(1, 1)
+[ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="2_b0xc2"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -26,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.784314)
 
 [node name="Settings" type="Control" parent="."]
 layout_mode = 1
@@ -47,12 +40,15 @@ offset_right = -23.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer3"]
 texture_filter = 1
@@ -65,6 +61,7 @@ layout_mode = 2
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
@@ -104,17 +101,16 @@ layout_mode = 2
 value = 100.0
 
 [node name="ExitButton" type="TextureButton" parent="Settings"]
+z_index = 2
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -70.0
-offset_right = 90.0
-offset_bottom = -10.0
-grow_vertical = 0
-texture_normal = SubResource("GradientTexture2D_t4b43")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 45.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_b0xc2")
 
 [connection signal="toggled" from="Settings/MarginContainer/VBoxContainer/HBoxContainer3/VSyncButton" to="." method="_on_v_sync_button_toggled"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer5/AVSl" to="." method="_on_av_sl_value_changed"]

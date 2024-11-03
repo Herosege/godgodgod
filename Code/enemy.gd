@@ -2,7 +2,7 @@ extends Node2D
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
-		SignalBus.emit_signal("LaunchPlayer",CalcLaunch(area.owner.global_position).normalized(),7.0)
+		SignalBus.emit_signal("LaunchPlayer",CalcLaunch(area.owner.global_position).normalized(),5.0)
 	if area.is_in_group("damage"):
 		SignalBus.emit_signal("EnemyKilled",0)
 		Globals.EnemiesKilled += 1

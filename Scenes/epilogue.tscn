@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://55u7aqupmtth"]
+[gd_scene load_steps=6 format=3 uid="uid://55u7aqupmtth"]
 
 [ext_resource type="Script" path="res://Code/epilogue.gd" id="1_gkdvo"]
-[ext_resource type="AudioStream" uid="uid://760fgi8h3y4y" path="res://Assets/Sound/hit2.ogg" id="2_68jwg"]
 [ext_resource type="AudioStream" uid="uid://cf1woj4vfttan" path="res://Assets/Sound/frogtown.ogg" id="5_xe207"]
 [ext_resource type="Texture2D" uid="uid://c0liv5y7ot5yv" path="res://Assets/player1.png" id="6_lg6v3"]
 
@@ -28,11 +27,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Epilogue" type="Node2D"]
 script = ExtResource("1_gkdvo")
-
-[node name="hitse" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_68jwg")
-volume_db = 5.0
-pitch_scale = 0.9
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_xe207")

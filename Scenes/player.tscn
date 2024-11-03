@@ -130,6 +130,7 @@ script = ExtResource("5_ats0k")
 stream = ExtResource("6_3e1ar")
 volume_db = -10.0
 pitch_scale = 1.1
+bus = &"SoundEffect"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Weapon"]
 position = Vector2(7, 1)
@@ -173,6 +174,7 @@ explosiveness = 1.0
 stream = ExtResource("4_u0b8i")
 volume_db = -8.0
 pitch_scale = 1.1
+bus = &"SoundEffect"
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 

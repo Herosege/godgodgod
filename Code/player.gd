@@ -104,7 +104,7 @@ func MoveDirection():
 	else:
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
-		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/2.7)
+		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/10)
 	velocity.x = MovementVel.x + AdditVel.x
 
 #Timers
@@ -159,7 +159,7 @@ func OnEnemyKilled(type):
 
 func OnLaunchPlayer(Vel,Str):
 	AdditVel.x = Vel.x * initVertSpeed * Str
-	velocity.y = Vel.y * JumpStr * Str
+	velocity.y = Vel.y * JumpStr * Str * 2.2
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer"):

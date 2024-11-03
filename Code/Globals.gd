@@ -141,6 +141,6 @@ func read_file(FilePath):
 
 #settings
 
-var SEVol = 100.0
-var MVol = 100.0
+var SEVol = 60.0
+var MVol = 40.0
 var VSync = true

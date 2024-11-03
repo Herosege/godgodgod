@@ -23,7 +23,11 @@ func _on_v_sync_button_toggled(toggled_on):
 func _on_av_sl_value_changed(value):
 	$Settings/MarginContainer/VBoxContainer/HBoxContainer5/Label2.text = str(value)
 	Globals.MVol = value
+	AudioServer.set_bus_volume_db(0,(value/4)-15)
+	AudioServer.set_bus_mute(0,!value)
 
 func _on_av_sl_2_value_changed(value):
 	$Settings/MarginContainer/VBoxContainer/HBoxContainer6/Label2.text = str(value)
 	Globals.SEVol = value
+	AudioServer.set_bus_volume_db(1,(value/4)-15)
+	AudioServer.set_bus_mute(1,!value)
