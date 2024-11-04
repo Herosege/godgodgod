@@ -1,11 +1,19 @@
-extends Node
 
+extends Node
+enum {Beer,Milk}
+enum {Axe,Gun,Shotgun}
+enum area {wonderful_place, curse_world}
+enum {VoidSpaghetti}
+enum {
+	Passive,
+	Weapon
+}
+var BossKilled = [false]
 var AreaScenes = [
 	"res://Scenes/main.tscn",
 	"res://Scenes/scene_1.tscn"
 ]
 
-enum area {wonderful_place, curse_world}
 
 var CArea : int
 var SavedPos = [
@@ -16,13 +24,9 @@ var SavedPos = [
 var ShaderType = 0
 var DisableAction = false
 
-enum {
-	Passive,
-	Weapon
-}
 
-enum {Beer,Milk}
-enum {Axe,Gun,Shotgun}
+var EnemiesKilled = 0
+
 
 var EffectActive = [false,false]
 
@@ -34,11 +38,6 @@ var Items = [
 	[false,false,false]#Weapons
 ]
 
-enum {VoidSpaghetti}
-var BossKilled = [false]
-
-var EnemiesKilled = 0
-
 func _ready():
 	VSync = load_game("user://config.conf","VSync",VSync)
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
@@ -49,11 +48,11 @@ func _ready():
 	#SavedPos[0] = Vector2(-600,1290)
 	#SavedPos[1] = 1
 	
-	#onen - main
-	#SavedPos[0] = Vector2(4100,-100)
+	#onen - main - best place to start
+	SavedPos[0] = Vector2(4100,-100)
 	
 	#Bridge - main
-	SavedPos[0] = Vector2(5200,-220)
+	#SavedPos[0] = Vector2(5200,-220)
 	
 	#henryk - main
 	#SavedPos[0] = Vector2(3600,800)
@@ -125,6 +124,7 @@ func load_game(file,DataName,def):
 			
 		
 		
+		#now return data
 		return data[DataName]
 
 func save_game(file,SaveCont):
@@ -139,7 +139,7 @@ func read_file(FilePath):
 	var content = file.get_as_text()
 	return content
 
-#settings
+#settings - !important
 
 var SEVol = 60.0
 var MVol = 40.0
