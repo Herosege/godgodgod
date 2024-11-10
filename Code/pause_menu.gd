@@ -41,3 +41,7 @@ func _on_wife_pressed():
 func _on_get_item(type):
 	if type == "wife":
 		$wife.visible = true
+
+
+func _on_texture_button_pressed():
+	$SettingsMenu.visible = true

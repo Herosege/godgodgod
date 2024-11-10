@@ -53,7 +53,7 @@ func _ready():
 	#SavedPos[0] = Vector2(4100,-100)
 	
 	#Bridge - main
-	SavedPos[0] = Vector2(5200,-220)
+	#SavedPos[0] = Vector2(5200,-220)
 	
 	#henryk - main
 	#SavedPos[0] = Vector2(3600,800)
@@ -68,8 +68,15 @@ func _ready():
 	#SavedPos[0] = Vector2(1480,380)
 	#SavedPos[1] = 1
 	
-	#TestGrounds - main
-	#SavedPos[0] = Vector2(2350,-1260)
+	#UnderBridge - main
+	#SavedPos[0] = Vector2(7700,400)
+	
+	#UnderBridge2 - main
+	SavedPos[0] = Vector2(8400,320)
+	
+	#test1 - curse
+	#SavedPos[0] = Vector2(2616,1320)
+	#SavedPos[1] = 1
 
 func _process(delta):
 	SaveTime+=delta

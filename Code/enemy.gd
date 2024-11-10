@@ -17,9 +17,7 @@ func _on_animation_player_animation_finished(anim_name):
 		queue_free()
 
 func CalcLaunch(Pos):
-	#with this enemy is now technically 0,0 and we now have the distance to player that we can 
 	var equ = RoundNearest(atan2(Pos.x-global_position.x,Pos.y-global_position.y),PI/4)
-	print(equ)
 	return Vector2(sin(equ),cos(equ))
 	#return Vector2(SpecRound(equ.x,PI/4),SpecRound(equ.y,PI/4))
 

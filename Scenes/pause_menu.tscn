@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bictivtnhttj1"]
+[gd_scene load_steps=13 format=3 uid="uid://bictivtnhttj1"]
 
 [ext_resource type="Texture2D" uid="uid://dj2rssddoygvw" path="res://Assets/painting1.png" id="1_fqt82"]
 [ext_resource type="Script" path="res://Code/pause_menu.gd" id="1_ywg23"]
@@ -6,13 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://dypqllbkay6xu" path="res://Assets/stay1.png" id="3_isrk2"]
 [ext_resource type="Texture2D" uid="uid://hb14gwf4xp4g" path="res://Assets/bottle-ms.png" id="4_7fyhd"]
 [ext_resource type="Texture2D" uid="uid://be7uwansyxlaq" path="res://Assets/wife.png" id="5_3h08p"]
+[ext_resource type="PackedScene" uid="uid://dyb6t4vffx05" path="res://Scenes/settings_menu.tscn" id="5_n0pig"]
 [ext_resource type="Texture2D" uid="uid://djylebf8fkcpu" path="res://Assets/bottle/0001.png" id="6_uu4f6"]
 [ext_resource type="AudioStream" uid="uid://h72mjb0tm0xh" path="res://Assets/Sound/angelsee.ogg" id="6_y5xfd"]
 [ext_resource type="Texture2D" uid="uid://c3naxh82schaw" path="res://Assets/milk-ms.png" id="9_ggt7n"]
 [ext_resource type="Texture2D" uid="uid://dmu4scvc1ynjk" path="res://Assets/MilkAnim/0001.png" id="10_8i5ii"]
+[ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="12_4ka14"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+layer = 2
 script = ExtResource("1_ywg23")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -122,8 +125,21 @@ toggle_mode = true
 texture_normal = ExtResource("9_ggt7n")
 texture_pressed = ExtResource("10_8i5ii")
 
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 11
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+texture_normal = ExtResource("12_4ka14")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_n0pig")]
+visible = false
+z_index = 20
+
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="wife/Wife" to="." method="_on_wife_pressed"]
 [connection signal="pressed" from="Collectibles/HBoxContainer/BottleActivar" to="." method="_on_bottle_activar_pressed"]
 [connection signal="pressed" from="Collectibles/HBoxContainer/MilkActivar" to="." method="_on_milk_activar_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

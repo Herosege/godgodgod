@@ -105,6 +105,9 @@ func MoveDirection():
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
 		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/10)
+	if is_on_wall():
+		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
+	
 	velocity.x = MovementVel.x + AdditVel.x
 
 #Timers
@@ -155,7 +158,8 @@ func _on_boss_trigger_body_entered(body):
 func OnEnemyKilled(type):
 	match type:
 		0:
-			JumpAmount += 1
+			if JumpAmount == 0:
+				JumpAmount = 1
 
 func OnLaunchPlayer(Vel,Str):
 	AdditVel.x = Vel.x * initVertSpeed * Str

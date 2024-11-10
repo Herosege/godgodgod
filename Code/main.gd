@@ -4,7 +4,7 @@ var Pos
 
 @onready var PNode = get_tree().get_first_node_in_group("player")
 @onready var G1 = get_tree().get_nodes_in_group("group1")
-@onready var MusicColl = [null,$Music,$Music2,$Music3]  
+@onready var MusicColl = [null,$Music,$Music2,$Music3,$Music4,$Music5]  
 
 var T = 0.0
 
@@ -29,14 +29,21 @@ func _process(delta):
 		if PNode.CRoomPos.x < 3 and !$Music.playing:
 			CPlaying = 1
 			UpdateMusic()
-		if PNode.CRoomPos.x > 3 and PNode.CRoomPos.y >= 0 and !$Music2.playing:
+		if PNode.CRoomPos.x > 3 and PNode.CRoomPos.y >= 0 and  PNode.CRoomPos.x < 7 and !$Music2.playing:
 			CPlaying = 2
 			UpdateMusic()
-		if PNode.CRoomPos.x >= 7 and !$Music3.playing:
+		if PNode.CRoomPos.x >= 7 and PNode.CRoomPos.y != 0 and !$Music3.playing:
 			CPlaying = 3
 			UpdateMusic()
+		if PNode.CRoomPos.x >= 9 and PNode.CRoomPos.x < 13 and PNode.CRoomPos.y == 0 and !$Music4.playing:
+			CPlaying = 4
+			UpdateMusic()
+		if PNode.CRoomPos.x >= 13 and PNode.CRoomPos.y == 0 and !$Music5.playing:
+			CPlaying = 5
+			UpdateMusic()
 	PrevRoom = PNode.CRoomPos
-
+	if endmove:
+		$EndStuff/TextureRect.global_position = $EndStuff/TextureRect.global_position.move_toward(Vector2(8644.0-181.0,240.0-155.5),2.0)
 var PrevRoom : Vector2
 
 func UpdateMusic():
@@ -46,3 +53,24 @@ func UpdateMusic():
 
 func OnEnemyKilled(type):
 	$ImpStuff/Label.visible = false
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		$CursePillar/Area2D.queue_free()
+		$dadoor.position = Vector2(8304,96)
+		$EndStuff/EndTimer.start()
+		
+
+var endmove = false
+
+func _on_end_timer_timeout():
+	$EndStuff/TextureRect.visible = true
+	$EndStuff/TextureRect.global_position = PNode.global_position + Vector2(-181.0,-155.5)
+	endmove = true
+	$EndStuff/EndTimer2.start()
+
+
+func _on_end_timer_2_timeout():
+	$EndStuff/TextureRect.visible = false
+	$CursePillar.visible = false
