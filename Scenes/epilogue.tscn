@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://55u7aqupmtth"]
+[gd_scene load_steps=7 format=3 uid="uid://55u7aqupmtth"]
 
 [ext_resource type="Script" path="res://Code/epilogue.gd" id="1_gkdvo"]
 [ext_resource type="AudioStream" uid="uid://cf1woj4vfttan" path="res://Assets/Sound/frogtown.ogg" id="5_xe207"]
@@ -22,6 +22,11 @@ scale_max = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_yoyvc"]
 font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvo1w"]
+font_size = 24
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
@@ -65,6 +70,24 @@ label_settings = SubResource("LabelSettings_yoyvc")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
+
+[node name="Label1" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 264.0
+offset_top = 272.0
+offset_right = 391.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Final time: "
+label_settings = SubResource("LabelSettings_nvo1w")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
 [connection signal="timeout" from="jackpottimer" to="." method="_on_jackpottimer_timeout"]

@@ -45,7 +45,6 @@ shape = SubResource("RectangleShape2D_kf1j7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nmfyg")
-animation = &"curse"
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -62,5 +61,9 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_8cu3x")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

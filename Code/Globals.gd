@@ -39,6 +39,8 @@ var BossKilled = [false]
 
 var EnemiesKilled = 0
 
+var stoptime = false
+
 func _ready():
 	VSync = load_game("user://config.conf","VSync",VSync)
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
@@ -79,7 +81,9 @@ func _ready():
 	#SavedPos[1] = 1
 
 func _process(delta):
-	SaveTime+=delta
+	if !stoptime:
+		SaveTime+=delta
+	
 	
 	if Input.is_action_just_pressed("debug"):
 		#SavedPos = load_game("user://dinomemories.save","SavedPos",SavedPos)

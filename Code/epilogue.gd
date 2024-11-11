@@ -11,3 +11,5 @@ func _on_music_finished():
 	$Timer.start()
 	$jackpottimer.start()
 	$CanvasLayer/GPUParticles2D.emitting = true
+	$Label1.text = "Final time: " + str(Globals.SaveTime)
+	$Label1.visible = true
