@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cuhp31gm5v1ae"]
+[gd_scene load_steps=20 format=3 uid="uid://cuhp31gm5v1ae"]
 
 [ext_resource type="Script" path="res://Code/gate.gd" id="1_bgwwt"]
 [ext_resource type="Texture2D" uid="uid://df6yae4nd6csv" path="res://Assets/rings/0001.png" id="1_d7uem"]
 [ext_resource type="Texture2D" uid="uid://d0e3lm3us7xro" path="res://Assets/doors.png" id="2_7htov"]
 [ext_resource type="Texture2D" uid="uid://covaiajx2tal4" path="res://Assets/rings/0002.png" id="2_ft374"]
 [ext_resource type="Texture2D" uid="uid://mk3bkxvvmcqa" path="res://Assets/rings/0003.png" id="3_mq0eh"]
+[ext_resource type="Texture2D" uid="uid://bhkpdjfl6ee0h" path="res://Assets/doorstd.png" id="3_oecdy"]
 [ext_resource type="Texture2D" uid="uid://xek6p8rntc2h" path="res://Assets/NoiseT1.png" id="3_u8qmv"]
 [ext_resource type="Texture2D" uid="uid://dv21w22javp7d" path="res://Assets/rings/0004.png" id="4_4wdfv"]
 [ext_resource type="Texture2D" uid="uid://dkcrvoxe0lj4v" path="res://Assets/NoiseT2.png" id="4_qekyk"]
@@ -25,6 +26,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"gate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oecdy")
+}],
+"loop": true,
+"name": &"gatetree",
 "speed": 5.0
 }, {
 "frames": [{
@@ -89,8 +98,7 @@ GateType = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tvg8o")
-animation = &"gate"
-frame_progress = 0.327655
+animation = &"gatetree"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j2v4b")

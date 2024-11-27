@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvj7wihghmfi1"
-path="res://.godot/imported/wojtek1.png-d2a623e10e988a24a4c3678389d85eb2.ctex"
+uid="uid://dfdphsdu1ub6a"
+path="res://.godot/imported/player_speaking.png-e7be8826de2bc2c70f8dc27624b17da9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/wojtek1.png"
-dest_files=["res://.godot/imported/wojtek1.png-d2a623e10e988a24a4c3678389d85eb2.ctex"]
+source_file="res://Assets/player_speaking.png"
+dest_files=["res://.godot/imported/player_speaking.png-e7be8826de2bc2c70f8dc27624b17da9.ctex"]
 
 [params]
 

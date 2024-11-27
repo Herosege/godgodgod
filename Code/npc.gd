@@ -8,6 +8,8 @@ enum {henryk,someone,curse,ONEN}
 
 var awaitres = false
 
+var EventVar = 0
+
 func _ready():
 	match type:
 		someone:
@@ -21,6 +23,8 @@ func _process(delta):
 	if awaitres:
 		if Input.is_action_just_pressed("Confirm"):
 			match type:
+				curse:
+					pass
 				ONEN:
 					if $Timer.is_stopped():
 						$Timer.start(1)
@@ -45,11 +49,17 @@ func _on_area_2d_body_entered(body):
 			curse:
 				$Panel.visible = true
 				$Label.visible = true
-				$Label.text = Globals.read_file("res://Misc/dialogues/cursegod.txt")
-				if !Globals.SpecialItem:
-					Globals.SpecialItem = true
-					SignalBus.emit_signal("GetItem","wife")
+				match EventVar:
+					0:
+						SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
+						$Label.text = Globals.read_file("res://Misc/dialogues/cursegod.txt")
+					1:
+						$Label.text = Globals.read_file("res://Misc/dialogues/cursegod.txt")
+						if !Globals.SpecialItem:
+							Globals.SpecialItem = true
+							SignalBus.emit_signal("GetItem","wife")
 			ONEN:
+				SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
 				$Label.visible = true
 				awaitres = true
 
@@ -64,9 +74,11 @@ func _on_area_2d_body_exited(body):
 			someone:
 				$Label.visible = false
 			curse:
+				SignalBus.emit_signal("SetHudMessage","",0)
 				$Panel.visible = false
 				$Label.visible = false
 			ONEN:
+				SignalBus.emit_signal("SetHudMessage","",0)
 				$Label.visible = false
 
 func animatetext():

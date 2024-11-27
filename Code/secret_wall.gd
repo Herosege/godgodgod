@@ -20,3 +20,10 @@ func _on_in_2_body_entered(body):
 
 func _on_out_2_body_entered(body):
 	ChWallVis(body,1.0,$sw2/SecretTilemap)
+
+
+func _on_in_3_body_entered(body):
+	ChWallVis(body,0.4,$sw4/PassBridge)
+
+func _on_out_3_body_entered(body):
+	ChWallVis(body,1.0,$sw4/PassBridge)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3hccevbdad3t"
-path="res://.godot/imported/wojtek2.png-8241091abbda152cfc31f137864e3820.ctex"
+uid="uid://p604x3wfu60v"
+path="res://.godot/imported/treebg.png-8b0f7d6a2be02e3f43b36ea253f25aa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/wojtek2.png"
-dest_files=["res://.godot/imported/wojtek2.png-8241091abbda152cfc31f137864e3820.ctex"]
+source_file="res://Assets/treebg.png"
+dest_files=["res://.godot/imported/treebg.png-8b0f7d6a2be02e3f43b36ea253f25aa3.ctex"]
 
 [params]
 

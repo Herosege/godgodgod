@@ -40,6 +40,7 @@ var BossKilled = [false]
 var EnemiesKilled = 0
 
 var stoptime = false
+var EndGame = false
 
 func _ready():
 	VSync = load_game("user://config.conf","VSync",VSync)

@@ -7,7 +7,7 @@ signal ResetPos
 #misc
 signal ScreenShaderChange(value,type)
 
-signal HudMessage(message)
+signal SetHudMessage(message)
 
 #combat
 signal TriggerBoss(Type)

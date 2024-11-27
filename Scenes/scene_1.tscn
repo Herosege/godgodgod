@@ -257,7 +257,7 @@ size = Vector2(222, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_copum"]
 font = ExtResource("32_4ydcb")
-font_size = 20
+font_size = 18
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -1374,11 +1374,23 @@ shape = SubResource("RectangleShape2D_8q6ew")
 position = Vector2(0, -100)
 
 [node name="Label" parent="idk" index="2"]
+visible = true
 z_index = 1
-offset_left = -292.0
-offset_top = -290.0
-offset_right = 263.0
-offset_bottom = -11.0
+offset_left = -336.0
+offset_top = -320.0
+offset_right = 423.0
+offset_bottom = 40.0
+text = "Hi little dinosaur
+
+As you can see this place is devoid of any life
+
+I am currently the only curse in this region as others have escaped
+because of the rotten curse that has appeared nearby
+
+Unfortunately for you it managed to get to your world 
+even though it can't travel with gates
+
+You look like someone that has suffered a lot so you may have a will to break through "
 label_settings = SubResource("LabelSettings_copum")
 
 [node name="Panel" type="Panel" parent="idk"]
