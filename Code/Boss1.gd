@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 55.0
+const InitHealth = 50.0
 var Health = InitHealth
 
 var CAtt = 0
@@ -47,7 +47,7 @@ func _process(delta):
 			2:
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
 					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/2),PlayerNode.global_position.y))
-					$Att2Timer.start(0.25-(TimeRed*0.06))
+					$Att2Timer.start(0.3-(TimeRed*0.06))
 				position.y = lerp(position.y,290.0 + (40.0 * sin(t)) ,0.6)
 				position.x = lerp(position.x,PlayerNode.position.x,0.1)
 				
@@ -57,11 +57,13 @@ func _process(delta):
 					for i in 12+AttVariant:
 						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i ) + global_position.x 
 						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) )
-					$Att2Timer.start(0.8-float(AttVariant)/5-(TimeRed*0.1))
-					AttVariant += 1 
-					AttVariant %= 4
+					$Att2Timer.start(0.5+(0.5*AttVariant)-(TimeRed*0.1))
+					AttVariant += 1
+					AttVariant %= 2
 		
 		if Health <= 0:
+			$BossBloodParticles.emitting = true
+			$deathsound.play()
 			BossDeath()
 
 func Attack(type):
@@ -108,7 +110,7 @@ func BossDeath():
 	for i in $"../Bullets".get_children():
 		i.queue_free()
 	Globals.BossKilled[Globals.VoidSpaghetti] = true
-	visible = false
+	$AnimatedSprite2D.visible = false
 
 @onready var BulletScene = load("res://Scenes/bullet.tscn")
 

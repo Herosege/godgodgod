@@ -9,15 +9,19 @@ func _ready():
 	match GateType:
 		Gate:
 			$AnimatedSprite2D.play("gate")
+			$CollisionShape2D.shape = RectangleShape2D.new()
 			$CollisionShape2D.shape.size = Vector2(64,128)
 		Rings:
 			$AnimatedSprite2D.play("rings")
+			$CollisionShape2D.shape = RectangleShape2D.new()
 			$CollisionShape2D.shape.size = Vector2(32,32)
 		NoiseT:
 			$AnimatedSprite2D.play("noise")
+			$CollisionShape2D.shape = RectangleShape2D.new()
 			$CollisionShape2D.shape.size = Vector2(32,32)
 		GateTree:
 			$AnimatedSprite2D.play("gatetree")
+			$CollisionShape2D.shape = RectangleShape2D.new()
 			$CollisionShape2D.shape.size = Vector2(32,32)
 
 func _process(delta):

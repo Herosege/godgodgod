@@ -12,6 +12,7 @@ shader_parameter/MilkActive = false
 script = ExtResource("1_1g37h")
 
 [node name="ColorRect" type="ColorRect" parent="." groups=["ScreenShader"]]
+visible = false
 z_index = 5
 material = SubResource("ShaderMaterial_w04jt")
 anchors_preset = 15

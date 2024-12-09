@@ -43,3 +43,7 @@ func _on_area_2d_area_entered(area):
 
 func _on_change_effect(value,type):
 	Weapons[Axe][Dmg] = 1.75+(int(value)*0.75)
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("enttree"):
+		body.queue_free()

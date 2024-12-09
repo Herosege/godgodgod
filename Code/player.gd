@@ -122,9 +122,7 @@ func _on_buffer_timer_timeout():
 	CanBufferJump = false
 
 func Die():
-	var AudioStuff = get_tree().get_nodes_in_group("Audio")
-	for i in AudioStuff:
-		i.stop()
+	
 	velocity = Vector2(0,0)
 	Globals.DisableAction = true
 	get_tree().paused = true

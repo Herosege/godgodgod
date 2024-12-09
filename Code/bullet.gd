@@ -1,7 +1,7 @@
 extends Area2D
 
 var Towards : Vector2
-var Speed = 350.0
+var Speed = 320.0
 
 var Velocity : Vector2
 

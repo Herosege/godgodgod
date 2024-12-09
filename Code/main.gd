@@ -11,8 +11,8 @@ var T = 0.0
 var CPlaying = 0
 
 func _ready():
-	if Globals.SpecialItem:
-		$Npcs/henryk2.queue_free()
+	if !Globals.SpecialItem:
+		$Npcs/henryk2.visible = true
 	$ImpStuff/Label.visible = !Globals.EnemiesKilled
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
@@ -81,33 +81,49 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		$CursePillar/Area2D.queue_free()
 		$dadoor.position = Vector2(8304,96)
-		if Globals.SpecialItem:
-			
-			$EndStuff/EndTimer.start()
+		
+		EndScene(Globals.SpecialItem)
 
 var endmove = 0
 @onready var wifetexture = $EndStuff/TextureRect
 
-func _on_end_timer_timeout():
-	wifetexture.visible = true
-	wifetexture.global_position = PNode.global_position + Vector2(-181.0,-155.5)
-	endmove = 1
-	$EndStuff/EndTimer2.start()
-	$EndStuff/AudioStreamPlayer.play()
-
-func _on_end_timer_2_timeout():
-	endmove = 2
-	wifetexture.global_position = Vector2(8644.0-181.0,240.0-155.5)
-	$EndStuff/FinalTimer.start()
-
-func _on_final_timer_timeout():
-	Globals.EndGame = true
-	endmove = 0
-	$EndStuff/AudioStreamPlayer.stop()
-	$Music5.stop()
-	$EndStuff/TextureRect.visible = false
-	$CursePillar.visible = false
-	$EndStuff/TileMapLayer2.queue_free()
-	$EndStuff/TileMapLayer3.position = Vector2.ZERO
-	$EndStuff/TextureRect2.visible = true
-	$EndStuff/TextureRectG.visible = true
+func EndScene(hasSpecial):
+	if (hasSpecial):
+		await get_tree().create_timer(3.0).timeout
+		wifetexture.visible = true
+		wifetexture.global_position = PNode.global_position + Vector2(-181.0,-155.5)
+		endmove = 1
+		$EndStuff/EndTimer2.start()
+		$EndStuff/AudioStreamPlayer.play()
+		
+		await get_tree().create_timer(4.0).timeout
+		endmove = 2
+		wifetexture.global_position = Vector2(8644.0-181.0,240.0-155.5)
+		$EndStuff/FinalTimer.start()
+		
+		await get_tree().create_timer(2.0).timeout
+		Globals.EndGame = true
+		endmove = 0
+		$EndStuff/AudioStreamPlayer.stop()
+		$Music5.stop()
+		$EndStuff/TextureRect.visible = false
+		$CursePillar.visible = false
+		$EndStuff/TileMapLayer2.queue_free()
+		$EndStuff/TileMapLayer3.position = Vector2.ZERO
+		$EndStuff/TextureRect2.visible = true
+		$EndStuff/TextureRectG.visible = true
+	else:
+		await get_tree().create_timer(1.0).timeout
+		$Npcs/henryk2/AnimatedSprite2D.play("freakingout")
+		$Npcs/npc/AudioStreamPlayer.play()
+		$Npcs/henryk2/Label.text = "ALRIGHT LETS MURDER THIS\nDISGUSTING SHITPILE"
+		
+		await get_tree().create_timer(3.1).timeout
+		$Npcs/npc/AudioStreamPlayer.volume_db = -3
+		$Npcs/henryk2/Label.text = "OK, I THINK IT WAS THIS SPELL"
+		
+		await get_tree().create_timer(3.0).timeout
+		$Npcs/npc/AudioStreamPlayer.volume_db = 1
+		$Npcs/henryk2/Label.text = "JKKJLLLJLLLKJJKLLKJKKKLKJJKLLKJJKLLLKJKKKLKJJKLL"
+		
+		

@@ -97,6 +97,7 @@ func _process(delta):
 			Items[0][i] = true
 		Items[Weapon][Axe] = true
 		SpecialItem = true
+		BossKilled[VoidSpaghetti] = true
 
 func SaveData(type):
 	if type == 0:
