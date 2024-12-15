@@ -6,6 +6,14 @@ extends Node2D
 func _ready():
 	PNode.position = Vector2(100,380)
 	Globals.stoptime = true
+	
+	Globals.EndingHall = true
+	Globals.NumTimesBeatGame += 1
+	Globals.save_game("user://perma.save",{
+		"EBeer":Globals.EndingBeer,
+		"EHall":Globals.EndingHall,
+		"BGame":Globals.NumTimesBeatGame
+		})
 
 func _process(delta):
 	PShade.position.x = PNode.position.x 

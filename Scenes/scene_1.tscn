@@ -879,7 +879,7 @@ position = Vector2(2912, 872)
 SType = 2
 
 [node name="Spike119" parent="Stuff/Spikes" instance=ExtResource("9_k8o3l")]
-position = Vector2(2896, 872)
+position = Vector2(2897, 872)
 SType = 2
 
 [node name="Spike122" parent="Stuff/Spikes" instance=ExtResource("9_k8o3l")]
@@ -887,7 +887,7 @@ position = Vector2(3008, 792)
 SType = 2
 
 [node name="Spike123" parent="Stuff/Spikes" instance=ExtResource("9_k8o3l")]
-position = Vector2(2992, 792)
+position = Vector2(2993, 792)
 SType = 2
 
 [node name="Spike124" parent="Stuff/Spikes" instance=ExtResource("9_k8o3l")]
@@ -1426,11 +1426,10 @@ shape = SubResource("RectangleShape2D_8q6ew")
 position = Vector2(0, -100)
 
 [node name="Label" parent="idk" index="2"]
-visible = true
 z_index = 1
-offset_left = -336.0
+offset_left = -330.0
 offset_top = -320.0
-offset_right = 423.0
+offset_right = 429.0
 offset_bottom = 40.0
 text = "Hi little dinosaur
 
@@ -1453,7 +1452,7 @@ anchor_bottom = 1.0
 offset_left = -336.0
 offset_top = -318.0
 offset_right = 302.0
-offset_bottom = 35.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1hlde")

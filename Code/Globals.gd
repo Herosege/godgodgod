@@ -41,7 +41,10 @@ var EnemiesKilled = 0
 
 var stoptime = true
 
-var NumTimesBeatGame = 0
+var NumTimesBeatGame : int = 0
+
+var EndingHall = false
+var EndingBeer = false
 
 func _ready():
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
@@ -131,9 +134,9 @@ func load_game(file,DataName,def):
 		if !data.has(DataName):
 			return def
 		
-		if typeof(data[DataName]) != typeof(def):
-			print("corrupted save data ",typeof(def)," and ",typeof(data[DataName]))
-			return def
+		#if typeof(data[DataName]) != typeof(def):
+			#print("corrupted save data ",typeof(def)," and ",typeof(data[DataName]))
+			#return def
 		
 		return data[DataName]
 

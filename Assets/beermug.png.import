@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbduh54axvejx"
-path="res://.godot/imported/0023.png-9b40815ed43dede08c033cacaa8a4f21.ctex"
+uid="uid://cn6siq8gtilrp"
+path="res://.godot/imported/beermug.png-f5aba5d82d4d1780a49a21ab9dd4f0b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cutsceneanim/0023.png"
-dest_files=["res://.godot/imported/0023.png-9b40815ed43dede08c033cacaa8a4f21.ctex"]
+source_file="res://Assets/beermug.png"
+dest_files=["res://.godot/imported/beermug.png-f5aba5d82d4d1780a49a21ab9dd4f0b9.ctex"]
 
 [params]
 

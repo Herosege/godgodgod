@@ -10,6 +10,8 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if body.JumpAmount == 0:
 			body.JumpAmount = 1
+			if body.CanBufferJump:
+				body.Jump()
 			Sprite.scale = Vector2(0.5,0.5)
 			Sprite.modulate = Color(0.0,0.0,0.0,0.9)
 			$CollisionShape2D.call_deferred("set_disabled",true)

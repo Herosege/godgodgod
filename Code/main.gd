@@ -30,7 +30,6 @@ func _ready():
 	
 
 func _process(delta):
-	$CanvasLayer2/Label.text = str(floor(Globals.SaveTime))
 	T+=delta/2
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
@@ -40,7 +39,7 @@ func _process(delta):
 		else:
 			UpdateMusic()
 		
-		if randf() < 0.03:
+		if randf() < 0.02:
 			RandomEvent()
 	PrevRoom = PNode.CRoomPos
 	if endmove:

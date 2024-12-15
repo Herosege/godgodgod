@@ -39,7 +39,8 @@ func _on_wife_pressed():
 		$Godhelpme.play()
 
 func _on_get_item(type):
-	if type == "wife":
+	print("f")
+	if Globals.SpecialItem:
 		$wife.visible = true
 
 

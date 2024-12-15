@@ -24,7 +24,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("Confirm"):
 			match type:
 				curse:
-					pass
+					$Label.text = Texts["cursegod1"]
+					SignalBus.emit_signal("SetHudMessage","",0)
+					if !Globals.SpecialItem:
+						Globals.SpecialItem = true
+						SignalBus.emit_signal("GetItem","wife")
 				ONEN:
 					if $Timer.is_stopped():
 						$Timer.start(1)
@@ -49,15 +53,10 @@ func _on_area_2d_body_entered(body):
 			curse:
 				$Panel.visible = true
 				$Label.visible = true
-				match EventVar:
-					0:
-						SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
-						$Label.text = Texts["cursegod"]
-					1:
-						$Label.text = Texts["cursegod"]
-						if !Globals.SpecialItem:
-							Globals.SpecialItem = true
-							SignalBus.emit_signal("GetItem","wife")
+				
+				awaitres = true
+				SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
+				$Label.text = Texts["cursegod"]
 			ONEN:
 				SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
 				$Label.visible = true
@@ -77,9 +76,11 @@ func _on_area_2d_body_exited(body):
 				SignalBus.emit_signal("SetHudMessage","",0)
 				$Panel.visible = false
 				$Label.visible = false
+				awaitres = false
 			ONEN:
 				SignalBus.emit_signal("SetHudMessage","",0)
 				$Label.visible = false
+				awaitres = false
 
 func animatetext():
 	pass
@@ -88,7 +89,7 @@ func _on_timer_timeout():
 	get_tree().call_deferred("change_scene_to_file","res://Scenes/epilogue.tscn")
 
 var Texts = {
-	"cursegod":"Hi little dinosaur
+	"cursegod":"Hi little being
 	
 	As you can see this place is devoid of any life
 	
@@ -96,7 +97,23 @@ var Texts = {
 	because of the rotten curse that has appeared nearby
 	
 	Unfortunately for you it managed to get to your world 
-	even trough it can't travel with gates",
+	even though it can't travel with gates
+	
+	You look like someone that has suffered a lot so you may have a will to
+	do something about it",
+	
+	#
+	
+	"cursegod1":"Alright I will open the passage to the bridge, there lies
+	the largest rotten curse
+	
+	You will have to get inside it but don't worry you have a great will so
+	the curse won't try to consume you but it's still dangerous so be cautious
+	
+	I will also give you this thing called \"wife\", when you get to the
+	main artery it will kill it
+	
+	Good luck",
 	
 	#
 	
