@@ -1,15 +1,11 @@
 extends Node2D
 
-func _on_jackpottimer_timeout():
-	$Timer.wait_time = 0.7
-	$CanvasLayer/GPUParticles2D.emitting = false
+func _ready():
+	Globals.stoptime = true
 
-func _on_timer_timeout():
-	$CanvasLayer/Label.visible = !$CanvasLayer/Label.visible
-
-func _on_music_finished():
-	$Timer.start()
-	$jackpottimer.start()
-	$CanvasLayer/GPUParticles2D.emitting = true
-	$Label1.text = "Final time: " + str(Globals.SaveTime)
+func _on_s_timer_timeout():
+	$Label1.text = "Final time: " + str(round(Globals.SaveTime*100)/100)
 	$Label1.visible = true
+	
+	await get_tree().create_timer(3.2).timeout
+	$music.stop()

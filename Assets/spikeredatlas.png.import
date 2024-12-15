@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deagluoneaglr"
-path="res://.godot/imported/spikeb.png-4e1d41c50e1f7c8a94d2323bc7f6f7b7.ctex"
+uid="uid://daiakppy1guie"
+path="res://.godot/imported/spikeredatlas.png-6101d37ffe326c64cba33dd30f907dd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spikeb.png"
-dest_files=["res://.godot/imported/spikeb.png-4e1d41c50e1f7c8a94d2323bc7f6f7b7.ctex"]
+source_file="res://Assets/spikeredatlas.png"
+dest_files=["res://.godot/imported/spikeredatlas.png-6101d37ffe326c64cba33dd30f907dd0.ctex"]
 
 [params]
 

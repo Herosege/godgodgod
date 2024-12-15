@@ -6,6 +6,9 @@ func _enter_tree():
 	Globals.CArea = 1
 
 func _ready():
+	$CameraControl.UpdateCam()
+	PNode.global_position = Globals.SavedPos[0]
+	Globals.stoptime = false
 	if Globals.BossKilled[Globals.VoidSpaghetti] == true:
 		SignalBus.emit_signal("BossDead",Globals.VoidSpaghetti)
 		$BossTrigger.queue_free()

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyb6t4vffx05"]
+[gd_scene load_steps=5 format=3 uid="uid://dyb6t4vffx05"]
 
 [ext_resource type="Script" path="res://Code/settings_menu.gd" id="1_m0fgx"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="2_b0xc2"]
+[ext_resource type="FontFile" uid="uid://b6f4meh882kd6" path="res://Assets/fonts/Tiny5-Regular.ttf" id="3_a7gg2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fcy6"]
+font = ExtResource("3_a7gg2")
+font_size = 8
+font_color = Color(0.941176, 0, 0, 0.737255)
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -45,19 +51,6 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer3"]
-texture_filter = 1
-layout_mode = 2
-text = "Vsync"
-
-[node name="VSyncButton" type="CheckButton" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer3"]
-texture_filter = 1
-layout_mode = 2
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -112,7 +105,24 @@ offset_bottom = 45.0
 grow_horizontal = 0
 texture_normal = ExtResource("2_b0xc2")
 
-[connection signal="toggled" from="Settings/MarginContainer/VBoxContainer/HBoxContainer3/VSyncButton" to="." method="_on_v_sync_button_toggled"]
+[node name="MessageOfTheDay" type="Label" parent="Settings"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -636.0
+offset_top = -26.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_3fcy6")
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer5/AVSl" to="." method="_on_av_sl_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer6/AVSl2" to="." method="_on_av_sl_2_value_changed"]
 [connection signal="pressed" from="Settings/ExitButton" to="." method="_on_exit_button_pressed"]

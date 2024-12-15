@@ -39,11 +39,11 @@ var BossKilled = [false]
 
 var EnemiesKilled = 0
 
-var stoptime = false
-var EndGame = false
+var stoptime = true
+
+var NumTimesBeatGame = 0
 
 func _ready():
-	VSync = load_game("user://config.conf","VSync",VSync)
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
 	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
 	
@@ -75,7 +75,7 @@ func _ready():
 	#SavedPos[0] = Vector2(7700,400)
 	
 	#UnderBridge2 - main
-	SavedPos[0] = Vector2(8400,320)
+	#SavedPos[0] = Vector2(8400,320)
 	
 	#test1 - curse
 	#SavedPos[0] = Vector2(2616,1320)
@@ -84,7 +84,6 @@ func _ready():
 func _process(delta):
 	if !stoptime:
 		SaveTime+=delta
-	
 	
 	if Input.is_action_just_pressed("debug"):
 		#SavedPos = load_game("user://dinomemories.save","SavedPos",SavedPos)
@@ -135,15 +134,12 @@ func load_game(file,DataName,def):
 		if typeof(data[DataName]) != typeof(def):
 			print("corrupted save data ",typeof(def)," and ",typeof(data[DataName]))
 			return def
-			
-		
 		
 		return data[DataName]
 
 func save_game(file,SaveCont):
 	var SaveFile = FileAccess.open(file, FileAccess.WRITE)
 	SaveFile.store_line(JSON.stringify(SaveCont))
-
 
 func read_file(FilePath):
 	var file = FileAccess.open(FilePath, FileAccess.READ)
@@ -156,4 +152,3 @@ func read_file(FilePath):
 
 var SEVol = 60.0
 var MVol = 40.0
-var VSync = true

@@ -32,9 +32,9 @@ var MovementVel : Vector2
 var AdditVel : Vector2
 
 func _ready():
+	position = Globals.SavedPos[0]
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
-	global_position = Globals.SavedPos[0]
 	#global_position = Vector2(2050,400)
 	SignalBus.Death.connect(_on_die)
 	SignalBus.ResetPos.connect(ResetPosition)
@@ -125,6 +125,7 @@ func Die():
 	
 	velocity = Vector2(0,0)
 	Globals.DisableAction = true
+	await get_tree()
 	get_tree().paused = true
 	$AnimatedSprite2D.visible = false
 	$BloodParticles.visible = true

@@ -1,3 +1,165 @@
-[gd_scene format=3 uid="uid://cy6vpkeg237py"]
+[gd_scene load_steps=14 format=3 uid="uid://cy6vpkeg237py"]
+
+[ext_resource type="Texture2D" uid="uid://dm6bfml7i3b4a" path="res://Assets/hall.png" id="1_mk6im"]
+[ext_resource type="Script" path="res://Code/epilogue_2.gd" id="1_x236v"]
+[ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="2_rq4m8"]
+[ext_resource type="Texture2D" uid="uid://bb4upmvncwg7l" path="res://Assets/playershadow.png" id="4_g6r50"]
+[ext_resource type="Texture2D" uid="uid://bvj7wihghmfi1" path="res://Assets/henryk1.png" id="5_4c08p"]
+
+[sub_resource type="Gradient" id="Gradient_jt27r"]
+offsets = PackedFloat32Array(0, 0.506494, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.399704, 0.179707, 1, 0.34, 0.0736667, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e4wqk"]
+gradient = SubResource("Gradient_jt27r")
+width = 256
+height = 256
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b68g0"]
+size = Vector2(640, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns6j0"]
+size = Vector2(20, 474)
+
+[sub_resource type="LabelSettings" id="LabelSettings_co63y"]
+font_size = 14
+font_color = Color(1, 0, 0, 1)
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f0du"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0ulv"]
+font_size = 38
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oyly5"]
+font_size = 18
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="epilogue2" type="Node2D"]
+script = ExtResource("1_x236v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_e4wqk")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mk6im")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_rq4m8")]
+position = Vector2(94, 374)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(320, 444)
+shape = SubResource("RectangleShape2D_b68g0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10, 237)
+shape = SubResource("RectangleShape2D_ns6j0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(650, 214)
+shape = SubResource("RectangleShape2D_ns6j0")
+
+[node name="PShadow" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(91, 398)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PShadow"]
+modulate = Color(1, 1, 1, 0.447059)
+texture = ExtResource("4_g6r50")
+
+[node name="Henryk" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(511, 396)
+
+[node name="Sprite2D" type="Sprite2D" parent="Henryk"]
+modulate = Color(1, 1, 1, 0.447059)
+texture = ExtResource("4_g6r50")
+
+[node name="Henryk1" type="Sprite2D" parent="Henryk"]
+position = Vector2(3, -6)
+texture = ExtResource("5_4c08p")
+
+[node name="Label" type="Label" parent="Henryk"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -59.0
+offset_right = 14.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "AH FUCK"
+label_settings = SubResource("LabelSettings_co63y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="Henryk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Henryk/Area2D"]
+shape = SubResource("RectangleShape2D_6f0du")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -45.0
+offset_right = 79.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You won"
+label_settings = SubResource("LabelSettings_v0ulv")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer2"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "12"
+label_settings = SubResource("LabelSettings_oyly5")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Henryk/Area2D" to="." method="_on_area_2d_body_entered"]

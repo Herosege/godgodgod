@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	Globals.stoptime = true
 	AudioServer.set_bus_volume_db(0,(Globals.MVol/4)-15)
 	AudioServer.set_bus_mute(0,!Globals.MVol)
 	AudioServer.set_bus_volume_db(1,(Globals.SEVol/4)-15)
@@ -27,5 +28,4 @@ func _on_texture_button_pressed():
 
 
 func _on_texture_button_2_pressed():
-	print("A")
 	$SettingsMenu.visible = true

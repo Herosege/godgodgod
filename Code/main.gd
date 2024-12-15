@@ -10,7 +10,11 @@ var T = 0.0
 
 var CPlaying = 0
 
+var EndGame = false
+
 func _ready():
+	Globals.stoptime = false
+	PNode.global_position = Globals.SavedPos[0]
 	if !Globals.SpecialItem:
 		$Npcs/henryk2.visible = true
 	$ImpStuff/Label.visible = !Globals.EnemiesKilled
@@ -21,8 +25,12 @@ func _ready():
 	if Globals.SpecialItem:
 		$ImpStuff/BridgeGate.queue_free()
 		$Npcs/idk.queue_free()
+	CheckMusic()
+	UpdateMusic()
+	
 
 func _process(delta):
+	$CanvasLayer2/Label.text = str(floor(Globals.SaveTime))
 	T+=delta/2
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
@@ -31,6 +39,9 @@ func _process(delta):
 				UpdateMusic()
 		else:
 			UpdateMusic()
+		
+		if randf() < 0.03:
+			RandomEvent()
 	PrevRoom = PNode.CRoomPos
 	if endmove:
 		match endmove:
@@ -57,7 +68,7 @@ func CheckMusic():
 	if PNode.CRoomPos.x >= 9 and PNode.CRoomPos.x < 13 and PNode.CRoomPos.y == 0:
 		CPlaying = 4
 		return
-	if PNode.CRoomPos.x >= 13 and PNode.CRoomPos.y == 0 and endmove != 3 and !Globals.EndGame:
+	if PNode.CRoomPos.x >= 13 and PNode.CRoomPos.y == 0 and endmove != 3 and !EndGame:
 		CPlaying = 5
 		return
 	if PNode.CRoomPos.x >= 7 and PNode.CRoomPos.x <= 8 and PNode.CRoomPos.y >= 1:
@@ -93,16 +104,14 @@ func EndScene(hasSpecial):
 		wifetexture.visible = true
 		wifetexture.global_position = PNode.global_position + Vector2(-181.0,-155.5)
 		endmove = 1
-		$EndStuff/EndTimer2.start()
 		$EndStuff/AudioStreamPlayer.play()
 		
 		await get_tree().create_timer(4.0).timeout
 		endmove = 2
 		wifetexture.global_position = Vector2(8644.0-181.0,240.0-155.5)
-		$EndStuff/FinalTimer.start()
 		
 		await get_tree().create_timer(2.0).timeout
-		Globals.EndGame = true
+		EndGame = true
 		endmove = 0
 		$EndStuff/AudioStreamPlayer.stop()
 		$Music5.stop()
@@ -119,11 +128,28 @@ func EndScene(hasSpecial):
 		$Npcs/henryk2/Label.text = "ALRIGHT LETS MURDER THIS\nDISGUSTING SHITPILE"
 		
 		await get_tree().create_timer(3.1).timeout
-		$Npcs/npc/AudioStreamPlayer.volume_db = -3
+		$Npcs/npc/AudioStreamPlayer.volume_db = -1
 		$Npcs/henryk2/Label.text = "OK, I THINK IT WAS THIS SPELL"
 		
 		await get_tree().create_timer(3.0).timeout
-		$Npcs/npc/AudioStreamPlayer.volume_db = 1
+		$Npcs/npc/AudioStreamPlayer.volume_db = 4
 		$Npcs/henryk2/Label.text = "JKKJLLLJLLLKJJKLLKJKKKLKJJKLLKJJKLLLKJKKKLKJJKLL"
 		
+		await get_tree().create_timer(2.7).timeout
+		get_tree().call_deferred("change_scene_to_file","res://Scenes/epilogue_2.tscn")
 		
+
+func RandomEvent():
+	var EventType = randi() % 2
+	match EventType:
+		0:
+			$CanvasLayer/ColorRect.color = Color.RED
+			$FunnyStuff/BGTIMER.start()
+		1:
+			$FunnyStuff/CanvasLayer/img1.visible = true
+			$FunnyStuff/CanvasLayer/img1.position = Vector2((640-128)*randf(),(480-128)*randf())
+			$FunnyStuff/BGTIMER.start()
+
+func _on_bgtimer_timeout():
+	$CanvasLayer/ColorRect.color = Color.AQUA
+	$FunnyStuff/CanvasLayer/img1.visible = false

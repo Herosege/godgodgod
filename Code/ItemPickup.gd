@@ -33,6 +33,6 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.Items[ItemType][TempType] = true
-		if TempType == Axe:
+		if ItemType == Weapon and Weapons == Axe:
 			SignalBus.emit_signal("SetHudMessage","Press x to swing axe",1)
 		queue_free()
