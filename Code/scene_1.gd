@@ -11,16 +11,16 @@ func _ready():
 	Globals.stoptime = false
 	if Globals.BossKilled[Globals.VoidSpaghetti] == true:
 		SignalBus.emit_signal("BossDead",Globals.VoidSpaghetti)
-		$BossTrigger.queue_free()
+		$BossTrigger.call_deferred("queue_free")
 	SignalBus.TriggerBoss.connect(_on_Trigger_Boss)
 	SignalBus.ScreenShaderChange.connect(_on_EffectChange)
 	$BossWall/CollisionShape2D.set_deferred("disabled",true)
 	$BossWall.visible = false
-	
+	$TextureRect5.visible = false
 
 func _on_Trigger_Boss(type):
 	if type == 1:
-		$BossTrigger.queue_free()
+		$BossTrigger.call_deferred("queue_free")
 		$BossWall/CollisionShape2D.set_deferred("disabled",false)
 		$BossWall.visible = true
 		$MusicBoss.play()
@@ -37,7 +37,7 @@ var GateOpened = false
 func _on_EffectChange(value,type):
 	if value == true and type == Globals.Beer and !GateOpened:
 		GateOpened = true
-		$Gate2.queue_free()
+		$Gate2.call_deferred("queue_free")
 #stuff
 
 func _on_idk_body_entered(body):

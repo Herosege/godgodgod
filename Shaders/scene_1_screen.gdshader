@@ -18,6 +18,7 @@ void fragment() {
 
 		vec4 color = textureLod(SCREEN_TEXTURE, displaced_uv,0.0);
 
+		COLOR.a = 1.0;
 		COLOR.rgb = color.rgb;
 	}
 	else{

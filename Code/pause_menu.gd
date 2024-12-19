@@ -7,6 +7,7 @@ func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
 	if Globals.SpecialItem:
 		$wife.visible = true
+	$DeathAmt.text = str(Globals.NumDeaths)
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause") and !Globals.DisableAction:
@@ -39,7 +40,6 @@ func _on_wife_pressed():
 		$Godhelpme.play()
 
 func _on_get_item(type):
-	print("f")
 	if Globals.SpecialItem:
 		$wife.visible = true
 

@@ -29,6 +29,7 @@ func _process(delta):
 					if !Globals.SpecialItem:
 						Globals.SpecialItem = true
 						SignalBus.emit_signal("GetItem","wife")
+						SignalBus.emit_signal("Save",0)
 				ONEN:
 					if $Timer.is_stopped():
 						$Timer.start(1)

@@ -7,5 +7,6 @@ func _ready():
 
 func _on_ScreenShaderChange(value,type):
 	var material = $ColorRect.material
+	print(str(value)+str(type))
 	if material is ShaderMaterial:
 		material.set_shader_parameter(ShaderValues[type],value)

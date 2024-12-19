@@ -82,7 +82,7 @@ func CheckInputs():
 func MoveDirection():
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
-	if Input.is_action_pressed("Slowdown"):
+	if Input.is_action_pressed("Slowdown") and Globals.EffectActive[Globals.Milk]:
 		VertSpeed = 25
 	else:
 		VertSpeed = 200
@@ -122,10 +122,9 @@ func _on_buffer_timer_timeout():
 	CanBufferJump = false
 
 func Die():
-	
+	Globals.NumDeaths += 1
 	velocity = Vector2(0,0)
 	Globals.DisableAction = true
-	await get_tree()
 	get_tree().paused = true
 	$AnimatedSprite2D.visible = false
 	$BloodParticles.visible = true
@@ -142,7 +141,7 @@ func Jump():
 	$JumpSE.play()
 	if !Input.is_action_pressed("JumpInp") and velocity.y < 0.0: 
 		velocity.y /= 3
-		CanBufferJump = false
+	CanBufferJump = false
 
 func _on_die():
 	Die()

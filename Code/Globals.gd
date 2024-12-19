@@ -46,6 +46,11 @@ var NumTimesBeatGame : int = 0
 var EndingHall = false
 var EndingBeer = false
 
+var BestTime = 0.0
+
+var NumDeaths = 0
+var LDeaths = -1
+
 func _ready():
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
 	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
@@ -65,7 +70,7 @@ func _ready():
 	#SavedPos[0] = Vector2(3600,800)
 	
 	#SecretMilk - main
-	#SavedPos[0] = Vector2(1450,160)
+	#SavedPos[0] = Vector2(1664,-96)
 	
 	#connector - main
 	#SavedPos[0] = Vector2(1860,290)
@@ -87,19 +92,22 @@ func _ready():
 func _process(delta):
 	if !stoptime:
 		SaveTime+=delta
+		print(round(SaveTime*100)/100)
 	
 	if Input.is_action_just_pressed("debug"):
+		pass
 		#SavedPos = load_game("user://dinomemories.save","SavedPos",SavedPos)
 		#SavedPos[0] = str_to_var(SavedPos[0])
 		#Items = load_game("user://dinomemories.save","Items",Items)
 		#BossKilled = load_game("user://dinomemories.save","BossKilled",BossKilled)
 		#EffectActive = load_game("user://dinomemories.save","EffectActive",EffectActive)
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
-		for i in Items[0].size():
-			Items[0][i] = true
-		Items[Weapon][Axe] = true
-		SpecialItem = true
-		BossKilled[VoidSpaghetti] = true
+		#for i in Items[0].size():
+			#Items[0][i] = true
+		Items[0][1] = true
+		#Items[Weapon][Axe] = true
+		#SpecialItem = true
+		#BossKilled[VoidSpaghetti] = true
 
 func SaveData(type):
 	if type == 0:
@@ -108,7 +116,9 @@ func SaveData(type):
 			"Items":Items,
 			"BossKilled":BossKilled,
 			"SpecialItem":SpecialItem,
-			"SaveTime":SaveTime
+			"SaveTime":SaveTime,
+			"NumDeaths":NumDeaths
+			
 		})
 	if type == 666:
 		save_game("user://dinomemories.save",null)
@@ -150,6 +160,12 @@ func read_file(FilePath):
 		return
 	var content = file.get_as_text()
 	return content
+
+func sec_to_time(in_sec):
+	var min = floor(in_sec / 60)
+	var hrs = floor(in_sec / 3600)
+	
+	return [(int(in_sec))%60,int(min)%60,hrs]
 
 #settings
 

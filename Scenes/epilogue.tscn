@@ -10,7 +10,7 @@ outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nvo1w"]
-font_size = 24
+font_size = 18
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
@@ -45,13 +45,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 368.0
+offset_left = 272.0
 offset_top = 96.0
-offset_right = 495.0
+offset_right = 399.0
 offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Final time: "
+label_settings = SubResource("LabelSettings_nvo1w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 344.0
+offset_top = 136.0
+offset_right = 471.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your deaths:"
 label_settings = SubResource("LabelSettings_nvo1w")
 horizontal_alignment = 1
 vertical_alignment = 1

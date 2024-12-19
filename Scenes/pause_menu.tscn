@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bictivtnhttj1"]
+[gd_scene load_steps=16 format=3 uid="uid://bictivtnhttj1"]
 
 [ext_resource type="Texture2D" uid="uid://dj2rssddoygvw" path="res://Assets/painting1.png" id="1_fqt82"]
 [ext_resource type="Script" path="res://Code/pause_menu.gd" id="1_ywg23"]
@@ -12,6 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://c3naxh82schaw" path="res://Assets/milk-ms.png" id="9_ggt7n"]
 [ext_resource type="Texture2D" uid="uid://dmu4scvc1ynjk" path="res://Assets/MilkAnim/0001.png" id="10_8i5ii"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="12_4ka14"]
+[ext_resource type="Texture2D" uid="uid://hko61fuv430q" path="res://Assets/youdied.png" id="13_cpmml"]
+[ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="14_hmnbg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7e313"]
+font = ExtResource("14_hmnbg")
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -120,7 +128,7 @@ texture_pressed = ExtResource("6_uu4f6")
 
 [node name="MilkActivar" type="TextureButton" parent="Collectibles/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Possesses mind healing properties, works like in the block game"
+tooltip_text = "Possesses mind healing properties and allows you to move slowly with ctrl"
 toggle_mode = true
 texture_normal = ExtResource("9_ggt7n")
 texture_pressed = ExtResource("10_8i5ii")
@@ -136,6 +144,27 @@ texture_normal = ExtResource("12_4ka14")
 [node name="SettingsMenu" parent="." instance=ExtResource("5_n0pig")]
 visible = false
 z_index = 20
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 11
+offset_left = -23.0
+offset_top = 241.0
+offset_right = 203.0
+offset_bottom = 330.0
+mouse_filter = 2
+texture = ExtResource("13_cpmml")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="DeathAmt" type="Label" parent="."]
+z_index = 11
+offset_left = 86.0
+offset_top = 269.0
+offset_right = 236.0
+offset_bottom = 317.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_7e313")
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

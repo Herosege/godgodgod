@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 50.0
+const InitHealth = 36.0
 var Health = InitHealth
 
 var CAtt = 0
@@ -40,14 +40,14 @@ func _process(delta):
 				position = position.lerp(Vector2(2240,358),0.4)
 				if $Att2Timer.is_stopped() and !$PreAtt2Timer.is_stopped():
 					for i in 9-AttVariant:
-						Shoot(Vector2(1920+(i*StepAmt)+(AttVariant*StepAmt),0) , Vector2(2000+i*StepAmt-AttVariant*StepAmt,580))
+						Shoot(Vector2(1920+(i*StepAmt)+(AttVariant*StepAmt),0) , Vector2(2000+i*StepAmt-AttVariant*StepAmt,580),370.0)
 					$Att2Timer.start(0.42-(TimeRed*0.15))
 					AttVariant += 1 
 					AttVariant %= 2
 			2:
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
-					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/2),PlayerNode.global_position.y))
-					$Att2Timer.start(0.3-(TimeRed*0.06))
+					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/1.5),PlayerNode.global_position.y),300.0)
+					$Att2Timer.start(0.33-(TimeRed*0.06))
 				position.y = lerp(position.y,290.0 + (40.0 * sin(t)) ,0.6)
 				position.x = lerp(position.x,PlayerNode.position.x,0.1)
 				
@@ -55,9 +55,9 @@ func _process(delta):
 				position = position.lerp(Vector2(2240,300),0.4)
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
 					for i in 12+AttVariant:
-						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i ) + global_position.x 
-						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) )
-					$Att2Timer.start(0.5+(0.5*AttVariant)-(TimeRed*0.1))
+						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i) + global_position.x 
+						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) ,300.0)
+					$Att2Timer.start(0.6+(0.6*AttVariant)-(TimeRed*0.1))
 					AttVariant += 1
 					AttVariant %= 2
 		
@@ -70,7 +70,7 @@ func Attack(type):
 	AttVariant = 0
 	match type:
 		0:
-			$AttackTimer.start(5.0-(TimeRed*2))
+			$AttackTimer.start(4.5-(TimeRed*2))
 			$PreAtt2Timer.start(3.0-(TimeRed*1))
 			$AnimatedSprite2D.animation = "default"
 			CAtt = 1
@@ -82,8 +82,8 @@ func Attack(type):
 			CAtt = 2
 			pass
 		2:
-			$AttackTimer.start(3.5-(TimeRed*1))
-			$PreAtt2Timer.start(0.5-(TimeRed*0.1))
+			$AttackTimer.start(4.0-(TimeRed*1))
+			$PreAtt2Timer.start(0.8-(TimeRed*0.1))
 			$AnimatedSprite2D.animation = "default"
 			CAtt = 3
 			pass
@@ -102,6 +102,7 @@ func _on_Trigger_Boss(type):
 func BossDeath():
 	HBar.visible = false
 	Activar = false
+	$"../TextureRect5".visible = true
 	$"../BossWall/CollisionShape2D".set_deferred("disabled",true)
 	$"../BossWall".visible = false
 	$"../BossWall2/CollisionShape2D".set_deferred("disabled",true)
@@ -114,8 +115,9 @@ func BossDeath():
 
 @onready var BulletScene = load("res://Scenes/bullet.tscn")
 
-func Shoot(From,At):
+func Shoot(From,At,speed):
 	var BulInst = BulletScene.instantiate()
+	BulInst.Speed = speed
 	BulInst.global_position = From
 	BulInst.Towards = At
 	$"../Bullets".add_child(BulInst)

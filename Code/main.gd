@@ -15,8 +15,8 @@ var EndGame = false
 func _ready():
 	Globals.stoptime = false
 	PNode.global_position = Globals.SavedPos[0]
-	if !Globals.SpecialItem:
-		$Npcs/henryk2.visible = true
+	if Globals.SpecialItem:
+		$Npcs/henryk2.visible = false
 	$ImpStuff/Label.visible = !Globals.EnemiesKilled
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
@@ -39,7 +39,7 @@ func _process(delta):
 		else:
 			UpdateMusic()
 		
-		if randf() < 0.02:
+		if randf() < 0.01:
 			RandomEvent()
 	PrevRoom = PNode.CRoomPos
 	if endmove:

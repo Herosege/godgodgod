@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4bj4xgj6l01p"]
+[gd_scene load_steps=24 format=3 uid="uid://c4bj4xgj6l01p"]
 
 [ext_resource type="Texture2D" uid="uid://b67hblyynrg5w" path="res://Assets/player.png" id="1_dqe2t"]
 [ext_resource type="Script" path="res://Code/player.gd" id="1_xtj4b"]
+[ext_resource type="Texture2D" uid="uid://dn217cgawj3mp" path="res://Assets/player_sweater.png" id="2_hbl7o"]
 [ext_resource type="Texture2D" uid="uid://c0liv5y7ot5yv" path="res://Assets/player1.png" id="3_0fbga"]
 [ext_resource type="Texture2D" uid="uid://kbicolobgxch" path="res://Assets/ciucmok.png" id="3_4coqo"]
 [ext_resource type="AudioStream" uid="uid://bht4xdi2x151c" path="res://Assets/Sound/jumpSE.ogg" id="4_u0b8i"]
@@ -12,9 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bwm644m15yv8c" path="res://Assets/axe_lowq_3.png" id="7_d7puv"]
 [ext_resource type="Texture2D" uid="uid://bimw6ttqvji4x" path="res://Assets/axe_lowq_4.png" id="8_u4cp5"]
 [ext_resource type="Texture2D" uid="uid://c3fr43sbnfb51" path="res://Assets/axe_lowq_5.png" id="9_c24d2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dadx3"]
-size = Vector2(12, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lo4u0"]
 animations = [{
@@ -69,6 +67,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5eme"]
 size = Vector2(44, 54)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dadx3"]
+size = Vector2(12, 14)
+
 [sub_resource type="Curve" id="Curve_sq76m"]
 _data = [Vector2(0, 1), 0.0, -0.126796, 0, 0, Vector2(1, 0), -2.82575, 0.0, 0, 0]
 point_count = 2
@@ -109,16 +110,11 @@ TimePeak = 0.25
 TimeFall = 0.25
 JumpStr = 65.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_dadx3")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lo4u0")
 animation = &"standard"
 autoplay = "walking"
 frame_progress = 0.338306
-metadata/_edit_lock_ = true
 
 [node name="Weapons" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(8, 0)
@@ -138,6 +134,7 @@ sprite_frames = SubResource("SpriteFrames_100fb")
 animation = &"Attack"
 frame = 3
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Weapon" groups=["damage"]]
 
@@ -148,6 +145,14 @@ shape = SubResource("RectangleShape2D_b5eme")
 [node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon"]
 wait_time = 0.05
 one_shot = true
+
+[node name="Sweater" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_hbl7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_dadx3")
 
 [node name="Timers" type="Node" parent="."]
 

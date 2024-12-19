@@ -35,4 +35,6 @@ func _on_area_2d_body_entered(body):
 		Globals.Items[ItemType][TempType] = true
 		if ItemType == Weapon and Weapons == Axe:
 			SignalBus.emit_signal("SetHudMessage","Press x to swing axe",1)
+		if ItemType == Passive and Passives == Beer:
+			SignalBus.emit_signal("SetHudMessage","Use items in the esc menu",1)
 		queue_free()
