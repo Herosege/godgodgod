@@ -66,6 +66,10 @@ func _ready():
 	#SavedPos[0] = Vector2(-600,1290)
 	#SavedPos[1] = 1
 	
+	#Start - Curse
+	SavedPos[0] = Vector2(104,208)
+	SavedPos[1] = 1
+	
 	#onen - main
 	#SavedPos[0] = Vector2(4100,-100)
 	

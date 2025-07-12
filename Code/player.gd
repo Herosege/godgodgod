@@ -32,20 +32,19 @@ var MovementVel : Vector2
 var AdditVel : Vector2
 
 func _ready():
+	$BloodParticles2.emitting = true
 	position = Globals.SavedPos[0]
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	#global_position = Vector2(2050,400)
-	SignalBus.Death.connect(_on_die)
+	SignalBus.Death.connect(Die)
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.GetWeapon.connect(GetWeapon)
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
 
 func _process(delta):
-	if Input.is_action_just_pressed("debug"):
-		JumpAmount = 9999
-		VertSpeed = 5000
+	
 	
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
@@ -86,6 +85,12 @@ func CheckInputs():
 func MoveDirection():
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
+	
+	if Input.is_action_just_pressed("debug"):
+		JumpAmount = 9999
+		VertSpeed = 5000
+		position.x += 300 * direction
+	
 	if Input.is_action_pressed("Slowdown") and Globals.EffectActive[Globals.Milk]:
 		VertSpeed = 25
 	else:
@@ -132,10 +137,13 @@ func Die():
 	Globals.DisableAction = true
 	$AnimatedSprite2D.visible = false
 	$BloodParticles.restart()
+	
 	$BloodParticles.emitting = true
+	await get_tree().process_frame
 	$BloodParticles.visible = true
 
 func ResetPosition():
+	$BloodParticles.emitting = false
 	$BloodParticles.visible = false
 	position = Globals.SavedPos[0]
 
@@ -146,9 +154,6 @@ func Jump():
 	if !Input.is_action_pressed("JumpInp") and velocity.y < 0.0: 
 		velocity.y /= 3
 	CanBufferJump = false
-
-func _on_die():
-	Die()
 
 func GetWeapon(type):
 	Globals.HasWeapon[type] = true
@@ -171,3 +176,4 @@ func RESET():
 	CanBufferJump = false
 	CanCoyote = false
 	JumpAmount = 1
+	velocity = Vector2.ZERO
