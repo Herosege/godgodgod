@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	$AudioStreamPlayer.pitch_scale = 0.3
 	Globals.stoptime = true
 	AudioServer.set_bus_volume_db(0,(Globals.MVol/4)-15)
 	AudioServer.set_bus_mute(0,!Globals.MVol)
@@ -28,7 +29,7 @@ func _ready():
 	
 	if Globals.LDeaths != -1:
 		$Says.visible = true
-		$Says/Label.text = "I can beat the game with\nonly " + str(Globals.LDeaths) + " deaths!!!" if Globals.LDeaths > 0 else "I am the one true god!"
+		$Says/Label.text = "I can beat the game with\nonly " + str(int(Globals.LDeaths)) + " deaths!!!" if Globals.LDeaths > 0 else "I am the one true god!"
 	
 	$Trophies/TextureRect.visible = Globals.EndingHall
 	$Trophies/TextureRect2.visible = Globals.EndingBeer
@@ -43,6 +44,9 @@ func _process(delta):
 			$Delsfx.play()
 
 func _on_texture_button_pressed():
+	if !Globals.load_game("user://dinomemories.save","SavedPos",false):
+		get_tree().change_scene_to_file("res://Scenes/epic_intro.tscn")
+		return
 	Globals.SavedPos = Globals.load_game("user://dinomemories.save","SavedPos",Globals.SavedPos)
 	if Globals.SavedPos[0] is not Vector2:
 		Globals.SavedPos[0] = str_to_var(Globals.SavedPos[0])
@@ -52,6 +56,7 @@ func _on_texture_button_pressed():
 	Globals.SaveTime = Globals.load_game("user://dinomemories.save","SaveTime",Globals.SaveTime)
 	Globals.SpecialItem = Globals.load_game("user://dinomemories.save","SpecialItem",Globals.SpecialItem)
 	Globals.NumDeaths = Globals.load_game("user://dinomemories.save","NumDeaths",Globals.NumDeaths)
+	Globals.RotCKilled = Globals.load_game("user://dinomemories.save","RotCKilled",Globals.RotCKilled)
 	
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])
 

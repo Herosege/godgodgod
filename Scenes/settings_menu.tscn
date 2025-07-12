@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyb6t4vffx05"]
 
-[ext_resource type="Script" path="res://Code/settings_menu.gd" id="1_m0fgx"]
+[ext_resource type="Script" uid="uid://c7ct3snmvtval" path="res://Code/settings_menu.gd" id="1_m0fgx"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="2_b0xc2"]
 [ext_resource type="FontFile" uid="uid://b6f4meh882kd6" path="res://Assets/fonts/Tiny5-Regular.ttf" id="3_a7gg2"]
 

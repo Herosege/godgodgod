@@ -1,8 +1,11 @@
 extends Node
 
+var FirstTime = true
+
 var AreaScenes = [
 	"res://Scenes/main.tscn",
-	"res://Scenes/scene_1.tscn"
+	"res://Scenes/scene_1.tscn",
+	"res://Scenes/village_1.tscn"
 ]
 
 enum area {wonderful_place, curse_world}
@@ -28,6 +31,8 @@ var EffectActive = [false,false]
 
 var SaveTime = 0.0
 
+var RotCKilled = false
+
 var SpecialItem = false
 var Items = [
 	[false,false],#Passives
@@ -52,6 +57,7 @@ var NumDeaths = 0
 var LDeaths = -1
 
 func _ready():
+	RenderingServer.set_default_clear_color(Color.BLACK)
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
 	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
 	
@@ -85,14 +91,20 @@ func _ready():
 	#UnderBridge2 - main
 	#SavedPos[0] = Vector2(8400,320)
 	
+	#SECRET BRIDGE - main
+	#SavedPos[0] = Vector2(7050,-125)
+	
 	#test1 - curse
 	#SavedPos[0] = Vector2(2616,1320)
 	#SavedPos[1] = 1
+	
+	#village start - village
+	#SavedPos[0] = Vector2(60,400)
+	#SavedPos[1] = 2
 
 func _process(delta):
 	if !stoptime:
 		SaveTime+=delta
-		print(round(SaveTime*100)/100)
 	
 	if Input.is_action_just_pressed("debug"):
 		pass
@@ -104,20 +116,22 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		#for i in Items[0].size():
 			#Items[0][i] = true
-		Items[0][1] = true
-		#Items[Weapon][Axe] = true
+		#Items[0][1] = true
+		Items[Weapon][Axe] = true
 		#SpecialItem = true
 		#BossKilled[VoidSpaghetti] = true
 
 func SaveData(type):
 	if type == 0:
 		save_game("user://dinomemories.save",{
+			"FirstTime":FirstTime,
 			"SavedPos":[var_to_str(SavedPos[0]),SavedPos[1]],
 			"Items":Items,
 			"BossKilled":BossKilled,
 			"SpecialItem":SpecialItem,
 			"SaveTime":SaveTime,
-			"NumDeaths":NumDeaths
+			"NumDeaths":NumDeaths,
+			"RotCKilled":RotCKilled
 			
 		})
 	if type == 666:

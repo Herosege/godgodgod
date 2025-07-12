@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dj6xpr0fo640s"]
 
-[ext_resource type="Script" path="res://Code/hud.gd" id="1_doaym"]
+[ext_resource type="Script" uid="uid://c7jndpuwm4mxb" path="res://Code/hud.gd" id="1_doaym"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_miau3"]
 font_size = 20

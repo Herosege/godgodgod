@@ -22,3 +22,9 @@ func _on_timer_timeout():
 	Sprite.scale = Vector2(1.0,1.0)
 	Sprite.modulate = Color(1.0,1.0,1.0,1.0)
 	$CollisionShape2D.call_deferred("set_disabled",false)
+
+func RESET():
+	$Timer.stop()
+	Sprite.scale = Vector2(1.0,1.0)
+	Sprite.modulate = Color(1.0,1.0,1.0,1.0)
+	$CollisionShape2D.call_deferred("set_disabled",false)

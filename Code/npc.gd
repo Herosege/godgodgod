@@ -30,10 +30,6 @@ func _process(delta):
 						Globals.SpecialItem = true
 						SignalBus.emit_signal("GetItem","wife")
 						SignalBus.emit_signal("Save",0)
-				ONEN:
-					if $Timer.is_stopped():
-						$Timer.start(1)
-						Globals.stoptime = true
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("damage") and type == henryk:
@@ -59,9 +55,7 @@ func _on_area_2d_body_entered(body):
 				SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
 				$Label.text = Texts["cursegod"]
 			ONEN:
-				SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
 				$Label.visible = true
-				awaitres = true
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
@@ -79,9 +73,7 @@ func _on_area_2d_body_exited(body):
 				$Label.visible = false
 				awaitres = false
 			ONEN:
-				SignalBus.emit_signal("SetHudMessage","",0)
 				$Label.visible = false
-				awaitres = false
 
 func animatetext():
 	pass
@@ -105,16 +97,14 @@ var Texts = {
 	
 	#
 	
-	"cursegod1":"Alright I will open the passage to the bridge, there lies
-	the largest rotten curse
+	"cursegod1":"Huh, there seems to be a problem 
+	I can't open the gate to the bridge
 	
-	You will have to get inside it but don't worry you have a great will so
-	the curse won't try to consume you but it's still dangerous so be cautious
+	Oh well, that's unfortunate, you will have to find another way there
 	
-	I will also give you this thing called \"wife\", when you get to the
-	main artery it will kill it
+	Have a \"wife\" for your efforts though
 	
-	Good luck",
+	",
 	
 	#
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cy6vpkeg237py"]
 
 [ext_resource type="Texture2D" uid="uid://dm6bfml7i3b4a" path="res://Assets/hall.png" id="1_mk6im"]
-[ext_resource type="Script" path="res://Code/epilogue_2.gd" id="1_x236v"]
+[ext_resource type="Script" uid="uid://b2n6y6k1wwr33" path="res://Code/epilogue_2.gd" id="1_x236v"]
 [ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="2_rq4m8"]
 [ext_resource type="Texture2D" uid="uid://bb4upmvncwg7l" path="res://Assets/playershadow.png" id="4_g6r50"]
 [ext_resource type="Texture2D" uid="uid://bvj7wihghmfi1" path="res://Assets/henryk1.png" id="5_4c08p"]

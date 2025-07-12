@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cydymvelvpn0e"]
 
-[ext_resource type="Script" path="res://Code/Save.gd" id="1_o88w2"]
+[ext_resource type="Script" uid="uid://bu27rqil7013i" path="res://Code/Save.gd" id="1_o88w2"]
 [ext_resource type="Texture2D" uid="uid://bomrfswouk8d7" path="res://Assets/save1_1.png" id="2_fw5fr"]
 [ext_resource type="Texture2D" uid="uid://dbrt0ssutlcma" path="res://Assets/save1_2.png" id="3_480c2"]
 [ext_resource type="AudioStream" uid="uid://cj84qte3h8h4a" path="res://Assets/Sound/SaveSE.ogg" id="4_6l35c"]
@@ -43,6 +43,8 @@ animations = [{
 }]
 
 [node name="Save" type="Area2D"]
+collision_layer = 0
+monitorable = false
 script = ExtResource("1_o88w2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -57,7 +59,7 @@ shape = SubResource("CircleShape2D_uehmx")
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_8wtvq")
 autoplay = "default"
-frame_progress = 0.8632
+frame_progress = 0.585341
 
 [node name="SaveSE" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6l35c")

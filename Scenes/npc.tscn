@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://wbilhro3m8w2"]
 
-[ext_resource type="Script" path="res://Code/npc.gd" id="1_pjvq1"]
+[ext_resource type="Script" uid="uid://c1iywtccdcso8" path="res://Code/npc.gd" id="1_pjvq1"]
 [ext_resource type="Texture2D" uid="uid://c31sf87uj2dak" path="res://Assets/someone.png" id="2_1t24h"]
 [ext_resource type="Texture2D" uid="uid://d2je32rrur5xq" path="res://Assets/curse.png" id="2_bmj3w"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="3_2a7dd"]

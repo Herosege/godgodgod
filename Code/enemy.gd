@@ -8,13 +8,13 @@ func _on_area_2d_area_entered(area):
 		Globals.EnemiesKilled += 1
 		$AudioStreamPlayer.pitch_scale = 0.6 + (randf()*0.4)
 		$AudioStreamPlayer.play()
-		$Area2D.queue_free()
+		$Area2D/CollisionShape2D.set_deferred("disabled",true)
 		$AnimatedSprite2D.stop()
 		$AnimationPlayer.play("Die")
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Die":
-		queue_free()
+		visible = false
 
 func CalcLaunch(Pos):
 	var equ = RoundNearest(atan2(Pos.x-global_position.x,Pos.y-global_position.y),PI/4)
@@ -23,3 +23,7 @@ func CalcLaunch(Pos):
 
 func RoundNearest(val,base):
 	return base * round(val/base)
+
+func RESET():
+	$Area2D/CollisionShape2D.set_deferred("disabled",false)
+	$AnimationPlayer.play("RESET")

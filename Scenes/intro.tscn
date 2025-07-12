@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://cm5iyaherdlbm"]
 
-[ext_resource type="Script" path="res://Code/intro.gd" id="1_8hyp5"]
+[ext_resource type="Script" uid="uid://b4sl2tm8ar3bs" path="res://Code/intro.gd" id="1_8hyp5"]
 [ext_resource type="Texture2D" uid="uid://bfby2w65osyqe" path="res://Assets/sinful.png" id="1_vyg23"]
 [ext_resource type="Texture2D" uid="uid://g5ir5vkcma4u" path="res://Assets/start.png" id="3_mljtx"]
 [ext_resource type="Texture2D" uid="uid://dypwj3hlhdooa" path="res://Assets/start1.png" id="4_av7jv"]
@@ -68,7 +68,7 @@ stretch_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_isg8h")
-volume_db = 7.0
+volume_db = 5.0
 pitch_scale = 0.3
 autoplay = true
 
@@ -145,6 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Trophies"]
 visible = false

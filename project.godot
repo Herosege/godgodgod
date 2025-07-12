@@ -12,10 +12,10 @@ config_version=5
 
 config/name="godgodgod"
 run/main_scene="res://Scenes/intro.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://Assets/herosege1-34.png"
 boot_splash/use_filter=false
+boot_splash/image="res://Assets/herosege1-34.png"
 config/icon="res://Assets/player1.png"
 config/windows_native_icon="res://Assets/icon.ico"
 boot_splash/minimum_display_time=1500
@@ -36,6 +36,7 @@ window/stretch/mode="viewport"
 
 Audio=""
 killplayer=""
+RESET=""
 
 [input]
 

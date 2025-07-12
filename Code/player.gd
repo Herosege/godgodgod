@@ -42,7 +42,11 @@ func _ready():
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
 
-func _physics_process(delta):
+func _process(delta):
+	if Input.is_action_just_pressed("debug"):
+		JumpAmount = 9999
+		VertSpeed = 5000
+	
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
@@ -122,14 +126,14 @@ func _on_buffer_timer_timeout():
 	CanBufferJump = false
 
 func Die():
+	get_tree().paused = true
 	Globals.NumDeaths += 1
 	velocity = Vector2(0,0)
 	Globals.DisableAction = true
-	get_tree().paused = true
 	$AnimatedSprite2D.visible = false
-	$BloodParticles.visible = true
-	$BloodParticles.emitting = true
 	$BloodParticles.restart()
+	$BloodParticles.emitting = true
+	$BloodParticles.visible = true
 
 func ResetPosition():
 	$BloodParticles.visible = false
@@ -149,10 +153,6 @@ func _on_die():
 func GetWeapon(type):
 	Globals.HasWeapon[type] = true
 
-func _on_boss_trigger_body_entered(body):
-	if body.is_in_group("player"):
-		SignalBus.emit_signal("TriggerBoss",1)
-
 func OnEnemyKilled(type):
 	match type:
 		0:
@@ -166,3 +166,8 @@ func OnLaunchPlayer(Vel,Str):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer"):
 		Die()
+
+func RESET():
+	CanBufferJump = false
+	CanCoyote = false
+	JumpAmount = 1

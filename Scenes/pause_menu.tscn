@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bictivtnhttj1"]
 
 [ext_resource type="Texture2D" uid="uid://dj2rssddoygvw" path="res://Assets/painting1.png" id="1_fqt82"]
-[ext_resource type="Script" path="res://Code/pause_menu.gd" id="1_ywg23"]
+[ext_resource type="Script" uid="uid://ddwvmhejn2elo" path="res://Code/pause_menu.gd" id="1_ywg23"]
 [ext_resource type="Texture2D" uid="uid://opr0ghe4trs6" path="res://Assets/Exit1.png" id="2_tku27"]
 [ext_resource type="Texture2D" uid="uid://dypqllbkay6xu" path="res://Assets/stay1.png" id="3_isrk2"]
 [ext_resource type="Texture2D" uid="uid://hb14gwf4xp4g" path="res://Assets/bottle-ms.png" id="4_7fyhd"]
@@ -65,7 +65,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="wife" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,17 +79,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 89.0
-offset_top = -63.0
-offset_right = 519.0
-offset_bottom = -15.0
+offset_left = 444.0
+offset_top = -29.0
+offset_right = 44.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_3h08p")
 expand_mode = 1
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="Wife" type="TextureButton" parent="wife"]
 z_index = 11

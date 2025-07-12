@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://55u7aqupmtth"]
 
-[ext_resource type="Script" path="res://Code/epilogue.gd" id="1_gkdvo"]
+[ext_resource type="Script" uid="uid://be07n5xk2wbaq" path="res://Code/epilogue.gd" id="1_gkdvo"]
 [ext_resource type="Texture2D" uid="uid://dy8c0y3c375g5" path="res://Assets/bar.png" id="4_yxqal"]
 [ext_resource type="AudioStream" uid="uid://cf1woj4vfttan" path="res://Assets/Sound/frogtown.ogg" id="5_xe207"]
 

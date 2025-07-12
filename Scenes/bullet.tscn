@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4o088fy05ere"]
 
 [ext_resource type="Texture2D" uid="uid://cwgrmwiexydrp" path="res://Assets/Boss1/bullet.png" id="1_2vvr4"]
-[ext_resource type="Script" path="res://Code/bullet.gd" id="1_lqrop"]
+[ext_resource type="Script" uid="uid://b6b2olyk2kr45" path="res://Code/bullet.gd" id="1_lqrop"]
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_lqrop")
