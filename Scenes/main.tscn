@@ -3047,13 +3047,14 @@ offset_left = -432.0
 offset_top = -361.0
 offset_right = 123.0
 offset_bottom = -82.0
-text = "ayo othenson
+text = "hey othenson
 
-there was once a gate here, unfortunately the reality became a little
-bit more linear 
+There is a new bar in the village to the east of here across the bridge
+it would be cool if we went there
 
-I think you will have to follow that worm's advice this time
-I heard that they became a little bit better at magic recently tho"
+Unfortunately the bridge collapsed and the gate is broken or something, but I think that won't stop you since you are basically immortal
+
+So good luck getting there"
 label_settings = SubResource("LabelSettings_dkcn6")
 autowrap_mode = 2
 

@@ -7,14 +7,15 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ResetInp"):
+		await get_tree().physics_frame
 		ResetStuff()
 
 func ResetStuff():
-	await get_tree().physics_frame
+	if PlayerNode:
+		PlayerNode.position = Globals.SavedPos[0]
 	SignalBus.emit_signal("ResetPos")
 	Globals.DisableAction = false
 	get_tree().paused = false
-	
 	
 	if PlayerNode:
 		PlayerNode.get_node("AnimatedSprite2D").visible = true

@@ -27,6 +27,7 @@ func _on_area_2d_body_entered(body):
 		SignalBus.emit_signal("Death")
 
 func RESET():
+	Balls = get_children()
 	angle = [0.0,0.0,0.0]
 	for i in Balls.size():
 		Balls[i].global_transform = Positions[i]

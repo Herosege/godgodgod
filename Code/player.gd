@@ -130,22 +130,22 @@ func GetVelocity(StdVel):
 func _on_buffer_timer_timeout():
 	CanBufferJump = false
 
+func ResetPosition():
+	#await get_tree().process_frame
+	$BloodParticles.emitting = false
+	$BloodParticles.visible = false
+	position = Globals.SavedPos[0]
+
 func Die():
+	$BloodParticles.restart()
+	$BloodParticles.emitting = true
 	get_tree().paused = true
 	Globals.NumDeaths += 1
 	velocity = Vector2(0,0)
 	Globals.DisableAction = true
-	$AnimatedSprite2D.visible = false
-	$BloodParticles.restart()
+	$AnimatedSprite2D.visible = false	
 	
-	$BloodParticles.emitting = true
-	await get_tree().process_frame
 	$BloodParticles.visible = true
-
-func ResetPosition():
-	$BloodParticles.emitting = false
-	$BloodParticles.visible = false
-	position = Globals.SavedPos[0]
 
 func Jump():
 	velocity.y = JVel

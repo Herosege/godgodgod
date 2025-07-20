@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	$AudioStreamPlayer.pitch_scale = 0.3
+	$AudioStreamPlayer.play()
 	Globals.stoptime = true
 	AudioServer.set_bus_volume_db(0,(Globals.MVol/4)-15)
 	AudioServer.set_bus_mute(0,!Globals.MVol)

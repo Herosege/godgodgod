@@ -12,7 +12,10 @@ var Activar = false
 
 var TimeRed = 0
 
+var InitPos : Vector2
+
 func _ready():
+	InitPos = global_position
 	SignalBus.BossDead.connect(_on_BossDead)
 	HBar.value = 100.0
 	position = Vector2(2240,368)
@@ -40,8 +43,8 @@ func _process(delta):
 				position = position.lerp(Vector2(2240,358),0.4)
 				if $Att2Timer.is_stopped() and !$PreAtt2Timer.is_stopped():
 					for i in 9-AttVariant:
-						Shoot(Vector2(1920+(i*StepAmt)+(AttVariant*StepAmt),0) , Vector2(2000+i*StepAmt-AttVariant*StepAmt,580),370.0)
-					$Att2Timer.start(0.42-(TimeRed*0.15))
+						Shoot(Vector2(1920+(i*StepAmt)+(AttVariant*StepAmt),0) , Vector2(2000+i*StepAmt-AttVariant*StepAmt,580),420.0)
+					$Att2Timer.start(0.3-(TimeRed*0.12))
 					AttVariant += 1 
 					AttVariant %= 2
 			2:
@@ -128,3 +131,20 @@ func _on_BossDead(type):
 func get_dmg(amt):
 	Health -= amt
 	HBar.value = (Health / InitHealth) * 100 
+
+func RESET():
+	if Globals.BossKilled[Globals.VoidSpaghetti] == false:
+		Activar = false
+		for i in $"../Bullets".get_children():
+			i.queue_free()
+		$AnimatedSprite2D.play("default")
+		global_position = InitPos
+		Health = InitHealth
+		$Att2Timer.stop()
+		$AttackTimer.stop()
+		$PreAtt2Timer.stop()
+		CAtt = 0
+		TimeRed = 0 
+		t = 0.0
+		AttVariant = 0
+		HBar.value = (Health / InitHealth) * 100 

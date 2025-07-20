@@ -324,7 +324,7 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 0.341176)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4g1i4"]
 gradient = SubResource("Gradient_lnm6e")
 
-[node name="Scene1" type="Node"]
+[node name="Scene1" type="Node" groups=["RESET"]]
 script = ExtResource("1_jith0")
 
 [node name="Layer0" type="TileMapLayer" parent="."]
@@ -1290,15 +1290,13 @@ texture_progress = ExtResource("9_kh226")
 
 [node name="Bullets" type="Node2D" parent="."]
 
-[node name="Boss1" type="Node2D" parent="."]
+[node name="Boss1" type="Node2D" parent="." groups=["RESET"]]
 position = Vector2(2240, 368)
 script = ExtResource("16_w8lli")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss1"]
 sprite_frames = SubResource("SpriteFrames_f3pac")
-animation = &"Spin"
 autoplay = "default"
-frame_progress = 0.489545
 
 [node name="Area2D" type="Area2D" parent="Boss1" groups=["Enemy"]]
 

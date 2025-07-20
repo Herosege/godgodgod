@@ -150,6 +150,7 @@ func _on_village_pass_body_entered(body):
 
 func RESET():
 	$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
+	$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
 	if randf() < 0.01:
 		RandomEvent()
 	CheckMusic()

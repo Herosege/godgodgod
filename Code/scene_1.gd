@@ -23,7 +23,7 @@ func _ready():
 
 func _on_Trigger_Boss(type):
 	if type == 1:
-		$BossTrigger.call_deferred("queue_free")
+		$BossTrigger/CollisionShape2D.set_deferred("disabled",true)
 		$BossWall/CollisionShape2D.set_deferred("disabled",false)
 		$BossWall.visible = true
 		$MusicBoss.play()
@@ -41,6 +41,7 @@ func _on_EffectChange(value,type):
 	if value == true and type == Globals.Beer and !GateOpened:
 		GateOpened = true
 		$Gate2.call_deferred("queue_free")
+		pass
 #stuff
 
 func _on_idk_body_entered(body):
@@ -57,3 +58,11 @@ func _on_idk_body_exited(body):
 func _on_boss_trigger_body_entered(body):
 	if body.is_in_group("player"):
 		SignalBus.emit_signal("TriggerBoss",1)
+
+func RESET():
+	if Globals.BossKilled[Globals.VoidSpaghetti] == false:
+		$BossTrigger/CollisionShape2D.set_deferred("disabled",false)
+		$BossWall/CollisionShape2D.set_deferred("disabled",true)
+		$BossWall.visible = false
+	$Stuff/MovingStuff/AnimationPlayer.play("RESET")
+	$MusicBoss.stop()
