@@ -31,8 +31,9 @@ var VPort = Vector2(640,480)
 var MovementVel : Vector2
 var AdditVel : Vector2
 
+var Immortalix
+
 func _ready():
-	$BloodParticles2.emitting = true
 	position = Globals.SavedPos[0]
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
@@ -44,8 +45,6 @@ func _ready():
 	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
 
 func _process(delta):
-	
-	
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
@@ -58,6 +57,10 @@ func _process(delta):
 	MoveDirection()
 	
 	move_and_slide()
+
+func _physics_process(delta):
+	if Immortalix:
+		Immortalix = false
 
 func GetGravity():
 	return JGrav if velocity.y < 0 else FGrav 
@@ -122,7 +125,7 @@ func MoveDirection():
 #Timers
 
 func _on_coyote_timer_timeout():
-	JumpAmount = 1;
+	JumpAmount = 1
 
 func GetVelocity(StdVel):
 	return StdVel 
@@ -132,19 +135,16 @@ func _on_buffer_timer_timeout():
 
 func ResetPosition():
 	#await get_tree().process_frame
-	$BloodParticles.emitting = false
 	$BloodParticles.visible = false
 	position = Globals.SavedPos[0]
 
 func Die():
-	$BloodParticles.restart()
-	$BloodParticles.emitting = true
 	get_tree().paused = true
 	Globals.NumDeaths += 1
 	velocity = Vector2(0,0)
 	Globals.DisableAction = true
-	$AnimatedSprite2D.visible = false	
-	
+	$AnimatedSprite2D.visible = false
+	$BloodParticles.restart()
 	$BloodParticles.visible = true
 
 func Jump():
@@ -169,7 +169,7 @@ func OnLaunchPlayer(Vel,Str):
 	velocity.y = Vel.y * JumpStr * Str * 2.2
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("killplayer"):
+	if area.is_in_group("killplayer") and !Immortalix:
 		Die()
 
 func RESET():

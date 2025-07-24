@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4bj4xgj6l01p"]
+[gd_scene load_steps=25 format=3 uid="uid://c4bj4xgj6l01p"]
 
 [ext_resource type="Texture2D" uid="uid://b67hblyynrg5w" path="res://Assets/player.png" id="1_dqe2t"]
 [ext_resource type="Script" uid="uid://6b8p1ln4hwpf" path="res://Code/player.gd" id="1_xtj4b"]
@@ -74,7 +74,7 @@ size = Vector2(12, 14)
 _data = [Vector2(0, 1), 0.0, -0.126796, 0, 0, Vector2(1, 0), -2.82575, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_43arx"]
+[sub_resource type="CurveTexture" id="CurveTexture_ukyrk"]
 curve = SubResource("Curve_sq76m")
 
 [sub_resource type="Curve" id="Curve_4b5ms"]
@@ -82,26 +82,31 @@ _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_tnv02"]
+[sub_resource type="CurveTexture" id="CurveTexture_7dp3o"]
 curve = SubResource("Curve_4b5ms")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fw6ms"]
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
 spread = 60.0
-initial_velocity_min = 300.0
+initial_velocity_min = 130.0
 initial_velocity_max = 350.0
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
 gravity = Vector3(0, 300, 0)
-radial_accel_curve = SubResource("CurveTexture_tnv02")
+radial_accel_curve = SubResource("CurveTexture_7dp3o")
 scale_over_velocity_min = 0.1
 scale_over_velocity_max = 10.0
 color = Color(1, 0, 0, 1)
-alpha_curve = SubResource("CurveTexture_43arx")
+alpha_curve = SubResource("CurveTexture_ukyrk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
 size = Vector2(12, 14)
+
+[sub_resource type="Gradient" id="Gradient_ukyrk"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.246667, 0.746667)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
 [node name="Player" type="CharacterBody2D" groups=["RESET", "player"]]
 collision_layer = 3
@@ -164,20 +169,8 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="BloodParticles" type="GPUParticles2D" parent="."]
-process_mode = 3
-z_index = 2
-emitting = false
-amount = 32
-texture = ExtResource("3_4coqo")
-lifetime = 2.0
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_fw6ms")
-
 [node name="BloodParticles2" type="GPUParticles2D" parent="."]
 process_mode = 3
-visible = false
 z_index = 2
 emitting = false
 amount = 32
@@ -185,6 +178,7 @@ texture = ExtResource("3_4coqo")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 20
 process_material = SubResource("ParticleProcessMaterial_fw6ms")
 
 [node name="JumpSE" type="AudioStreamPlayer" parent="."]
@@ -200,6 +194,29 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ukyrk")
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+process_mode = 3
+physics_interpolation_mode = 0
+z_index = 2
+emitting = false
+amount = 32
+texture = ExtResource("3_4coqo")
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.2
+explosiveness = 0.97
+draw_order = 1
+direction = Vector2(0, -1)
+spread = 70.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 100.0
+initial_velocity_max = 350.0
+radial_accel_min = -25.0
+radial_accel_max = 25.0
+angle_min = -360.0
+angle_max = 360.0
+color_ramp = SubResource("Gradient_ukyrk")
 
 [connection signal="animation_finished" from="AnimatedSprite2D/Weapons/Weapon/AnimatedSprite2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="AnimatedSprite2D/Weapons/Weapon/Area2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_area_2d_area_entered"]

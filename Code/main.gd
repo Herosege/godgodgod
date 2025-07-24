@@ -13,6 +13,9 @@ var CPlaying = 0
 var EndGame = false
 
 func _ready():
+	$BloodParticles2.emitting = true
+	$BloodParticles2.visible = false
+	
 	Globals.stoptime = false
 	PNode.global_position = Globals.SavedPos[0]
 	$ImpStuff/Label.visible = !Globals.EnemiesKilled

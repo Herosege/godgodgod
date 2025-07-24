@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=4 uid="uid://dcqnibnlrp0kn"]
+[gd_scene load_steps=151 format=4 uid="uid://dcqnibnlrp0kn"]
 
 [ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="1_8umw3"]
 [ext_resource type="Script" uid="uid://bqdkiow0rytcj" path="res://Code/main.gd" id="1_bom7q"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://be7uwansyxlaq" path="res://Assets/wife.png" id="31_qr8uo"]
 [ext_resource type="AudioStream" uid="uid://b34nsg4vl273x" path="res://Assets/Sound/randomdecimation.ogg" id="32_c7y65"]
 [ext_resource type="Texture2D" uid="uid://cpvl4l04u76g" path="res://Assets/s_idle_0.png" id="37_7iso7"]
+[ext_resource type="Texture2D" uid="uid://kbicolobgxch" path="res://Assets/ciucmok.png" id="42_o1aky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_visyv"]
 texture = ExtResource("5_6mg7v")
@@ -1144,6 +1145,36 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dka1l"]
 gradient = SubResource("Gradient_t0iea")
 height = 48
+
+[sub_resource type="Curve" id="Curve_kwxat"]
+_data = [Vector2(0, 1), 0.0, -0.126796, 0, 0, Vector2(1, 0), -2.82575, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_43arx"]
+curve = SubResource("Curve_kwxat")
+
+[sub_resource type="Curve" id="Curve_aa8k8"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tnv02"]
+curve = SubResource("Curve_aa8k8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kqrg6"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 130.0
+initial_velocity_max = 350.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 300, 0)
+radial_accel_curve = SubResource("CurveTexture_tnv02")
+scale_over_velocity_min = 0.1
+scale_over_velocity_max = 10.0
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_43arx")
 
 [node name="Main" type="Node2D" groups=["RESET"]]
 script = ExtResource("1_bom7q")
@@ -3195,6 +3226,17 @@ texture = ExtResource("16_w2tmx")
 [node name="BGTIMER" type="Timer" parent="FunnyStuff"]
 wait_time = 0.08
 one_shot = true
+
+[node name="BloodParticles2" type="GPUParticles2D" parent="."]
+process_mode = 3
+z_index = 2
+emitting = false
+amount = 32
+texture = ExtResource("42_o1aky")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_kqrg6")
 
 [connection signal="body_entered" from="SpikeAreas/Area2D" to="SpikeAreas" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Stuff/VillageGate/VillagePass" to="." method="_on_village_pass_body_entered"]

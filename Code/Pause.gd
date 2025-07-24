@@ -7,12 +7,10 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ResetInp"):
-		await get_tree().physics_frame
 		ResetStuff()
 
 func ResetStuff():
-	if PlayerNode:
-		PlayerNode.position = Globals.SavedPos[0]
+	
 	SignalBus.emit_signal("ResetPos")
 	Globals.DisableAction = false
 	get_tree().paused = false
@@ -25,3 +23,4 @@ func ResetStuff():
 	else:
 		get_tree().call_group("RESET","RESET")
 		#get_tree().reload_current_scene()
+	PlayerNode.Immortalix = true
