@@ -31,6 +31,8 @@ func _on_Trigger_Boss(type):
 var CDir = 1
 
 func _process(delta):
+	if $Music1.pitch_scale != 0.25:
+		$Music1.pitch_scale = 0.25
 	if randf() > 0.3:
 		$Stuff/Npcs/idk/goodlabel.position.y += CDir 
 		CDir = -CDir

@@ -1256,7 +1256,6 @@ shape = SubResource("RectangleShape2D_8wfcr")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Stuff/Npcs/idk"]
 stream = SubResource("AudioStreamOggVorbis_o583h")
 volume_db = -20.0
-pitch_scale = 2.5
 
 [node name="goodlabel" type="Label" parent="Stuff/Npcs/idk"]
 z_index = -1

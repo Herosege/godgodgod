@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbu8p4phypjo1"]
+
+[ext_resource type="Texture2D" uid="uid://bqeq7538hsgj6" path="res://Assets/village/Spy1.png" id="1_n12so"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8d37"]
+atlas = ExtResource("1_n12so")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4g8v"]
+atlas = ExtResource("1_n12so")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j61od"]
+atlas = ExtResource("1_n12so")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojws7"]
+atlas = ExtResource("1_n12so")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n12so"]
+atlas = ExtResource("1_n12so")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp14v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8d37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4g8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j61od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4g8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8d37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojws7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n12so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojws7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="SpikeEye" type="Area2D" groups=["killplayer"]]
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 13, 13, 13, 0, -13)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wp14v")
+autoplay = "default"
+frame_progress = 0.499039

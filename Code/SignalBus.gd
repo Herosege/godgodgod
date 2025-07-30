@@ -20,3 +20,5 @@ signal Save(Type)
 signal GetItem(Type)
 
 signal LaunchPlayer(Vel)
+
+signal FOrbUse

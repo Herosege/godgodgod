@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs3pu7il3uyv2"
-path="res://.godot/imported/Spy4.png-24973ce5127a006ec7930b99f8b31e65.ctex"
+uid="uid://c202id4fuoork"
+path="res://.godot/imported/FragileOrb.png-647ce77df5fc963cd2c9b80ec87d68af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/village/Spy4.png"
-dest_files=["res://.godot/imported/Spy4.png-24973ce5127a006ec7930b99f8b31e65.ctex"]
+source_file="res://Assets/village/FragileOrb.png"
+dest_files=["res://.godot/imported/FragileOrb.png-647ce77df5fc963cd2c9b80ec87d68af.ctex"]
 
 [params]
 

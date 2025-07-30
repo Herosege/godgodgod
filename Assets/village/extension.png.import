@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxdgmy72pmj07"
-path="res://.godot/imported/Spy5.png-dff1120e3af17cec709d000ca8aef5de.ctex"
+uid="uid://dwaq44380wf18"
+path="res://.godot/imported/extension.png-10c4d46ff7682e219e412758e622657a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/village/Spy5.png"
-dest_files=["res://.godot/imported/Spy5.png-dff1120e3af17cec709d000ca8aef5de.ctex"]
+source_file="res://Assets/village/extension.png"
+dest_files=["res://.godot/imported/extension.png-10c4d46ff7682e219e412758e622657a.ctex"]
 
 [params]
 

@@ -62,13 +62,16 @@ func _ready():
 	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
 	
 	SignalBus.Save.connect(SaveData)
+	
+	### DEBUG POSITIONS
+	
 	#BeerRoom - Curse
 	#SavedPos[0] = Vector2(-600,1290)
 	#SavedPos[1] = 1
 	
 	#Start - Curse
-	SavedPos[0] = Vector2(104,208)
-	SavedPos[1] = 1
+	#SavedPos[0] = Vector2(104,208)
+	#SavedPos[1] = 1
 	
 	#onen - main
 	#SavedPos[0] = Vector2(4100,-100)
@@ -105,6 +108,10 @@ func _ready():
 	#village start - village
 	#SavedPos[0] = Vector2(60,400)
 	#SavedPos[1] = 2
+	
+	#tower clouds - village
+	SavedPos[0] = Vector2(935,-632)
+	SavedPos[1] = 2
 
 func _process(delta):
 	if !stoptime:

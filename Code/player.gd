@@ -43,6 +43,7 @@ func _ready():
 	SignalBus.GetWeapon.connect(GetWeapon)
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
+	SignalBus.FOrbUse.connect(OnFOrbUse)
 
 func _process(delta):
 	CRoomPos.x = floor(global_position.x / VPort.x)
@@ -113,13 +114,17 @@ func MoveDirection():
 	if is_on_floor():
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.54)
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
+		AdditVel.y = 0.0
 	else:
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
+		AdditVel.y = move_toward(AdditVel.y, 0, initVertSpeed/7)
 		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/10)
 	if is_on_wall():
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
-	
+	if is_on_ceiling():
+		AdditVel.y = lerp(AdditVel.y, 0.0, 0.50)
+	velocity.y += AdditVel.y
 	velocity.x = MovementVel.x + AdditVel.x
 
 #Timers
@@ -149,6 +154,7 @@ func Die():
 
 func Jump():
 	velocity.y = JVel
+	AdditVel.y = 0.0
 	JumpAmount -= 1
 	$JumpSE.play()
 	if !Input.is_action_pressed("JumpInp") and velocity.y < 0.0: 
@@ -167,6 +173,12 @@ func OnEnemyKilled(type):
 func OnLaunchPlayer(Vel,Str):
 	AdditVel.x = Vel.x * initVertSpeed * Str
 	velocity.y = Vel.y * JumpStr * Str * 2.2
+
+func OnFOrbUse():
+	AdditVel.y = -200
+	if velocity.y > 0:
+		velocity.y = 0.0
+	#velocity.y = -1000
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer") and !Immortalix:

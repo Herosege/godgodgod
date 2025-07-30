@@ -25,13 +25,8 @@ func _ready():
 		Pos = G1[i].position.y
 	if Globals.RotCKilled:
 		$Npcs/henryk2.visible = false
-		$CursePillar/Area2D.queue_free()
-		$EndStuff/TextureRect.visible = false
-		$CursePillar.visible = false
-		$EndStuff/TileMapLayer2.queue_free()
-		$EndStuff/TileMapLayer3.position = Vector2.ZERO
-		$EndStuff/TextureRect2.visible = true
-		$EndStuff/TextureRectG.visible = true
+		UnrotCurse()
+
 	CheckMusic()
 	UpdateMusic()
 	
@@ -112,17 +107,8 @@ func EndScene(hasSpecial):
 	
 	await get_tree().create_timer(2.7).timeout
 	Globals.RotCKilled = true
-	$Npcs/henryk2/Label.text = ""
-	$Npcs/henryk2/AnimatedSprite2D.stop()
-	$Npcs/npc/AudioStreamPlayer.stop()
-	$EndStuff/AudioStreamPlayer.stop()
-	$Music5.stop()
-	$EndStuff/TextureRect.visible = false
-	$CursePillar.visible = false
-	$EndStuff/TileMapLayer2.queue_free()
-	$EndStuff/TileMapLayer3.position = Vector2.ZERO
-	$EndStuff/TextureRect2.visible = true
-	$EndStuff/TextureRectG.visible = true
+	Globals.SavedPos[0] = Vector2(8400,320)
+	UnrotCurse()
 	await get_tree().create_timer(0.7).timeout
 	$Npcs/henryk2/Label.text = "OH WOW... THIS ACTUALLY WORKED"
 	await get_tree().create_timer(2.7).timeout
@@ -157,3 +143,27 @@ func RESET():
 	if randf() < 0.01:
 		RandomEvent()
 	CheckMusic()
+
+func UnrotCurse():
+	$dadoor.position = Vector2(8304,96)
+	$Npcs/henryk2/Label.text = ""
+	$Npcs/henryk2/AnimatedSprite2D.stop()
+	$Npcs/npc/AudioStreamPlayer.stop()
+	$EndStuff/AudioStreamPlayer.stop()
+	$Music5.stop()
+	$EndStuff/TextureRect.visible = false
+	$CursePillar.queue_free()
+	$EndStuff/TileMapLayer2.queue_free()
+	$EndStuff/TileMapLayer3.position = Vector2.ZERO
+	$EndStuff/TextureRect2.visible = true
+	$EndStuff/TextureRect3.visible = true
+	$EndStuff/TextureRect4.visible = true
+	$EndStuff/TextureRect5.visible = true
+	$EndStuff/TextureRect6.visible = true
+	$EndStuff/TextureRect7.visible = true
+	$EndStuff/TextureRectG.visible = true
+	for i in range(1,$Enemies.get_children().size()):
+		$Enemies.get_child(i).queue_free()
+	$Visual/stuff/Sprite2D.modulate = Color.BLACK
+	$Visual/stuff/Sprite2D2.modulate = Color.BLACK
+	$SpikeAreas/Area2D/CollisionShape2D6.set_deferred("position",Vector2(6166,0))
