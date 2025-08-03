@@ -175,6 +175,12 @@ func load_game(file,DataName,def):
 		
 		return data[DataName]
 
+func SetPlayerPos(Pos:Vector2):
+	var PNode = get_tree().get_first_node_in_group("player")
+	print(PNode)
+	if PNode:
+		PNode.global_position = Pos
+
 func save_game(file,SaveCont):
 	var SaveFile = FileAccess.open(file, FileAccess.WRITE)
 	SaveFile.store_line(JSON.stringify(SaveCont))

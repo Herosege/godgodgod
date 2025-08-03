@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://elfo7k1ehl6k"]
+
+[ext_resource type="Script" uid="uid://bdqiuoghw18k5" path="res://Code/village/fragile_orb.gd" id="1_1t26n"]
+[ext_resource type="Texture2D" uid="uid://c202id4fuoork" path="res://Assets/village/FragileOrb.png" id="2_61dai"]
+[ext_resource type="Texture2D" uid="uid://ntkl0c63jjgv" path="res://Assets/village/FragileOrb_NA.png" id="4_al0u4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iusbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_61dai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_al0u4")
+}],
+"loop": true,
+"name": &"not_avi",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pi4i"]
+radius = 15.0
+
+[node name="FragileOrb" type="Area2D" groups=["RESET"]]
+script = ExtResource("1_1t26n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iusbc")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0pi4i")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

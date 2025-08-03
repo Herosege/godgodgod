@@ -118,13 +118,15 @@ func MoveDirection():
 	else:
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
-		AdditVel.y = move_toward(AdditVel.y, 0, initVertSpeed/7)
+		AdditVel.y = move_toward(AdditVel.y, 0, initVertSpeed/6)
 		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/10)
 	if is_on_wall():
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
 	if is_on_ceiling():
 		AdditVel.y = lerp(AdditVel.y, 0.0, 0.50)
-	velocity.y += AdditVel.y
+	#velocity.y += AdditVel.y
+	if AdditVel.y:
+		velocity.y = AdditVel.y
 	velocity.x = MovementVel.x + AdditVel.x
 
 #Timers
@@ -174,11 +176,11 @@ func OnLaunchPlayer(Vel,Str):
 	AdditVel.x = Vel.x * initVertSpeed * Str
 	velocity.y = Vel.y * JumpStr * Str * 2.2
 
+const FOrbVelocity = -750
+
 func OnFOrbUse():
-	AdditVel.y = -200
-	if velocity.y > 0:
-		velocity.y = 0.0
-	#velocity.y = -1000
+	velocity.y = 0.0
+	AdditVel.y = FOrbVelocity
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer") and !Immortalix:
@@ -189,3 +191,4 @@ func RESET():
 	CanCoyote = false
 	JumpAmount = 1
 	velocity = Vector2.ZERO
+	AdditVel = Vector2.ZERO
