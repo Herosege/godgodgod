@@ -39,7 +39,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [node name="Save" type="Area2D"]
@@ -59,7 +59,7 @@ shape = SubResource("CircleShape2D_uehmx")
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_8wtvq")
 autoplay = "default"
-frame_progress = 0.585341
+frame_progress = 0.0405543
 
 [node name="SaveSE" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6l35c")

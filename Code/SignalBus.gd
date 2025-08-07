@@ -22,3 +22,7 @@ signal GetItem(Type)
 signal LaunchPlayer(Vel)
 
 signal FOrbUse
+
+signal ShowDialogue(TextArr,OnBottom,IsPaused,Skippable,OptionalTimer)
+signal DialStop
+signal DialFinish(Early)

@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 36.0
+const InitHealth = 42.5
 var Health = InitHealth
 
 var CAtt = 0

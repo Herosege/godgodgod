@@ -9,7 +9,7 @@ var CurWeapon = Axe
 enum {Dmg,Cd}
 
 var Weapons = [
-	[1.75,0.05]
+	[1.75,0.125]
 ]
 
 func _ready():
@@ -42,7 +42,8 @@ func _on_area_2d_area_entered(area):
 		area.get_parent().get_dmg(Weapons[CurWeapon][Dmg])
 
 func _on_change_effect(value,type):
-	Weapons[Axe][Dmg] = 1.75+(int(value)*0.75)
+	Weapons[Axe][Dmg] = 1.75 if !Globals.EffectActive[Globals.Beer] or Globals.EffectActive[Globals.Milk] else 2.5
+	#print(Weapons[Axe][Dmg])
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enttree"):

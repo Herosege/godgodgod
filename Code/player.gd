@@ -9,6 +9,8 @@ class_name PlayerMain
 const MinVelY = 130
 const initVertSpeed = 200
 
+const MAX_Y_VELOCITY = 1500
+
 var CanBufferJump = false
 var CanCoyote = false
 var JumpAmount = 1
@@ -52,11 +54,12 @@ func _process(delta):
 	if AddVel:
 		AddVel = AddVel.lerp(Vector2(0,0),0.1)
 	velocity.y += GetGravity() * delta
-	velocity.y = clamp(velocity.y,-2000,2000)
+	
 	
 	CheckInputs()
 	MoveDirection()
 	
+	velocity.y = clamp(velocity.y,-MAX_Y_VELOCITY,MAX_Y_VELOCITY)
 	move_and_slide()
 
 func _physics_process(delta):

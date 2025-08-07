@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-const INSTANCE_COUNT := 215
+const INSTANCE_COUNT := 345
 
 @onready var MMeshInst = $MultiMeshInstance2D 
 @onready var MMeshInst2 = $MultiMeshInstance2D2
@@ -19,7 +19,7 @@ func _ready():
 			CloudsMMeshes[j].multimesh.set_instance_transform_2d(i,Transform2D(0.0,RScale,0.0,RPos))
 			
 
-const CLOUD_DISTANCE = 2130.0
+const CLOUD_DISTANCE = 3400.0
 
 func _process(delta):
 	var CloudsMMeshes = get_children()

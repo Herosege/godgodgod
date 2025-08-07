@@ -23,7 +23,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eowqw"]
@@ -97,6 +97,7 @@ script = ExtResource("1_qw2px")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d3hua")
 autoplay = "default"
+frame_progress = 0.535744
 
 [node name="Area2D" type="Area2D" parent="."]
 

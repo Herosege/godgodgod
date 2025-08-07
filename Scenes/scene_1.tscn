@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://d3kbtv5276141"]
+[gd_scene load_steps=72 format=4 uid="uid://d3kbtv5276141"]
 
 [ext_resource type="Script" uid="uid://ceq82xnlit5if" path="res://Code/scene_1.gd" id="1_jith0"]
 [ext_resource type="Texture2D" uid="uid://btv7ndr6vifff" path="res://Assets/tilemap_shit.png" id="1_v7xap"]
@@ -294,15 +294,6 @@ font = ExtResource("32_4ydcb")
 font_size = 18
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hlde"]
-bg_color = Color(0, 0, 0, 0.615686)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-border_blend = true
 
 [sub_resource type="Gradient" id="Gradient_hv815"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -1424,31 +1415,7 @@ offset_left = -330.0
 offset_top = -320.0
 offset_right = 429.0
 offset_bottom = 40.0
-text = "Hi little dinosaur
-
-As you can see this place is devoid of any life
-
-I am currently the only curse in this region as others have escaped
-because of the rotten curse that has appeared nearby
-
-Unfortunately for you it managed to get to your world 
-even though it can't travel with gates
-
-You look like someone that has suffered a lot so you may have a will to break through "
 label_settings = SubResource("LabelSettings_copum")
-
-[node name="Panel" type="Panel" parent="idk"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -336.0
-offset_top = -318.0
-offset_right = 302.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1hlde")
 
 [node name="Player" parent="." instance=ExtResource("3_vk7nq")]
 position = Vector2(109, 206)

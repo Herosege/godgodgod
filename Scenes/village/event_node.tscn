@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs6shg8k52pem"]
+
+[ext_resource type="Script" uid="uid://cewxc5jf5b1gs" path="res://Code/village/event_node.gd" id="1_7ifb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n066v"]
+
+[node name="EventNode" type="Node2D"]
+script = ExtResource("1_7ifb1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_n066v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

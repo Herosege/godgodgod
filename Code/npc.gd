@@ -48,7 +48,6 @@ func _on_area_2d_body_entered(body):
 				$Label.visible = true
 				$Label.text = Texts["onen"]
 			curse:
-				$Panel.visible = true
 				$Label.visible = true
 				
 				awaitres = true
@@ -69,7 +68,6 @@ func _on_area_2d_body_exited(body):
 				$Label.visible = false
 			curse:
 				SignalBus.emit_signal("SetHudMessage","",0)
-				$Panel.visible = false
 				$Label.visible = false
 				awaitres = false
 			ONEN:
@@ -108,15 +106,14 @@ var Texts = {
 	
 	#
 	
-	"onen":"Hello Othenson
-	I haven't seen you for a while
-	I hope that you are doing well
-	
-	As you can see the gate to the bridge is still closed
-	I've been waiting for a really long time
-	
-	Maybe you could help somehow
-	You were always really good at finding solutions to problems like this",
+	"onen":"hey othenson
+
+There is a new bar in the village to the east of here across the bridge
+it would be cool if we went there
+
+Unfortunately the bridge collapsed and the gate is broken or something because it's not opening, but I think that won't stop you since you are basically immortal
+
+So good luck and see you there!",
 	
 	#
 	

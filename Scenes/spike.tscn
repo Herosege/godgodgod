@@ -109,8 +109,9 @@ shape = SubResource("RectangleShape2D_pw0f4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_8ncys")
-animation = &"BridgeSpike"
+animation = &"Flower"
 autoplay = "Flower"
-frame_progress = 0.760422
+frame = 3
+frame_progress = 0.0858565
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

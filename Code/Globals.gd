@@ -10,6 +10,8 @@ var AreaScenes = [
 
 enum area {wonderful_place, curse_world}
 
+var InDialogue := false
+
 var CArea : int
 var SavedPos = [
 	Vector2(109,206), #Coords
@@ -74,7 +76,7 @@ func _ready():
 	#SavedPos[1] = 1
 	
 	#onen - main
-	#SavedPos[0] = Vector2(4100,-100)
+	SavedPos[0] = Vector2(4200,-100)
 	
 	#Bridge - main
 	#SavedPos[0] = Vector2(5200,-220)
@@ -105,13 +107,17 @@ func _ready():
 	#SavedPos[0] = Vector2(2616,1320)
 	#SavedPos[1] = 1
 	
-	#village start - village
+	#start - village
 	#SavedPos[0] = Vector2(60,400)
 	#SavedPos[1] = 2
 	
 	#tower clouds - village
-	SavedPos[0] = Vector2(935,-632)
-	SavedPos[1] = 2
+	#SavedPos[0] = Vector2(935,-632)
+	#SavedPos[1] = 2
+	
+	#first island - village
+	#SavedPos[0] = Vector2(570,-1624)
+	#SavedPos[1] = 2
 
 func _process(delta):
 	if !stoptime:
@@ -127,7 +133,8 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		#for i in Items[0].size():
 			#Items[0][i] = true
-		#Items[0][1] = true
+		Items[Passive][Beer] = true
+		Items[Passive][Milk] = true
 		Items[Weapon][Axe] = true
 		#SpecialItem = true
 		#BossKilled[VoidSpaghetti] = true
@@ -177,7 +184,6 @@ func load_game(file,DataName,def):
 
 func SetPlayerPos(Pos:Vector2):
 	var PNode = get_tree().get_first_node_in_group("player")
-	print(PNode)
 	if PNode:
 		PNode.global_position = Pos
 
