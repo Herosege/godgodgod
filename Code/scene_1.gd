@@ -67,4 +67,5 @@ func RESET():
 		$BossWall/CollisionShape2D.set_deferred("disabled",true)
 		$BossWall.visible = false
 	$Stuff/MovingStuff/AnimationPlayer.play("RESET")
+	$Stuff/MovingStuff/AnimationPlayer.play("plat")
 	$MusicBoss.stop()

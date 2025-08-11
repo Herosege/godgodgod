@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 42.5
+const InitHealth = 30.0
 var Health = InitHealth
 
 var CAtt = 0
@@ -23,7 +23,8 @@ func _ready():
 
 var t = 0.0
 var AttVariant = 0
-const StepAmt = 640 / 9
+const Steps = 7
+const StepAmt = 640 / Steps
 
 func _process(delta):
 	t += delta * 3.0
@@ -40,13 +41,14 @@ func _process(delta):
 		
 		match CAtt:
 			1:
-				position = position.lerp(Vector2(2240,358),0.4)
+				position = position.lerp(Vector2(sin(t)*150+2240,328),0.12)
 				if $Att2Timer.is_stopped() and !$PreAtt2Timer.is_stopped():
-					for i in 9-AttVariant:
+					for i in Steps-AttVariant:
 						Shoot(Vector2(1920+(i*StepAmt)+(AttVariant*StepAmt),0) , Vector2(2000+i*StepAmt-AttVariant*StepAmt,580),420.0)
-					$Att2Timer.start(0.3-(TimeRed*0.12))
+					$Att2Timer.start(0.32-(TimeRed*0.08))
 					AttVariant += 1 
 					AttVariant %= 2
+				
 			2:
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
 					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/1.5),PlayerNode.global_position.y),300.0)
@@ -60,7 +62,7 @@ func _process(delta):
 					for i in 12+AttVariant:
 						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i) + global_position.x 
 						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) ,300.0)
-					$Att2Timer.start(0.6+(0.6*AttVariant)-(TimeRed*0.1))
+					$Att2Timer.start(0.4+(0.6*AttVariant)-(TimeRed*0.1))
 					AttVariant += 1
 					AttVariant %= 2
 		
@@ -85,7 +87,7 @@ func Attack(type):
 			CAtt = 2
 			pass
 		2:
-			$AttackTimer.start(4.0-(TimeRed*1))
+			$AttackTimer.start(3.5-(TimeRed*1))
 			$PreAtt2Timer.start(0.8-(TimeRed*0.1))
 			$AnimatedSprite2D.animation = "default"
 			CAtt = 3
@@ -148,3 +150,4 @@ func RESET():
 		t = 0.0
 		AttVariant = 0
 		HBar.value = (Health / InitHealth) * 100 
+		$"../MusicBoss".pitch_scale = 1

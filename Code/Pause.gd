@@ -6,7 +6,7 @@ func _ready():
 	get_tree().paused = false
 
 func _process(delta):
-	if Input.is_action_just_pressed("ResetInp"):
+	if Input.is_action_just_pressed("ResetInp") and !Globals.MenuPaused:
 		ResetStuff()
 
 func ResetStuff():

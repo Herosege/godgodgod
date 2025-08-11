@@ -87,7 +87,8 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		$CursePillar/Area2D.queue_free()
 		$dadoor.position = Vector2(8304,96)
-		
+		Globals.SavedPos[0] = Vector2(8400,320)
+		Globals.SavedPos[1] = 0
 		EndScene(Globals.SpecialItem)
 
 func EndScene(hasSpecial):
@@ -107,7 +108,7 @@ func EndScene(hasSpecial):
 	
 	await get_tree().create_timer(2.7).timeout
 	Globals.RotCKilled = true
-	Globals.SavedPos[0] = Vector2(8400,320)
+	
 	UnrotCurse()
 	await get_tree().create_timer(0.7).timeout
 	$Npcs/henryk2/Label.text = "OH WOW... THIS ACTUALLY WORKED"
@@ -135,6 +136,7 @@ func _on_bgtimer_timeout():
 func _on_village_pass_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.SavedPos[0] = Vector2(60,400)
+		Globals.SavedPos[1] = 2
 		get_tree().call_deferred("change_scene_to_file","res://Scenes/village_1.tscn")
 
 func RESET():

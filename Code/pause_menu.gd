@@ -11,6 +11,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause") and !Globals.DisableAction:
+		Globals.MenuPaused = !Globals.MenuPaused
 		BeerBtn.button_pressed = Globals.EffectActive[Globals.Beer]
 		MilkBtn.button_pressed = Globals.EffectActive[Globals.Milk]
 		visible = !visible
@@ -22,6 +23,7 @@ func _on_exit_button_pressed():
 	get_tree().quit()
 
 func _on_back_button_pressed():
+	Globals.MenuPaused = false
 	visible = false
 	get_tree().paused = false
 

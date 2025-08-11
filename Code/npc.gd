@@ -108,7 +108,7 @@ var Texts = {
 	
 	"onen":"hey othenson
 
-There is a new bar in the village to the east of here across the bridge
+There is a new tavern in the village to the east of here across the bridge
 it would be cool if we went there
 
 Unfortunately the bridge collapsed and the gate is broken or something because it's not opening, but I think that won't stop you since you are basically immortal

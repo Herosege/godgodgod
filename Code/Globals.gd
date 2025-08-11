@@ -11,6 +11,7 @@ var AreaScenes = [
 enum area {wonderful_place, curse_world}
 
 var InDialogue := false
+var MenuPaused := false
 
 var CArea : int
 var SavedPos = [
@@ -67,6 +68,8 @@ func _ready():
 	
 	### DEBUG POSITIONS
 	
+	#Items[Weapon][Axe] = true
+	
 	#BeerRoom - Curse
 	#SavedPos[0] = Vector2(-600,1290)
 	#SavedPos[1] = 1
@@ -76,7 +79,7 @@ func _ready():
 	#SavedPos[1] = 1
 	
 	#onen - main
-	SavedPos[0] = Vector2(4200,-100)
+	#SavedPos[0] = Vector2(4200,-100)
 	
 	#Bridge - main
 	#SavedPos[0] = Vector2(5200,-220)
@@ -118,6 +121,20 @@ func _ready():
 	#first island - village
 	#SavedPos[0] = Vector2(570,-1624)
 	#SavedPos[1] = 2
+	
+	#back to tower after island - village
+	#SavedPos[0] = Vector2(980,-2010)
+	#SavedPos[1] = 2
+	
+	#Tower after chain jumping - village
+	#SavedPos[0] = Vector2(790,-3495)
+	#SavedPos[1] = 2
+	
+	#tower moving objects start - village
+	#SavedPos[0] = Vector2(662,-4053)
+	#SavedPos[1] = 2
+
+const CAM_ZOOM = 0.15
 
 func _process(delta):
 	if !stoptime:
@@ -133,11 +150,18 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		#for i in Items[0].size():
 			#Items[0][i] = true
-		Items[Passive][Beer] = true
-		Items[Passive][Milk] = true
-		Items[Weapon][Axe] = true
-		#SpecialItem = true
-		#BossKilled[VoidSpaghetti] = true
+		#Items[Passive][Beer] = true
+		#Items[Passive][Milk] = true
+		#Items[Weapon][Axe] = true
+		
+	#if Input.is_action_just_pressed("debug2"):
+		#var CAM = get_tree().get_first_node_in_group("cam")
+		#
+		#if CAM:
+			#if CAM.zoom == Vector2(CAM_ZOOM,CAM_ZOOM):
+				#CAM.zoom /= CAM_ZOOM
+			#else:
+				#CAM.zoom *= CAM_ZOOM
 
 func SaveData(type):
 	if type == 0:

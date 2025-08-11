@@ -27,4 +27,5 @@ func RoundNearest(val,base):
 func RESET():
 	$Area2D/CollisionShape2D.set_deferred("disabled",false)
 	$AnimationPlayer.play("RESET")
+	$AnimatedSprite2D.play("default")
 	visible = true

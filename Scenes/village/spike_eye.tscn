@@ -55,10 +55,9 @@ animations = [{
 }]
 
 [node name="SpikeEye" type="Area2D" groups=["killplayer"]]
-metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-13, 13, 13, 13, 0, -13)
+polygon = PackedVector2Array(-11, 13, 11, 13, 0, -12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wp14v")

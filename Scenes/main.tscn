@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=4 uid="uid://dcqnibnlrp0kn"]
+[gd_scene load_steps=159 format=4 uid="uid://dcqnibnlrp0kn"]
 
 [ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="1_8umw3"]
 [ext_resource type="Script" uid="uid://bqdkiow0rytcj" path="res://Code/main.gd" id="1_bom7q"]
@@ -965,9 +965,26 @@ gradient = SubResource("Gradient_o1aky")
 fill_from = Vector2(0.880734, 0.151376)
 fill_to = Vector2(0.362385, 0.889908)
 
+[sub_resource type="Gradient" id="Gradient_aa8k8"]
+offsets = PackedFloat32Array(0.0194805, 0.779221)
+colors = PackedColorArray(0.329928, 0.435542, 0.509968, 1, 0.5183, 0.66649, 0.73, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqrg6"]
+gradient = SubResource("Gradient_aa8k8")
+fill_from = Vector2(0.880734, 0.151376)
+fill_to = Vector2(0.114679, 0.766055)
+
+[sub_resource type="Gradient" id="Gradient_nwwfm"]
+offsets = PackedFloat32Array(0, 0.785714)
+colors = PackedColorArray(0.455, 0.597917, 0.7, 0.470588, 0.5183, 0.66649, 0.73, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s8vy0"]
+gradient = SubResource("Gradient_nwwfm")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.756881, 0.261468)
+
 [sub_resource type="Gradient" id="Gradient_kwxat"]
-offsets = PackedFloat32Array(0.0324675, 1)
-colors = PackedColorArray(0.329928, 0.435542, 0.509968, 1, 0.329412, 0.435294, 0.509804, 1)
+colors = PackedColorArray(0.3315, 0.435625, 0.51, 1, 0.3315, 0.435625, 0.51, 0.905882)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_aa8k8"]
 gradient = SubResource("Gradient_kwxat")
@@ -1863,7 +1880,7 @@ metadata/_edit_group_ = true
 autoplay = "Soul"
 
 [node name="SpikeR70" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
-position = Vector2(5448, 1114)
+position = Vector2(5450, 1115)
 SType = 3
 metadata/_edit_group_ = true
 
@@ -1871,7 +1888,7 @@ metadata/_edit_group_ = true
 autoplay = "Soul"
 
 [node name="SpikeR71" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
-position = Vector2(5432, 1115)
+position = Vector2(5433, 1117)
 SType = 3
 metadata/_edit_group_ = true
 
@@ -2475,7 +2492,6 @@ offset_left = 6640.0
 offset_top = -452.0
 offset_right = 6847.0
 offset_bottom = -356.0
-text = "I hope you drank something good before this"
 label_settings = SubResource("LabelSettings_p7mfv")
 autowrap_mode = 2
 
@@ -2796,7 +2812,19 @@ offset_right = 3840.0
 offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_kwxat")
+texture = SubResource("GradientTexture2D_kqrg6")
+
+[node name="TextureRect37" type="TextureRect" parent="Background/Bridge"]
+z_index = -4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3200.0
+offset_top = -480.0
+offset_right = 3840.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_s8vy0")
 
 [node name="TextureRect35" type="TextureRect" parent="Background/Bridge"]
 z_index = -4
@@ -3260,9 +3288,11 @@ offset_bottom = -33.0
 text = "Wow good job
 You managed to destroy that rotten curse, cool
 
-Anyway there is a small town to the east of here
+Anyway there is that small town to the east of here
 and the mayor wanted this rotten stuff out of here
-so they will give you something great for what you did"
+so they will give you something great for what you did
+
+so see you at the tavern!"
 label_settings = SubResource("LabelSettings_dkcn6")
 
 [node name="henryk2" type="Node2D" parent="Npcs"]
@@ -3431,6 +3461,9 @@ lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_kqrg6")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("12_ecwfj")]
+position = Vector2(3535, -792)
 
 [connection signal="body_entered" from="SpikeAreas/Area2D" to="SpikeAreas" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Stuff/VillageGate/VillagePass" to="." method="_on_village_pass_body_entered"]
