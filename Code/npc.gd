@@ -22,14 +22,15 @@ func _ready():
 func _process(delta):
 	if awaitres:
 		if Input.is_action_just_pressed("Confirm"):
-			match type:
-				curse:
-					$Label.text = Texts["cursegod1"]
-					SignalBus.emit_signal("SetHudMessage","",0)
-					if !Globals.SpecialItem:
-						Globals.SpecialItem = true
-						SignalBus.emit_signal("GetItem","wife")
-						SignalBus.emit_signal("Save",0)
+			if EventVar == 0:
+				$Label.text = Texts["cursegod1"]
+			if EventVar == 1:
+				$Label.text = Texts["cursegod2"]
+				SignalBus.emit_signal("SetHudMessage","",0)
+				if !Globals.SpecialItem:
+					$"../Secrets/Wife".position = Vector2(-2000,300)
+			EventVar += 1
+			EventVar = min(EventVar,2)
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("damage") and type == henryk:
@@ -49,10 +50,11 @@ func _on_area_2d_body_entered(body):
 				$Label.text = Texts["onen"]
 			curse:
 				$Label.visible = true
-				
+				if EventVar == 0:
+					$Label.text = Texts["cursegod"]
 				awaitres = true
-				SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
-				$Label.text = Texts["cursegod"]
+				if EventVar != 2:
+					SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
 			ONEN:
 				$Label.visible = true
 
@@ -82,28 +84,43 @@ func _on_timer_timeout():
 var Texts = {
 	"cursegod":"Hi little being
 	
-	As you can see this place is devoid of any life
+	You see something awful has happened recently 
 	
-	I am currently the only curse in this region as others have escaped
-	because of the rotten curse that has appeared nearby
+	One of us, they have been entangled in something in thier mind
+	These thoughts consumed them and out of it
+	The Rotten God came into existence
+	a powerful being that conquests and consumes everything
 	
-	Unfortunately for you it managed to get to your world 
-	even though it can't travel with gates
+	It is no longer here and spread out to your realm
 	
-	You look like someone that has suffered a lot so you may have a will to
-	do something about it",
+	We must do something about it",
 	
 	#
 	
-	"cursegod1":"Huh, there seems to be a problem 
-	I can't open the gate to the bridge
+	"cursegod1":"There is a worm named henryk
+	They are already hunting the fragments of the rotten God
 	
-	Oh well, that's unfortunate, you will have to find another way there
+	I have entrusted them with many powerful spells
+	But they definitely do not have the will
+	to actually destroy the God 
 	
-	Have a \"wife\" for your efforts though
+	You on the other hand have the will
+	You managed to obtain the piwo mocne and found me here
+	You even managed to get past the great spell of infinite protection
+	I put up at the entrance!",
 	
-	",
+	"cursegod2":"You have what it takes
 	
+	Here is the ultimate great weapon of absolute annihilation
+	called The Wife
+	It will kill them, definitely
+	
+	head to the east
+	past the bridge, past the tower
+	
+	that is where Rotten God resides 
+	
+	Rest is up to you, Good luck!",
 	#
 	
 	"onen":"hey othenson

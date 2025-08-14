@@ -108,9 +108,6 @@ func _ready():
 	#SECRET BRIDGE - main
 	#SavedPos[0] = Vector2(7050,-125)
 	
-	#test1 - curse
-	#SavedPos[0] = Vector2(2616,1320)
-	#SavedPos[1] = 1
 	
 	#start - village
 	#SavedPos[0] = Vector2(60,400)

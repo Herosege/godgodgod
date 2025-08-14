@@ -68,3 +68,12 @@ func RESET():
 	$Stuff/MovingStuff/AnimationPlayer.play("RESET")
 	$Stuff/MovingStuff/AnimationPlayer.play("plat")
 	$MusicBoss.stop()
+
+
+func _on_wife_body_entered(body): #:))))))))))
+	if body.is_in_group("player"):
+		Globals.SpecialItem = true
+		SignalBus.emit_signal("GetItem","wife")
+		SignalBus.emit_signal("Save",0)
+		$Secrets/Wife.queue_free()
+	

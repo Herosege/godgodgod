@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://d3kbtv5276141"]
+[gd_scene load_steps=74 format=4 uid="uid://d3kbtv5276141"]
 
 [ext_resource type="Script" uid="uid://ceq82xnlit5if" path="res://Code/scene_1.gd" id="1_jith0"]
 [ext_resource type="Texture2D" uid="uid://btv7ndr6vifff" path="res://Assets/tilemap_shit.png" id="1_v7xap"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dnuigegx4dbsl" path="res://Assets/Diamond.png" id="28_wpexx"]
 [ext_resource type="PackedScene" uid="uid://wbilhro3m8w2" path="res://Scenes/npc.tscn" id="31_ma3tk"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="32_4ydcb"]
+[ext_resource type="Texture2D" uid="uid://be7uwansyxlaq" path="res://Assets/wife.png" id="34_qw7vd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhrgn"]
 texture = ExtResource("1_v7xap")
@@ -292,7 +293,7 @@ size = Vector2(222, 100)
 [sub_resource type="LabelSettings" id="LabelSettings_copum"]
 font = ExtResource("32_4ydcb")
 font_size = 18
-outline_size = 4
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_hv815"]
@@ -314,6 +315,9 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 0.341176)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4g1i4"]
 gradient = SubResource("Gradient_lnm6e")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omfxm"]
+size = Vector2(100, 371)
 
 [node name="Scene1" type="Node" groups=["RESET"]]
 script = ExtResource("1_jith0")
@@ -351,6 +355,7 @@ position = Vector2(320, 240)
 [node name="CameraControl" parent="." instance=ExtResource("6_248vh")]
 
 [node name="DEBUG" parent="." instance=ExtResource("7_v71fb")]
+visible = true
 
 [node name="Music1" type="AudioStreamPlayer" parent="." groups=["Audio"]]
 stream = SubResource("AudioStreamOggVorbis_64xv5")
@@ -1472,6 +1477,20 @@ offset_right = 2560.0
 offset_bottom = 464.0
 texture = SubResource("GradientTexture2D_4g1i4")
 
+[node name="Secrets" type="Node2D" parent="."]
+
+[node name="Wife" type="Area2D" parent="Secrets"]
+position = Vector2(-1933, 1945)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Secrets/Wife"]
+position = Vector2(6, 9.5)
+shape = SubResource("RectangleShape2D_omfxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Secrets/Wife"]
+position = Vector2(3, 1)
+scale = Vector2(0.941176, 0.944196)
+texture = ExtResource("34_qw7vd")
+
 [connection signal="body_entered" from="Stuff/Balls/Ball1" to="Stuff/Balls" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Stuff/Balls/Ball2" to="Stuff/Balls" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Stuff/Balls/Ball3" to="Stuff/Balls" method="_on_area_2d_body_entered"]
@@ -1483,6 +1502,7 @@ texture = SubResource("GradientTexture2D_4g1i4")
 [connection signal="area_entered" from="Boss1/Area2D" to="Boss1" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Boss1/Att2Timer" to="Boss1" method="_on_att_2_timer_timeout"]
 [connection signal="body_entered" from="BossTrigger" to="." method="_on_boss_trigger_body_entered"]
+[connection signal="body_entered" from="Secrets/Wife" to="." method="_on_wife_body_entered"]
 
 [editable path="Hud"]
 [editable path="Gate3"]

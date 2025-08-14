@@ -102,7 +102,7 @@ func EndScene(hasSpecial):
 	
 	await get_tree().create_timer(3.0).timeout
 	$Npcs/npc/AudioStreamPlayer.volume_db = 4
-	$Npcs/henryk2/Label.text = "JKKJLLLJLLLKJJKLLKJKKKLKJJKLLKJJKLLLKJKKKLKJJKLL"
+	$Npcs/henryk2/Label.text = "COW 3000 DRINK ASBESTOR AGOLMATIC REDO FUN EXTEND 2001 FRIEND ULUBOMTEKA"
 	
 	
 	await get_tree().create_timer(2.7).timeout
@@ -112,7 +112,7 @@ func EndScene(hasSpecial):
 	await get_tree().create_timer(0.7).timeout
 	$Npcs/henryk2/Label.text = "OH WOW... THIS ACTUALLY WORKED"
 	await get_tree().create_timer(2.7).timeout
-	$Npcs/henryk2/Label.text = "ALRIGHT, BYE"
+	$Npcs/henryk2/Label.text = "ALRIGHT, BYE SEE YOU SOON :)"
 	await get_tree().create_timer(1.5).timeout
 	$Npcs/henryk2.visible = false
 
