@@ -48,10 +48,12 @@ func OnDialFinish(Early):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
+		SignalBus.emit_signal("SetHudMessage","Press space to interact",0)
 		Activar = true
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		Activar = false
+		SignalBus.emit_signal("SetHudMessage","",0)
 		if Globals.InDialogue:
 			SignalBus.emit_signal("DialStop",true)

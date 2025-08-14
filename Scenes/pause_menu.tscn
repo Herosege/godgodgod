@@ -65,6 +65,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="wife" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +145,6 @@ visible = false
 z_index = 20
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 z_index = 11
 offset_left = -23.0
 offset_top = 241.0
@@ -156,7 +156,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="DeathAmt" type="Label" parent="."]
-visible = false
 z_index = 11
 offset_left = 86.0
 offset_top = 269.0

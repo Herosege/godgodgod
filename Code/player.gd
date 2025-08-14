@@ -36,16 +36,22 @@ var AdditVel : Vector2
 var Immortalix
 
 func _ready():
-	position = Globals.SavedPos[0]
-	CRoomPos.x = floor(global_position.x / VPort.x)
-	CRoomPos.y = floor(global_position.y / VPort.y)
-	#global_position = Vector2(2050,400)
 	SignalBus.Death.connect(Die)
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.GetWeapon.connect(GetWeapon)
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
 	SignalBus.FOrbUse.connect(OnFOrbUse)
+	SignalBus.SetPlayerPosition.connect(SetPos)
+	
+	if !Globals.PosSetTravel:
+		position = Globals.SavedPos[0]
+	else:
+		position = Globals.PosSetTravel
+		Globals.PosSetTravel = Vector2.ZERO
+	CRoomPos.x = floor(global_position.x / VPort.x)
+	CRoomPos.y = floor(global_position.y / VPort.y)
+	
 
 func _process(delta):
 	CRoomPos.x = floor(global_position.x / VPort.x)
@@ -93,10 +99,10 @@ func MoveDirection():
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
 	
-	if Input.is_action_just_pressed("debug"):
-		JumpAmount = 9999
-		VertSpeed = 5000
-		position.x += 300 * direction
+	#if Input.is_action_just_pressed("debug"):
+		#JumpAmount = 9999
+		#VertSpeed = 5000
+		#position.x += 300 * direction
 	
 	if Input.is_action_pressed("Slowdown") and Globals.EffectActive[Globals.Milk]:
 		VertSpeed = 25
@@ -147,6 +153,9 @@ func ResetPosition():
 	#await get_tree().process_frame
 	$BloodParticles.visible = false
 	position = Globals.SavedPos[0]
+
+func SetPos(Pos):
+	global_position = Pos
 
 func Die():
 	get_tree().paused = true

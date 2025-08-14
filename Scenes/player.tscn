@@ -119,7 +119,7 @@ JumpStr = 65.0
 sprite_frames = SubResource("SpriteFrames_lo4u0")
 animation = &"standard"
 autoplay = "walking"
-frame_progress = 0.338306
+frame_progress = 0.688236
 
 [node name="Weapons" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(8, 0)

@@ -7,6 +7,7 @@ const INSTANCE_COUNT := 345
 @onready var MMeshInst2 = $MultiMeshInstance2D2
 @onready var MMeshInst3 = $MultiMeshInstance2D3
 
+@onready var PNode = get_tree().get_first_node_in_group("player")
 
 func _ready():
 	var CloudsMMeshes = get_children()
@@ -21,7 +22,10 @@ func _ready():
 
 const CLOUD_DISTANCE = 3400.0
 
+var PrevScreen
+
 func _process(delta):
+	
 	var CloudsMMeshes = get_children()
 	for j in CloudsMMeshes.size():
 		for i in INSTANCE_COUNT:

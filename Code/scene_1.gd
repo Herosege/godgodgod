@@ -10,7 +10,6 @@ func _ready():
 	$Music1.pitch_scale = 0.25
 	$Music1.volume_db = -13.5
 	$CameraControl.UpdateCam()
-	PNode.global_position = Globals.SavedPos[0]
 	Globals.stoptime = false
 	if Globals.BossKilled[Globals.VoidSpaghetti] == true:
 		SignalBus.emit_signal("BossDead",Globals.VoidSpaghetti)

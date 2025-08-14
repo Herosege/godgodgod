@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyb6t4vffx05"]
+[gd_scene load_steps=8 format=3 uid="uid://dyb6t4vffx05"]
 
 [ext_resource type="Script" uid="uid://c7ct3snmvtval" path="res://Code/settings_menu.gd" id="1_m0fgx"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="2_b0xc2"]
+[ext_resource type="Texture2D" uid="uid://be8sigju7o382" path="res://Assets/Interface/ciucmok.png" id="2_h2y1r"]
 [ext_resource type="FontFile" uid="uid://b6f4meh882kd6" path="res://Assets/fonts/Tiny5-Regular.ttf" id="3_a7gg2"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3etfd"]
+color = Color(0.48, 0, 0, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rahb6"]
+color = Color(0.48, 0, 0, 1)
+thickness = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_3fcy6"]
 font = ExtResource("3_a7gg2")
@@ -71,6 +80,13 @@ text = "100"
 texture_filter = 1
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_h2y1r")
+theme_override_icons/grabber_highlight = ExtResource("2_h2y1r")
+theme_override_icons/grabber_disabled = ExtResource("2_h2y1r")
+theme_override_icons/tick = ExtResource("2_h2y1r")
+theme_override_styles/slider = SubResource("StyleBoxLine_3etfd")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_3etfd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_3etfd")
 value = 100.0
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
@@ -91,6 +107,13 @@ text = "100"
 texture_filter = 1
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_h2y1r")
+theme_override_icons/grabber_highlight = ExtResource("2_h2y1r")
+theme_override_icons/grabber_disabled = ExtResource("2_h2y1r")
+theme_override_icons/tick = ExtResource("2_h2y1r")
+theme_override_styles/slider = SubResource("StyleBoxLine_rahb6")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rahb6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rahb6")
 value = 100.0
 
 [node name="ExitButton" type="TextureButton" parent="Settings"]

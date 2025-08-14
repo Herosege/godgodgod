@@ -19,6 +19,8 @@ var SavedPos = [
 	0 #Area
 ]
 
+var PosSetTravel : Vector2
+
 var ShaderType = 0
 var DisableAction = false
 
@@ -133,8 +135,12 @@ func _ready():
 	#tower moving objects start - village
 	#SavedPos[0] = Vector2(662,-4053)
 	#SavedPos[1] = 2
+	
+	#tower last challenge - village
+	#SavedPos[0] = Vector2(101,-4863)
+	#SavedPos[1] = 2
 
-const CAM_ZOOM = 0.15
+const CAM_ZOOM = 0.05
 
 func _process(delta):
 	if !stoptime:
@@ -162,6 +168,13 @@ func _process(delta):
 				#CAM.zoom /= CAM_ZOOM
 			#else:
 				#CAM.zoom *= CAM_ZOOM
+
+var SceneToLoad : String
+
+func LoadScene(SceneChangeTo):
+	SceneToLoad = SceneChangeTo
+	var LoadingScene = load("res://Scenes/loading_screen.tscn")
+	get_tree().call_deferred("change_scene_to_packed",LoadingScene)
 
 func SaveData(type):
 	if type == 0:
@@ -205,11 +218,6 @@ func load_game(file,DataName,def):
 			#return def
 		
 		return data[DataName]
-
-func SetPlayerPos(Pos:Vector2):
-	var PNode = get_tree().get_first_node_in_group("player")
-	if PNode:
-		PNode.global_position = Pos
 
 func save_game(file,SaveCont):
 	var SaveFile = FileAccess.open(file, FileAccess.WRITE)

@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 30.0
+const InitHealth = 14.0
 var Health = InitHealth
 
 var CAtt = 0
@@ -35,7 +35,7 @@ func _process(delta):
 				RandNum = randi()%3
 			Attack(RandNum)
 		
-		if Health < InitHealth/3:
+		if Health < InitHealth/2:
 			TimeRed = 1
 			$"../MusicBoss".pitch_scale = 1.2
 		
@@ -52,7 +52,7 @@ func _process(delta):
 			2:
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
 					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/1.5),PlayerNode.global_position.y),300.0)
-					$Att2Timer.start(0.33-(TimeRed*0.06))
+					$Att2Timer.start(0.33-(TimeRed*0.08))
 				position.y = lerp(position.y,290.0 + (40.0 * sin(t)) ,0.6)
 				position.x = lerp(position.x,PlayerNode.position.x,0.1)
 				
@@ -62,7 +62,7 @@ func _process(delta):
 					for i in 12+AttVariant:
 						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i) + global_position.x 
 						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) ,300.0)
-					$Att2Timer.start(0.4+(0.6*AttVariant)-(TimeRed*0.1))
+					$Att2Timer.start(0.4+(0.6*AttVariant)-(TimeRed*0.2))
 					AttVariant += 1
 					AttVariant %= 2
 		

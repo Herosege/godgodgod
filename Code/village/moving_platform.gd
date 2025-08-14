@@ -10,10 +10,11 @@ var PNode
 
 func _physics_process(delta):
 	if PrevPos:
-		MoveDelta = global_position - PrevPos 
+		MoveDelta = global_position - PrevPos
+	else:
+		MoveDelta = Vector2.ZERO
 	PrevPos = global_position
-	if PNode and BodyIn:
-		PNode.global_position += MoveDelta
+	MoveAlong()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -24,3 +25,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		BodyIn = false
+
+func MoveAlong():
+	if PNode and BodyIn and !PNode.Immortalix:
+		PNode.global_position += MoveDelta

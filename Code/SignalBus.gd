@@ -26,3 +26,5 @@ signal FOrbUse
 signal ShowDialogue(TextArr,OnBottom,IsPaused,Skippable,OptionalTimer)
 signal DialStop
 signal DialFinish(Early)
+
+signal SetPlayerPosition(Pos)

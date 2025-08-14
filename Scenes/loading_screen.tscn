@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c30pivib3hakd"]
+
+[ext_resource type="Script" uid="uid://dn3uvs5uhf0st" path="res://Code/loading_screen.gd" id="1_fayou"]
+[ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="1_oobaa"]
+[ext_resource type="Texture2D" uid="uid://lx7010y8vx80" path="res://Assets/Interface/progress_bar.png" id="2_nfm0g"]
+[ext_resource type="Texture2D" uid="uid://b2yoptdbtxan8" path="res://Assets/Interface/player_progress.png" id="3_fayou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0t5xw"]
+font = ExtResource("1_oobaa")
+font_size = 32
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fayou")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 646.0
+offset_bottom = 508.0
+text = "The game is loading, don't worry everything is fine, everything is going to be ok
+everything will be sorted out, all will come to balance and the reality will start to move
+once again, it will be as if nothing happened"
+label_settings = SubResource("LabelSettings_0t5xw")
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_top = -120.0
+offset_right = 306.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+texture_under = ExtResource("2_nfm0g")
+texture_progress = ExtResource("3_fayou")
+texture_progress_offset = Vector2(20, 0)

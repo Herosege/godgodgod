@@ -29,11 +29,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		if Globals.SavedPos[1] == 1:
-			get_tree().change_scene_to_file(Globals.AreaScenes[WhereTo])
+		if !Globals.CArea == WhereTo:
+			Globals.LoadScene(Globals.AreaScenes[WhereTo])
+			Globals.PosSetTravel = Coords
 		else:
-			get_tree().call_deferred("change_scene_to_file",Globals.AreaScenes[WhereTo])
-		#get_tree().call_deferred("change_scene_to_file",Globals.AreaScenes[WhereTo])
-		Globals.SavedPos[0] = Coords
-		Globals.SavedPos[1] = WhereTo
-		body.position = Coords
+			SignalBus.emit_signal("SetPlayerPosition",Coords)

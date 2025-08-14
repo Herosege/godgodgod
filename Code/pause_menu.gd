@@ -7,10 +7,11 @@ func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
 	if Globals.SpecialItem:
 		$wife.visible = true
-	$DeathAmt.text = str(Globals.NumDeaths)
+	$DeathAmt.text = str(int(Globals.NumDeaths))
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause") and !Globals.DisableAction:
+		$DeathAmt.text = str(int(Globals.NumDeaths))
 		Globals.MenuPaused = !Globals.MenuPaused
 		BeerBtn.button_pressed = Globals.EffectActive[Globals.Beer]
 		MilkBtn.button_pressed = Globals.EffectActive[Globals.Milk]

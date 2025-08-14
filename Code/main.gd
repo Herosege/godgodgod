@@ -17,7 +17,6 @@ func _ready():
 	$BloodParticles2.visible = false
 	
 	Globals.stoptime = false
-	PNode.global_position = Globals.SavedPos[0]
 	$ImpStuff/Label.visible = !Globals.EnemiesKilled
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
@@ -135,9 +134,8 @@ func _on_bgtimer_timeout():
 
 func _on_village_pass_body_entered(body):
 	if body.is_in_group("player"):
-		Globals.SavedPos[0] = Vector2(60,400)
-		Globals.SavedPos[1] = 2
-		get_tree().call_deferred("change_scene_to_file","res://Scenes/village_1.tscn")
+		Globals.PosSetTravel = Vector2(60,400)
+		Globals.LoadScene("res://Scenes/village_1.tscn")
 
 func RESET():
 	$Hazards/SpikesMoving/AnimationPlayer.play("RESET")

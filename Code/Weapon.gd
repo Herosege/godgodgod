@@ -9,8 +9,10 @@ var CurWeapon = Axe
 enum {Dmg,Cd}
 
 var Weapons = [
-	[1.75,0.125]
+	[AXE_DMG,0.125]
 ]
+
+const AXE_DMG = 1.0
 
 func _ready():
 	$AnimatedSprite2D.visible = false
@@ -42,7 +44,7 @@ func _on_area_2d_area_entered(area):
 		area.get_parent().get_dmg(Weapons[CurWeapon][Dmg])
 
 func _on_change_effect(value,type):
-	Weapons[Axe][Dmg] = 1.75 if !Globals.EffectActive[Globals.Beer] or Globals.EffectActive[Globals.Milk] else 2.5
+	Weapons[Axe][Dmg] = AXE_DMG if !Globals.EffectActive[Globals.Beer] or Globals.EffectActive[Globals.Milk] else AXE_DMG*1.25
 	#print(Weapons[Axe][Dmg])
 
 func _on_area_2d_body_entered(body):
