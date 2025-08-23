@@ -5,7 +5,8 @@ var FirstTime = true
 var AreaScenes = [
 	"res://Scenes/main.tscn",
 	"res://Scenes/scene_1.tscn",
-	"res://Scenes/village_1.tscn"
+	"res://Scenes/village_1.tscn",
+	"res://Scenes/village/inside_places.tscn"
 ]
 
 enum area {wonderful_place, curse_world}
@@ -70,7 +71,7 @@ func _ready():
 	
 	### DEBUG POSITIONS
 	
-	#Items[Weapon][Axe] = true
+	Items[Weapon][Axe] = true
 	
 	#BeerRoom - Curse
 	#SavedPos[0] = Vector2(-600,1290)
@@ -125,7 +126,7 @@ func _ready():
 	#SavedPos[0] = Vector2(980,-2010)
 	#SavedPos[1] = 2
 	
-	#Tower after chain jumping - village
+	#Tower after chain jumping - villagze
 	#SavedPos[0] = Vector2(790,-3495)
 	#SavedPos[1] = 2
 	
@@ -136,6 +137,10 @@ func _ready():
 	#tower last challenge - village
 	#SavedPos[0] = Vector2(101,-4863)
 	#SavedPos[1] = 2
+	
+	#village - village 
+	SavedPos[0] = Vector2(1101,-5883)
+	SavedPos[1] = 2
 
 const CAM_ZOOM = 0.05
 

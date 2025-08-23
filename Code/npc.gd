@@ -84,11 +84,13 @@ func _on_timer_timeout():
 var Texts = {
 	"cursegod":"Hi little being
 	
+	We are beings overseeing this realm, named curses 
+	
 	You see something awful has happened recently 
 	
 	One of us, they have been entangled in something in thier mind
 	These thoughts consumed them and out of it
-	The Rotten God came into existence
+	The Rotten Curse came into existence
 	a powerful being that conquests and consumes everything
 	
 	It is no longer here and spread out to your realm
@@ -98,11 +100,11 @@ var Texts = {
 	#
 	
 	"cursegod1":"There is a worm named henryk
-	They are already hunting the fragments of the rotten God
+	They are already hunting the fragments of The Rotten Curse
 	
 	I have entrusted them with many powerful spells
 	But they definitely do not have the will
-	to actually destroy the God 
+	to actually destroy the root of it
 	
 	You on the other hand have the will
 	You managed to obtain the piwo mocne and found me here
@@ -118,7 +120,7 @@ var Texts = {
 	head to the east
 	past the bridge, past the tower
 	
-	that is where Rotten God resides 
+	that is where root of Rotten Curse resides 
 	
 	Rest is up to you, Good luck!",
 	#

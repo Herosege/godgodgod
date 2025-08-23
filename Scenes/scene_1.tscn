@@ -355,7 +355,6 @@ position = Vector2(320, 240)
 [node name="CameraControl" parent="." instance=ExtResource("6_248vh")]
 
 [node name="DEBUG" parent="." instance=ExtResource("7_v71fb")]
-visible = true
 
 [node name="Music1" type="AudioStreamPlayer" parent="." groups=["Audio"]]
 stream = SubResource("AudioStreamOggVorbis_64xv5")
@@ -1362,7 +1361,6 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_h7dll")
 
 [node name="PauseMenu" parent="." instance=ExtResource("24_v50pk")]
-visible = false
 
 [node name="BossWall2" type="AnimatableBody2D" parent="."]
 position = Vector2(2560, 433)

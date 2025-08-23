@@ -41,6 +41,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 layer = 2
+visible = false
 script = ExtResource("1_ywg23")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -137,7 +138,9 @@ layout_mode = 2
 [node name="BottleActivar" type="TextureButton" parent="Collectibles/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-tooltip_text = "Makes you powerful but at a cost..."
+tooltip_text = "Piwo Mocne
+
+Makes you powerful but at a cost..."
 theme = SubResource("Theme_q7fiq")
 toggle_mode = true
 texture_normal = ExtResource("4_7fyhd")
@@ -145,7 +148,9 @@ texture_pressed = ExtResource("6_uu4f6")
 
 [node name="MilkActivar" type="TextureButton" parent="Collectibles/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Possesses mind healing properties and allows you to move slowly with ctrl"
+tooltip_text = "Mleko
+
+Possesses mind healing properties and allows you to move slowly with ctrl"
 theme = SubResource("Theme_q7fiq")
 toggle_mode = true
 texture_normal = ExtResource("9_ggt7n")

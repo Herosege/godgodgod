@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var PNode = get_tree().get_first_node_in_group("player")
 
-@onready var MusicColl = [null,$Music,$Music2]
+@onready var MusicColl = [null,$Music,$Music2,$Music3]
 
 var CPlaying : int
 
@@ -13,8 +13,14 @@ func _ready():
 
 var PrevRoom : Vector2
 
+const CLOUD_SCREEN_AMOUNT_TRAVEL = 3
+
 func _process(delta):
+	if PNode.position.x < 0 and PNode.position.y > -50:
+		Globals.LoadScene("res://Scenes/main.tscn")
+		Globals.PosSetTravel = Vector2(9600+PNode.position.x,-450)
 	if PrevRoom != PNode.CRoomPos:
+		$Bgs/Clouds.position.x = floor(PNode.CRoomPos.x/CLOUD_SCREEN_AMOUNT_TRAVEL)*640*CLOUD_SCREEN_AMOUNT_TRAVEL
 		CheckMusic()
 		if MusicColl[CPlaying]:
 			if !MusicColl[CPlaying].playing:
@@ -35,6 +41,9 @@ func CheckMusic():
 		return
 	if PNode.CRoomPos.y < -11:
 		CPlaying = 2
+		return
+	if PNode.CRoomPos.y >= 4:
+		CPlaying = 3
 		return
 	if CPlaying:
 		CPlaying = 0

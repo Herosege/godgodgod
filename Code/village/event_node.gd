@@ -1,9 +1,18 @@
 extends Node2D
 
+enum {Dialogue,ChangeScene}
+@export_enum("Dialogue","ChangeScene") var Type 
+
 @export var CollShape : Shape2D
+
+@export_group("Dialogue")
 @export_multiline var Text0 : Array[String]
 @export_multiline var Text1 : Array[String]
 @export_multiline var Text2 : Array[String]
+
+@export_group("ChangeScene")
+@export var WhereTo : String
+@export var Coords : Vector2
 
 var Text : Array
 
@@ -25,7 +34,10 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("Confirm") and Activar and CanDial and !Globals.InDialogue:
-		TextSend()
+		if Type == Dialogue:
+			TextSend()
+		if Type == ChangeScene:
+			SceneChange()
 
 func TextSend():
 	if !Text:
@@ -45,6 +57,15 @@ func OnDialFinish(Early):
 	CanDial = true
 	if !Early and CDialIndex+1 < Text.size():
 		CDialIndex += 1
+
+func SceneChange():
+	if !WhereTo:
+		return
+	if !Globals.CArea == Globals.AreaScenes.find(WhereTo):
+		Globals.LoadScene(WhereTo)
+		Globals.PosSetTravel = Coords
+	else:
+		SignalBus.emit_signal("SetPlayerPosition",Coords)
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):

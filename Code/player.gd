@@ -51,7 +51,6 @@ func _ready():
 		Globals.PosSetTravel = Vector2.ZERO
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
-	
 
 func _process(delta):
 	CRoomPos.x = floor(global_position.x / VPort.x)
@@ -98,6 +97,8 @@ func CheckInputs():
 func MoveDirection():
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
+	
+	#debug
 	
 	#if Input.is_action_just_pressed("debug"):
 		#JumpAmount = 9999
