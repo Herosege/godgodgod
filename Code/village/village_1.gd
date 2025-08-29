@@ -7,18 +7,30 @@ extends Node2D
 var CPlaying : int
 
 func _ready():
+	if STEvents.EventArray[STEvents.HorseHaluShown] == false and STEvents.EventArray[STEvents.MayorSpokenToWithHint] == true:
+		$Houses/Village/Stuff/HorseHalucination.visible = true
 	Globals.CArea = 2
 	CheckMusic()
 	UpdateMusic()
 
 var PrevRoom : Vector2
 
+var HandSpawned = false
+
 const CLOUD_SCREEN_AMOUNT_TRAVEL = 3
 
 func _process(delta):
+	if STEvents.EventArray[STEvents.HorseHaluShown] == false:
+		if PNode.position.x < 640 and PNode.position.x > 0 and PNode.position.y < -5800:
+			STEvents.EventArray[STEvents.HorseHaluShown] == true
+			$Houses/Village/Stuff/HorseHalucination.visible = false
 	if PNode.position.x < 0 and PNode.position.y > -50:
 		Globals.LoadScene("res://Scenes/main.tscn")
 		Globals.PosSetTravel = Vector2(9600+PNode.position.x,-450)
+	if PNode.position.x > 5000 and PNode.position.y < 500 and !HandSpawned:
+		HandSpawned = true
+		HandACTIVAR()
+	
 	if PrevRoom != PNode.CRoomPos:
 		$Bgs/Clouds.position.x = floor(PNode.CRoomPos.x/CLOUD_SCREEN_AMOUNT_TRAVEL)*640*CLOUD_SCREEN_AMOUNT_TRAVEL
 		CheckMusic()
@@ -54,8 +66,23 @@ func UpdateMusic():
 		if MusicColl[i]:
 			MusicColl[i].playing = i == CPlaying
 
+#SHOTGUN SECRET
+func _on_out_body_entered(body):
+	if body.is_in_group("player"):
+		$SecretStuff/ShotgunPlace/FakeLayer0.modulate.a = 1.0
+
+func _on_in_body_entered(body):
+	if body.is_in_group("player"):
+		$SecretStuff/ShotgunPlace/FakeLayer0.modulate.a = 0.2
+
 func RESET():
+	HandSpawned = false
+	$SecretStuff/ShotgunPlace/FakeLayer0.modulate.a = 1.0
 	$Stuff/MovingStuff/AnimationPlayer.play("RESET")
 	$Stuff/MovingStuff/AnimationPlayer.play("moving")
 	$Stuff/MovingStuff/AnimationPlayer2.play("RESET")
 	$Stuff/MovingStuff/AnimationPlayer2.play("moving")
+
+func HandACTIVAR():
+	var HInst = load("res://Scenes/village/hand.tscn").instantiate()
+	add_child(HInst)

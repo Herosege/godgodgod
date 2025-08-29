@@ -28,6 +28,7 @@ driver/output_latency.web=100
 
 SignalBus="*res://Code/SignalBus.gd"
 Globals="*res://Code/Globals.gd"
+STEvents="*res://Code/SingleTimeEvents.gd"
 
 [display]
 

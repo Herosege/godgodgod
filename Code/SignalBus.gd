@@ -28,3 +28,5 @@ signal DialStop
 signal DialFinish(Early)
 
 signal SetPlayerPosition(Pos)
+
+signal GetInDial(State,Type,Early)

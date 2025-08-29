@@ -29,7 +29,6 @@ var TrueDistance = CLOUD_DISTANCE+Origin.x
 var PrevScreen
 
 func _process(delta):
-	
 	var CloudsMMeshes = get_children()
 	for j in CloudsMMeshes.size():
 		for i in INSTANCE_COUNT:

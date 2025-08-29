@@ -17,6 +17,8 @@ func _ready():
 	
 	Globals.NumDeaths = Globals.load_game("user://dinomemories.save","NumDeaths",Globals.NumDeaths)
 	
+	STEvents.EventArray = Globals.load_game("user://dinomemories.save","EventArray",STEvents.EventArray)
+	
 	if Globals.NumTimesBeatGame:
 		$Label4.visible = true
 		$Label4.text = "You beat the game " + str(Globals.NumTimesBeatGame) + " times!"

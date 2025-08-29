@@ -5,6 +5,8 @@ enum {Dialogue,ChangeScene}
 
 @export var CollShape : Shape2D
 
+@export var EventHolder : String 
+
 @export_group("Dialogue")
 @export_multiline var Text0 : Array[String]
 @export_multiline var Text1 : Array[String]
@@ -34,6 +36,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("Confirm") and Activar and CanDial and !Globals.InDialogue:
+		SignalBus.emit_signal("GetInDial",true,EventHolder,false)
 		if Type == Dialogue:
 			TextSend()
 		if Type == ChangeScene:
@@ -54,6 +57,7 @@ func TextSend():
 
 func OnDialFinish(Early):
 	await get_tree().create_timer(0.1).timeout
+	SignalBus.emit_signal("GetInDial",false,EventHolder,Early)
 	CanDial = true
 	if !Early and CDialIndex+1 < Text.size():
 		CDialIndex += 1

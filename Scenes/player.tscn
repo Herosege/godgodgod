@@ -151,6 +151,8 @@ shape = SubResource("RectangleShape2D_b5eme")
 wait_time = 0.05
 one_shot = true
 
+[node name="Shotgun" type="Node2D" parent="AnimatedSprite2D/Weapons"]
+
 [node name="Sweater" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_hbl7o")

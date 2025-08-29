@@ -13,6 +13,7 @@ var CPlaying = 0
 var EndGame = false
 
 func _ready():
+	
 	$BloodParticles2.emitting = true
 	$BloodParticles2.visible = false
 	

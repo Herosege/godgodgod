@@ -71,8 +71,6 @@ func _ready():
 	
 	### DEBUG POSITIONS
 	
-	Items[Weapon][Axe] = true
-	
 	#BeerRoom - Curse
 	#SavedPos[0] = Vector2(-600,1290)
 	#SavedPos[1] = 1
@@ -160,7 +158,7 @@ func _process(delta):
 			#Items[0][i] = true
 		#Items[Passive][Beer] = true
 		#Items[Passive][Milk] = true
-		#Items[Weapon][Axe] = true
+		Items[Weapon][Axe] = true
 		
 	#if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
@@ -188,8 +186,8 @@ func SaveData(type):
 			"SpecialItem":SpecialItem,
 			"SaveTime":SaveTime,
 			"NumDeaths":NumDeaths,
-			"RotCKilled":RotCKilled
-			
+			"RotCKilled":RotCKilled,
+			"EventArray":STEvents.EventArray
 		})
 	if type == 666:
 		save_game("user://dinomemories.save",null)
