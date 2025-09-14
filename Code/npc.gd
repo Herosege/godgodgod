@@ -2,7 +2,7 @@ extends Node2D
 class_name npc
 
 
-@export_enum("henryk","someone","curse","ONEN") var type
+@export_enum("henryk","henrykbridge","someone","curse","ONEN") var type
 
 enum {henryk,someone,curse,ONEN}
 
@@ -91,7 +91,7 @@ var Texts = {
 	One of us, they have been entangled in something in thier mind
 	These thoughts consumed them and out of it
 	The Rotten Curse came into existence
-	a powerful being that conquests and consumes everything
+	A powerful being that conquests and consumes everything
 	
 	It is no longer here and spread out to your realm
 	
@@ -104,35 +104,33 @@ var Texts = {
 	
 	I have entrusted them with many powerful spells
 	But they definitely do not have the will
-	to actually destroy the root of it
+	To actually destroy the root of it
 	
 	You on the other hand have the will
-	You managed to obtain the piwo mocne and found me here
-	You even managed to get past the great spell of infinite protection
-	I put up at the entrance!",
+	You managed to get past my trial 
+	And you figured out how to get here",
 	
 	"cursegod2":"You have what it takes
 	
 	Here is the ultimate great weapon of absolute annihilation
-	called The Wife
+	Called The Wife
 	It will kill them, definitely
 	
-	head to the east
-	past the bridge, past the tower
+	Head to the east
+	Past the bridge, past the tower
 	
-	that is where root of Rotten Curse resides 
+	That is where root of Rotten Curse resides 
 	
 	Rest is up to you, Good luck!",
 	#
 	
-	"onen":"hey othenson
+	"onen":"Hey Othenson 
+It seems some nasty disease like creature has struck our bridge
+and it seems like it's spreading
+But don't worry, if you find it's core you could destroy it
 
-There is a new tavern in the village to the east of here across the bridge
-it would be cool if we went there
-
-Unfortunately the bridge collapsed and the gate is broken or something because it's not opening, but I think that won't stop you since you are basically immortal
-
-So good luck and see you there!",
+Also if you kill these floating things you will
+get their strength and you will regain a jump",
 	
 	#
 	
@@ -147,6 +145,6 @@ So good luck and see you there!",
 	FORTUNATELY THERE IS AN AXE IN THE CURSE WORLD AND THE GATE
 	TO THAT PLACE IS CLOSE BY SO GO GET IT
 	
-	BE QUICK BECAUSE THERE IS A CANCER GROWING NEAR
+	BE QUICK BECAUSE THERE IS SOME CANCEROUS STUFF GROWING NEAR
 	THAT I MUST GET RID OF =)"
 }

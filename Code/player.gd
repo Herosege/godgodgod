@@ -43,6 +43,7 @@ func _ready():
 	SignalBus.LaunchPlayer.connect(OnLaunchPlayer)
 	SignalBus.FOrbUse.connect(OnFOrbUse)
 	SignalBus.SetPlayerPosition.connect(SetPos)
+	SignalBus.ShotgunUse.connect(OnShotgunUse)
 	
 	if !Globals.PosSetTravel:
 		position = Globals.SavedPos[0]
@@ -53,7 +54,6 @@ func _ready():
 	CRoomPos.y = floor(global_position.y / VPort.y)
 
 func _process(delta):
-	print(position)
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
@@ -95,9 +95,14 @@ func CheckInputs():
 	if Input.is_action_just_released("JumpInp") and velocity.y < 0.0:
 		velocity.y /= 3
 
+var LastDir = Vector2.RIGHT
+
 func MoveDirection():
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
+	
+	if direction:
+		LastDir = direction
 	
 	#debug
 	
@@ -108,7 +113,7 @@ func MoveDirection():
 	
 	#enddebug
 	
-	if Input.is_action_pressed("Slowdown") and Globals.EffectActive[Globals.Milk]:
+	if Input.is_action_pressed("Slowdown") and Globals.Items[Globals.Passive][Globals.Milk]:
 		VertSpeed = 25
 	else:
 		VertSpeed = 200
@@ -132,7 +137,7 @@ func MoveDirection():
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
 		AdditVel.y = move_toward(AdditVel.y, 0, initVertSpeed/6)
-		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/10)
+		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/12)
 	if is_on_wall():
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
 	if is_on_ceiling():
@@ -197,6 +202,10 @@ const FOrbVelocity = -750
 func OnFOrbUse():
 	velocity.y = 0.0
 	AdditVel.y = FOrbVelocity
+
+func OnShotgunUse(Vel):
+	velocity.y -= 100
+	AdditVel.x = Vel * -LastDir
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer") and !Immortalix:

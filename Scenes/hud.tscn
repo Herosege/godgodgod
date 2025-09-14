@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj6xpr0fo640s"]
+[gd_scene load_steps=7 format=3 uid="uid://dj6xpr0fo640s"]
 
 [ext_resource type="Script" uid="uid://c7jndpuwm4mxb" path="res://Code/hud.gd" id="1_doaym"]
 [ext_resource type="PackedScene" uid="uid://d0w50wqi3fr08" path="res://Scenes/village/dialogue_box.tscn" id="2_fccik"]
+[ext_resource type="Texture2D" uid="uid://8acg3hkm7arx" path="res://Assets/Interface/ShotgunTimer.png" id="3_bjfho"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_miau3"]
 font_size = 20
@@ -18,7 +19,7 @@ font_size = 40
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Hud" type="CanvasLayer"]
+[node name="Hud" type="CanvasLayer" groups=["RESET"]]
 process_mode = 3
 script = ExtResource("1_doaym")
 
@@ -103,3 +104,16 @@ vertical_alignment = 1
 
 [node name="DialogueBox" parent="." instance=ExtResource("2_fccik")]
 visible = false
+
+[node name="ShotGunTimer" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.431373)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+fill_mode = 4
+texture_progress = ExtResource("3_bjfho")
+
+[connection signal="value_changed" from="ShotGunTimer" to="." method="_on_shot_gun_timer_value_changed"]

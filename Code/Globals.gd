@@ -31,7 +31,7 @@ enum {
 }
 
 enum {Beer,Milk}
-enum {Axe,Gun,Shotgun}
+enum {Axe,Shotgun}
 
 var EffectActive = [false,false]
 
@@ -42,7 +42,7 @@ var RotCKilled = false
 var SpecialItem = false
 var Items = [
 	[false,false],#Passives
-	[false,false,false]#Weapons
+	[false,false]#Weapons
 ]
 
 enum {VoidSpaghetti}
@@ -156,9 +156,10 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		#for i in Items[0].size():
 			#Items[0][i] = true
-		#Items[Passive][Beer] = true
-		#Items[Passive][Milk] = true
+		Items[Passive][Beer] = true
+		Items[Passive][Milk] = true
 		Items[Weapon][Axe] = true
+		Items[Weapon][Shotgun] = true
 		
 	#if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")

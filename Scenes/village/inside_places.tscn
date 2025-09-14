@@ -118,7 +118,7 @@ position = Vector2(995, 414)
 Type = 0
 CollShape = SubResource("RectangleShape2D_aekag")
 EventHolder = "mayor"
-Text0 = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse God... That thing just appeared out of nowhere... everything, everyone is gone", "God damned bastard, I was just enjoying my midnight alone drink, If I didn't quickly put up a defensive spell, I would have been gone as well"])
+Text0 = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse God... That thing just appeared out of nowhere... everything has been destroyed", "God damned bastard, I was just enjoying my midnight alone drink, If I didn't quickly put up a defensive spell, I would have been gone as well"])
 Text1 = Array[String](["Heh, at least you are here, maybe we can do something about that piece of shit", "You are clearly good at jumping and killing stuff and that sorta thing, so you could do it", "Though, you gonna need something with more punch than that axe of yours", "I have a really strong shotgun, that I made myself, you can take it, but please help me decimate The Horse God ", "It's hidden on the left side of the island, right where the ground ends, you will need to fall and jump to the side and you will get it", "Good luck"])
 Text2 = Array[String](["Hmm... when I squint my eyes, you kinda look like a horse....", "Ah whatever, just go", "The shotgun is hidden on the left side of the island, right where the ground ends, you will need to fall and jump to the side to get it"])
 

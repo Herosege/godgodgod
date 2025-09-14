@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ps4biqdyxwo"]
+
+[ext_resource type="Script" uid="uid://ddu2v4g3owmuc" path="res://Code/village/shotgun_bullets.gd" id="1_6jgxl"]
+[ext_resource type="Texture2D" uid="uid://csdfsstcbr3yq" path="res://Assets/village/Shotgun1a.png" id="2_ed6rp"]
+[ext_resource type="Texture2D" uid="uid://dd8vcp57q3fry" path="res://Assets/village/Shotgun2a.png" id="3_siv0l"]
+[ext_resource type="Texture2D" uid="uid://cq5vh1md6pigw" path="res://Assets/village/Shotgun3a.png" id="4_ao2l8"]
+[ext_resource type="Texture2D" uid="uid://hs6geqqx0em5" path="res://Assets/village/Shotgun4a.png" id="5_gm8sr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8knp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ed6rp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_siv0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ao2l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gm8sr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="ShotgunBullets" type="Node2D"]
+script = ExtResource("1_6jgxl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8knp3")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+offset = Vector2(70, 0)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit2donwovcnk"
-path="res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"
+uid="uid://dra7ahffa1i4y"
+path="res://.godot/imported/fisher.png-279966c3bd2c1cedc6c8d3c28e7fd432.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/save1_4.png"
-dest_files=["res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"]
+source_file="res://Assets/village/fisher.png"
+dest_files=["res://.godot/imported/fisher.png-279966c3bd2c1cedc6c8d3c28e7fd432.ctex"]
 
 [params]
 

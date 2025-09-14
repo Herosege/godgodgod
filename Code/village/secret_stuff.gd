@@ -18,7 +18,10 @@ func _on_cliff_bottom_body_exited(body):
 
 func _on_cliff_bottom_area_entered(area):
 	if area.is_in_group("damage") and !InAxeCutscene:
-		AxeCutscene()
+		if area.is_in_group("shotgun"):
+			pass
+		else:
+			AxeCutscene()
 
 func AxeCutscene():
 	InAxeCutscene = true
@@ -28,6 +31,9 @@ func AxeCutscene():
 	CTimer.start(8.0)
 	await CTimer.timeout
 	SignalBus.emit_signal("Death")
+
+func ShotgunCutscene():
+	pass
 
 func RESET():
 	InAxeCutscene = false

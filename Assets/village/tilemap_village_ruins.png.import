@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit2donwovcnk"
-path="res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"
+uid="uid://cx7h1ffs4lvqe"
+path="res://.godot/imported/tilemap_village_ruins.png-e979ba0686d78f8a6fd759b3fbd52545.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/save1_4.png"
-dest_files=["res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"]
+source_file="res://Assets/village/tilemap_village_ruins.png"
+dest_files=["res://.godot/imported/tilemap_village_ruins.png-e979ba0686d78f8a6fd759b3fbd52545.ctex"]
 
 [params]
 

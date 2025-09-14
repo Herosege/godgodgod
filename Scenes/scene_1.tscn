@@ -1415,7 +1415,7 @@ volume_db = -12.0
 
 [node name="idk" parent="." instance=ExtResource("31_ma3tk")]
 position = Vector2(-2224, 320)
-type = 2
+type = 3
 
 [node name="CollisionShape2D" parent="idk/Area2D" index="0"]
 position = Vector2(0, 72)

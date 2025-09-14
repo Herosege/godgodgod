@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit2donwovcnk"
-path="res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"
+uid="uid://8acg3hkm7arx"
+path="res://.godot/imported/ShotgunTimer.png-756ae4d8d4a79717f8a8012fd562b9ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/save1_4.png"
-dest_files=["res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"]
+source_file="res://Assets/Interface/ShotgunTimer.png"
+dest_files=["res://.godot/imported/ShotgunTimer.png-756ae4d8d4a79717f8a8012fd562b9ef.ctex"]
 
 [params]
 

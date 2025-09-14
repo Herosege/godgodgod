@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dbrt0ssutlcma" path="res://Assets/save1_2.png" id="3_480c2"]
 [ext_resource type="AudioStream" uid="uid://cj84qte3h8h4a" path="res://Assets/Sound/SaveSE.ogg" id="4_6l35c"]
 [ext_resource type="Texture2D" uid="uid://bcsofgwfweihn" path="res://Assets/save1_3.png" id="4_6nfui"]
-[ext_resource type="Texture2D" uid="uid://16uxg18dmrsx" path="res://Assets/save1_4.png" id="5_lkq8k"]
+[ext_resource type="Texture2D" uid="uid://dit2donwovcnk" path="res://Assets/save1_4.png" id="5_lkq8k"]
 
 [sub_resource type="Gradient" id="Gradient_unopl"]
 offsets = PackedFloat32Array(0, 0.519481)
@@ -59,7 +59,7 @@ shape = SubResource("CircleShape2D_uehmx")
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_8wtvq")
 autoplay = "default"
-frame_progress = 0.0405543
+frame_progress = 0.675572
 
 [node name="SaveSE" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6l35c")

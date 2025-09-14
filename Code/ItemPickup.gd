@@ -38,7 +38,7 @@ func _on_area_2d_body_entered(body):
 		if ItemType == Weapon and Weapons == Axe:
 			SignalBus.emit_signal("SetHudMessage","Press X to swing axe",1)
 		if ItemType == Weapon and Weapons == Shotgun:
-			SignalBus.emit_signal("SetHudMessage","Press A to use the shotgun",1)
+			SignalBus.emit_signal("SetHudMessage","Press C to use the shotgun",1)
 		if ItemType == Passive and Passives == Milk:
 			SignalBus.emit_signal("SetHudMessage","Use items in the Esc menu",1)
 		queue_free()

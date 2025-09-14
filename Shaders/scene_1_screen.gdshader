@@ -5,13 +5,13 @@ uniform bool BeerActive = false;
 uniform bool MilkActive = false;
 
 void fragment() {
-	if (BeerActive && !MilkActive){
+	if (BeerActive){
 		vec2 uv = SCREEN_UV;
 		float time = TIME;
 
-		float amplitude = 0.12;
-		float frequency = 22.0;
-		float speed = 2.7;
+		float amplitude = 0.03;
+		float frequency = 18.0;
+		float speed = 1.5;
 		float wave = sin(uv.x * frequency + time * speed) * amplitude;
 
 		vec2 displaced_uv = vec2(uv.x, uv.y + wave);

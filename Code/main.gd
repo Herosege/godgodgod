@@ -13,12 +13,10 @@ var CPlaying = 0
 var EndGame = false
 
 func _ready():
-	
 	$BloodParticles2.emitting = true
 	$BloodParticles2.visible = false
 	
 	Globals.stoptime = false
-	$ImpStuff/Label.visible = !Globals.EnemiesKilled
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
 	for i in G1.size():
@@ -26,6 +24,9 @@ func _ready():
 	if Globals.RotCKilled:
 		$Npcs/henryk2.visible = false
 		UnrotCurse()
+		$Npcs/npc.queue_free()
+		$Npcs/npc2.queue_free()
+		$Npcs/idk.queue_free()
 
 	CheckMusic()
 	UpdateMusic()
@@ -75,11 +76,11 @@ func CheckMusic():
 
 func UpdateMusic():
 	for i in MusicColl.size():
-			if MusicColl[i]:
-				MusicColl[i].playing = i == CPlaying
+		if MusicColl[i]:
+			MusicColl[i].playing = i == CPlaying
 
 func OnEnemyKilled(type):
-	$ImpStuff/Label.visible = false
+	pass
 
 #the cool ending
 
@@ -103,10 +104,10 @@ func EndScene(hasSpecial):
 	
 	await get_tree().create_timer(3.0).timeout
 	$Npcs/npc/AudioStreamPlayer.volume_db = 4
-	$Npcs/henryk2/Label.text = "COW 3000 DRINK ASBESTOR AGOLMATIC REDO FUN EXTEND 2001 FRIEND ULUBOMTEKA"
+	$Npcs/henryk2/Label.text = "RED 3000 DRINK ASBESTOR AGOLMATIC REDO FUN EXTEND 9920 FRIEND ULUBOMTEKA"
 	
 	
-	await get_tree().create_timer(2.7).timeout
+	await get_tree().create_timer(2.1).timeout
 	Globals.RotCKilled = true
 	
 	UnrotCurse()
@@ -168,3 +169,16 @@ func UnrotCurse():
 	$Visual/stuff/Sprite2D.modulate = Color.BLACK
 	$Visual/stuff/Sprite2D2.modulate = Color.BLACK
 	$SpikeAreas/Area2D/CollisionShape2D6.set_deferred("position",Vector2(6166,0))
+
+
+func _on_henryk_b_area_body_entered(body):
+	if body.is_in_group("player"):
+		$Npcs/npc2/Label.visible = true
+		$Npcs/npc2/AudioStreamPlayer.playing = true
+		$Npcs/npc2/AnimatedSprite2D.play("default")
+
+func _on_henryk_b_area_body_exited(body):
+	if body.is_in_group("player"):
+		$Npcs/npc2/Label.visible = false
+		$Npcs/npc2/AudioStreamPlayer.playing = false
+		$Npcs/npc2/AnimatedSprite2D.stop()

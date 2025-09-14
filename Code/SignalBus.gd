@@ -19,6 +19,8 @@ signal Save(Type)
 
 signal GetItem(Type)
 
+signal ShotgunUse(Vel)
+
 signal LaunchPlayer(Vel)
 
 signal FOrbUse
@@ -30,3 +32,5 @@ signal DialFinish(Early)
 signal SetPlayerPosition(Pos)
 
 signal GetInDial(State,Type,Early)
+
+signal ShotgunTimerHudUpdate(TimeRemaining,MaxTime)

@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dyb6t4vffx05" path="res://Scenes/settings_menu.tscn" id="5_n0pig"]
 [ext_resource type="Texture2D" uid="uid://djylebf8fkcpu" path="res://Assets/bottle/0001.png" id="6_uu4f6"]
 [ext_resource type="AudioStream" uid="uid://h72mjb0tm0xh" path="res://Assets/Sound/angelsee.ogg" id="6_y5xfd"]
-[ext_resource type="Texture2D" uid="uid://c3naxh82schaw" path="res://Assets/milk-ms.png" id="9_ggt7n"]
 [ext_resource type="Texture2D" uid="uid://dmu4scvc1ynjk" path="res://Assets/MilkAnim/0001.png" id="10_8i5ii"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="12_4ka14"]
 [ext_resource type="Texture2D" uid="uid://hko61fuv430q" path="res://Assets/youdied.png" id="13_cpmml"]
@@ -36,6 +35,11 @@ TooltipPanel/styles/panel = SubResource("StyleBoxFlat_taale")
 font = ExtResource("14_hmnbg")
 font_size = 32
 outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_taale"]
+font_size = 9
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -139,22 +143,22 @@ layout_mode = 2
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 tooltip_text = "Piwo Mocne
-
-Makes you powerful but at a cost..."
+May open some passages when used "
 theme = SubResource("Theme_q7fiq")
 toggle_mode = true
 texture_normal = ExtResource("4_7fyhd")
 texture_pressed = ExtResource("6_uu4f6")
 
-[node name="MilkActivar" type="TextureButton" parent="Collectibles/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Collectibles/HBoxContainer"]
 layout_mode = 2
 tooltip_text = "Mleko
-
-Possesses mind healing properties and allows you to move slowly with ctrl"
+Allows you to move slowly with ctrl
+(Always active)"
+focus_mode = 2
+mouse_filter = 0
 theme = SubResource("Theme_q7fiq")
-toggle_mode = true
-texture_normal = ExtResource("9_ggt7n")
-texture_pressed = ExtResource("10_8i5ii")
+texture = ExtResource("10_8i5ii")
+stretch_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 11
@@ -189,9 +193,19 @@ text = "0
 "
 label_settings = SubResource("LabelSettings_7e313")
 
+[node name="Label" type="Label" parent="."]
+z_index = 11
+offset_left = 208.0
+offset_top = 6.0
+offset_right = 351.0
+offset_bottom = 37.0
+text = "hover over with mouse to see
+what an item does
+click on items to activate them"
+label_settings = SubResource("LabelSettings_taale")
+
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="wife/Wife" to="." method="_on_wife_pressed"]
 [connection signal="pressed" from="Collectibles/HBoxContainer/BottleActivar" to="." method="_on_bottle_activar_pressed"]
-[connection signal="pressed" from="Collectibles/HBoxContainer/MilkActivar" to="." method="_on_milk_activar_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

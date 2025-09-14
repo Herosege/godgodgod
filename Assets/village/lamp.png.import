@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit2donwovcnk"
-path="res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"
+uid="uid://82cpojt6f6p5"
+path="res://.godot/imported/lamp.png-304da04aba8c302e83ade8cc59083d44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/save1_4.png"
-dest_files=["res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"]
+source_file="res://Assets/village/lamp.png"
+dest_files=["res://.godot/imported/lamp.png-304da04aba8c302e83ade8cc59083d44.ctex"]
 
 [params]
 

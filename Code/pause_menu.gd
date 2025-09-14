@@ -1,12 +1,10 @@
 extends CanvasLayer
 
 @onready var BeerBtn = $Collectibles/HBoxContainer/BottleActivar
-@onready var MilkBtn = $Collectibles/HBoxContainer/MilkActivar
 
 func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
-	if Globals.SpecialItem:
-		$wife.visible = true
+	$wife.visible = Globals.SpecialItem
 	$DeathAmt.text = str(int(Globals.NumDeaths))
 
 func _process(delta):
@@ -14,11 +12,9 @@ func _process(delta):
 		$DeathAmt.text = str(int(Globals.NumDeaths))
 		Globals.MenuPaused = !Globals.MenuPaused
 		BeerBtn.button_pressed = Globals.EffectActive[Globals.Beer]
-		MilkBtn.button_pressed = Globals.EffectActive[Globals.Milk]
 		visible = !visible
 		get_tree().paused = !get_tree().paused
 		BeerBtn.disabled = !Globals.Items[Globals.Passive][Globals.Beer]
-		MilkBtn.disabled = !Globals.Items[Globals.Passive][Globals.Milk]
 
 func _on_exit_button_pressed():
 	get_tree().quit()
@@ -33,10 +29,10 @@ func _on_bottle_activar_pressed():
 		Globals.EffectActive[Globals.Beer] = !Globals.EffectActive[Globals.Beer]
 		SignalBus.emit_signal("ScreenShaderChange",Globals.EffectActive[Globals.Beer],Globals.Beer)
 
-func _on_milk_activar_pressed():
-	if Globals.Items[Globals.Passive][Globals.Milk]:
-		Globals.EffectActive[Globals.Milk] = !Globals.EffectActive[Globals.Milk]
-		SignalBus.emit_signal("ScreenShaderChange",Globals.EffectActive[Globals.Milk],Globals.Milk)
+#func _on_milk_activar_pressed():
+	#if Globals.Items[Globals.Passive][Globals.Milk]:
+		#Globals.EffectActive[Globals.Milk] = !Globals.EffectActive[Globals.Milk]
+		#SignalBus.emit_signal("ScreenShaderChange",Globals.EffectActive[Globals.Milk],Globals.Milk)
 
 func _on_wife_pressed():
 	if $Godhelpme.playing == false:
@@ -45,7 +41,6 @@ func _on_wife_pressed():
 func _on_get_item(type):
 	if Globals.SpecialItem:
 		$wife.visible = true
-
 
 func _on_texture_button_pressed():
 	$SettingsMenu.visible = true

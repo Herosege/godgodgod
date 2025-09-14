@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit2donwovcnk"
-path="res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"
+uid="uid://b1wwcd7b5eiy8"
+path="res://.godot/imported/SpikeVillage.png-e98a122961e24dbdb9806ac27454179e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/save1_4.png"
-dest_files=["res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"]
+source_file="res://Assets/village/SpikeVillage.png"
+dest_files=["res://.godot/imported/SpikeVillage.png-e98a122961e24dbdb9806ac27454179e.ctex"]
 
 [params]
 

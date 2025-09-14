@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit2donwovcnk"
-path="res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"
+uid="uid://dd8vcp57q3fry"
+path="res://.godot/imported/Shotgun2a.png-9fc66092ebcb55deab0fc314ed9f2437.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/save1_4.png"
-dest_files=["res://.godot/imported/save1_4.png-9579683da80ed6e45030cc0470d97424.ctex"]
+source_file="res://Assets/village/Shotgun2a.png"
+dest_files=["res://.godot/imported/Shotgun2a.png-9fc66092ebcb55deab0fc314ed9f2437.ctex"]
 
 [params]
 
