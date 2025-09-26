@@ -13,13 +13,7 @@ func _ready():
 		Globals.BestTime = Globals.SaveTime
 	if Globals.NumDeaths < Globals.LDeaths or Globals.LDeaths == -1:
 		Globals.LDeaths = Globals.NumDeaths
-	Globals.save_game("user://perma.save",{
-		"EBeer":Globals.EndingBeer,
-		"EHall":Globals.EndingHall,
-		"BGame":Globals.NumTimesBeatGame,
-		"BestTime":Globals.BestTime,
-		"LDeaths":Globals.LDeaths
-		})
+	Globals.SavePerma()
 	Globals.SaveData(666)
 
 func _process(delta):

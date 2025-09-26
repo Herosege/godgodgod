@@ -1,12 +1,12 @@
 extends Node2D
 
 enum {Passive,Weapon}
-enum {Axe,Gun,Shotgun}
+enum {Axe,Shotgun}
 enum {Beer,Milk}
 
 @export_enum("Passive","Weapon") var ItemType : int
 @export_enum("Beer","Milk") var Passives : int
-@export_enum("Axe","Gun","Shotgun") var Weapons : int
+@export_enum("Axe","Shotgun") var Weapons : int
 
 var TempType
 

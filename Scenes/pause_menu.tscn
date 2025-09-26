@@ -120,6 +120,9 @@ offset_left = 520.0
 offset_top = 13.0
 offset_right = 628.0
 offset_bottom = 398.0
+tooltip_text = "Wife
+
+Powerful"
 ignore_texture_size = true
 stretch_mode = 4
 

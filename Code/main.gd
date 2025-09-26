@@ -16,7 +16,7 @@ func _ready():
 	$BloodParticles2.emitting = true
 	$BloodParticles2.visible = false
 	
-	Globals.stoptime = false
+	
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
 	for i in G1.size():

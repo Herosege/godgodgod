@@ -6,6 +6,11 @@ var InAxeCutscene = false
 
 @onready var CTimer = $Balbina/CutsceneTimer
 
+func _ready():
+	if Globals.BossKilled[Globals.Balbina] == true:
+		$Balbina.queue_free()
+		$Gate.queue_free()
+
 func _on_cliff_bottom_body_entered(body):
 	if body.is_in_group("player") and !InAxeCutscene:
 		$Balbina/Label.visible = true
@@ -19,7 +24,7 @@ func _on_cliff_bottom_body_exited(body):
 func _on_cliff_bottom_area_entered(area):
 	if area.is_in_group("damage") and !InAxeCutscene:
 		if area.is_in_group("shotgun"):
-			pass
+			ShotgunCutscene()
 		else:
 			AxeCutscene()
 
@@ -33,11 +38,17 @@ func AxeCutscene():
 	SignalBus.emit_signal("Death")
 
 func ShotgunCutscene():
-	pass
+	Globals.BossKilled[Globals.Balbina] = true
+	$Balbina.queue_free()
+	$RatStuff/DeathSound.play()
+	$RatStuff/RatParticle.emitting = true
+	$RatStuff/AnimationPlayer.play("GateOpen")
 
 func RESET():
+	if Globals.BossKilled[Globals.Balbina] == false:
+		CTimer.stop()
+		$Balbina/AnimationPlayer.play("RESET")
+		$Balbina/BossWall.global_position.y = 2706.0
+		$Balbina/CliffBottom.set_deferred("disabled",false)
 	InAxeCutscene = false
-	CTimer.stop()
-	$Balbina/AnimationPlayer.play("RESET")
-	$Balbina/BossWall.global_position.y = 2706.0
-	$Balbina/CliffBottom.set_deferred("disabled",false)
+	

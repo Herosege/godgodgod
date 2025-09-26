@@ -1,5 +1,5 @@
 extends Node
 
-enum {MayorSpokenToWithHint,HorseHaluShown}
+enum {MayorSpokenToWithHint,HorseHaluShown,FakeHallEndCutscene}
 
-var EventArray = [false,false]
+var EventArray = [false,false,false]

@@ -9,6 +9,10 @@ func _ready():
 	SignalBus.SetHudMessage.connect(SetHudMessage)
 	SignalBus.ShotgunTimerHudUpdate.connect(ShotgunTimerHudUpdate)
 
+func _process(delta):
+	var Times = Globals.sec_to_time(Globals.SaveTime)
+	$Timer.text =  str(Times[2]) + ":" + str(Times[1]) + ":" + str(Times[0])
+
 func _on_die():
 	$DeadHint.visible = true
 

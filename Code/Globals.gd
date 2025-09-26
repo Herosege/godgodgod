@@ -6,10 +6,10 @@ var AreaScenes = [
 	"res://Scenes/main.tscn",
 	"res://Scenes/scene_1.tscn",
 	"res://Scenes/village_1.tscn",
-	"res://Scenes/village/inside_places.tscn"
+	"res://Scenes/village/inside_places.tscn",
+	"res://Scenes/village/fake_hall.tscn"
 ]
 
-enum area {wonderful_place, curse_world}
 
 var InDialogue := false
 var MenuPaused := false
@@ -45,8 +45,8 @@ var Items = [
 	[false,false]#Weapons
 ]
 
-enum {VoidSpaghetti}
-var BossKilled = [false]
+enum {VoidSpaghetti,Balbina}
+var BossKilled = [false,false]
 
 var EnemiesKilled = 0
 
@@ -137,8 +137,20 @@ func _ready():
 	#SavedPos[1] = 2
 	
 	#village - village 
-	SavedPos[0] = Vector2(1101,-5883)
-	SavedPos[1] = 2
+	#SavedPos[0] = Vector2(1101,-5883)
+	#SavedPos[1] = 2
+	
+	#FakeHall - start
+	#SavedPos[0] = Vector2(530,-440)
+	#SavedPos[1] = 4
+	
+	#FakeHall - third obstacle
+	#SavedPos[0] = Vector2(1980,375)
+	#SavedPos[1] = 4
+	
+	#FakeHall - sixth obstacle
+	SavedPos[0] = Vector2(3880+640,375)
+	SavedPos[1] = 4
 
 const CAM_ZOOM = 0.05
 
@@ -160,10 +172,10 @@ func _process(delta):
 		Items[Passive][Milk] = true
 		Items[Weapon][Axe] = true
 		Items[Weapon][Shotgun] = true
-		
-	#if Input.is_action_just_pressed("debug2"):
+		SpecialItem = true
+	if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
-		#
+		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 		#if CAM:
 			#if CAM.zoom == Vector2(CAM_ZOOM,CAM_ZOOM):
 				#CAM.zoom /= CAM_ZOOM
@@ -192,6 +204,15 @@ func SaveData(type):
 		})
 	if type == 666:
 		save_game("user://dinomemories.save",null)
+
+func SavePerma():
+	save_game("user://perma.save",{
+		"EBeer":Globals.EndingBeer,
+		"EHall":Globals.EndingHall,
+		"BGame":Globals.NumTimesBeatGame,
+		"BestTime":Globals.BestTime,
+		"LDeaths":Globals.LDeaths
+	})
 
 func load_game(file,DataName,def):
 	if not FileAccess.file_exists(file):
@@ -235,7 +256,7 @@ func sec_to_time(in_sec):
 	var min = floor(in_sec / 60)
 	var hrs = floor(in_sec / 3600)
 	
-	return [(int(in_sec))%60,int(min)%60,hrs]
+	return [(int(in_sec))%60,int(min)%60,int(hrs)]
 
 #settings
 

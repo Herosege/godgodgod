@@ -131,13 +131,13 @@ func MoveDirection():
 		#velocity.x = move_toward(velocity.x, 0, VertSpeed/10)
 	if is_on_floor():
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.54)
-		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
-		AdditVel.y = 0.0
+		AdditVel.x = lerp(AdditVel.x, 0.0, 0.20)
+		AdditVel.y = move_toward(AdditVel.y, 0.0, initVertSpeed/8.0)
 	else:
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
-		AdditVel.y = move_toward(AdditVel.y, 0, initVertSpeed/6)
-		AdditVel.x = move_toward(AdditVel.x, 0, initVertSpeed/12)
+		AdditVel.y = move_toward(AdditVel.y, 0.0, initVertSpeed/6.0)
+		AdditVel.x = move_toward(AdditVel.x, 0.0, initVertSpeed/12.0)
 	if is_on_wall():
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
 	if is_on_ceiling():

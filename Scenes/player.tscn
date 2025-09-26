@@ -120,8 +120,9 @@ func Attack(type):
 	$AnimatedSprite2D.frame = 0
 	$HitSE.play()
 	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",false)
-	HitboxTimer.start()
-	await HitboxTimer.timeout
+	#HitboxTimer.start()
+	#await HitboxTimer.timeout
+	await get_tree().process_frame
 	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",true)
 
 func _on_area_2d_area_entered(area):
@@ -216,6 +217,7 @@ offsets = PackedFloat32Array(0.246667, 0.746667)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
 [node name="Player" type="CharacterBody2D" groups=["RESET", "player"]]
+z_index = 1
 collision_layer = 3
 script = ExtResource("1_xtj4b")
 TimePeak = 0.25
@@ -270,7 +272,7 @@ Type = 1
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Shotgun" groups=["damage", "shotgun"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/Weapons/Shotgun/Area2D"]
-polygon = PackedVector2Array(7, 0, 130, -32, 130, 32)
+polygon = PackedVector2Array(7, -10, 120, -28, 120, 28, 7, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Shotgun"]
 position = Vector2(76, 5)
@@ -282,6 +284,7 @@ frame_progress = 1.0
 stream = ExtResource("16_fs7ks")
 volume_db = -10.0
 pitch_scale = 0.9
+bus = &"SoundEffect"
 
 [node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun"]
 one_shot = true

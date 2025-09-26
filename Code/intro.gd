@@ -62,6 +62,7 @@ func _on_texture_button_pressed():
 	Globals.RotCKilled = Globals.load_game("user://dinomemories.save","RotCKilled",Globals.RotCKilled)
 	
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])
+	Globals.stoptime = false
 
 
 func _on_texture_button_2_pressed():

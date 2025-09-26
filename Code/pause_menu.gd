@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var BeerBtn = $Collectibles/HBoxContainer/BottleActivar
+@onready var MilkShw = $Collectibles/HBoxContainer/TextureRect
 
 func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
@@ -14,6 +15,12 @@ func _process(delta):
 		BeerBtn.button_pressed = Globals.EffectActive[Globals.Beer]
 		visible = !visible
 		get_tree().paused = !get_tree().paused
+		
+		MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]
+		BeerBtn.visible = Globals.Items[Globals.Passive][Globals.Beer]
+		
+		$wife.visible = Globals.SpecialItem
+		
 		BeerBtn.disabled = !Globals.Items[Globals.Passive][Globals.Beer]
 
 func _on_exit_button_pressed():

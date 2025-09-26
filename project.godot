@@ -12,7 +12,7 @@ config_version=5
 
 config/name="godgodgod"
 run/main_scene="res://Scenes/intro.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
 boot_splash/image="res://Assets/herosege1-34.png"
@@ -29,6 +29,11 @@ driver/output_latency.web=100
 SignalBus="*res://Code/SignalBus.gd"
 Globals="*res://Code/Globals.gd"
 STEvents="*res://Code/SingleTimeEvents.gd"
+
+[debug]
+
+gdscript/warnings/unused_variable=0
+gdscript/warnings/unused_parameter=0
 
 [display]
 

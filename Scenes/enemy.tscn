@@ -102,6 +102,7 @@ frame_progress = 0.535744
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_eowqw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

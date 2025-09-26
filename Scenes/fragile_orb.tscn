@@ -37,7 +37,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_0pi4i")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.1999999999999997
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

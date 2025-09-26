@@ -46,6 +46,7 @@ func Attack(type):
 	$Area2D/CollisionShape2D.set_deferred("disabled",false)
 	HitboxTimer.start()
 	await HitboxTimer.timeout
+	#await get_tree().process_frame
 	$Area2D/CollisionShape2D.set_deferred("disabled",true)
 
 func _on_area_2d_area_entered(area):

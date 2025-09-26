@@ -2,7 +2,7 @@ extends Node2D
 class_name npc
 
 
-@export_enum("henryk","henrykbridge","someone","curse","ONEN") var type
+@export_enum("henryk","someone","curse","ONEN") var type
 
 enum {henryk,someone,curse,ONEN}
 
@@ -84,44 +84,35 @@ func _on_timer_timeout():
 var Texts = {
 	"cursegod":"Hi little being
 	
-	We are beings overseeing this realm, named curses 
+	I am the one overseeing this realm
+	I am a curse - a synthetic creature
 	
-	You see something awful has happened recently 
+	You see, this realm and me have been created by
+	A powerful being, Hania - a god
 	
-	One of us, they have been entangled in something in thier mind
-	These thoughts consumed them and out of it
-	The Rotten Curse came into existence
-	A powerful being that conquests and consumes everything
-	
-	It is no longer here and spread out to your realm
-	
-	We must do something about it",
+	Recently I have been receiving really bizzare messages from them
+	And my friend Henryk has informed me that some weird curse like creatures
+	Have been spreading through your world
+	I fear something awful has happened to Hania",
 	
 	#
 	
-	"cursegod1":"There is a worm named henryk
-	They are already hunting the fragments of The Rotten Curse
+	"cursegod1":"Since you managed to figure out how to get here
+	You seem pretty competent 
 	
-	I have entrusted them with many powerful spells
-	But they definitely do not have the will
-	To actually destroy the root of it
+	If you have some free time you could travel to Hania's location
+	And maybe find out what happened to them
 	
-	You on the other hand have the will
-	You managed to get past my trial 
-	And you figured out how to get here",
+	They reside far in the east of your world
+	Past a bridge, a tower, down in the ground",
 	
-	"cursegod2":"You have what it takes
+	"cursegod2":"As compensation you can take this artifact
+	It seems pretty powerful, although I do not know what it does
+	But it will surely aid you in your journey
 	
-	Here is the ultimate great weapon of absolute annihilation
-	Called The Wife
-	It will kill them, definitely
+	Also I do not know why I know this but it is called \"wife\"
 	
-	Head to the east
-	Past the bridge, past the tower
-	
-	That is where root of Rotten Curse resides 
-	
-	Rest is up to you, Good luck!",
+	Anyway, Good luck",
 	#
 	
 	"onen":"Hey Othenson 

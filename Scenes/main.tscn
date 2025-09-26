@@ -847,6 +847,9 @@ sampling_rate = 44100.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_enfpb"]
 packet_sequence = SubResource("OggPacketSequence_ym7xv")
+tags = {
+"cool": "This song has been made using LMMS"
+}
 loop = true
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_ludb2"]
@@ -856,6 +859,9 @@ sampling_rate = 44100.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_wpx8a"]
 packet_sequence = SubResource("OggPacketSequence_ludb2")
+tags = {
+"cool": "This song has been made using LMMS"
+}
 loop = true
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_1wrf0"]
@@ -865,6 +871,13 @@ sampling_rate = 48000.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_mxhtp"]
 packet_sequence = SubResource("OggPacketSequence_1wrf0")
+tags = {
+"com.android.version": "10",
+"compatible_brands": "isommp42",
+"major_brand": "mp42",
+"minor_version": "0",
+"software": "Lavf60.3.100"
+}
 loop = true
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_ufj1g"]
@@ -874,6 +887,11 @@ sampling_rate = 44100.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_mli7f"]
 packet_sequence = SubResource("OggPacketSequence_ufj1g")
+tags = {
+"comment": "",
+"contact": "",
+"encoder": "FL Studio"
+}
 loop = true
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_3jmw5"]
@@ -883,6 +901,11 @@ sampling_rate = 44100.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_88pvt"]
 packet_sequence = SubResource("OggPacketSequence_3jmw5")
+tags = {
+"comment": "",
+"contact": "",
+"encoder": "FL Studio"
+}
 loop = true
 loop_offset = 0.5
 
@@ -893,6 +916,11 @@ sampling_rate = 44100.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_iik5l"]
 packet_sequence = SubResource("OggPacketSequence_b8qkv")
+tags = {
+"comment": "",
+"contact": "",
+"encoder": "FL Studio"
+}
 loop = true
 
 [sub_resource type="Gradient" id="Gradient_l5dhn"]
@@ -1169,7 +1197,6 @@ alpha_curve = SubResource("CurveTexture_43arx")
 script = ExtResource("1_bom7q")
 
 [node name="Player" parent="." instance=ExtResource("1_8umw3")]
-z_index = 1
 position = Vector2(328, 328)
 
 [node name="FakeWall2" type="TileMapLayer" parent="."]
@@ -3191,7 +3218,6 @@ vertical_alignment = 1
 
 [node name="idk" parent="Npcs" instance=ExtResource("22_2tr7a")]
 position = Vector2(4679, -80)
-type = 2
 
 [node name="Label" parent="Npcs/idk" index="2"]
 offset_left = -171.0
@@ -3210,7 +3236,7 @@ autowrap_mode = 2
 
 [node name="idk2" parent="Npcs" instance=ExtResource("22_2tr7a")]
 position = Vector2(9304, -64)
-type = 4
+type = 3
 
 [node name="Label" parent="Npcs/idk2" index="2"]
 offset_left = -256.0
@@ -3218,13 +3244,13 @@ offset_top = -360.0
 offset_right = 299.0
 offset_bottom = -33.0
 text = "Wow good job Othenson!
-You guys managed to destroy that rotten curse, cool
+You guys managed to destroy that thing, cool
 
-Anyway there is that small town to the east
-and the mayor wanted this rotten stuff out of here
-so they will give you something great for what you did
+Anyway you may have not seen it since you have poor sight
+but there is this huge tower to the east
 
-I will see you soon"
+There is a village on top of it
+Meet me there and we will be one step closer to killing the sun!"
 label_settings = SubResource("LabelSettings_dkcn6")
 
 [node name="henryk2" type="Node2D" parent="Npcs"]
