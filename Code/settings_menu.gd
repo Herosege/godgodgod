@@ -5,8 +5,13 @@ extends Control
 @onready var Msg = $Settings/MessageOfTheDay
 
 var CoolMsg = [
-	"There is a mage worm around these parts, it's silly and wiggles a lot",
-	"God hates you"
+	"There are secrets all around you",
+	"The sun is shining",
+	"Reality is subjective",
+	"Does The Existence God exist?",
+	"Horses are weak in this world",
+	"Flowers are hateful",
+	"Think about what you've experienced"
 ]
 
 func _ready():
@@ -14,11 +19,12 @@ func _ready():
 	SEVSl.value = Globals.SEVol
 
 func _on_exit_button_pressed():
-	Msg.text = CoolMsg[0] if randf()>0.9 else CoolMsg[1]
-	
+	Msg.text = CoolMsg.pick_random()
+	SignalBus.emit_signal("SettingChanged")
 	Globals.save_game("user://config.conf",{
 	"MusicVolume":Globals.MVol,
-	"SoundEffectVolume":Globals.SEVol
+	"SoundEffectVolume":Globals.SEVol,
+	"TimerOn":Globals.TimerOn
 	})
 	visible = false
 
@@ -33,3 +39,6 @@ func _on_av_sl_2_value_changed(value):
 	Globals.SEVol = value
 	AudioServer.set_bus_volume_db(1,(value/4)-15)
 	AudioServer.set_bus_mute(1,!value)
+
+func _on_check_box_toggled(toggled_on):
+	Globals.TimerOn = toggled_on

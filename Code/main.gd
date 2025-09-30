@@ -169,16 +169,3 @@ func UnrotCurse():
 	$Visual/stuff/Sprite2D.modulate = Color.BLACK
 	$Visual/stuff/Sprite2D2.modulate = Color.BLACK
 	$SpikeAreas/Area2D/CollisionShape2D6.set_deferred("position",Vector2(6166,0))
-
-
-func _on_henryk_b_area_body_entered(body):
-	if body.is_in_group("player"):
-		$Npcs/npc2/Label.visible = true
-		$Npcs/npc2/AudioStreamPlayer.playing = true
-		$Npcs/npc2/AnimatedSprite2D.play("default")
-
-func _on_henryk_b_area_body_exited(body):
-	if body.is_in_group("player"):
-		$Npcs/npc2/Label.visible = false
-		$Npcs/npc2/AudioStreamPlayer.playing = false
-		$Npcs/npc2/AnimatedSprite2D.stop()

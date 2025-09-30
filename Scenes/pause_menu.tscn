@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bictivtnhttj1"]
+[gd_scene load_steps=19 format=3 uid="uid://bictivtnhttj1"]
 
 [ext_resource type="Texture2D" uid="uid://dj2rssddoygvw" path="res://Assets/painting1.png" id="1_fqt82"]
 [ext_resource type="Script" uid="uid://ddwvmhejn2elo" path="res://Code/pause_menu.gd" id="1_ywg23"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://djylebf8fkcpu" path="res://Assets/bottle/0001.png" id="6_uu4f6"]
 [ext_resource type="AudioStream" uid="uid://h72mjb0tm0xh" path="res://Assets/Sound/angelsee.ogg" id="6_y5xfd"]
 [ext_resource type="Texture2D" uid="uid://dmu4scvc1ynjk" path="res://Assets/MilkAnim/0001.png" id="10_8i5ii"]
+[ext_resource type="Texture2D" uid="uid://cyqo2ojajvn1j" path="res://Assets/WaterBottle/0001.png" id="11_taale"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="12_4ka14"]
 [ext_resource type="Texture2D" uid="uid://hko61fuv430q" path="res://Assets/youdied.png" id="13_cpmml"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="14_hmnbg"]
@@ -87,7 +88,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="wife" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,10 +139,13 @@ offset_left = -300.0
 offset_bottom = 60.0
 grow_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Collectibles"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Collectibles"]
 layout_mode = 2
 
-[node name="BottleActivar" type="TextureButton" parent="Collectibles/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Collectibles/VBoxContainer"]
+layout_mode = 2
+
+[node name="BottleActivar" type="TextureButton" parent="Collectibles/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 tooltip_text = "Piwo Mocne
@@ -152,7 +155,7 @@ toggle_mode = true
 texture_normal = ExtResource("4_7fyhd")
 texture_pressed = ExtResource("6_uu4f6")
 
-[node name="TextureRect" type="TextureRect" parent="Collectibles/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Collectibles/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 tooltip_text = "Mleko
 Allows you to move slowly with ctrl
@@ -162,6 +165,18 @@ mouse_filter = 0
 theme = SubResource("Theme_q7fiq")
 texture = ExtResource("10_8i5ii")
 stretch_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Collectibles/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Collectibles/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Woda
+Protects you from specific types of water
+Good luck finding water though
+(Always active)"
+theme = SubResource("Theme_q7fiq")
+texture = ExtResource("11_taale")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 11
@@ -210,5 +225,5 @@ label_settings = SubResource("LabelSettings_taale")
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="wife/Wife" to="." method="_on_wife_pressed"]
-[connection signal="pressed" from="Collectibles/HBoxContainer/BottleActivar" to="." method="_on_bottle_activar_pressed"]
+[connection signal="pressed" from="Collectibles/VBoxContainer/HBoxContainer/BottleActivar" to="." method="_on_bottle_activar_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

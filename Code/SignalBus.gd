@@ -34,3 +34,5 @@ signal SetPlayerPosition(Pos)
 signal GetInDial(State,Type,Early)
 
 signal ShotgunTimerHudUpdate(TimeRemaining,MaxTime)
+
+signal SettingChanged()

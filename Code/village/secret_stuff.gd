@@ -22,17 +22,17 @@ func _on_cliff_bottom_body_exited(body):
 
 
 func _on_cliff_bottom_area_entered(area):
-	if area.is_in_group("damage") and !InAxeCutscene:
+	if area.is_in_group("damage"):
 		if area.is_in_group("shotgun"):
 			ShotgunCutscene()
-		else:
+			return
+		if !InAxeCutscene:
 			AxeCutscene()
 
 func AxeCutscene():
 	InAxeCutscene = true
 	$Balbina/AnimationPlayer.play("AxeCutscene")
 	$Balbina/BossWall.global_position.y -= 500
-	$Balbina/CliffBottom.set_deferred("disabled",true)
 	CTimer.start(8.0)
 	await CTimer.timeout
 	SignalBus.emit_signal("Death")
@@ -49,6 +49,5 @@ func RESET():
 		CTimer.stop()
 		$Balbina/AnimationPlayer.play("RESET")
 		$Balbina/BossWall.global_position.y = 2706.0
-		$Balbina/CliffBottom.set_deferred("disabled",false)
 	InAxeCutscene = false
 	

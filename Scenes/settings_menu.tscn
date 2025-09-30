@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyb6t4vffx05"]
+[gd_scene load_steps=16 format=3 uid="uid://dyb6t4vffx05"]
 
 [ext_resource type="Script" uid="uid://c7ct3snmvtval" path="res://Code/settings_menu.gd" id="1_m0fgx"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="2_b0xc2"]
 [ext_resource type="Texture2D" uid="uid://be8sigju7o382" path="res://Assets/Interface/ciucmok.png" id="2_h2y1r"]
 [ext_resource type="FontFile" uid="uid://b6f4meh882kd6" path="res://Assets/fonts/Tiny5-Regular.ttf" id="3_a7gg2"]
+[ext_resource type="Texture2D" uid="uid://v8j0wppnot7a" path="res://Assets/Interface/checkbox_checked.png" id="3_rahb6"]
+[ext_resource type="Texture2D" uid="uid://cdasgril0kbj6" path="res://Assets/Interface/checkbox.png" id="4_fe37x"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3etfd"]
 color = Color(0.48, 0, 0, 1)
@@ -13,9 +15,20 @@ thickness = 4
 color = Color(0.48, 0, 0, 1)
 thickness = 4
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjs6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fsgis"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv31b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmele"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0ctm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkth2"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_3fcy6"]
 font = ExtResource("3_a7gg2")
-font_size = 8
 font_color = Color(0.941176, 0, 0, 0.737255)
 
 [node name="SettingsMenu" type="Control"]
@@ -116,6 +129,24 @@ theme_override_styles/grabber_area = SubResource("StyleBoxLine_rahb6")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rahb6")
 value = 100.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Timer : "
+
+[node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jjs6x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fsgis")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vv31b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hmele")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n0ctm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rkth2")
+theme_override_icons/checked = ExtResource("3_rahb6")
+theme_override_icons/unchecked = ExtResource("4_fe37x")
+
 [node name="ExitButton" type="TextureButton" parent="Settings"]
 z_index = 2
 texture_filter = 1
@@ -142,10 +173,12 @@ offset_right = -3.0
 offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
+text = "Have a great day!"
 label_settings = SubResource("LabelSettings_3fcy6")
 vertical_alignment = 1
 autowrap_mode = 2
 
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer5/AVSl" to="." method="_on_av_sl_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer6/AVSl2" to="." method="_on_av_sl_2_value_changed"]
+[connection signal="toggled" from="Settings/MarginContainer/VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="Settings/ExitButton" to="." method="_on_exit_button_pressed"]

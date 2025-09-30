@@ -18,7 +18,7 @@ func _ready():
 	for j in CloudsMMeshes.size():
 		CloudsMMeshes[j].multimesh.instance_count = INSTANCE_COUNT
 		for i in INSTANCE_COUNT:
-			var RPos = Vector2(int(i/2)*20*(0.9+(randf()/10.0)),randf()*(-50)) + Origin
+			var RPos = Vector2(int(i/2.0)*20*(0.9+(randf()/10.0)),randf()*(-50)) + Origin
 			var RScale = Vector2(1.0,1.0)*(0.83+randf()/3.0)
 			CloudsMMeshes[j].multimesh.set_instance_transform_2d(i,Transform2D(0.0,RScale,0.0,RPos))
 			

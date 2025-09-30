@@ -4,20 +4,26 @@ func _ready():
 	$AudioStreamPlayer.pitch_scale = 0.3
 	$AudioStreamPlayer.play()
 	Globals.stoptime = true
+	
+	Globals.MVol = Globals.load_game(Globals.PATH_TO_CONFSAVE,"MusicVolume",Globals.MVol)
+	Globals.SEVol = Globals.load_game(Globals.PATH_TO_CONFSAVE,"SoundEffectVolume",Globals.MVol)
+	Globals.TimerOn = Globals.load_game(Globals.PATH_TO_CONFSAVE,"TimerOn",Globals.TimerOn)
+	
 	AudioServer.set_bus_volume_db(0,(Globals.MVol/4)-15)
 	AudioServer.set_bus_mute(0,!Globals.MVol)
 	AudioServer.set_bus_volume_db(1,(Globals.SEVol/4)-15)
 	AudioServer.set_bus_mute(1,!Globals.SEVol)
 	
-	Globals.EndingBeer = Globals.load_game("user://perma.save","EBeer",Globals.EndingBeer)
-	Globals.EndingHall = Globals.load_game("user://perma.save","EHall",Globals.EndingHall)
-	Globals.NumTimesBeatGame = Globals.load_game("user://perma.save","BGame",Globals.NumTimesBeatGame)
-	Globals.BestTime = Globals.load_game("user://perma.save","BestTime",Globals.BestTime)
-	Globals.LDeaths = Globals.load_game("user://perma.save","LDeaths",Globals.LDeaths)
+	Globals.EndingBeer = Globals.load_game(Globals.PATH_TO_PERMASAVE,"EBeer",Globals.EndingBeer)
+	Globals.EndingHall = Globals.load_game(Globals.PATH_TO_PERMASAVE,"EHall",Globals.EndingHall)
+	Globals.NumTimesBeatGame = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BGame",Globals.NumTimesBeatGame)
+	Globals.BestTime = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BestTime",Globals.BestTime)
+	Globals.LDeaths = Globals.load_game(Globals.PATH_TO_PERMASAVE,"LDeaths",Globals.LDeaths)
+	#Globals.TimerOn = Globa
 	
-	Globals.NumDeaths = Globals.load_game("user://dinomemories.save","NumDeaths",Globals.NumDeaths)
+	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
 	
-	STEvents.EventArray = Globals.load_game("user://dinomemories.save","EventArray",STEvents.EventArray)
+	STEvents.EventArray = Globals.load_game(Globals.PATH_TO_GAMESAVE,"EventArray",STEvents.EventArray)
 	
 	if Globals.NumTimesBeatGame:
 		$Label4.visible = true
@@ -47,19 +53,19 @@ func _process(delta):
 			$Delsfx.play()
 
 func _on_texture_button_pressed():
-	if !Globals.load_game("user://dinomemories.save","SavedPos",false):
+	if !Globals.load_game(Globals.PATH_TO_GAMESAVE,"SavedPos",false):
 		get_tree().change_scene_to_file("res://Scenes/epic_intro.tscn")
 		return
-	Globals.SavedPos = Globals.load_game("user://dinomemories.save","SavedPos",Globals.SavedPos)
+	Globals.SavedPos = Globals.load_game(Globals.PATH_TO_GAMESAVE,"SavedPos",Globals.SavedPos)
 	if Globals.SavedPos[0] is not Vector2:
 		Globals.SavedPos[0] = str_to_var(Globals.SavedPos[0])
-	Globals.Items = Globals.load_game("user://dinomemories.save","Items",Globals.Items)
-	Globals.BossKilled = Globals.load_game("user://dinomemories.save","BossKilled",Globals.BossKilled)
-	Globals.EffectActive = Globals.load_game("user://dinomemories.save","EffectActive",Globals.EffectActive)
-	Globals.SaveTime = Globals.load_game("user://dinomemories.save","SaveTime",Globals.SaveTime)
-	Globals.SpecialItem = Globals.load_game("user://dinomemories.save","SpecialItem",Globals.SpecialItem)
-	Globals.NumDeaths = Globals.load_game("user://dinomemories.save","NumDeaths",Globals.NumDeaths)
-	Globals.RotCKilled = Globals.load_game("user://dinomemories.save","RotCKilled",Globals.RotCKilled)
+	Globals.Items = Globals.load_game(Globals.PATH_TO_GAMESAVE,"Items",Globals.Items)
+	Globals.BossKilled = Globals.load_game(Globals.PATH_TO_GAMESAVE,"BossKilled",Globals.BossKilled)
+	Globals.EffectActive = Globals.load_game(Globals.PATH_TO_GAMESAVE,"EffectActive",Globals.EffectActive)
+	Globals.SaveTime = Globals.load_game(Globals.PATH_TO_GAMESAVE,"SaveTime",Globals.SaveTime)
+	Globals.SpecialItem = Globals.load_game(Globals.PATH_TO_GAMESAVE,"SpecialItem",Globals.SpecialItem)
+	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
+	Globals.RotCKilled = Globals.load_game(Globals.PATH_TO_GAMESAVE,"RotCKilled",Globals.RotCKilled)
 	
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])
 	Globals.stoptime = false

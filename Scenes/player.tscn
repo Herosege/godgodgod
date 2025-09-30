@@ -83,7 +83,7 @@ enum {Dmg,Cd}
 
 var Weapons = [
 	[AXE_DMG,0.125],
-	[SHOTGUN_DMG,2.25]
+	[SHOTGUN_DMG,2.0]
 ]
 
 const AXE_DMG = 1.0
@@ -146,6 +146,7 @@ func MakeBullets():
 	get_tree().root.add_child(SBInst)
 
 func RESET():
+	$HitSE.stop()
 	$Cooldown.stop()
 "
 

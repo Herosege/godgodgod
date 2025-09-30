@@ -2,10 +2,10 @@ extends Node2D
 
 enum {Passive,Weapon}
 enum {Axe,Shotgun}
-enum {Beer,Milk}
+enum {Beer,Milk,Water}
 
 @export_enum("Passive","Weapon") var ItemType : int
-@export_enum("Beer","Milk") var Passives : int
+@export_enum("Beer","Milk","Water") var Passives : int
 @export_enum("Axe","Shotgun") var Weapons : int
 
 var TempType
@@ -25,6 +25,8 @@ func _ready():
 				$ItemAnim.play("Bottle")
 			Milk:
 				$ItemAnim.play("Milk")
+			Water:
+				$ItemAnim.play("Water")
 	else:
 		match TempType:
 			Axe:

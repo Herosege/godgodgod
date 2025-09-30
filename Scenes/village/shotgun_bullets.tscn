@@ -26,7 +26,7 @@ animations = [{
 "speed": 16.0
 }]
 
-[node name="ShotgunBullets" type="Node2D"]
+[node name="ShotgunBullets" type="Node2D" groups=["RESET"]]
 script = ExtResource("1_6jgxl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

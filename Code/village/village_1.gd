@@ -28,12 +28,19 @@ func _process(delta):
 		if PNode.position.x < 640 and PNode.position.x > 0 and PNode.position.y < -5800:
 			STEvents.EventArray[STEvents.HorseHaluShown] = true
 			$Houses/Village/Stuff/HorseHalucination.visible = false
+	
 	if PNode.position.x < 0 and PNode.position.y > -50:
 		Globals.LoadScene("res://Scenes/main.tscn")
 		Globals.PosSetTravel = Vector2(9600+PNode.position.x,-450)
-	if PNode.position.x > 5400 and PNode.position.y < 500 and PNode.position.y > -500 and !HandSpawned:
+	
+	if PNode.position.x > 5400 and PNode.position.y < 500 and PNode.position.y > -500 and PNode.CRoomPos.x < 13 and !HandSpawned and !STEvents.EventArray[STEvents.FakeHallEndCutscene]:
 		HandSpawned = true
 		HandACTIVAR()
+	
+	if PNode.CRoomPos.x >= 13:
+		$Bgs/Clouds.visible = false
+	else:
+		$Bgs/Clouds.visible = true
 	
 	if PrevRoom != PNode.CRoomPos:
 		$Bgs/Clouds.position.x = floor(PNode.CRoomPos.x/CLOUD_SCREEN_AMOUNT_TRAVEL)*640*CLOUD_SCREEN_AMOUNT_TRAVEL
@@ -98,15 +105,11 @@ func GetInDial(State,Type,Early):
 		else:
 			$Houses/Village/Fisher/FisherAnim.stop()
 
-
-
 func _on_onen_coll_body_entered(body):
 	if body.is_in_group("player"):
 		$Houses/Village/OnenBTower/Label.visible = true
 		if OTimer.is_stopped():
 			OTimer.start()
-			
-		
 
 func _on_onen_coll_body_exited(body):
 	if body.is_in_group("player"):
@@ -126,3 +129,17 @@ func OnOpenTimerTimeout():
 
 func _on_h_temple_tele_body_entered(body):
 	Globals.LoadScene("res://Scenes/village/abba.tscn")
+
+var ExAwaitInp = false
+
+func _on_ex_npc_body_entered(body):
+	if body.is_in_group("player"):
+		$Extra/Npc/Label.visible = true
+		SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
+		ExAwaitInp = true
+
+func _on_ex_npc_body_exited(body):
+	if body.is_in_group("player"):
+		$Extra/Npc/Label.visible = false
+		SignalBus.emit_signal("SetHudMessage","",0)
+		ExAwaitInp = false

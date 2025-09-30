@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var ShotgunTimer = $ShotGunTimer
 
 func _ready():
+	SignalBus.SettingChanged.connect(OnSettingChange)
+	$Timer.visible = Globals.TimerOn
 	ShotgunTimer.visible = false
 	SignalBus.Death.connect(_on_die)
 	SignalBus.ResetPos.connect(ResetPosition)
@@ -10,8 +12,9 @@ func _ready():
 	SignalBus.ShotgunTimerHudUpdate.connect(ShotgunTimerHudUpdate)
 
 func _process(delta):
-	var Times = Globals.sec_to_time(Globals.SaveTime)
-	$Timer.text =  str(Times[2]) + ":" + str(Times[1]) + ":" + str(Times[0])
+	if Globals.TimerOn:
+		var Times = Globals.sec_to_time(Globals.SaveTime)
+		$Timer.text =  str(Times[2]) + ":" + str(Times[1]) + ":" + str(Times[0])
 
 func _on_die():
 	$DeadHint.visible = true
@@ -39,3 +42,6 @@ func _on_shot_gun_timer_value_changed(value):
 
 func RESET():
 	ShotgunTimer.visible = false
+
+func OnSettingChange():
+	$Timer.visible = Globals.TimerOn

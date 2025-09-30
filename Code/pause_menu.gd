@@ -1,12 +1,16 @@
 extends CanvasLayer
 
-@onready var BeerBtn = $Collectibles/HBoxContainer/BottleActivar
-@onready var MilkShw = $Collectibles/HBoxContainer/TextureRect
+@onready var BeerBtn = $Collectibles/VBoxContainer/HBoxContainer/BottleActivar
+@onready var MilkShw = $Collectibles/VBoxContainer/HBoxContainer/TextureRect
+@onready var WaterShw = $Collectibles/VBoxContainer/HBoxContainer2/TextureRect
 
 func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
 	$wife.visible = Globals.SpecialItem
 	$DeathAmt.text = str(int(Globals.NumDeaths))
+	MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]
+	BeerBtn.visible = Globals.Items[Globals.Passive][Globals.Beer]
+	WaterShw.visible = Globals.Items[Globals.Passive][Globals.Water]
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause") and !Globals.DisableAction:
@@ -18,7 +22,7 @@ func _process(delta):
 		
 		MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]
 		BeerBtn.visible = Globals.Items[Globals.Passive][Globals.Beer]
-		
+		WaterShw.visible = Globals.Items[Globals.Passive][Globals.Water]
 		$wife.visible = Globals.SpecialItem
 		
 		BeerBtn.disabled = !Globals.Items[Globals.Passive][Globals.Beer]

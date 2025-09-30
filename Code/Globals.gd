@@ -1,5 +1,10 @@
 extends Node
 
+const PATH_TO_PERMASAVE = "user://perma.save"
+const PATH_TO_GAMESAVE = "user://dinomemories.save"
+const PATH_TO_CONFSAVE = "user://config.conf"
+
+
 var FirstTime = true
 
 var AreaScenes = [
@@ -30,7 +35,7 @@ enum {
 	Weapon
 }
 
-enum {Beer,Milk}
+enum {Beer,Milk,Water}
 enum {Axe,Shotgun}
 
 var EffectActive = [false,false]
@@ -41,7 +46,7 @@ var RotCKilled = false
 
 var SpecialItem = false
 var Items = [
-	[false,false],#Passives
+	[false,false,false],#Passives
 	[false,false]#Weapons
 ]
 
@@ -63,6 +68,7 @@ var NumDeaths = 0
 var LDeaths = -1
 
 func _ready():
+	
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	MVol = load_game("user://config.conf","MusicVolume",MVol)
 	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
@@ -137,8 +143,8 @@ func _ready():
 	#SavedPos[1] = 2
 	
 	#village - village 
-	#SavedPos[0] = Vector2(1101,-5883)
-	#SavedPos[1] = 2
+	SavedPos[0] = Vector2(1101,-5883)
+	SavedPos[1] = 2
 	
 	#FakeHall - start
 	#SavedPos[0] = Vector2(530,-440)
@@ -149,8 +155,20 @@ func _ready():
 	#SavedPos[1] = 4
 	
 	#FakeHall - sixth obstacle
-	SavedPos[0] = Vector2(3880+640,375)
-	SavedPos[1] = 4
+	#SavedPos[0] = Vector2(3880+640,375)
+	#SavedPos[1] = 4
+	
+	#village - EXTRA
+	#SavedPos[0] = Vector2(9043,-26)
+	#SavedPos[1] = 2
+	
+	#village - EXTRA2
+	#SavedPos[0] = Vector2(9146,-97)
+	#SavedPos[1] = 2
+	
+	#village - EXTRA3
+	#SavedPos[0] = Vector2(9080,-194)
+	#SavedPos[1] = 2
 
 const CAM_ZOOM = 0.05
 
@@ -207,11 +225,11 @@ func SaveData(type):
 
 func SavePerma():
 	save_game("user://perma.save",{
-		"EBeer":Globals.EndingBeer,
-		"EHall":Globals.EndingHall,
-		"BGame":Globals.NumTimesBeatGame,
-		"BestTime":Globals.BestTime,
-		"LDeaths":Globals.LDeaths
+		"EBeer":EndingBeer,
+		"EHall":EndingHall,
+		"BGame":NumTimesBeatGame,
+		"BestTime":BestTime,
+		"LDeaths":LDeaths
 	})
 
 func load_game(file,DataName,def):
@@ -262,3 +280,5 @@ func sec_to_time(in_sec):
 
 var SEVol = 60.0
 var MVol = 40.0
+
+var TimerOn = false
