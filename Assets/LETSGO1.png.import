@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drfvwokoigbgg"
-path="res://.godot/imported/epic_intro.png-a7c47d564536ebff1e3f75fcbb27561d.ctex"
+uid="uid://cybwuf8k1f2mx"
+path="res://.godot/imported/LETSGO1.png-f01bacec6c646f24b3a542b41f482401.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/epic_intro.png"
-dest_files=["res://.godot/imported/epic_intro.png-a7c47d564536ebff1e3f75fcbb27561d.ctex"]
+source_file="res://Assets/LETSGO1.png"
+dest_files=["res://.godot/imported/LETSGO1.png-f01bacec6c646f24b3a542b41f482401.ctex"]
 
 [params]
 
