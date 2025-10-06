@@ -25,7 +25,6 @@ func _ready():
 		$Npcs/henryk2.visible = false
 		UnrotCurse()
 		$Npcs/npc.queue_free()
-		$Npcs/npc2.queue_free()
 		$Npcs/idk.queue_free()
 
 	CheckMusic()
@@ -58,7 +57,7 @@ func CheckMusic():
 	if PNode.CRoomPos.x > 3 and PNode.CRoomPos.y >= 0 and  PNode.CRoomPos.x < 6:
 		CPlaying = 2
 		return
-	if PNode.CRoomPos.x >= 7 and PNode.CRoomPos.x < 10 and PNode.CRoomPos.y < 0:
+	if PNode.CRoomPos.x > 3 and PNode.CRoomPos.x < 10 and PNode.CRoomPos.y < 0:
 		CPlaying = 3
 		return
 	if PNode.CRoomPos.x >= 9 and PNode.CRoomPos.x < 13 and PNode.CRoomPos.y == 0:
@@ -90,6 +89,7 @@ func _on_area_2d_body_entered(body):
 		$dadoor.position = Vector2(8304,96)
 		Globals.SavedPos[0] = Vector2(8400,320)
 		Globals.SavedPos[1] = 0
+		SignalBus.emit_signal("Save",0)
 		EndScene(Globals.SpecialItem)
 
 func EndScene(hasSpecial):

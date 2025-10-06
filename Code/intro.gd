@@ -1,21 +1,17 @@
 extends Control
 
 func _ready():
+	
 	$AudioStreamPlayer.pitch_scale = 0.3
 	$AudioStreamPlayer.play()
 	Globals.stoptime = true
-	
-	Globals.MVol = Globals.load_game(Globals.PATH_TO_CONFSAVE,"MusicVolume",Globals.MVol)
-	Globals.SEVol = Globals.load_game(Globals.PATH_TO_CONFSAVE,"SoundEffectVolume",Globals.MVol)
-	Globals.TimerOn = Globals.load_game(Globals.PATH_TO_CONFSAVE,"TimerOn",Globals.TimerOn)
 	
 	AudioServer.set_bus_volume_db(0,(Globals.MVol/4)-15)
 	AudioServer.set_bus_mute(0,!Globals.MVol)
 	AudioServer.set_bus_volume_db(1,(Globals.SEVol/4)-15)
 	AudioServer.set_bus_mute(1,!Globals.SEVol)
 	
-	Globals.EndingBeer = Globals.load_game(Globals.PATH_TO_PERMASAVE,"EBeer",Globals.EndingBeer)
-	Globals.EndingHall = Globals.load_game(Globals.PATH_TO_PERMASAVE,"EHall",Globals.EndingHall)
+	Globals.Endings = Globals.load_game(Globals.PATH_TO_PERMASAVE,"Endings",Globals.Endings)
 	Globals.NumTimesBeatGame = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BGame",Globals.NumTimesBeatGame)
 	Globals.BestTime = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BestTime",Globals.BestTime)
 	Globals.LDeaths = Globals.load_game(Globals.PATH_TO_PERMASAVE,"LDeaths",Globals.LDeaths)
@@ -40,8 +36,9 @@ func _ready():
 		$Says.visible = true
 		$Says/Label.text = "I can beat the game with\nonly " + str(int(Globals.LDeaths)) + " deaths!!!" if Globals.LDeaths > 0 else "I am the one true god!"
 	
-	$Trophies/TextureRect.visible = Globals.EndingHall
-	$Trophies/TextureRect2.visible = Globals.EndingBeer
+	$Trophies/StdEnd.visible = Globals.Endings[Globals.End.EndingStd]
+	$Trophies/PainEnd.visible = Globals.Endings[Globals.End.EndingPain]
+	$Trophies/PeaceEnd2.emitting = Globals.Endings[Globals.End.EndingPeace]
 
 var DelSaveCount = 0
 
@@ -73,3 +70,10 @@ func _on_texture_button_pressed():
 
 func _on_texture_button_2_pressed():
 	$SettingsMenu.visible = true
+
+var Tooltips = [
+	"Are you really sure that what you are doing is a correct way forward?",
+	"Try to stop smiling sometimes",
+	"If you struggle, remember to give up sometimes",
+	"Pain is necessary to improve"
+]

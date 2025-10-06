@@ -14,7 +14,9 @@ func _ready():
 func _process(delta):
 	if Globals.TimerOn:
 		var Times = Globals.sec_to_time(Globals.SaveTime)
-		$Timer.text =  str(Times[2]) + ":" + str(Times[1]) + ":" + str(Times[0])
+		var StrSec = str(Times[0]) if floor(Times[0]/10.0) > 0 else "0"+str(Times[0])
+		var StrMin = str(Times[1]) if floor(Times[1]/10.0) > 0 else "0"+str(Times[1])
+		$Timer.text =  str(Times[2]) + ":" + StrMin + ":" + StrSec
 
 func _on_die():
 	$DeadHint.visible = true

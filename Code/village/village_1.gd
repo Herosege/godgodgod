@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var PNode = get_tree().get_first_node_in_group("player")
 
-@onready var MusicColl = [null,$Music,$Music2,$Music3]
+@onready var MusicColl = [null,$Music,$Music2,$Music3,$Music4]
 
 @onready var OTimer = $Houses/Village/Buildings/HorseTemple/OpenTimer
 
@@ -33,7 +33,7 @@ func _process(delta):
 		Globals.LoadScene("res://Scenes/main.tscn")
 		Globals.PosSetTravel = Vector2(9600+PNode.position.x,-450)
 	
-	if PNode.position.x > 5400 and PNode.position.y < 500 and PNode.position.y > -500 and PNode.CRoomPos.x < 13 and !HandSpawned and !STEvents.EventArray[STEvents.FakeHallEndCutscene]:
+	if PNode.position.x > 5400 and PNode.position.y < 500 and PNode.position.y > -500 and PNode.CRoomPos.x < 13 and !HandSpawned and STEvents.EventArray[STEvents.FakeHallEndCutscene] == false:
 		HandSpawned = true
 		HandACTIVAR()
 	
@@ -51,6 +51,9 @@ func _process(delta):
 		else:
 			UpdateMusic()
 	PrevRoom = PNode.CRoomPos
+	
+	if ExAwaitInp and Input.is_action_just_pressed("Confirm"):
+		Globals.LoadScene("res://Scenes/village/epilogue_1.tscn")
 
 func _on_main_place_gate_body_entered(body):
 	if body.is_in_group("player"):
@@ -59,14 +62,17 @@ func _on_main_place_gate_body_entered(body):
 		Globals.PosSetTravel = Vector2(9532,-70)
 
 func CheckMusic():
-	if PNode.CRoomPos.y <= -2 and PNode.CRoomPos.y >= -11:
+	if PNode.CRoomPos.y <= -2 and PNode.CRoomPos.y >= -11 and PNode.CRoomPos.x < 13:
 		CPlaying = 1
 		return
-	if PNode.CRoomPos.y < -11:
+	if PNode.CRoomPos.y < -11 and PNode.CRoomPos.x < 13:
 		CPlaying = 2
 		return
-	if PNode.CRoomPos.y >= 4:
+	if PNode.CRoomPos.y >= 4 and PNode.CRoomPos.x < 13:
 		CPlaying = 3
+		return
+	if PNode.CRoomPos.x >= 13:
+		CPlaying = 4
 		return
 	if CPlaying:
 		CPlaying = 0
@@ -135,7 +141,7 @@ var ExAwaitInp = false
 func _on_ex_npc_body_entered(body):
 	if body.is_in_group("player"):
 		$Extra/Npc/Label.visible = true
-		SignalBus.emit_signal("SetHudMessage","Press space to continue",0)
+		SignalBus.emit_signal("SetHudMessage","Press space to accept",0)
 		ExAwaitInp = true
 
 func _on_ex_npc_body_exited(body):

@@ -1468,28 +1468,6 @@ position = Vector2(1176, 376)
 
 [node name="Spikes" type="Node2D" parent="Hazards"]
 
-[node name="SpikeR28" parent="Hazards/Spikes" instance=ExtResource("4_bega8")]
-position = Vector2(1288, 280)
-SType = 1
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR28" index="1"]
-animation = &"Spike"
-autoplay = "Spike"
-frame = 0
-frame_progress = 0.0
-
-[node name="SpikeR29" parent="Hazards/Spikes" instance=ExtResource("4_bega8")]
-position = Vector2(1304, 280)
-SType = 1
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR29" index="1"]
-animation = &"Spike"
-autoplay = "Spike"
-frame = 0
-frame_progress = 0.0
-
 [node name="SpikeR13" parent="Hazards/Spikes" instance=ExtResource("4_bega8")]
 position = Vector2(1432, 472)
 SType = 1
@@ -3411,8 +3389,6 @@ Passives = 2
 [connection signal="body_entered" from="CursePillar/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="FunnyStuff/BGTIMER" to="." method="_on_bgtimer_timeout"]
 
-[editable path="Hazards/Spikes/SpikeR28"]
-[editable path="Hazards/Spikes/SpikeR29"]
 [editable path="Hazards/Spikes/SpikeR13"]
 [editable path="Hazards/Spikes/SpikeR14"]
 [editable path="Hazards/Spikes/SpikeR15"]

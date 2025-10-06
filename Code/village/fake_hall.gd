@@ -35,6 +35,9 @@ func _process(delta):
 		$Stuff/EndStuff/Hands.rotation += (PI*RotSpeed)*delta
 		RotSpeed += delta*1.7
 		$Stuff/EndStuff/Hands.global_position = PNode.global_position
+	
+	if FountainActivar and Input.is_action_just_pressed("Confirm"):
+		Globals.LoadScene("res://Scenes/village/epilogue_3.tscn")
 
 func UpdateMusic():
 	for i in MusicColl.size():
@@ -88,3 +91,19 @@ func RESET():
 func _on_hand_timer_timeout():
 	Globals.LoadScene("res://Scenes/epilogue_2.tscn")
 	Globals.PosSetTravel = Vector2(470,-388)
+
+
+var FountainActivar = false
+
+func _on_fountain_l_body_entered(body):
+	if body.is_in_group("player"):
+		$Stuff/EndFHall/FountainL/Labels.visible = true
+		SignalBus.emit_signal("SetHudMessage","Press space to end",0)
+		FountainActivar = true
+		
+
+func _on_fountain_l_body_exited(body):
+	if body.is_in_group("player"):
+		$Stuff/EndFHall/FountainL/Labels.visible = false
+		SignalBus.emit_signal("SetHudMessage","",0)
+		FountainActivar = false

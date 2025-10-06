@@ -1,7 +1,7 @@
 extends Node
 
-const PATH_TO_PERMASAVE = "user://perma.save"
-const PATH_TO_GAMESAVE = "user://dinomemories.save"
+const PATH_TO_PERMASAVE = "user://perma_v2.save"
+const PATH_TO_GAMESAVE = "user://dinomemories_v2.save"
 const PATH_TO_CONFSAVE = "user://config.conf"
 
 
@@ -59,20 +59,21 @@ var stoptime = true
 
 var NumTimesBeatGame : int = 0
 
-var EndingHall = false
-var EndingBeer = false
+enum End {EndingStd,EndingPeace,EndingPain}
+
+var Endings = [false,false,false]
 
 var BestTime = 0.0
 
-var NumDeaths = 0
-var LDeaths = -1
+var NumDeaths : int = 0
+var LDeaths : int = -1
 
 func _ready():
 	
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	MVol = load_game("user://config.conf","MusicVolume",MVol)
-	SEVol = load_game("user://config.conf","SoundEffectVolume",SEVol)
-	
+	MVol = load_game(PATH_TO_CONFSAVE,"MusicVolume",MVol)
+	SEVol = load_game(PATH_TO_CONFSAVE,"SoundEffectVolume",SEVol)
+	TimerOn = load_game(PATH_TO_CONFSAVE,"TimerOn",TimerOn)
 	SignalBus.Save.connect(SaveData)
 	
 	### DEBUG POSITIONS
@@ -143,8 +144,8 @@ func _ready():
 	#SavedPos[1] = 2
 	
 	#village - village 
-	SavedPos[0] = Vector2(1101,-5883)
-	SavedPos[1] = 2
+	#SavedPos[0] = Vector2(1101,-5883)
+	#SavedPos[1] = 2
 	
 	#FakeHall - start
 	#SavedPos[0] = Vector2(530,-440)
@@ -155,8 +156,8 @@ func _ready():
 	#SavedPos[1] = 4
 	
 	#FakeHall - sixth obstacle
-	#SavedPos[0] = Vector2(3880+640,375)
-	#SavedPos[1] = 4
+	SavedPos[0] = Vector2(3880+640,375)
+	SavedPos[1] = 4
 	
 	#village - EXTRA
 	#SavedPos[0] = Vector2(9043,-26)
@@ -186,11 +187,12 @@ func _process(delta):
 		#SpecialItem = load_game("user://dinomemories.save","SpecialItem",SpecialItem)
 		#for i in Items[0].size():
 			#Items[0][i] = true
-		Items[Passive][Beer] = true
-		Items[Passive][Milk] = true
-		Items[Weapon][Axe] = true
-		Items[Weapon][Shotgun] = true
-		SpecialItem = true
+		#Items[Passive][Beer] = true
+		#Items[Passive][Milk] = true
+		#Items[Passive][Water] = true
+		#Items[Weapon][Axe] = true
+		#Items[Weapon][Shotgun] = true
+		#SpecialItem = true
 	if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
@@ -209,7 +211,7 @@ func LoadScene(SceneChangeTo):
 
 func SaveData(type):
 	if type == 0:
-		save_game("user://dinomemories.save",{
+		save_game(PATH_TO_GAMESAVE,{
 			"FirstTime":FirstTime,
 			"SavedPos":[var_to_str(SavedPos[0]),SavedPos[1]],
 			"Items":Items,
@@ -221,12 +223,11 @@ func SaveData(type):
 			"EventArray":STEvents.EventArray
 		})
 	if type == 666:
-		save_game("user://dinomemories.save",null)
+		save_game(PATH_TO_GAMESAVE,null)
 
 func SavePerma():
-	save_game("user://perma.save",{
-		"EBeer":EndingBeer,
-		"EHall":EndingHall,
+	save_game(PATH_TO_PERMASAVE,{
+		"Endings":Endings,
 		"BGame":NumTimesBeatGame,
 		"BestTime":BestTime,
 		"LDeaths":LDeaths

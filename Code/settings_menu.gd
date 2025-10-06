@@ -2,7 +2,10 @@ extends Control
 
 @onready var AVSl = $Settings/MarginContainer/VBoxContainer/HBoxContainer5/AVSl
 @onready var SEVSl = $Settings/MarginContainer/VBoxContainer/HBoxContainer6/AVSl2
+@onready var TCBox = $Settings/MarginContainer/VBoxContainer/HBoxContainer/CheckBox
+
 @onready var Msg = $Settings/MessageOfTheDay
+
 
 var CoolMsg = [
 	"There are secrets all around you",
@@ -15,8 +18,10 @@ var CoolMsg = [
 ]
 
 func _ready():
+	TCBox.button_pressed = Globals.TimerOn
 	AVSl.value = Globals.MVol
 	SEVSl.value = Globals.SEVol
+	
 
 func _on_exit_button_pressed():
 	Msg.text = CoolMsg.pick_random()
