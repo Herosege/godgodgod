@@ -17,9 +17,7 @@ func _ready():
 	Globals.LDeaths = Globals.load_game(Globals.PATH_TO_PERMASAVE,"LDeaths",Globals.LDeaths)
 	#Globals.TimerOn = Globa
 	
-	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
 	
-	STEvents.EventArray = Globals.load_game(Globals.PATH_TO_GAMESAVE,"EventArray",STEvents.EventArray)
 	
 	if Globals.NumTimesBeatGame:
 		$Label4.visible = true
@@ -53,6 +51,10 @@ func _on_texture_button_pressed():
 	if !Globals.load_game(Globals.PATH_TO_GAMESAVE,"SavedPos",false):
 		get_tree().change_scene_to_file("res://Scenes/epic_intro.tscn")
 		return
+	
+	
+	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
+	STEvents.EventArray = Globals.load_game(Globals.PATH_TO_GAMESAVE,"EventArray",STEvents.EventArray)
 	Globals.SavedPos = Globals.load_game(Globals.PATH_TO_GAMESAVE,"SavedPos",Globals.SavedPos)
 	if Globals.SavedPos[0] is not Vector2:
 		Globals.SavedPos[0] = str_to_var(Globals.SavedPos[0])

@@ -39,7 +39,7 @@ func ShotgunTimerHudUpdate(TimeLeft,TimeMax):
 	ShotgunTimer.value = Value
 
 func _on_shot_gun_timer_value_changed(value):
-	if value >= ShotgunTimer.max_value:
+	if value >= ShotgunTimer.max_value-2:
 		ShotgunTimer.visible = false
 
 func RESET():

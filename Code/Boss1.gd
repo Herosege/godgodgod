@@ -3,7 +3,7 @@ extends Node2D
 @onready var HBar = get_tree().get_first_node_in_group("healthbar")
 @onready var PlayerNode = get_tree().get_first_node_in_group("player")
 
-const InitHealth = 16.0
+const InitHealth = 15.0
 var Health = InitHealth
 
 var CAtt = 0
@@ -22,9 +22,9 @@ func _ready():
 	SignalBus.TriggerBoss.connect(_on_Trigger_Boss)
 
 var t = 0.0
-var AttVariant = 0
-const Steps = 7
-const StepAmt = 640 / Steps
+var AttVariant := 0
+const Steps := 7
+const StepAmt := 640 / Steps
 
 func _process(delta):
 	t += delta * 3.0

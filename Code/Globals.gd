@@ -156,8 +156,8 @@ func _ready():
 	#SavedPos[1] = 4
 	
 	#FakeHall - sixth obstacle
-	SavedPos[0] = Vector2(3880+640,375)
-	SavedPos[1] = 4
+	#SavedPos[0] = Vector2(3880+640,375)
+	#SavedPos[1] = 4
 	
 	#village - EXTRA
 	#SavedPos[0] = Vector2(9043,-26)
