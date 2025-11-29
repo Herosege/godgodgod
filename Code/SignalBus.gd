@@ -25,9 +25,9 @@ signal LaunchPlayer(Vel)
 
 signal FOrbUse
 
-signal ShowDialogue(TextArr,OnBottom,IsPaused,Skippable,OptionalTimer)
+signal ShowDialogue(TextArr,OnBottom,ID,IsPaused,Skippable,OptionalTimer)
 signal DialStop
-signal DialFinish(Early)
+signal DialFinish(Early,ID)
 
 signal SetPlayerPosition(Pos)
 

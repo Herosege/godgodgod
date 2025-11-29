@@ -7,6 +7,7 @@ func _ready():
 	$Timer.visible = Globals.TimerOn
 	ShotgunTimer.visible = false
 	SignalBus.Death.connect(_on_die)
+	SignalBus.Save.connect(_on_Save)
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.SetHudMessage.connect(SetHudMessage)
 	SignalBus.ShotgunTimerHudUpdate.connect(ShotgunTimerHudUpdate)
@@ -47,3 +48,6 @@ func RESET():
 
 func OnSettingChange():
 	$Timer.visible = Globals.TimerOn
+
+func _on_Save(type):
+	$SavedAnim.play("Saved")

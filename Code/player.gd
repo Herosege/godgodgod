@@ -106,9 +106,9 @@ func MoveDirection():
 	
 	#debug
 	
-	#if Input.is_action_just_pressed("debug"):
-		#JumpAmount = 9999
-		#position.x += 240 * direction
+	if Input.is_action_just_pressed("debug") and OS.is_debug_build():
+		JumpAmount = 9999
+		position.x += 240 * direction
 	
 	#enddebug
 	

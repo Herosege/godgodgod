@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj6xpr0fo640s"]
+[gd_scene load_steps=11 format=3 uid="uid://dj6xpr0fo640s"]
 
 [ext_resource type="Script" uid="uid://c7jndpuwm4mxb" path="res://Code/hud.gd" id="1_doaym"]
 [ext_resource type="PackedScene" uid="uid://d0w50wqi3fr08" path="res://Scenes/village/dialogue_box.tscn" id="2_fccik"]
@@ -23,6 +23,67 @@ outline_color = Color(0, 0, 0, 1)
 outline_size = 4
 outline_color = Color(0.29, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_bjfho"]
+resource_name = "Saved"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saved:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saved:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.6056738, 1.6605109e-06, 3.85046e-07, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6fbih"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saved:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saved:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fbih"]
+_data = {
+&"RESET": SubResource("Animation_6fbih"),
+&"Saved": SubResource("Animation_bjfho")
+}
+
 [node name="Hud" type="CanvasLayer" groups=["RESET"]]
 process_mode = 3
 script = ExtResource("1_doaym")
@@ -45,7 +106,6 @@ label_settings = SubResource("LabelSettings_miau3")
 
 [node name="Saved" type="Label" parent="." groups=["SLabel"]]
 visible = false
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -129,5 +189,10 @@ offset_right = 50.0
 offset_bottom = 31.0
 text = "0"
 label_settings = SubResource("LabelSettings_bjfho")
+
+[node name="SavedAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6fbih")
+}
 
 [connection signal="value_changed" from="ShotGunTimer" to="." method="_on_shot_gun_timer_value_changed"]

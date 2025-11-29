@@ -81,14 +81,17 @@ func _process(delta):
 
 @onready var TextLabel = $MarginContainer/Panel/MarginContainer/Label
 
+var SenderID
+
 #IsPaused is true if your game is paused when in dialogue
 #Skippable is true when you can skip dialogue by pressing accept button
 #OptionalTimer doesn't have to be passed but it counts down to when window disappears, best used when skippable is false 
-func ShowDialogue(TextArr,OnBottom := true,IsPaused : bool = true,Skippable : bool = true,OptionalTimer : float = 0.0):
+func ShowDialogue(TextArr,OnBottom := true,ID = 0,IsPaused : bool = true,Skippable : bool = true,OptionalTimer : float = 0.0):
 	$MarginContainer.position = Vector2(0.0,320.0) if OnBottom else Vector2.ZERO
 	TextLabel.text = ""
 	TextTime = 0.0
 	TextIndex = 0
+	SenderID = ID
 	CharTime = TEXTSCROLLTIME
 	LettersAtTime = 0.0
 	AnimateBox(true)
@@ -115,7 +118,7 @@ func EndDialogue(Early:bool):
 	AwaitInput = false
 	Globals.InDialogue = false
 	AnimateBox(false)
-	SignalBus.emit_signal("DialFinish",Early)
+	SignalBus.emit_signal("DialFinish",Early,SenderID)
 
 func _on_disappear_timer_timeout():
 	EndDialogue(false)

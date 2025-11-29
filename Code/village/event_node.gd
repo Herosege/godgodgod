@@ -23,7 +23,10 @@ var CanDial = true
 
 var CDialIndex = 0
 
+var ID
+
 func _ready():
+	ID = get_instance_id()
 	if Text0:
 		Text.append(Text0)
 	if Text1:
@@ -52,10 +55,12 @@ func TextSend():
 			OnBottom = (PNode.global_position.y / PNode.CRoomPos.y) < (PNode.VPort.y / 2)
 		else:
 			OnBottom = PNode.global_position.y < (PNode.VPort.y / 2)
-	SignalBus.emit_signal("ShowDialogue",Text[CDialIndex],OnBottom)
+	SignalBus.emit_signal("ShowDialogue",Text[CDialIndex],OnBottom,ID)
 	CanDial = false
 
-func OnDialFinish(Early):
+func OnDialFinish(Early,SID):
+	if SID != ID:
+		return
 	await get_tree().create_timer(0.1).timeout
 	SignalBus.emit_signal("GetInDial",false,EventHolder,Early)
 	CanDial = true
