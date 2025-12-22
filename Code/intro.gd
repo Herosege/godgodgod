@@ -48,6 +48,9 @@ func _process(delta):
 			$Delsfx.play()
 
 func _on_texture_button_pressed():
+	if Globals.TravelingBack:
+		get_tree().change_scene_to_file("res://Scenes/traveling_intro.tscn")
+		return
 	if !Globals.load_game(Globals.PATH_TO_GAMESAVE,"SavedPos",false):
 		get_tree().change_scene_to_file("res://Scenes/epic_intro.tscn")
 		return
@@ -65,6 +68,7 @@ func _on_texture_button_pressed():
 	Globals.SpecialItem = Globals.load_game(Globals.PATH_TO_GAMESAVE,"SpecialItem",Globals.SpecialItem)
 	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
 	Globals.RotCKilled = Globals.load_game(Globals.PATH_TO_GAMESAVE,"RotCKilled",Globals.RotCKilled)
+	Globals.TravelingBack = Globals.load_game(Globals.PATH_TO_GAMESAVE,"TravelingBack",Globals.RotCKilled)
 	
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])
 	Globals.stoptime = false

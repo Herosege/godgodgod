@@ -24,3 +24,5 @@ func EndGame(EndType):
 	
 	Globals.SavePerma()
 	Globals.SaveData(666)
+	
+	Globals.TravelBack()

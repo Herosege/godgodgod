@@ -15,6 +15,7 @@ var AreaScenes = [
 	"res://Scenes/village/fake_hall.tscn"
 ]
 
+var TravelingBack = false
 
 var InDialogue := false
 var MenuPaused := false
@@ -84,8 +85,8 @@ func _ready():
 		#SavedPos[1] = 1
 		
 		#Start - Curse
-		#SavedPos[0] = Vector2(104,208)
-		#SavedPos[1] = 1
+		SavedPos[0] = Vector2(104,208)
+		SavedPos[1] = 1
 		
 		#onen - main
 		#SavedPos[0] = Vector2(4200,-100)
@@ -145,8 +146,8 @@ func _ready():
 		#SavedPos[1] = 2
 		
 		#village - village 
-		SavedPos[0] = Vector2(1101,-5883)
-		SavedPos[1] = 2
+		#SavedPos[0] = Vector2(1101,-5883)
+		#SavedPos[1] = 2
 		
 		#FakeHall - start
 		#SavedPos[0] = Vector2(530,-440)
@@ -196,6 +197,7 @@ func _process(delta):
 		SpecialItem = true
 	if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
+		TravelBack()
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 		#if CAM:
 			#if CAM.zoom == Vector2(CAM_ZOOM,CAM_ZOOM):
@@ -221,10 +223,16 @@ func SaveData(type):
 			"SaveTime":SaveTime,
 			"NumDeaths":NumDeaths,
 			"RotCKilled":RotCKilled,
-			"EventArray":STEvents.EventArray
+			"EventArray":STEvents.EventArray,
+			"TravelingBack":TravelingBack
 		})
 	if type == 666:
 		save_game(PATH_TO_GAMESAVE,null)
+
+func TravelBack():
+	TravelingBack = true
+	SavedPos[0] = Vector2(320,320)
+	SavedPos[1] = 0
 
 func SavePerma():
 	save_game(PATH_TO_PERMASAVE,{

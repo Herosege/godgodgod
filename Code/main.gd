@@ -16,6 +16,13 @@ func _ready():
 	$BloodParticles2.emitting = true
 	$BloodParticles2.visible = false
 	
+	if Globals.TravelingBack:
+		for i in MusicColl:
+			if i:
+				i.pitch_scale *= 0.9
+		$THING.global_position = Vector2(2828,0)
+		$Hazards/SpikesMoving/AnimationPlayer.stop()
+		#$Stuff/Clouds.queue_free()
 	
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
@@ -140,8 +147,9 @@ func _on_village_pass_body_entered(body):
 		Globals.LoadScene("res://Scenes/village_1.tscn")
 
 func RESET():
-	$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
-	$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
+	if !Globals.TravelingBack:
+		$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
+		$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
 	if randf() < 0.01:
 		RandomEvent()
 	CheckMusic()

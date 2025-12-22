@@ -95,7 +95,7 @@ func CheckInputs():
 	if Input.is_action_just_released("JumpInp") and velocity.y < 0.0:
 		velocity.y /= 3
 
-var LastDir = Vector2.RIGHT
+var LastDir := 1.0
 
 func MoveDirection():
 	

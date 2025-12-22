@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=4 uid="uid://dcqnibnlrp0kn"]
+[gd_scene load_steps=146 format=4 uid="uid://dcqnibnlrp0kn"]
 
 [ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="1_8umw3"]
 [ext_resource type="Script" uid="uid://bqdkiow0rytcj" path="res://Code/main.gd" id="1_bom7q"]
@@ -1189,6 +1189,9 @@ scale_over_velocity_min = 0.1
 scale_over_velocity_max = 10.0
 color = Color(1, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_43arx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_536cc"]
+size = Vector2(1000, 1000)
 
 [node name="Main" type="Node2D" groups=["RESET"]]
 script = ExtResource("1_bom7q")
@@ -3373,6 +3376,20 @@ position = Vector2(3535, -792)
 z_index = 1
 position = Vector2(6912, -238)
 Passives = 2
+
+[node name="THING" type="StaticBody2D" parent="."]
+position = Vector2(-1504, 1392)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="THING"]
+offset_top = 4.0
+offset_right = 1000.0
+offset_bottom = 1004.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="THING"]
+position = Vector2(500, 500)
+shape = SubResource("RectangleShape2D_536cc")
 
 [connection signal="body_entered" from="Stuff/VillageGate/VillagePass" to="." method="_on_village_pass_body_entered"]
 [connection signal="body_entered" from="Stuff/SecretWall/IN" to="Stuff/SecretWall" method="_on_in_body_entered"]
