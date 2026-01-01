@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://m8c2av6juqp1"]
+
+[ext_resource type="Texture2D" uid="uid://cwkk0p8reevnw" path="res://Assets/Bog/ball.png" id="1_cmah6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pntcq"]
+radius = 32.0
+
+[node name="Ball1" type="Area2D" groups=["killplayer"]]
+rotation = -0.00013423621
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cmah6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pntcq")

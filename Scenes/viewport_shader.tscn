@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w04jt"]
 shader = ExtResource("2_f3tbo")
 shader_parameter/BeerActive = false
-shader_parameter/MilkActive = false
+shader_parameter/WaterActive = false
 
 [node name="ViewportShader" type="CanvasLayer"]
 script = ExtResource("1_1g37h")

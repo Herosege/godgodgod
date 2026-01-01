@@ -12,7 +12,10 @@ var AreaScenes = [
 	"res://Scenes/scene_1.tscn",
 	"res://Scenes/village_1.tscn",
 	"res://Scenes/village/inside_places.tscn",
-	"res://Scenes/village/fake_hall.tscn"
+	"res://Scenes/village/fake_hall.tscn",
+	"res://Scenes/Bog/bog.tscn",
+	"res://Scenes/main-postending.tscn",
+	"res://Scenes/scene_1-postending.tscn"
 ]
 
 var TravelingBack = false
@@ -75,6 +78,7 @@ func _ready():
 	MVol = load_game(PATH_TO_CONFSAVE,"MusicVolume",MVol)
 	SEVol = load_game(PATH_TO_CONFSAVE,"SoundEffectVolume",SEVol)
 	TimerOn = load_game(PATH_TO_CONFSAVE,"TimerOn",TimerOn)
+	KeybindList = load_game(PATH_TO_CONFSAVE,"Keybinds",KeybindList)
 	SignalBus.Save.connect(SaveData)
 	
 	### DEBUG POSITIONS
@@ -85,8 +89,8 @@ func _ready():
 		#SavedPos[1] = 1
 		
 		#Start - Curse
-		SavedPos[0] = Vector2(104,208)
-		SavedPos[1] = 1
+		#SavedPos[0] = Vector2(104,208)
+		#SavedPos[1] = 1
 		
 		#onen - main
 		#SavedPos[0] = Vector2(4200,-100)
@@ -172,6 +176,22 @@ func _ready():
 		#village - EXTRA3
 		#SavedPos[0] = Vector2(9080,-194)
 		#SavedPos[1] = 2
+		
+		#Bog - start
+		#SavedPos[0] = Vector2(120,400)
+		#SavedPos[1] = 5
+		
+		#main - traveling - past moving spikes
+		#SavedPos[0] = Vector2(1664,-96)
+		#SavedPos[1] = 6
+		
+		#Curse world - traveling - past balls
+		#SavedPos[0] = Vector2(2000,1160)
+		#SavedPos[1] = 7
+		
+		#Curse world - traveling - past exjumps
+		#SavedPos[0] = Vector2(2600,940)
+		#SavedPos[1] = 7
 
 const CAM_ZOOM = 0.05
 
@@ -233,6 +253,11 @@ func TravelBack():
 	TravelingBack = true
 	SavedPos[0] = Vector2(320,320)
 	SavedPos[1] = 0
+	SpecialItem = false
+	Items = [
+		[false,false,false],#Passives
+		[false,false]#Weapons
+	]
 
 func SavePerma():
 	save_game(PATH_TO_PERMASAVE,{
@@ -286,9 +311,21 @@ func sec_to_time(in_sec):
 	
 	return [(int(in_sec))%60,int(min)%60,int(hrs)]
 
+func LoadKeybinds():
+	if KeybindList:
+		for key in KeybindList.keys():
+			if KeybindList[key][0] is not float:
+				break
+			InputMap.action_erase_events(key)
+			var NInp = InputEventKey.new()
+			NInp.physical_keycode = KeybindList[key][0]
+			InputMap.action_add_event(key,NInp)
+
 #settings
 
 var SEVol = 60.0
 var MVol = 40.0
 
 var TimerOn = false
+
+var KeybindList = {}

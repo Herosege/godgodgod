@@ -105,7 +105,7 @@ func HandACTIVAR():
 	add_child(HInst)
 
 func GetInDial(State,Type,Early):
-	if Type == "fisher":
+	if Type.is_in_group("fisher"):
 		if State:
 			$Houses/Village/Fisher/FisherAnim.play("default")
 		else:

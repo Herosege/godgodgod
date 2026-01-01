@@ -22,15 +22,12 @@ func _ready():
 func _process(delta):
 	if awaitres:
 		if Input.is_action_just_pressed("Confirm"):
-			if EventVar == 0:
-				$Label.text = Texts["cursegod1"]
+			EventVar = 1
 			if EventVar == 1:
-				$Label.text = Texts["cursegod2"]
+				$Label.text = Texts["cursegod1"]
 				SignalBus.emit_signal("SetHudMessage","",0)
 				if !Globals.SpecialItem:
 					$"../Secrets/Wife".position = Vector2(-2000,300)
-			EventVar += 1
-			EventVar = min(EventVar,2)
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("damage") and type == henryk:
@@ -82,38 +79,31 @@ func _on_timer_timeout():
 	get_tree().call_deferred("change_scene_to_file","res://Scenes/epilogue.tscn")
 
 var Texts = {
-	"cursegod":"Hi little being
+	"cursegod":"Hello little being
 	
-	I am the one overseeing this realm
-	I am a curse - a synthetic creature
+	I don't know how you managed to get here, but please get out
 	
-	You see, this realm and me have been created by
-	A powerful being, Hania - a god
+	You see I am a curse, a synthetic being and I've sealed myself here
+	Away from everything and everyone, for I am about to meet an awful fate
 	
-	Recently I have been receiving really bizzare messages from them
-	And my friend Henryk has informed me that some weird curse like creatures
-	Have been spreading through your world
-	I fear something awful has happened to Hania",
+	I will transform into a red thinkless living mass consuming everything around me
 	
+	I've seen other curses turn into that and nothing I have done helped anyone
+	
+	I think that's just our fate",
+	
+	
+	
+	"cursegod1":"Well since you are here
+	I have this weird artifact
+	
+	It seems powerful so maybe you will find a use for it",
 	#
 	
-	"cursegod1":"Since you managed to figure out how to get here
-	You seem pretty competent 
-	
-	If you have some free time you could travel to Hania's location
-	And maybe find out what happened to them
-	
-	They reside far in the east of your world
-	Past a bridge, a tower, down in the ground",
-	
-	"cursegod2":"As compensation you can take this artifact
-	It seems pretty powerful, although I do not know what it does
-	But it will surely aid you in your journey
-	
-	Also I do not know why I know this but it is called \"wife\"
-	
-	Anyway, Good luck",
-	#
+	#"I am the one overseeing this realm
+	#I am a curse - a synthetic creature
+	#Both this world and me and everything included were created by
+	#Hania, the great creator "
 	
 	"onen":"Hey Othenson 
 It seems some nasty disease like creature has struck our bridge

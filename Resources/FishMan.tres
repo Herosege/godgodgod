@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TextRes" load_steps=5 format=3 uid="uid://dtc73ohwpeiey"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_3gvs5"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_bknqj"]
+
+[sub_resource type="Resource" id="Resource_3gvs5"]
+script = ExtResource("1_3gvs5")
+MStr = Array[String](["Dang, I been sitting here for hours and only catched a measly grapefish!", "I gotta say, the west side has way better catches", "...Oh, good day to you", "Are you planning to jump off to the east here?", "Well I don't think it's a really good idea", "Through the clouds I've seen some weird floating hands moving at huge speeds there"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_bknqj"]
+script = ExtResource("1_3gvs5")
+MStr = Array[String](["I have a feeling you will regret jumping off here and going to the east ", "I think fishing is a way better thing to do", "I don't have a spare fishing pole but you can stay here, some company is always welcomed"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_bknqj")
+TextArr = Array[ExtResource("1_3gvs5")]([SubResource("Resource_3gvs5"), SubResource("Resource_bknqj")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

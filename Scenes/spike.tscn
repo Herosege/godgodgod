@@ -15,9 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://clu53cmv41bk8" path="res://Assets/Spike2_2.png" id="7_8uk2g"]
 [ext_resource type="Texture2D" uid="uid://biwxewlaae0fl" path="res://Assets/Spike2_3.png" id="8_wvmkf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw0f4"]
-size = Vector2(8, 12)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ncys"]
 animations = [{
 "frames": [{
@@ -97,21 +94,22 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw0f4"]
+size = Vector2(8, 12)
+
 [node name="Spike" type="Area2D" groups=["RESET", "killplayer"]]
 collision_layer = 2
 input_pickable = false
 script = ExtResource("1_vfvso")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_pw0f4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_8ncys")
 animation = &"Flower"
 autoplay = "Flower"
-frame = 3
-frame_progress = 0.0858565
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_pw0f4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

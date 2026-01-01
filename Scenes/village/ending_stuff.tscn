@@ -28,7 +28,7 @@ offset_right = 79.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You won"
+text = "Endpoint"
 label_settings = SubResource("LabelSettings_v0ulv")
 horizontal_alignment = 1
 

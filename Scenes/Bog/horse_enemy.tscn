@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dppbf0ddemeom"]
+
+[ext_resource type="Script" uid="uid://bnh0bo4umeyoe" path="res://Code/bog/horse_enemy.gd" id="1_idnnj"]
+[ext_resource type="Texture2D" uid="uid://dfrwjg4tui0iv" path="res://Assets/village/Horse_halucination.png" id="2_yfsim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72lxt"]
+size = Vector2(36, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n3ku"]
+size = Vector2(49, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5n3ku"]
+radius = 101.607086
+
+[node name="HorseEnemy" type="CharacterBody2D" groups=["RESET"]]
+script = ExtResource("1_idnnj")
+TimePeak = 0.5
+TimeFall = 0.5
+JumpStr = 60.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 7.5)
+shape = SubResource("RectangleShape2D_72lxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 4
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_yfsim")
+
+[node name="Area2D" type="Area2D" parent="." groups=["killplayer"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, 6)
+shape = SubResource("RectangleShape2D_5n3ku")
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="RayCasts"]
+position = Vector2(2, 16)
+target_position = Vector2(13, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="RayCasts"]
+position = Vector2(-15, 16)
+target_position = Vector2(-8, 0)
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_5n3ku")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

@@ -43,6 +43,7 @@ animations = [{
 }]
 
 [node name="Save" type="Area2D"]
+z_index = 1
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_o88w2")

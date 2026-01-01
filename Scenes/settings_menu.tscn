@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyb6t4vffx05"]
+[gd_scene load_steps=21 format=3 uid="uid://dyb6t4vffx05"]
 
 [ext_resource type="Script" uid="uid://c7ct3snmvtval" path="res://Code/settings_menu.gd" id="1_m0fgx"]
-[ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="2_b0xc2"]
 [ext_resource type="Texture2D" uid="uid://be8sigju7o382" path="res://Assets/Interface/ciucmok.png" id="2_h2y1r"]
 [ext_resource type="FontFile" uid="uid://b6f4meh882kd6" path="res://Assets/fonts/Tiny5-Regular.ttf" id="3_a7gg2"]
 [ext_resource type="Texture2D" uid="uid://v8j0wppnot7a" path="res://Assets/Interface/checkbox_checked.png" id="3_rahb6"]
 [ext_resource type="Texture2D" uid="uid://cdasgril0kbj6" path="res://Assets/Interface/checkbox.png" id="4_fe37x"]
+[ext_resource type="Script" uid="uid://coftty7jie6el" path="res://Code/keybinds.gd" id="7_fe37x"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3etfd"]
 color = Color(0.48, 0, 0, 1)
@@ -27,9 +27,62 @@ thickness = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkth2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rahb6"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsgis"]
+bg_color = Color(0.26, 0.1872, 0.1872, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv31b"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_fe37x"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.8517688, 0.8517689, 0.8517693, 1)
+Button/colors/font_hover_color = Color(0.69, 0.69, 0.69, 1)
+Button/colors/font_hover_pressed_color = Color(0.67068946, 0.6706896, 0.67068905, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_rahb6")
+Button/styles/disabled_mirrored = null
+Button/styles/focus = SubResource("StyleBoxFlat_rahb6")
+Button/styles/hover = SubResource("StyleBoxFlat_rahb6")
+Button/styles/hover_mirrored = null
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_fsgis")
+Button/styles/hover_pressed_mirrored = null
+Button/styles/normal = SubResource("StyleBoxFlat_rahb6")
+Button/styles/normal_mirrored = null
+Button/styles/pressed = SubResource("StyleBoxFlat_vv31b")
+Button/styles/pressed_mirrored = null
+
 [sub_resource type="LabelSettings" id="LabelSettings_3fcy6"]
 font = ExtResource("3_a7gg2")
 font_color = Color(0.941176, 0, 0, 0.737255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe37x"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.9411765)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -73,6 +126,7 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -147,17 +201,28 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rkth2")
 theme_override_icons/checked = ExtResource("3_rahb6")
 theme_override_icons/unchecked = ExtResource("4_fe37x")
 
-[node name="ExitButton" type="TextureButton" parent="Settings"]
+[node name="Keybinds" type="Button" parent="Settings/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_fe37x")
+text = "Keybinds"
+
+[node name="ExitButton" type="Button" parent="Settings"]
 z_index = 2
 texture_filter = 1
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -60.0
-offset_bottom = 45.0
+offset_left = -187.0
+offset_top = 9.0
+offset_right = -7.0
+offset_bottom = 54.0
 grow_horizontal = 0
-texture_normal = ExtResource("2_b0xc2")
+theme = SubResource("Theme_fe37x")
+text = "save settings and exit"
 
 [node name="MessageOfTheDay" type="Label" parent="Settings"]
 z_index = 1
@@ -178,7 +243,225 @@ label_settings = SubResource("LabelSettings_3fcy6")
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Keybinds" type="Control" parent="."]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_fe37x")
+
+[node name="Panel" type="Panel" parent="Keybinds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
+
+[node name="MarginContainer" type="MarginContainer" parent="Keybinds/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Keybinds/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="ExitBtn" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_fe37x")
+text = "exit"
+
+[node name="Container" type="Container" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "left: "
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "right:"
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "jump: "
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "axe: "
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "shotgun: "
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "slowdown: "
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "reset:"
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "save:"
+
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ACTIONNAME"
+
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_fe37x")
+text = "rebind"
+
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer5/AVSl" to="." method="_on_av_sl_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer6/AVSl2" to="." method="_on_av_sl_2_value_changed"]
 [connection signal="toggled" from="Settings/MarginContainer/VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Settings/MarginContainer/VBoxContainer/Keybinds" to="." method="_on_keybinds_pressed"]
 [connection signal="pressed" from="Settings/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Keybinds/Panel/MarginContainer/VBoxContainer/ExitBtn" to="Keybinds" method="_on_exit_btn_pressed"]

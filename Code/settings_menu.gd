@@ -11,25 +11,28 @@ var CoolMsg = [
 	"There are secrets all around you",
 	"The sun is shining",
 	"Reality is subjective",
-	"Does The Existence God exist?",
+	"Hania is always watching",
 	"Horses are weak in this world",
 	"Flowers are hateful",
-	"Think about what you've experienced"
+	"Your mind is a beautiful world"
 ]
 
 func _ready():
+	$Keybinds.visible = false
 	TCBox.button_pressed = Globals.TimerOn
 	AVSl.value = Globals.MVol
 	SEVSl.value = Globals.SEVol
 	
 
 func _on_exit_button_pressed():
+	Globals.LoadKeybinds()
 	Msg.text = CoolMsg.pick_random()
 	SignalBus.emit_signal("SettingChanged")
 	Globals.save_game("user://config.conf",{
 	"MusicVolume":Globals.MVol,
 	"SoundEffectVolume":Globals.SEVol,
-	"TimerOn":Globals.TimerOn
+	"TimerOn":Globals.TimerOn,
+	"Keybinds":Globals.KeybindList
 	})
 	visible = false
 
@@ -47,3 +50,7 @@ func _on_av_sl_2_value_changed(value):
 
 func _on_check_box_toggled(toggled_on):
 	Globals.TimerOn = toggled_on
+
+
+func _on_keybinds_pressed():
+	$Keybinds.visible = true

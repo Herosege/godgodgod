@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TextRes" load_steps=6 format=3 uid="uid://yqjxswvfes4f"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_ju4ml"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_181yh"]
+
+[sub_resource type="Resource" id="Resource_ju4ml"]
+script = ExtResource("1_ju4ml")
+MStr = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse God... That thing just appeared out of nowhere... everything has been destroyed", "God damned bastard, I was just enjoying my midnight drink, If I didn't quickly put up a defensive spell, I would have been gone as well"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_181yh"]
+script = ExtResource("1_ju4ml")
+MStr = Array[String](["Heh, at least you are here, maybe we can do something about that piece of shit", "You are clearly good at jumping and killing stuff and that sorta thing, so you could do it", "Though, you are gonna need something with a bit more punch than that axe of yours", "I have a really strong shotgun that I made myself, you can take it, but please help me decimate The Horse God ", "It's hidden on the west side of the island, right where the ground ends, you will need to fall and jump to the side and you will get it", "Good luck"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_u6qfs"]
+script = ExtResource("1_ju4ml")
+MStr = Array[String](["Hmm... when I squint my eyes, you kinda look like a horse....", "Ah whatever, just go", "The shotgun is hidden on the left side of the island, right where the ground ends, you will need to fall and jump to the side to get it"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_181yh")
+TextArr = Array[ExtResource("1_ju4ml")]([SubResource("Resource_ju4ml"), SubResource("Resource_181yh"), SubResource("Resource_u6qfs")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

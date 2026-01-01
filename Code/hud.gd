@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var ShotgunTimer = $ShotGunTimer
 
 func _ready():
+	$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1].trim_suffix(" (Physical)")])
 	SignalBus.SettingChanged.connect(OnSettingChange)
 	$Timer.visible = Globals.TimerOn
 	ShotgunTimer.visible = false
@@ -11,6 +12,7 @@ func _ready():
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.SetHudMessage.connect(SetHudMessage)
 	SignalBus.ShotgunTimerHudUpdate.connect(ShotgunTimerHudUpdate)
+	SignalBus.SettingChanged.connect(OnSettingChanged)
 
 func _process(delta):
 	if Globals.TimerOn:
@@ -51,3 +53,6 @@ func OnSettingChange():
 
 func _on_Save(type):
 	$SavedAnim.play("Saved")
+
+func OnSettingChanged():
+	$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1].trim_suffix(" (Physical)")])

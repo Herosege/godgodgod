@@ -1,45 +1,33 @@
-extends Node2D
+extends Area2D
 
 enum {Dialogue,ChangeScene}
 @export_enum("Dialogue","ChangeScene") var Type 
 
-@export var CollShape : Shape2D
-
-@export var EventHolder : String 
-
 @export_group("Dialogue")
-@export_multiline var Text0 : Array[String]
-@export_multiline var Text1 : Array[String]
-@export_multiline var Text2 : Array[String]
+@export var Dial : TextRes
 
 @export_group("ChangeScene")
 @export var WhereTo : String
 @export var Coords : Vector2
 
-var Text : Array
+var Text
 
 var Activar = false
 var CanDial = true
 
 var CDialIndex = 0
 
-var ID
+var Coll 
 
 func _ready():
-	ID = get_instance_id()
-	if Text0:
-		Text.append(Text0)
-	if Text1:
-		Text.append(Text1)
-	if Text2:
-		Text.append(Text2)
-	if CollShape:
-		$Area2D/CollisionShape2D.shape = CollShape
-	SignalBus.DialFinish.connect(OnDialFinish)
+	body_entered.connect(_on_area_2d_body_entered)
+	body_exited.connect(_on_area_2d_body_exited)
+	if Dial and Type == Dialogue:
+		Text = Dial.ConvertToString()
 
 func _process(delta):
 	if Input.is_action_just_pressed("Confirm") and Activar and CanDial and !Globals.InDialogue:
-		SignalBus.emit_signal("GetInDial",true,EventHolder,false)
+		SignalBus.emit_signal("GetInDial",true,self,false)
 		if Type == Dialogue:
 			TextSend()
 		if Type == ChangeScene:
@@ -55,14 +43,12 @@ func TextSend():
 			OnBottom = (PNode.global_position.y / PNode.CRoomPos.y) < (PNode.VPort.y / 2)
 		else:
 			OnBottom = PNode.global_position.y < (PNode.VPort.y / 2)
-	SignalBus.emit_signal("ShowDialogue",Text[CDialIndex],OnBottom,ID)
+	SignalBus.emit_signal("ShowDialogue",Text[CDialIndex],self,OnBottom)
 	CanDial = false
 
-func OnDialFinish(Early,SID):
-	if SID != ID:
-		return
+func OnDialFinish(Early):
 	await get_tree().create_timer(0.1).timeout
-	SignalBus.emit_signal("GetInDial",false,EventHolder,Early)
+	SignalBus.emit_signal("GetInDial",false,self,Early)
 	CanDial = true
 	if !Early and CDialIndex+1 < Text.size():
 		CDialIndex += 1

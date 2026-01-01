@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://df7hiq54obdwi"]
+[gd_scene load_steps=26 format=4 uid="uid://df7hiq54obdwi"]
 
 [ext_resource type="Texture2D" uid="uid://btv7ndr6vifff" path="res://Assets/tilemap_shit.png" id="1_ilg54"]
 [ext_resource type="Script" uid="uid://cnsyhq0vmorbg" path="res://Code/village/inside_places.gd" id="1_k8m5j"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cmm0h6qh7lgwr" path="res://Assets/village/light_tavern_gradient.png" id="13_jsrsp"]
 [ext_resource type="Texture2D" uid="uid://c8v0gihvc6ava" path="res://Assets/village/mayor_1.png" id="13_yphy6"]
 [ext_resource type="Texture2D" uid="uid://bx0uy4wac8o37" path="res://Assets/village/mayor.png" id="14_f2tug"]
+[ext_resource type="Resource" uid="uid://yqjxswvfes4f" path="res://Resources/GuyInBar.tres" id="16_aekag"]
 [ext_resource type="Texture2D" uid="uid://cuha04m303p6o" path="res://Assets/village/beer.png" id="16_kwaig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8knj"]
@@ -51,13 +52,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aekag"]
-size = Vector2(140, 190)
+size = Vector2(52, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giwyw"]
 size = Vector2(86, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8tib"]
-size = Vector2(30, 100)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p8kn"]
+size = Vector2(56, 93)
 
 [node name="InsidePlaces" type="Node2D"]
 script = ExtResource("1_k8m5j")
@@ -113,14 +114,14 @@ sprite_frames = SubResource("SpriteFrames_kwaig")
 animation = &"Talking"
 frame_progress = 0.663178
 
-[node name="EventNode" parent="Tavern/Stuff/TavernStuff/Mayor" instance=ExtResource("10_j8tib")]
+[node name="EventNode" parent="Tavern/Stuff/TavernStuff/Mayor" groups=["mayor"] instance=ExtResource("10_j8tib")]
 position = Vector2(995, 414)
 Type = 0
-CollShape = SubResource("RectangleShape2D_aekag")
-EventHolder = "mayor"
-Text0 = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse God... That thing just appeared out of nowhere... everything has been destroyed", "God damned bastard, I was just enjoying my midnight drink, If I didn't quickly put up a defensive spell, I would have been gone as well"])
-Text1 = Array[String](["Heh, at least you are here, maybe we can do something about that piece of shit", "You are clearly good at jumping and killing stuff and that sorta thing, so you could do it", "Though, you are gonna need something with a bit more punch than that axe of yours", "I have a really strong shotgun that I made myself, you can take it, but please help me decimate The Horse God ", "It's hidden on the west side of the island, right where the ground ends, you will need to fall and jump to the side and you will get it", "Good luck"])
-Text2 = Array[String](["Hmm... when I squint my eyes, you kinda look like a horse....", "Ah whatever, just go", "The shotgun is hidden on the left side of the island, right where the ground ends, you will need to fall and jump to the side to get it"])
+Dial = ExtResource("16_aekag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tavern/Stuff/TavernStuff/Mayor/EventNode"]
+position = Vector2(26, 18.75)
+shape = SubResource("RectangleShape2D_aekag")
 
 [node name="Beer" type="Sprite2D" parent="Tavern/Stuff/TavernStuff"]
 position = Vector2(938, 366)
@@ -153,6 +154,9 @@ metadata/_edit_lock_ = true
 [node name="EventNode" parent="Tavern/Stuff/Door" instance=ExtResource("10_j8tib")]
 position = Vector2(-30, 0)
 Type = 1
-CollShape = SubResource("RectangleShape2D_j8tib")
 WhereTo = "res://Scenes/village_1.tscn"
 Coords = Vector2(1690, -5855)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tavern/Stuff/Door/EventNode"]
+position = Vector2(8, 3.5)
+shape = SubResource("RectangleShape2D_8p8kn")

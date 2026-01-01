@@ -2,10 +2,12 @@ extends CanvasLayer
 
 @onready var BeerBtn = $Collectibles/VBoxContainer/HBoxContainer/BottleActivar
 @onready var MilkShw = $Collectibles/VBoxContainer/HBoxContainer/TextureRect
-@onready var WaterShw = $Collectibles/VBoxContainer/HBoxContainer2/TextureRect
+@onready var WaterShw = $Collectibles/VBoxContainer/HBoxContainer2/WaterActivar
 
 func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
+	SignalBus.SettingChanged.connect(OnSettingsChanged)
+	MilkShw.tooltip_text = "Mleko\nAllows you to move slowly with {0}\n(Always active)".format([Globals.KeybindList["Slowdown"][1].trim_suffix(" (Physical)")])
 	$wife.visible = Globals.SpecialItem
 	$DeathAmt.text = str(int(Globals.NumDeaths))
 	MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]
@@ -55,3 +57,6 @@ func _on_get_item(type):
 
 func _on_texture_button_pressed():
 	$SettingsMenu.visible = true
+
+func OnSettingsChanged():
+	MilkShw.tooltip_text = "Mleko\nAllows you to move slowly with {0}\n(Always active)".format([Globals.KeybindList["Slowdown"][1].trim_suffix(" (Physical)")])

@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
 uniform bool BeerActive = false;
-uniform bool MilkActive = false;
+uniform bool WaterActive = false;
 
 void fragment() {
 	if (BeerActive){

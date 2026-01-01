@@ -16,13 +16,6 @@ func _ready():
 	$BloodParticles2.emitting = true
 	$BloodParticles2.visible = false
 	
-	if Globals.TravelingBack:
-		for i in MusicColl:
-			if i:
-				i.pitch_scale *= 0.9
-		$THING.global_position = Vector2(2828,0)
-		$Hazards/SpikesMoving/AnimationPlayer.stop()
-		#$Stuff/Clouds.queue_free()
 	
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 
@@ -48,8 +41,6 @@ func _process(delta):
 		else:
 			UpdateMusic()
 		
-		if randf() < 0.01:
-			RandomEvent()
 	PrevRoom = PNode.CRoomPos
 		
 var PrevRoom : Vector2
@@ -125,17 +116,6 @@ func EndScene(hasSpecial):
 	await get_tree().create_timer(1.5).timeout
 	$Npcs/henryk2.visible = false
 
-func RandomEvent():
-	var EventType = randf()
-	
-	if EventType > 0.6:
-		$CanvasLayer/ColorRect.color = Color.RED
-		$FunnyStuff/BGTIMER.start()
-	if EventType < 0.5:
-		$FunnyStuff/CanvasLayer/img1.visible = true
-		$FunnyStuff/CanvasLayer/img1.position = Vector2((640-128)*randf(),(480-128)*randf())
-		$FunnyStuff/BGTIMER.start()
-
 func _on_bgtimer_timeout():
 	$CanvasLayer/ColorRect.color = Color.AQUA
 	$FunnyStuff/CanvasLayer/img1.visible = false
@@ -147,11 +127,8 @@ func _on_village_pass_body_entered(body):
 		Globals.LoadScene("res://Scenes/village_1.tscn")
 
 func RESET():
-	if !Globals.TravelingBack:
-		$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
-		$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
-	if randf() < 0.01:
-		RandomEvent()
+	$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
+	$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
 	CheckMusic()
 
 func UnrotCurse():
@@ -177,3 +154,9 @@ func UnrotCurse():
 	$Visual/stuff/Sprite2D.modulate = Color.BLACK
 	$Visual/stuff/Sprite2D2.modulate = Color.BLACK
 	$SpikeAreas/Area2D/CollisionShape2D6.set_deferred("position",Vector2(6166,0))
+
+
+func _on_bog_door_body_entered(body):
+	if body.is_in_group("player"):
+		Globals.PosSetTravel = Vector2(120,-32)
+		Globals.LoadScene("res://Scenes/Bog/bog.tscn")
