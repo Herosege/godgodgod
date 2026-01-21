@@ -39,14 +39,14 @@ func TextSend():
 	var PNode = get_tree().get_first_node_in_group("player")
 	var OnBottom := true
 	if PNode:
-		if PNode.CRoomPos.y:
-			OnBottom = (PNode.global_position.y / PNode.CRoomPos.y) < (PNode.VPort.y / 2)
-		else:
-			OnBottom = PNode.global_position.y < (PNode.VPort.y / 2)
+		OnBottom = (int(PNode.global_position.y) % 480) > (PNode.VPort.y / 2)
 	SignalBus.emit_signal("ShowDialogue",Text[CDialIndex],self,OnBottom)
+	SignalBus.emit_signal("SetHudMessage","",0)
 	CanDial = false
 
 func OnDialFinish(Early):
+	if !Early:
+		SignalBus.emit_signal("SetHudMessage","Press space to interact",0)
 	await get_tree().create_timer(0.1).timeout
 	SignalBus.emit_signal("GetInDial",false,self,Early)
 	CanDial = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=4 uid="uid://dcqnibnlrp0kn"]
+[gd_scene load_steps=148 format=4 uid="uid://dcqnibnlrp0kn"]
 
 [ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="1_8umw3"]
 [ext_resource type="Script" uid="uid://bqdkiow0rytcj" path="res://Code/main.gd" id="1_bom7q"]
@@ -850,6 +850,9 @@ size = Vector2(26, 64)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_536cc"]
+size = Vector2(122, 120)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqgau"]
 size = Vector2(31, 46)
 
@@ -1490,7 +1493,7 @@ position = Vector2(1432, 472)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR13" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR13" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR14" parent="Hazards/Spikes" instance=ExtResource("4_bega8")]
@@ -1498,7 +1501,7 @@ position = Vector2(1448, 472)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR14" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR14" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR15" parent="Hazards/Spikes" instance=ExtResource("4_bega8")]
@@ -1506,7 +1509,7 @@ position = Vector2(1464, 472)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR15" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR15" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR16" parent="Hazards/Spikes" instance=ExtResource("4_bega8")]
@@ -1514,7 +1517,7 @@ position = Vector2(1464, 472)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR16" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Spikes/SpikeR16" index="0"]
 autoplay = "Spike"
 
 [node name="Souls" type="Node2D" parent="Hazards"]
@@ -1524,7 +1527,7 @@ position = Vector2(3912, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR30" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR30" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR31" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1532,7 +1535,7 @@ position = Vector2(3928, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR31" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR31" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR32" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1540,7 +1543,7 @@ position = Vector2(3944, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR32" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR32" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR33" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1548,7 +1551,7 @@ position = Vector2(3960, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR33" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR33" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR34" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1556,7 +1559,7 @@ position = Vector2(3976, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR34" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR34" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR35" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1564,7 +1567,7 @@ position = Vector2(3992, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR35" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR35" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR36" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1572,7 +1575,7 @@ position = Vector2(4008, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR36" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR36" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR37" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1580,7 +1583,7 @@ position = Vector2(4024, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR37" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR37" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR38" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1588,7 +1591,7 @@ position = Vector2(4040, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR38" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR38" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR39" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1596,7 +1599,7 @@ position = Vector2(4056, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR39" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR39" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR40" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1604,7 +1607,7 @@ position = Vector2(4072, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR40" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR40" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR41" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1612,7 +1615,7 @@ position = Vector2(4088, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR41" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR41" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR42" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1620,7 +1623,7 @@ position = Vector2(4104, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR42" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR42" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR43" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1628,7 +1631,7 @@ position = Vector2(4120, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR43" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR43" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR44" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1636,7 +1639,7 @@ position = Vector2(4136, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR44" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR44" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR45" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1644,7 +1647,7 @@ position = Vector2(4152, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR45" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR45" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR46" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1652,7 +1655,7 @@ position = Vector2(4168, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR46" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR46" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR47" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1660,7 +1663,7 @@ position = Vector2(4184, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR47" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR47" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR48" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1668,7 +1671,7 @@ position = Vector2(4200, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR48" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR48" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR49" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1676,7 +1679,7 @@ position = Vector2(4216, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR49" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR49" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR50" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1684,7 +1687,7 @@ position = Vector2(4232, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR50" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR50" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR51" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1692,7 +1695,7 @@ position = Vector2(4248, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR51" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR51" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR52" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1700,7 +1703,7 @@ position = Vector2(4264, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR52" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR52" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR53" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1708,7 +1711,7 @@ position = Vector2(4280, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR53" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR53" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR54" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1716,7 +1719,7 @@ position = Vector2(4296, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR54" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR54" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR55" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1724,7 +1727,7 @@ position = Vector2(4312, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR55" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR55" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR56" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1732,7 +1735,7 @@ position = Vector2(4328, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR56" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR56" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR57" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1740,7 +1743,7 @@ position = Vector2(4344, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR57" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR57" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR58" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1748,7 +1751,7 @@ position = Vector2(4360, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR58" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR58" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR59" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1756,7 +1759,7 @@ position = Vector2(4376, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR59" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR59" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR60" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1764,7 +1767,7 @@ position = Vector2(4392, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR60" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR60" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR61" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1772,7 +1775,7 @@ position = Vector2(4408, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR61" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR61" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR62" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1780,7 +1783,7 @@ position = Vector2(4424, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR62" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR62" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR63" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1788,7 +1791,7 @@ position = Vector2(4440, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR63" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR63" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR64" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1796,7 +1799,7 @@ position = Vector2(4456, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR64" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR64" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR75" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1804,7 +1807,7 @@ position = Vector2(4504, 807)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR75" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR75" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR65" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1812,7 +1815,7 @@ position = Vector2(4472, 952)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR65" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR65" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR66" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1820,7 +1823,7 @@ position = Vector2(5304, 1242)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR66" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR66" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR67" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1828,7 +1831,7 @@ position = Vector2(5320, 1252)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR67" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR67" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR72" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1836,7 +1839,7 @@ position = Vector2(5335, 1285)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR72" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR72" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR68" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1844,7 +1847,7 @@ position = Vector2(5496, 1271)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR68" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR68" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR69" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1852,7 +1855,7 @@ position = Vector2(5481, 1258)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR69" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR69" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR73" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1860,7 +1863,7 @@ position = Vector2(5480, 1175)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR73" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR73" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR70" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1868,7 +1871,7 @@ position = Vector2(5450, 1115)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR70" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR70" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR71" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1876,7 +1879,7 @@ position = Vector2(5401, 1095)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR71" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR71" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR74" parent="Hazards/Souls" instance=ExtResource("4_bega8")]
@@ -1884,7 +1887,7 @@ position = Vector2(5416, 999)
 SType = 3
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR74" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/Souls/SpikeR74" index="0"]
 autoplay = "Soul"
 
 [node name="BridgeSpikes" type="Node2D" parent="Hazards"]
@@ -1894,7 +1897,7 @@ position = Vector2(5288, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR66" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR66" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR71" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1902,7 +1905,7 @@ position = Vector2(5272, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR71" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR71" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR82" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1910,7 +1913,7 @@ position = Vector2(4424, -168)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR82" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR82" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR83" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1918,7 +1921,7 @@ position = Vector2(4424, -248)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR83" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR83" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR84" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1926,7 +1929,7 @@ position = Vector2(4424, -345)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR84" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR84" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR85" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1934,7 +1937,7 @@ position = Vector2(4424, -441)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR85" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR85" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR86" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1942,7 +1945,7 @@ position = Vector2(4392, -569)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR86" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR86" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR87" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1950,7 +1953,7 @@ position = Vector2(4392, -697)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR87" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR87" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR88" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1958,7 +1961,7 @@ position = Vector2(4424, -793)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR88" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR88" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR72" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1966,7 +1969,7 @@ position = Vector2(5368, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR72" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR72" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR73" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1974,7 +1977,7 @@ position = Vector2(5384, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR73" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR73" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR74" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1982,7 +1985,7 @@ position = Vector2(5400, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR74" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR74" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR75" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1990,7 +1993,7 @@ position = Vector2(5416, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR75" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR75" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR76" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -1998,7 +2001,7 @@ position = Vector2(5432, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR76" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR76" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR77" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2006,7 +2009,7 @@ position = Vector2(5448, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR77" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR77" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR78" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2014,7 +2017,7 @@ position = Vector2(5464, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR78" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR78" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR79" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2022,7 +2025,7 @@ position = Vector2(5480, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR79" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR79" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR80" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2030,7 +2033,7 @@ position = Vector2(5496, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR80" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR80" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR81" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2038,7 +2041,7 @@ position = Vector2(5512, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR81" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR81" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR67" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2046,7 +2049,7 @@ position = Vector2(5304, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR67" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR67" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR68" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2054,7 +2057,7 @@ position = Vector2(5320, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR68" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR68" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR69" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2062,7 +2065,7 @@ position = Vector2(5336, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR69" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR69" index="0"]
 autoplay = "Soul"
 
 [node name="SpikeR70" parent="Hazards/BridgeSpikes" instance=ExtResource("4_bega8")]
@@ -2070,7 +2073,7 @@ position = Vector2(5352, -217)
 SType = 4
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR70" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/BridgeSpikes/SpikeR70" index="0"]
 autoplay = "Soul"
 
 [node name="DeathZones" type="Node2D" parent="Hazards"]
@@ -2092,7 +2095,7 @@ position = Vector2(1480, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR7" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR7" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR8" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2100,7 +2103,7 @@ position = Vector2(1512, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR8" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR8" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR9" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2108,7 +2111,7 @@ position = Vector2(1544, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR9" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR9" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR10" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2116,7 +2119,7 @@ position = Vector2(1576, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR10" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR10" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR11" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2124,7 +2127,7 @@ position = Vector2(1608, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR11" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR11" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR12" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2132,7 +2135,7 @@ position = Vector2(1640, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR12" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR12" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR23" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2140,7 +2143,7 @@ position = Vector2(1656, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR23" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR23" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR18" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2148,7 +2151,7 @@ position = Vector2(1496, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR18" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR18" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR19" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2156,7 +2159,7 @@ position = Vector2(1528, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR19" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR19" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR20" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2164,7 +2167,7 @@ position = Vector2(1560, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR20" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR20" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR21" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2172,7 +2175,7 @@ position = Vector2(1592, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR21" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR21" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR22" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2180,7 +2183,7 @@ position = Vector2(1624, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR22" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR22" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR24" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2188,7 +2191,7 @@ position = Vector2(1672, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR24" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR24" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR25" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2196,7 +2199,7 @@ position = Vector2(1704, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR25" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR25" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR26" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2204,7 +2207,7 @@ position = Vector2(1720, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR26" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR26" index="0"]
 autoplay = "Spike"
 
 [node name="SpikeR27" parent="Hazards/SpikesMoving" instance=ExtResource("4_bega8")]
@@ -2212,7 +2215,7 @@ position = Vector2(1688, 358)
 SType = 1
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR27" index="1"]
+[node name="AnimatedSprite2D" parent="Hazards/SpikesMoving/SpikeR27" index="0"]
 autoplay = "Spike"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hazards/SpikesMoving"]
@@ -2429,6 +2432,13 @@ I made water "
 label_settings = SubResource("LabelSettings_p7mfv")
 autowrap_mode = 2
 
+[node name="idk" type="Area2D" parent="Stuff/Secret"]
+position = Vector2(6906, -385)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Secret/idk"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_536cc")
+
 [node name="BogGate" type="Node2D" parent="Stuff"]
 position = Vector2(4600, 920)
 
@@ -2493,7 +2503,6 @@ volume_db = -14.0
 position = Vector2(728, 400)
 
 [node name="Save5" parent="Saves" instance=ExtResource("7_oifha")]
-z_index = 1
 position = Vector2(5224, 1217)
 
 [node name="Save11" parent="Saves" instance=ExtResource("7_oifha")]
@@ -3123,7 +3132,7 @@ frame_progress = 0.937239
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Npcs/npc"]
 stream = SubResource("AudioStreamOggVorbis_1krji")
-volume_db = -6.0
+volume_db = -9.0
 
 [node name="Label" type="Label" parent="Npcs/npc"]
 visible = false
@@ -3351,6 +3360,8 @@ Passives = 2
 [connection signal="body_entered" from="Stuff/SecretWall/sw2/OUT2" to="Stuff/SecretWall" method="_on_out_2_body_entered"]
 [connection signal="body_entered" from="Stuff/SecretWall/sw4/IN3" to="Stuff/SecretWall" method="_on_in_3_body_entered"]
 [connection signal="body_entered" from="Stuff/SecretWall/sw4/OUT3" to="Stuff/SecretWall" method="_on_out_3_body_entered"]
+[connection signal="body_entered" from="Stuff/Secret/idk" to="." method="_on_idk_body_entered"]
+[connection signal="body_exited" from="Stuff/Secret/idk" to="." method="_on_idk_body_exited"]
 [connection signal="body_entered" from="Stuff/BogGate/BogDoor" to="." method="_on_bog_door_body_entered"]
 [connection signal="area_entered" from="Npcs/npc/Area2D" to="Npcs/npc" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Npcs/npc/Area2D" to="Npcs/npc" method="_on_area_2d_body_entered"]

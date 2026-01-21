@@ -36,3 +36,5 @@ signal GetInDial(State,Type,Early)
 signal ShotgunTimerHudUpdate(TimeRemaining,MaxTime)
 
 signal SettingChanged()
+
+signal BossHeartDamage(Dmg)

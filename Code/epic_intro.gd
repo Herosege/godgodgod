@@ -17,4 +17,3 @@ func _process(delta):
 	if t > 0.1:
 		t-=0.1
 		EM.pitch_scale = (0.24 * (randf())+0.1)
-	

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func EndGame(EndType):
+func EndGame(EndType,Traveling:=true):
 	
 	Globals.stoptime = true
 	
@@ -15,6 +15,11 @@ func EndGame(EndType):
 	var hrs = "" if !time[2] else str(time[2]) + " hours "
 	var min = "" if !time[1] else str(time[1]) + " minutes "
 	
+	if Traveling:
+		$Label.text = "You won!"
+	else:
+		$Label.text = "PERMANENT MEMORY ATTAINED"
+	
 	$Label2.text = "Final time: " + hrs + min + str(time[0]) + " seconds"
 	$Label2.visible = true
 	$Label.visible = true
@@ -24,5 +29,5 @@ func EndGame(EndType):
 	
 	Globals.SavePerma()
 	Globals.SaveData(666)
-	
-	Globals.TravelBack()
+	if Traveling:
+		Globals.TravelBack()

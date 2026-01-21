@@ -4,4 +4,6 @@
 
 [node name="Pause" type="Node2D"]
 process_mode = 3
+process_priority = -1
+process_physics_priority = -1
 script = ExtResource("1_dwnix")

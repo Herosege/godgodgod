@@ -9,6 +9,7 @@ extends Node2D
 var CPlaying : int
 
 func _ready():
+	await get_tree()
 	OTimer.connect("timeout",OnOpenTimerTimeout)
 	if STEvents.EventArray[STEvents.HorseHaluShown] == false and STEvents.EventArray[STEvents.MayorSpokenToWithHint] == true:
 		$Houses/Village/Stuff/HorseHalucination.visible = true
@@ -120,7 +121,6 @@ func _on_onen_coll_body_entered(body):
 func _on_onen_coll_body_exited(body):
 	if body.is_in_group("player"):
 		$Houses/Village/OnenBTower/Label.visible = false
-
 
 func _on_fh_pass_body_entered(body):
 	if body.is_in_group("player"):

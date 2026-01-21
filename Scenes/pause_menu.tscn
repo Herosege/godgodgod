@@ -174,7 +174,8 @@ layout_mode = 2
 tooltip_text = "Woda
 Tastes bitter and does nothing
 \"After achieving an endpoint, the state of existence of an individual gets erased.
-But the state of the world will not be erased at that point, so if you find a way to regain your senses, you will be able to travel back\" "
+But the state of the world will not be erased at that point,
+so if you find a way to regain your senses, you will be able to travel back\" "
 focus_mode = 0
 theme = SubResource("Theme_q7fiq")
 texture_normal = ExtResource("11_taale")

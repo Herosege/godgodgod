@@ -160,3 +160,12 @@ func _on_bog_door_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.PosSetTravel = Vector2(120,-32)
 		Globals.LoadScene("res://Scenes/Bog/bog.tscn")
+
+
+func _on_idk_body_entered(body):
+	if body.is_in_group("player"):
+		SignalBus.emit_signal("SetHudMessage","???",0)
+
+func _on_idk_body_exited(body):
+	if body.is_in_group("player"):
+		SignalBus.emit_signal("SetHudMessage","???",0)

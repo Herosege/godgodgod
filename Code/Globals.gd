@@ -63,13 +63,17 @@ var stoptime = true
 
 var NumTimesBeatGame : int = 0
 
-enum End {EndingStd,EndingPeace,EndingPain}
+enum End {EndingStd,EndingPeace,EndingPain,EndingTravel}
 
-var Endings = [false,false,false]
+var Endings = [false,false,false,false]
 
 var BestTime = 0.0
 
 var NumDeaths : int = 0
+
+enum {HardMode} 
+var ExStatesRecords = [[0,0]]
+
 var LDeaths : int = -1
 
 func _ready():
@@ -89,8 +93,7 @@ func _ready():
 		#SavedPos[1] = 1
 		
 		#Start - Curse
-		#SavedPos[0] = Vector2(104,208)
-		#SavedPos[1] = 1
+		
 		
 		#onen - main
 		#SavedPos[0] = Vector2(4200,-100)
@@ -100,7 +103,7 @@ func _ready():
 		
 		#henryk - main
 		#SavedPos[0] = Vector2(3600,800)
-		
+		#
 		#SecretMilk - main
 		#SavedPos[0] = Vector2(1664,-96)
 		
@@ -192,6 +195,14 @@ func _ready():
 		#Curse world - traveling - past exjumps
 		#SavedPos[0] = Vector2(2600,940)
 		#SavedPos[1] = 7
+		
+		#Curse world - traveling - past gate
+		#SavedPos[0] = Vector2(-126,908)
+		#SavedPos[1] = 7
+		
+		#Curse world - traveling - boss
+		SavedPos[0] = Vector2(-1696,540)
+		SavedPos[1] = 7
 
 const CAM_ZOOM = 0.05
 
@@ -199,8 +210,12 @@ func _process(delta):
 	if !stoptime:
 		SaveTime+=delta
 	
+	if Input.is_action_just_pressed("RESETGAME"):
+		ResetMemoryGlobal()
+	
 	if Input.is_action_just_pressed("debug") and OS.is_debug_build():
 		pass
+		#ResetMemoryGlobal()
 		#SavedPos = load_game("user://dinomemories.save","SavedPos",SavedPos)
 		#SavedPos[0] = str_to_var(SavedPos[0])
 		#Items = load_game("user://dinomemories.save","Items",Items)
@@ -217,7 +232,7 @@ func _process(delta):
 		SpecialItem = true
 	if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
-		TravelBack()
+		#TravelBack()
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 		#if CAM:
 			#if CAM.zoom == Vector2(CAM_ZOOM,CAM_ZOOM):
@@ -264,7 +279,8 @@ func SavePerma():
 		"Endings":Endings,
 		"BGame":NumTimesBeatGame,
 		"BestTime":BestTime,
-		"LDeaths":LDeaths
+		"LDeaths":LDeaths,
+		"ExStatesRecords":ExStatesRecords
 	})
 
 func load_game(file,DataName,def):
@@ -329,3 +345,37 @@ var MVol = 40.0
 var TimerOn = false
 
 var KeybindList = {}
+
+func ResetMemoryGlobal():
+	TravelingBack = false
+
+	InDialogue = false
+	MenuPaused = false
+	CArea = 0
+	SavedPos = [
+		Vector2(109,206), #Coords
+		0 #Area
+	]
+	
+	PosSetTravel = Vector2.ZERO
+	ShaderType = 0
+	DisableAction = false
+	
+	EnemiesKilled = 0
+	stoptime = true
+	
+	EffectActive = [false,false]
+	
+	SaveTime = 0.0
+	
+	RotCKilled = false
+	
+	SpecialItem = false
+	Items = [
+		[false,false,false],#Passives
+		[false,false]#Weapons
+	]
+	
+	BossKilled = [false,false]
+	get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+	STEvents.EventArray = [false,false,false]

@@ -27,14 +27,11 @@ func _on_Trigger_Boss(type):
 		$BossWall.visible = true
 		$MusicBoss.play()
 
-var CDir = 1
 
 func _process(delta):
 	if $Music1.pitch_scale != 0.25:
 		$Music1.pitch_scale = 0.25
-	if randf() > 0.3:
-		$Stuff/Npcs/idk/goodlabel.position.y += CDir 
-		CDir = -CDir
+
 
 var GateOpened = false
 
@@ -46,14 +43,12 @@ func _on_EffectChange(value,type):
 #stuff
 
 func _on_idk_body_entered(body):
-	$Stuff/Npcs/idk/AudioStreamPlayer.play()
-	$Stuff/Npcs/idk/goodlabel.global_position = PNode.position
-	CDir *= 200
+	if body.is_in_group("player"):
+		SignalBus.emit_signal("SetHudMessage","???",0)
 
 func _on_idk_body_exited(body):
-	$Stuff/Npcs/idk/AudioStreamPlayer.stop()
-	$Stuff/Npcs/idk/goodlabel.position = Vector2(-272,-240)
-	CDir /= 200
+	if body.is_in_group("player"):
+		SignalBus.emit_signal("SetHudMessage","",0)
 
 
 func _on_boss_trigger_body_entered(body):
@@ -70,10 +65,18 @@ func RESET():
 	$MusicBoss.stop()
 
 
-func _on_wife_body_entered(body): #:))))))))))
+func _on_wife_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.SpecialItem = true
 		SignalBus.emit_signal("GetItem","wife")
 		SignalBus.emit_signal("Save",0)
 		$Secrets/Wife.queue_free()
-	
+
+
+func _on_curse_guy_body_entered(body):
+	if body.is_in_group("player"):
+		$Secrets/CurseGuy/text.visible = true
+
+func _on_curse_guy_body_exited(body):
+	if body.is_in_group("player"):
+		$Secrets/CurseGuy/text.visible = false

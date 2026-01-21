@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://i3v4ubvy6cdm"]
+
+[ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="1_tj8kb"]
+[ext_resource type="PackedScene" uid="uid://dj6xpr0fo640s" path="res://Scenes/hud.tscn" id="2_sh4w0"]
+[ext_resource type="PackedScene" uid="uid://qyrclyy1sn6q" path="res://Scenes/pause.tscn" id="3_1emwa"]
+[ext_resource type="PackedScene" uid="uid://bictivtnhttj1" path="res://Scenes/pause_menu.tscn" id="4_qa7f6"]
+[ext_resource type="PackedScene" uid="uid://cgdeu0go0ls4i" path="res://Scenes/viewport_shader.tscn" id="5_b8eby"]
+[ext_resource type="PackedScene" uid="uid://ceugmd2wja7lq" path="res://Scenes/camera_control.tscn" id="6_econq"]
+[ext_resource type="PackedScene" uid="uid://dae1op8r72gbi" path="res://Scenes/debug.tscn" id="7_sh4w0"]
+
+[node name="Bog" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_tj8kb")]
+
+[node name="Hud" parent="." instance=ExtResource("2_sh4w0")]
+
+[node name="Pause" parent="." instance=ExtResource("3_1emwa")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_qa7f6")]
+
+[node name="ViewportShader" parent="." instance=ExtResource("5_b8eby")]
+
+[node name="CameraControl" parent="." instance=ExtResource("6_econq")]
+
+[node name="DEBUG" parent="." instance=ExtResource("7_sh4w0")]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["cam"]]

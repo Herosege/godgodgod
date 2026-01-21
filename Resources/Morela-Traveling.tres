@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="TextRes" load_steps=7 format=3 uid="uid://d0mr2bxuybmt8"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_05obh"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_cx217"]
+
+[sub_resource type="Resource" id="Resource_05obh"]
+script = ExtResource("1_05obh")
+MStr = Array[String](["Hmm, today is not really a good day, don't you think?", "I knew this would come to be, It happens to all of Hania's creations,
+The rotting", "But to this degree and so quickly?"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_cx217"]
+script = ExtResource("1_05obh")
+MStr = Array[String](["If you want to, you can maybe go into the curse world and kill that thing", "The rotting that has formed there seems powerful but as it becomes bigger, it spreads it's power thin", "So when you locate it's main source you should easily destroy it", "It will be a pretty painful journey, but if you persist, you will do it"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_d5wm4"]
+script = ExtResource("1_05obh")
+MStr = Array[String](["I won't help you,  I am not really fit for that sort of thing, I am much more of a creator", "I actually built the bridge and the tower in the east, though the brige got destroyed...", "And the tower is missing it's entrance for some reason..."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_godxi"]
+script = ExtResource("1_05obh")
+MStr = Array[String](["It's a shame that worm Henryk can't help you", "They first discovered the rotting and studied it extensively", "Earlier this day, Henryk went to the east to find the one responsible for all this, Hania", "So it doesn't seem like they are coming back anytime soon"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_cx217")
+TextArr = Array[ExtResource("1_05obh")]([SubResource("Resource_05obh"), SubResource("Resource_cx217"), SubResource("Resource_d5wm4"), SubResource("Resource_godxi")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

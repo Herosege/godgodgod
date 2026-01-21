@@ -1,25 +1,20 @@
-[gd_resource type="Resource" script_class="TextRes" load_steps=6 format=3 uid="uid://blf8gww8qit5n"]
+[gd_resource type="Resource" script_class="TextRes" load_steps=5 format=3 uid="uid://blf8gww8qit5n"]
 
 [ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_xqr5b"]
 [ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_trmm4"]
 
 [sub_resource type="Resource" id="Resource_xqr5b"]
 script = ExtResource("1_xqr5b")
-MStr = Array[String](["Oh hey man", "God damn... I haven't seen at all ever since I moved in here", "You know, I feel so much better here than in the flower fields, best of all breathing air doesn't hurt!"])
+MStr = Array[String](["Oh hello you funny lizard", "Are you from the flower fields?
+I can tell by the look at your face", "I recently moved out of there, It's kinda weird how I didn't do that for such a long time", "You know, now that I am here I am really suprised how I even managed to stay in the flower fields for so long", "That place is miserable, breathing hurts, everything is too bright and the flowers...", "Actually... I kinda like the flowers, they are pretty and fascinating", "I studied them and learned that you can change their color!", "Don't try it though, it's a really, REALLY painful process"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_trmm4"]
 script = ExtResource("1_xqr5b")
-MStr = Array[String](["Oh, have you been to the village?", "It's pretty far up in the sky but it's really great up there, lots of fun people", "Although I heard the rumors that The Horse God has been seen around there recently", "I wouldn't trust that though, especially beacuse of the amounts of alcohol people consume there daily"])
-metadata/_custom_type_script = "uid://chbub80dwb52e"
-
-[sub_resource type="Resource" id="Resource_ymn66"]
-script = ExtResource("1_xqr5b")
-MStr = Array[String](["I've been studying the arts of flowerology in the free time, I've gotten pretty good at it!", "As you can see I managed to grow some colorful ones!
-", "But man... you have no idea how hard it was, like what the hell I am only changing their color!"])
+MStr = Array[String](["Oh, have you been to the village?", "It's pretty far up in the sky but it's really great up there, lots of fun people", "Although I heard the rumors that The Horse has been seen around there recently", "I wouldn't trust that though, especially beacuse of the amounts of alcohol people consume there daily"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_trmm4")
-TextArr = Array[ExtResource("1_xqr5b")]([SubResource("Resource_xqr5b"), SubResource("Resource_trmm4"), SubResource("Resource_ymn66")])
+TextArr = Array[ExtResource("1_xqr5b")]([SubResource("Resource_xqr5b"), SubResource("Resource_trmm4")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

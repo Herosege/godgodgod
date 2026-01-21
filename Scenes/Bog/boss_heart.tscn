@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://7tgwuihhi2vx"]
+
+[ext_resource type="Script" uid="uid://77ojoexc7a8" path="res://Code/bog/boss_heart.gd" id="1_we10w"]
+[ext_resource type="Texture2D" uid="uid://qtr7qdymcux0" path="res://Assets/Bog/heart_boss.png" id="2_7lb76"]
+[ext_resource type="Texture2D" uid="uid://drin0gkafg1ti" path="res://Assets/Bog/heart_boss2.png" id="3_ysmti"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp5kr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7lb76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ysmti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ege33"]
+size = Vector2(32, 32)
+
+[node name="BossHeart" type="Node2D"]
+script = ExtResource("1_we10w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vp5kr")
+autoplay = "default"
+frame_progress = 0.14121637
+
+[node name="Heart" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heart"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ege33")
+
+[connection signal="area_entered" from="Heart" to="." method="_on_heart_area_entered"]

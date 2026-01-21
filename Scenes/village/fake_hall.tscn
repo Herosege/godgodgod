@@ -790,7 +790,7 @@ size = Vector2(20, 339)
 
 [sub_resource type="Animation" id="Animation_t1p2u"]
 resource_name = "EndAnim"
-length = 5.5
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -810,11 +810,10 @@ tracks/1/path = NodePath("Label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2.5, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": ["", "Dinosaur...", "I cannot 
-let you pass", "Begone"]
+"values": ["", "Dinosaur...", "Begone"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -831,7 +830,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_kuc74"]
 resource_name = "EndAnimAlt"
-length = 18.0
+length = 16.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -863,12 +862,10 @@ tracks/2/path = NodePath("Label:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2.5, 4.5, 6.5, 8.5, 11.513334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.5, 4.5, 6.5, 9.513334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "Dinosaur...", "I cannot 
-let you pass
-", "Begone", "...", "Huh? What is going on", ""]
+"values": ["", "Dinosaur...", "Begone", "...", "Huh? What is going on", ""]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -877,7 +874,7 @@ tracks/3/path = NodePath("WIFE:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 9.833334, 17.966667),
+"times": PackedFloat32Array(0, 7.833334, 15.966668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -889,7 +886,7 @@ tracks/4/path = NodePath("WIFE:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(9.833333, 14.033333, 16.966667),
+"times": PackedFloat32Array(7.833333, 12.033333, 14.966667),
 "transitions": PackedFloat32Array(1, 0, 1),
 "update": 0,
 "values": [Vector2(5829, 243), Vector2(6106, 243), Vector2(6103.03, 243)]
@@ -901,7 +898,7 @@ tracks/5/path = NodePath("RottingMaster:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 14.1),
+"times": PackedFloat32Array(0, 12.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -913,7 +910,7 @@ tracks/6/path = NodePath("AnimatedSprite2D:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 14.1),
+"times": PackedFloat32Array(0, 12.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -925,7 +922,7 @@ tracks/7/path = NodePath("CPUParticles2D:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 14.1),
+"times": PackedFloat32Array(0, 12.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -937,7 +934,7 @@ tracks/8/path = NodePath("CPUParticles2D:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 14.09),
+"times": PackedFloat32Array(0, 12.09),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -949,7 +946,7 @@ tracks/9/path = NodePath("WIFEAUDIO:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 9.83, 17.866667),
+"times": PackedFloat32Array(0, 7.83, 15.866666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -961,7 +958,7 @@ tracks/10/path = NodePath("KillAudio:playing")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 14.099984),
+"times": PackedFloat32Array(0, 12.099984),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]

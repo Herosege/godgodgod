@@ -13,7 +13,9 @@ func _ready():
 	AudioServer.set_bus_volume_db(1,(Globals.SEVol/4)-15)
 	AudioServer.set_bus_mute(1,!Globals.SEVol)
 	
-	Globals.Endings = Globals.load_game(Globals.PATH_TO_PERMASAVE,"Endings",Globals.Endings)
+	var TempEndings = Globals.load_game(Globals.PATH_TO_PERMASAVE,"Endings",Globals.Endings)
+	for i in TempEndings.size():
+		Globals.Endings[i] = TempEndings[i] 
 	Globals.NumTimesBeatGame = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BGame",Globals.NumTimesBeatGame)
 	Globals.BestTime = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BestTime",Globals.BestTime)
 	Globals.LDeaths = Globals.load_game(Globals.PATH_TO_PERMASAVE,"LDeaths",Globals.LDeaths)
@@ -34,11 +36,14 @@ func _ready():
 	
 	if Globals.LDeaths != -1:
 		$Says.visible = true
-		$Says/Label.text = "I can beat the game with\nonly " + str(int(Globals.LDeaths)) + " deaths!!!" if Globals.LDeaths > 0 else "I am the one true god!"
+		$Says/Label.text = "I can beat the game with\nonly " + str(int(Globals.LDeaths)) + " deaths!!!" if Globals.LDeaths > 0 else "I am the one true GOD!"
+	
+	$StatesOfExistence.visible = Globals.Endings[Globals.End.EndingTravel]
 	
 	$Trophies/StdEnd.visible = Globals.Endings[Globals.End.EndingStd]
 	$Trophies/PainEnd.visible = Globals.Endings[Globals.End.EndingPain]
 	$Trophies/PeaceEnd2.emitting = Globals.Endings[Globals.End.EndingPeace]
+	$Trophies/TravelingEnd.visible = Globals.Endings[Globals.End.EndingTravel]
 
 var DelSaveCount = 0
 
@@ -85,3 +90,7 @@ var Tooltips = [
 	"If you struggle, remember to give up sometimes",
 	"Pain is necessary to improve"
 ]
+
+
+func _on_states_of_existence_pressed():
+	$StatesMenu.visible = true
