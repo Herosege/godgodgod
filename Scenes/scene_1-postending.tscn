@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=4 uid="uid://dayaoabhyx45t"]
+[gd_scene load_steps=126 format=4 uid="uid://dayaoabhyx45t"]
 
 [ext_resource type="Script" uid="uid://bq2by43dt48g3" path="res://Code/bog/scene_1_postending.gd" id="1_u735w"]
 [ext_resource type="Texture2D" uid="uid://btv7ndr6vifff" path="res://Assets/tilemap_shit.png" id="1_v7xap"]
@@ -683,11 +683,10 @@ tracks/2/path = NodePath("DeathLabel:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3, 5, 7.5, 10, 14.5, 19, 23.5, 28.5, 31.5, 34.9),
+"times": PackedFloat32Array(0, 3, 5.0333333, 7.5, 10, 14.5, 20, 25, 30, 32, 34.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "So persistent...", "Well you are a GOD
-after all ", "What do you think
+"values": ["", "So persistent...", "Congratulations you did it", "But what do you think
 happens now?", "After I became this, I
 harnessed the powerful
 artifact that I had 
@@ -702,7 +701,7 @@ and all will start anew,
 endlessly", "But maybe you will have
 enough time to fetch
 something previously 
-unreachable and unattainable", "A key to new possibilities", "Farewell", ""]
+unreachable and unattainable", "A key to new possibilities", "", ""]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -839,6 +838,11 @@ font = ExtResource("70_qgwc8")
 font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5j2n"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ki0jh"]
 size = Vector2(121, 381)
@@ -3595,6 +3599,17 @@ offset_top = 244.0
 offset_right = -1946.0
 offset_bottom = 393.0
 label_settings = SubResource("LabelSettings_wypbq")
+
+[node name="Skip" type="Label" parent="Stuff/BossRotting/Death"]
+visible = false
+modulate = Color(1, 1, 1, 0.33333334)
+z_index = 2
+offset_left = -2317.0
+offset_top = 449.0
+offset_right = -2134.0
+offset_bottom = 477.0
+text = "Press space to skip"
+label_settings = SubResource("LabelSettings_t5j2n")
 
 [node name="MusicBoss" type="AudioStreamPlayer" parent="Stuff/BossRotting"]
 stream = ExtResource("71_avudk")

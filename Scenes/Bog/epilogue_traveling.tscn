@@ -39,12 +39,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_vjsvo")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("8_k8s3f")
 }],
 "loop": false,
 "name": &"default",
-"speed": 0.5
+"speed": 1.0
 }]
 
 [node name="Epilogue-traveling" type="Node2D"]

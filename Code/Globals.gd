@@ -65,14 +65,17 @@ var NumTimesBeatGame : int = 0
 
 enum End {EndingStd,EndingPeace,EndingPain,EndingTravel}
 
-var Endings = [false,false,false,false]
+var Endings = [false,false,false,true]
 
 var BestTime = 0.0
 
 var NumDeaths : int = 0
 
-enum {HardMode} 
-var ExStatesRecords = [[0,0]]
+enum State {HardMode} 
+enum StateRec {BTime,BDeath,NumTimesBeat}
+var ExStatesRecords = [
+	[0.0,-1,0]
+]
 
 var LDeaths : int = -1
 
@@ -201,8 +204,8 @@ func _ready():
 		#SavedPos[1] = 7
 		
 		#Curse world - traveling - boss
-		SavedPos[0] = Vector2(-1696,540)
-		SavedPos[1] = 7
+		#SavedPos[0] = Vector2(-1696,540)
+		#SavedPos[1] = 7
 
 const CAM_ZOOM = 0.05
 
@@ -263,6 +266,9 @@ func SaveData(type):
 		})
 	if type == 666:
 		save_game(PATH_TO_GAMESAVE,null)
+	if type == 667:
+		save_game(PATH_TO_GAMESAVE,null)
+		ResetMemoryGlobal()
 
 func TravelBack():
 	TravelingBack = true
@@ -377,5 +383,6 @@ func ResetMemoryGlobal():
 	]
 	
 	BossKilled = [false,false]
-	get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+	if get_tree().current_scene.name != "Intro":
+		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 	STEvents.EventArray = [false,false,false]

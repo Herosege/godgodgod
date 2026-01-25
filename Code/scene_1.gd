@@ -19,6 +19,8 @@ func _ready():
 	$BossWall/CollisionShape2D.set_deferred("disabled",true)
 	$BossWall.visible = false
 	$TextureRect5.visible = false
+	if Globals.EffectActive[Globals.Beer]:
+		$Gate2/CollisionShape2D.set_deferred("disabled",true)
 
 func _on_Trigger_Boss(type):
 	if type == 1:
@@ -33,13 +35,11 @@ func _process(delta):
 		$Music1.pitch_scale = 0.25
 
 
-var GateOpened = false
-
 func _on_EffectChange(value,type):
-	if value == true and type == Globals.Beer and !GateOpened:
-		GateOpened = true
-		$Gate2.call_deferred("queue_free")
-		pass
+	if value == true and type == Globals.Beer:
+		$Gate2/CollisionShape2D.set_deferred("disabled",true)
+	if value == false and type == Globals.Beer:
+		$Gate2/CollisionShape2D.set_deferred("disabled",false)
 #stuff
 
 func _on_idk_body_entered(body):

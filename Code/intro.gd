@@ -19,9 +19,24 @@ func _ready():
 	Globals.NumTimesBeatGame = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BGame",Globals.NumTimesBeatGame)
 	Globals.BestTime = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BestTime",Globals.BestTime)
 	Globals.LDeaths = Globals.load_game(Globals.PATH_TO_PERMASAVE,"LDeaths",Globals.LDeaths)
+	var ExStateRecs = Globals.load_game(Globals.PATH_TO_PERMASAVE,"ExStatesRecords",Globals.ExStatesRecords)
+	for i in ExStateRecs.size():
+		Globals.ExStatesRecords[i] = ExStateRecs[i]
 	#Globals.TimerOn = Globa
-	
-	
+	var States = $StatesMenu/Bg/MarginContainer/VBoxContainer.get_children()
+	for i in Globals.ExStatesRecords.size():
+		var RLabel = States[i].get_node("Record")
+		if RLabel and Globals.ExStatesRecords[i][Globals.StateRec.NumTimesBeat] > 0:
+			var Times = Globals.sec_to_time(Globals.ExStatesRecords[i][Globals.StateRec.BTime])
+			var StrSec = str(Times[0]) if floor(Times[0]/10.0) > 0 else "0"+str(Times[0])
+			var StrMin = str(Times[1]) if floor(Times[1]/10.0) > 0 else "0"+str(Times[1])
+			var Ovtime =  str(Times[2]) + ":" + StrMin + ":" + StrSec
+			
+			var LDeaths = str(int(Globals.ExStatesRecords[i][Globals.StateRec.BDeath]))
+			
+			var NumTBeat = str(int(Globals.ExStatesRecords[i][Globals.StateRec.NumTimesBeat]))
+			
+			RLabel.text = "Times beaten: {0} - Least deaths: {1} - Best time: {2}".format([NumTBeat,LDeaths,Ovtime])
 	
 	if Globals.NumTimesBeatGame:
 		$Label4.visible = true
@@ -51,8 +66,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("delsavedata"):
 		DelSaveCount += 1
 		if DelSaveCount > 2:
-			Globals.SaveData(666)
+			Globals.SaveData(667)
 			$Delsfx.play()
+			DelSaveCount = 0
 
 func _on_texture_button_pressed():
 	if Globals.TravelingBack:
@@ -87,7 +103,7 @@ func _on_texture_button_2_pressed():
 var Tooltips = [
 	"Are you really sure that what you are doing is a correct way forward?",
 	"Try to stop smiling sometimes",
-	"If you struggle, remember to give up sometimes",
+	"If you struggle, remember to give up",
 	"Pain is necessary to improve"
 ]
 

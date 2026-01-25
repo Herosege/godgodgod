@@ -3,7 +3,8 @@ extends CanvasLayer
 @onready var ShotgunTimer = $ShotGunTimer
 
 func _ready():
-	$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1].trim_suffix(" (Physical)")])
+	if Globals.KeybindList:
+		$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1].trim_suffix(" (Physical)")])
 	SignalBus.SettingChanged.connect(OnSettingChange)
 	$Timer.visible = Globals.TimerOn
 	ShotgunTimer.visible = false

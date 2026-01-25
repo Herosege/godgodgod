@@ -6,6 +6,8 @@ var Health = InitHealth
 
 var Killed = false
 
+var skipped = true
+
 var Phase = 0 : 
 	set(val):
 		Phase = val
@@ -65,6 +67,12 @@ func _on_greatestrotting_body_entered(body):
 func _process(delta):
 	if Input.is_action_just_pressed("debug"):
 		get_dmg(20.0)
+	
+	if !skipped and Input.is_action_just_pressed("Confirm") and Killed:
+		$Death/AnimationPlayer.play("Die",-1,1000.0)
+		$Death/Skip.visible = false
+		skipped = true
+	
 	if Fighting:
 		match Phase:
 			0:
@@ -162,7 +170,9 @@ func get_dmg(amt):
 		$MusicBoss2.stop()
 		$Phase2/AnimationPlayer.play("RESET")
 		$Death/AnimationPlayer.play("Die")
-		
+		if Globals.Endings[Globals.End.EndingTravel]:
+			$Death/Skip.visible = true
+		skipped = false
 
 func RESET():
 	if !Killed:

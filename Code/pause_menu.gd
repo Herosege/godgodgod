@@ -7,7 +7,8 @@ extends CanvasLayer
 func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
 	SignalBus.SettingChanged.connect(OnSettingsChanged)
-	MilkShw.tooltip_text = "Mleko\nAllows you to move slowly with {0}\n(Always active)".format([Globals.KeybindList["Slowdown"][1].trim_suffix(" (Physical)")])
+	if Globals.KeybindList:
+		MilkShw.tooltip_text = "Mleko\nAllows you to move slowly with {0}\n(Always active)".format([Globals.KeybindList["Slowdown"][1].trim_suffix(" (Physical)")])
 	$wife.visible = Globals.SpecialItem
 	$DeathAmt.text = str(int(Globals.NumDeaths))
 	MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]

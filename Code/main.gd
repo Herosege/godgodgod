@@ -91,45 +91,39 @@ func _on_area_2d_body_entered(body):
 		EndScene(Globals.SpecialItem)
 
 func EndScene(hasSpecial):
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.4).timeout
+	$EndStuff/RotPillarkill.play("Rotpillar")
 	$Npcs/henryk2/AnimatedSprite2D.play("freakingout")
-	$Npcs/npc/AudioStreamPlayer.play()
-	$Npcs/henryk2/Label.text = "ALRIGHT LETS MURDER THIS\nDISGUSTING THING"
+	#$Npcs/npc/AudioStreamPlayer.play()
+	#$Npcs/henryk2/Label.text = "ALRIGHT LETS MURDER THIS\nDISGUSTING THING"
 	
-	await get_tree().create_timer(3.1).timeout
-	$Npcs/npc/AudioStreamPlayer.volume_db = -1
-	$Npcs/henryk2/Label.text = "OK, I THINK IT WAS THIS SPELL"
+	#await get_tree().create_timer(3.1).timeout
+	#$Npcs/npc/AudioStreamPlayer.volume_db = -1
+	#$Npcs/henryk2/Label.text = "OK, I THINK IT WAS THIS SPELL"
 	
-	await get_tree().create_timer(3.0).timeout
-	$Npcs/npc/AudioStreamPlayer.volume_db = 4
-	$Npcs/henryk2/Label.text = "RED 3000 DRINK ASBESTOR AGOLMATIC REDO FUN EXTEND 9920 FRIEND ULUBOMTEKA"
+	#await get_tree().create_timer(3.0).timeout
+	#$Npcs/npc/AudioStreamPlayer.volume_db = 2
+	#$Npcs/henryk2/Label.text = "RED 3000 DRINK ASBESTOR AGOLMATIC REDO FUN EXTEND 9920 FRIEND ULUBOMTEKA"
 	
 	
-	await get_tree().create_timer(2.1).timeout
-	Globals.RotCKilled = true
+	#await get_tree().create_timer(2.1).timeout
 	
-	UnrotCurse()
-	await get_tree().create_timer(0.7).timeout
-	$Npcs/henryk2/Label.text = "OH WOW... THIS ACTUALLY WORKED"
-	await get_tree().create_timer(2.7).timeout
-	$Npcs/henryk2/Label.text = "ALRIGHT, BYE SEE YOU SOON :)"
-	await get_tree().create_timer(1.5).timeout
-	$Npcs/henryk2.visible = false
-
-func _on_bgtimer_timeout():
-	$CanvasLayer/ColorRect.color = Color.AQUA
-	$FunnyStuff/CanvasLayer/img1.visible = false
+	#await get_tree().create_timer(0.7).timeout
+	#$Npcs/henryk2/Label.text = "OH WOW... THIS ACTUALLY WORKED"
+	#await get_tree().create_timer(2.7).timeout
+	#$Npcs/henryk2/Label.text = "ALRIGHT, BYE SEE YOU SOON :)"
+	#await get_tree().create_timer(1.5).timeout
+	#$Npcs/henryk2.visible = false
 
 
-func _on_village_pass_body_entered(body):
-	if body.is_in_group("player"):
-		Globals.PosSetTravel = Vector2(60,400)
-		Globals.LoadScene("res://Scenes/village_1.tscn")
 
-func RESET():
-	$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
-	$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
-	CheckMusic()
+func _on_rot_pillarkill_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Rotpillar":
+		Globals.RotCKilled = true
+		UnrotCurse()
+		$EndStuff/RotPillarkill.play("Rotkilled_normal")
+	if anim_name == "Rotkilled_normal" or anim_name == "Rotkill_axe":
+		$Npcs/henryk2.visible = false
 
 func UnrotCurse():
 	$dadoor.position = Vector2(8304,96)
@@ -155,6 +149,14 @@ func UnrotCurse():
 	$Visual/stuff/Sprite2D2.modulate = Color.BLACK
 	$SpikeAreas/Area2D/CollisionShape2D6.set_deferred("position",Vector2(6166,0))
 
+func _on_bgtimer_timeout():
+	$CanvasLayer/ColorRect.color = Color.AQUA
+	$FunnyStuff/CanvasLayer/img1.visible = false
+
+func _on_village_pass_body_entered(body):
+	if body.is_in_group("player"):
+		Globals.PosSetTravel = Vector2(60,400)
+		Globals.LoadScene("res://Scenes/village_1.tscn")
 
 func _on_bog_door_body_entered(body):
 	if body.is_in_group("player"):
@@ -169,3 +171,19 @@ func _on_idk_body_entered(body):
 func _on_idk_body_exited(body):
 	if body.is_in_group("player"):
 		SignalBus.emit_signal("SetHudMessage","???",0)
+
+
+func RESET():
+	$Hazards/SpikesMoving/AnimationPlayer.play("RESET")
+	$Hazards/SpikesMoving/AnimationPlayer.play("SpikesMove")
+	CheckMusic()
+
+var PillarHealth := 10
+
+func _on_rot_kill_coll_area_entered(area: Area2D) -> void:
+	if area.is_in_group("damage"):
+		PillarHealth -= 1
+		if PillarHealth <= 0:
+			$EndStuff/RotPillarkill.play("Rotkill_axe")
+			UnrotCurse()
+			Globals.RotCKilled = true

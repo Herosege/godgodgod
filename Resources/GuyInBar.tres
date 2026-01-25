@@ -5,12 +5,12 @@
 
 [sub_resource type="Resource" id="Resource_ju4ml"]
 script = ExtResource("1_ju4ml")
-MStr = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse God... That thing just appeared out of nowhere... everything I've built has been destroyed", "God damned bastard, I was just enjoying my midnight drink, It happened so quickly, I couldn't do anything..."])
+MStr = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse... That thing just appeared out of nowhere... everything I've built has been destroyed", "God damned bastard, I was just enjoying my midnight drink, It happened so quickly, I couldn't do anything..."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_181yh"]
 script = ExtResource("1_ju4ml")
-MStr = Array[String](["Heh, at least you are here, maybe we can do something about that piece of shit", "You are clearly good at jumping and killing stuff and that sorta thing, so you could do it", "Though, you are gonna need something with a bit more punch than that axe of yours", "I have a really strong shotgun that I made myself, you can take it, but please help me decimate The Horse God ", "It's hidden on the west side of the island, right where the ground ends, you will need to fall and jump to the side and you will get it", "Best of lucks to ya"])
+MStr = Array[String](["Heh, at least you are here, maybe we can do something about that piece of shit", "You are clearly good at jumping and killing stuff and that sorta thing, so you could do it", "Though, you are gonna need something with a bit more punch than that axe of yours", "I have a really strong shotgun that I made myself, you can take it, but please help me decimate The Horse", "It's hidden on the west side of the island, right where the ground ends, you will need to fall and jump to the side and you will get it", "Best of lucks to ya"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_u6qfs"]
