@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dgsyqcboqchwl"]
+[gd_scene format=4 uid="uid://dgsyqcboqchwl"]
 
 [ext_resource type="Script" uid="uid://brr7rw65tikq4" path="res://Code/epilogue_3.gd" id="1_6tivd"]
 [ext_resource type="Texture2D" uid="uid://dbe1a1iqsfabx" path="res://Assets/EndingPeace/0001.png" id="2_tt05q"]
@@ -62,17 +62,17 @@ tags = {
 loop = true
 loop_offset = 0.1
 
-[node name="Epilogue_3" type="Node2D"]
+[node name="Epilogue_3" type="Node2D" unique_id=1439653840]
 script = ExtResource("1_6tivd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1948834755]
 position = Vector2(320, 240)
 sprite_frames = SubResource("SpriteFrames_6tivd")
 autoplay = "default"
 frame = 4
 frame_progress = 1.0
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1830951913]
 z_index = 2
 position = Vector2(317, 482)
 emitting = false
@@ -94,15 +94,16 @@ scale_amount_min = 3.0
 scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_tiwhh")
 
-[node name="EndingStuff" parent="." instance=ExtResource("8_kfyuq")]
+[node name="EndingStuff" parent="." unique_id=943710824 instance=ExtResource("8_kfyuq")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1974343498]
 stream = SubResource("AudioStreamOggVorbis_6k5eo")
 volume_db = -2.0
 pitch_scale = 0.6
 autoplay = true
+bus = &"Music"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1562832614]
 wait_time = 6.5
 one_shot = true
 autostart = true

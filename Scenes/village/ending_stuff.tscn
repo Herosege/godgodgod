@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkktosj0v2mhs"]
+[gd_scene format=3 uid="uid://bkktosj0v2mhs"]
 
 [ext_resource type="Script" uid="uid://cfns56hw8ly2i" path="res://Code/village/ending_stuff.gd" id="1_67hbp"]
 
@@ -12,10 +12,10 @@ font_size = 18
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[node name="EndingStuff" type="CanvasLayer"]
+[node name="EndingStuff" type="CanvasLayer" unique_id=1364402664]
 script = ExtResource("1_67hbp")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=631133996]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,7 +32,7 @@ text = "Endpoint"
 label_settings = SubResource("LabelSettings_v0ulv")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=1718682583]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,7 +49,7 @@ text = "12"
 label_settings = SubResource("LabelSettings_oyly5")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="." unique_id=2145233612]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5

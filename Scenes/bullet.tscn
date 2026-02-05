@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://4o088fy05ere"]
+[gd_scene format=3 uid="uid://4o088fy05ere"]
 
 [ext_resource type="Texture2D" uid="uid://cwgrmwiexydrp" path="res://Assets/Boss1/bullet.png" id="1_2vvr4"]
 [ext_resource type="Script" uid="uid://b6b2olyk2kr45" path="res://Code/bullet.gd" id="1_lqrop"]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" unique_id=1008010269 groups=["killplayer"]]
 script = ExtResource("1_lqrop")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=503372635]
 texture = ExtResource("1_2vvr4")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=453902727]
 polygon = PackedVector2Array(0, -8, -6, 0, 0, 8, 6, 0)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1964003319]
 wait_time = 4.0
 one_shot = true
 autostart = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://btx87hjuc1vgg"]
+[gd_scene format=4 uid="uid://btx87hjuc1vgg"]
 
 [ext_resource type="Script" uid="uid://mq005tj3roqv" path="res://Code/village/abba.gd" id="1_gr218"]
 [ext_resource type="Texture2D" uid="uid://be61tpki7k0qf" path="res://Assets/WhoTheHEll/0001.png" id="1_i33mk"]
@@ -189,10 +189,10 @@ tags = {
 }
 loop = true
 
-[node name="Abba" type="Node2D"]
+[node name="Abba" type="Node2D" unique_id=1270457458]
 script = ExtResource("1_gr218")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1652241579]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3cskg")
 autoplay = "default"
@@ -200,10 +200,11 @@ frame = 1
 frame_progress = 0.69219565
 offset = Vector2(160, 120)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1930217187]
 stream = SubResource("AudioStreamOggVorbis_outbo")
 volume_db = -5.0
 pitch_scale = 0.4
 autoplay = true
+bus = &"Music"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

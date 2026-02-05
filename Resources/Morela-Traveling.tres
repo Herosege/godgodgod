@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TextRes" load_steps=7 format=3 uid="uid://d0mr2bxuybmt8"]
+[gd_resource type="Resource" script_class="TextRes" format=3 uid="uid://d0mr2bxuybmt8"]
 
 [ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_05obh"]
 [ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_cx217"]
@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_05obh"]
 script = ExtResource("1_05obh")
 MStr = Array[String](["Hmm, today is not really a good day, don't you think?", "I knew this would come to be, It happens to all of Hania's creations,
-The rotting", "But to this degree and so quickly?"])
+including... us..."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_cx217"]

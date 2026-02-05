@@ -6,7 +6,7 @@ var CanSave = false
 func _ready():
 	SignalBus.SettingChanged.connect(OnSettingChanged)
 	if Globals.KeybindList:
-		SHint.text = "Press {0} to save".format([Globals.KeybindList["SaveInp"][1].trim_suffix(" (Physical)")])
+		SHint.text = "Press {0} to save".format([Globals.KeybindList["SaveInp"][1]])
 
 func _process(delta):
 	if CanSave and Input.is_action_just_pressed("SaveInp") and $SaveCD.is_stopped():
@@ -27,4 +27,4 @@ func _on_body_exited(body):
 		SHint.visible = false
 
 func OnSettingChanged():
-	SHint.text = "Press {0} to save".format([Globals.KeybindList["SaveInp"][1].trim_suffix(" (Physical)")])
+	SHint.text = "Press {0} to save".format([Globals.KeybindList["SaveInp"][1]])

@@ -39,4 +39,3 @@ func _process(delta):
 				InstPos.x -= CLOUD_DISTANCE
 			InstPos.x += (30 * delta) / pow(1.5,j)
 			CloudsMMeshes[j].multimesh.set_instance_transform_2d(i,Transform2D(0.0,InstScale,0.0,InstPos))
-	#print(MMeshInst3.multimesh.get_instance_transform_2d(0).get_origin())

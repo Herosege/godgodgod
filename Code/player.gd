@@ -36,7 +36,6 @@ var AdditVel : Vector2
 var Immortalix
 
 func _ready():
-	SignalBus.Death.connect(Die)
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.GetWeapon.connect(GetWeapon)
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
@@ -173,6 +172,7 @@ func Die():
 	$AnimatedSprite2D.visible = false
 	$BloodParticles.restart()
 	$BloodParticles.visible = true
+	SignalBus.emit_signal("Death")
 
 func Jump():
 	velocity.y = JVel

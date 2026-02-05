@@ -1,6 +1,6 @@
 extends Node2D
 
-const InitHealth := 32.0
+const InitHealth := 33.0
 
 var Health = InitHealth
 
@@ -24,7 +24,7 @@ var Phase = 0 :
 				if Timers.get_node("Timer3").is_stopped():
 					Timers.get_node("Timer3").start(Timer3Time)
 			2:
-				Timer2Time = 1.05
+				Timer2Time = 1.2
 				Timer2DistTime = 0.2
 
 var Fighting = false
@@ -35,7 +35,7 @@ var Fighting = false
 
 var BHeartScene = load("res://Scenes/Bog/boss_heart.tscn")
 
-const BTimer1Time := 0.4
+const BTimer1Time := 0.45
 const BTimer2Time := 3.5
 const BTimer2DistTime := 0.2
 const BTimer3Time := 4.0
@@ -65,7 +65,7 @@ func _on_greatestrotting_body_entered(body):
 		HBar.visible = true
 
 func _process(delta):
-	if Input.is_action_just_pressed("debug"):
+	if Input.is_action_just_pressed("debug") and OS.is_debug_build():
 		get_dmg(20.0)
 	
 	if !skipped and Input.is_action_just_pressed("Confirm") and Killed:
@@ -155,7 +155,7 @@ func get_dmg(amt):
 	if Fighting:
 		Health -= amt
 		HBar.value = (Health / InitHealth) * 100 
-	if Health <= 0:
+	if Health <= 0 and Fighting:
 		Globals.SavedPos[0] = Vector2(-2000,420)
 		Killed = true
 		Fighting = false
@@ -170,6 +170,7 @@ func get_dmg(amt):
 		$MusicBoss2.stop()
 		$Phase2/AnimationPlayer.play("RESET")
 		$Death/AnimationPlayer.play("Die")
+		$LayerPhase2.queue_free()
 		if Globals.Endings[Globals.End.EndingTravel]:
 			$Death/Skip.visible = true
 		skipped = false

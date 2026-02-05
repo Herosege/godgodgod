@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c084qbsky52co"]
+[gd_scene format=4 uid="uid://c084qbsky52co"]
 
 [ext_resource type="Script" uid="uid://beajuhequj5tb" path="res://Code/epic_intro.gd" id="1_n8duq"]
 [ext_resource type="Texture2D" uid="uid://dtll0evk22k6q" path="res://Assets/LETSGO.png" id="2_a2lls"]
@@ -19,7 +19,7 @@ sampling_rate = 44100.0
 packet_sequence = SubResource("OggPacketSequence_axqh2")
 loop = true
 
-[node name="EpicIntro" type="Control"]
+[node name="EpicIntro" type="Control" unique_id=1316087829]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_n8duq")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=477370148]
 modulate = Color(0.03, 0.03, 0.03, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -42,7 +42,7 @@ texture = ExtResource("2_kqe11")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1566748970]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 1
 anchors_preset = 6
@@ -64,7 +64,7 @@ SO NOW YOU MUST EMBARK ON A LENGTHY JOURNEY TO DESTROY IT OR SOMETHING"
 label_settings = SubResource("LabelSettings_0067c")
 autowrap_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1782759333]
 layout_mode = 0
 offset_right = 416.0
 offset_bottom = 369.0
@@ -72,7 +72,7 @@ texture = ExtResource("4_vupng")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="StartButton" type="TextureButton" parent="."]
+[node name="StartButton" type="TextureButton" parent="." unique_id=1884426194]
 texture_filter = 4
 layout_mode = 0
 offset_left = 123.0
@@ -85,10 +85,11 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_lock_ = true
 
-[node name="epicMUSIC" type="AudioStreamPlayer" parent="."]
+[node name="epicMUSIC" type="AudioStreamPlayer" parent="." unique_id=1409412607]
 stream = SubResource("AudioStreamOggVorbis_kqe11")
 volume_db = -10.0
 pitch_scale = 0.2
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

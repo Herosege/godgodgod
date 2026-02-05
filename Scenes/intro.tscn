@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cm5iyaherdlbm"]
+[gd_scene format=4 uid="uid://cm5iyaherdlbm"]
 
 [ext_resource type="Script" uid="uid://b4sl2tm8ar3bs" path="res://Code/intro.gd" id="1_8hyp5"]
 [ext_resource type="Texture2D" uid="uid://bfby2w65osyqe" path="res://Assets/sinful.png" id="1_vyg23"]
@@ -210,7 +210,7 @@ Button/styles/normal_mirrored = null
 Button/styles/pressed = SubResource("StyleBoxFlat_vv31b")
 Button/styles/pressed_mirrored = null
 
-[node name="Intro" type="Control"]
+[node name="Intro" type="Control" unique_id=210126407]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -220,7 +220,7 @@ grow_vertical = 2
 script = ExtResource("1_8hyp5")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=108651556]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -231,7 +231,7 @@ texture = ExtResource("1_vyg23")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=937565801]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -249,13 +249,14 @@ texture_hover = ExtResource("4_av7jv")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=667257172]
 stream = SubResource("AudioStreamOggVorbis_sb6eq")
 volume_db = 3.0
 pitch_scale = 0.3
 autoplay = true
+bus = &"Music"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=881539538]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -271,25 +272,25 @@ grow_vertical = 0
 text = "Hover over this to get save info -->"
 label_settings = SubResource("LabelSettings_swr0f")
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=1565362824]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -175.0
+offset_left = -189.0
 offset_top = -73.0
-offset_right = 78.0
+offset_right = 64.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "controls: arrow keys and z
 F5 to restart the game
-Home key to refresh mind?"
+Home key to return to menu"
 label_settings = SubResource("LabelSettings_swr0f")
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="." unique_id=1200339847]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -306,10 +307,10 @@ text = "Created by Herosege"
 label_settings = SubResource("LabelSettings_swr0f")
 metadata/_edit_lock_ = true
 
-[node name="Delsfx" type="AudioStreamPlayer" parent="."]
+[node name="Delsfx" type="AudioStreamPlayer" parent="." unique_id=1583183968]
 stream = ExtResource("5_j35tj")
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=613035465]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -320,12 +321,12 @@ grow_horizontal = 0
 mouse_filter = 1
 texture_normal = ExtResource("7_8q6d0")
 
-[node name="SettingsMenu" parent="." instance=ExtResource("6_2b17b")]
+[node name="SettingsMenu" parent="." unique_id=292576966 instance=ExtResource("6_2b17b")]
 visible = false
 z_index = 1
 layout_mode = 1
 
-[node name="Trophies" type="Control" parent="."]
+[node name="Trophies" type="Control" parent="." unique_id=247971283]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -335,7 +336,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="StdEnd" type="TextureRect" parent="Trophies"]
+[node name="StdEnd" type="TextureRect" parent="Trophies" unique_id=560585783]
 z_index = 1
 layout_mode = 0
 offset_left = 277.0
@@ -347,7 +348,7 @@ texture = ExtResource("8_tiwhh")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="Trophies/StdEnd"]
+[node name="TextureRect3" type="TextureRect" parent="Trophies/StdEnd" unique_id=1381568479]
 z_as_relative = false
 layout_mode = 0
 offset_left = -27.0
@@ -358,14 +359,14 @@ texture = ExtResource("9_yl2l6")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="PainEnd" type="AnimatedSprite2D" parent="Trophies"]
+[node name="PainEnd" type="AnimatedSprite2D" parent="Trophies" unique_id=527270893]
 position = Vector2(327, 463)
 sprite_frames = SubResource("SpriteFrames_pjaqf")
 autoplay = "default"
 frame_progress = 0.5143686
 metadata/_edit_lock_ = true
 
-[node name="PeaceEnd2" type="CPUParticles2D" parent="Trophies"]
+[node name="PeaceEnd2" type="CPUParticles2D" parent="Trophies" unique_id=277433869]
 z_index = 2
 position = Vector2(317, 482)
 emitting = false
@@ -386,14 +387,14 @@ scale_amount_min = 3.0
 scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_tiwhh")
 
-[node name="TravelingEnd" type="AnimatedSprite2D" parent="Trophies"]
+[node name="TravelingEnd" type="AnimatedSprite2D" parent="Trophies" unique_id=1386750156]
 position = Vector2(403, 455)
 scale = Vector2(0.5208333, 0.5208333)
 sprite_frames = SubResource("SpriteFrames_sb6eq")
 autoplay = "default"
 frame_progress = 0.7213423
 
-[node name="Label4" type="Label" parent="."]
+[node name="Label4" type="Label" parent="." unique_id=2075095447]
 visible = false
 layout_mode = 0
 offset_left = 2.0
@@ -402,7 +403,7 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "You beat the game 0 times!"
 
-[node name="Label5" type="Label" parent="."]
+[node name="Label5" type="Label" parent="." unique_id=50607993]
 visible = false
 layout_mode = 0
 offset_left = 368.0
@@ -414,7 +415,7 @@ text = "Your best time!
 122"
 horizontal_alignment = 1
 
-[node name="Says" type="TextureRect" parent="."]
+[node name="Says" type="TextureRect" parent="." unique_id=1874674941]
 visible = false
 layout_mode = 0
 offset_left = 239.0
@@ -424,7 +425,7 @@ offset_bottom = 283.0
 texture = ExtResource("10_sy41w")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Says"]
+[node name="Label" type="Label" parent="Says" unique_id=805734295]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 42.0
@@ -434,7 +435,7 @@ text = "I can beat the game with
 only deaths!!!"
 label_settings = SubResource("LabelSettings_1kggt")
 
-[node name="Label6" type="Label" parent="."]
+[node name="Label6" type="Label" parent="." unique_id=772108265]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 410.0
@@ -444,7 +445,7 @@ text = "version 2.5"
 label_settings = SubResource("LabelSettings_pgam6")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1595540529]
 layout_mode = 0
 offset_left = 592.0
 offset_top = 435.0
@@ -456,7 +457,7 @@ all saves except config are different files on major versions"
 theme = SubResource("Theme_ff4s0")
 texture = ExtResource("28_yl2l6")
 
-[node name="StatesOfExistence" type="TextureButton" parent="."]
+[node name="StatesOfExistence" type="TextureButton" parent="." unique_id=134259194]
 layout_mode = 0
 offset_left = 211.0
 offset_top = 355.0
@@ -465,7 +466,7 @@ offset_bottom = 403.0
 texture_normal = ExtResource("34_fhahs")
 texture_hover = ExtResource("35_diap3")
 
-[node name="StatesMenu" type="Control" parent="."]
+[node name="StatesMenu" type="Control" parent="." unique_id=382308190]
 visible = false
 z_index = 10
 layout_mode = 1
@@ -476,7 +477,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_woidq")
 
-[node name="Bg" type="ColorRect" parent="StatesMenu"]
+[node name="Bg" type="ColorRect" parent="StatesMenu" unique_id=825956568]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -485,7 +486,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8980392)
 
-[node name="MarginContainer" type="MarginContainer" parent="StatesMenu/Bg"]
+[node name="MarginContainer" type="MarginContainer" parent="StatesMenu/Bg" unique_id=273393400]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -497,31 +498,31 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StatesMenu/Bg/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StatesMenu/Bg/MarginContainer" unique_id=1667107315]
 layout_mode = 2
 
-[node name="Hardmode" type="HBoxContainer" parent="StatesMenu/Bg/MarginContainer/VBoxContainer"]
+[node name="Hardmode" type="HBoxContainer" parent="StatesMenu/Bg/MarginContainer/VBoxContainer" unique_id=1147845137]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HMCheckBox" type="CheckBox" parent="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode"]
+[node name="HMCheckBox" type="CheckBox" parent="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode" unique_id=1407649875]
 layout_mode = 2
 theme_override_icons/checked = ExtResource("34_lo8tf")
 theme_override_icons/unchecked = ExtResource("35_v5koe")
 text = "The Great Rotting"
 
-[node name="TextureRect" type="TextureRect" parent="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode"]
+[node name="TextureRect" type="TextureRect" parent="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode" unique_id=2071327955]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 texture = ExtResource("36_v5koe")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Record" type="Label" parent="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode"]
+[node name="Record" type="Label" parent="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode" unique_id=1426739023]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_woidq")
 
-[node name="ExitBtn" type="Button" parent="StatesMenu/Bg/MarginContainer"]
+[node name="ExitBtn" type="Button" parent="StatesMenu/Bg/MarginContainer" unique_id=41219855]
 custom_minimum_size = Vector2(64, 30)
 layout_mode = 2
 size_flags_horizontal = 8

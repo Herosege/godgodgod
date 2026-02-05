@@ -51,7 +51,7 @@ func _process(delta):
 				
 			2:
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
-					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/1.5),PlayerNode.global_position.y),300.0)
+					Shoot(global_position,Vector2(PlayerNode.global_position.x+(PlayerNode.velocity.x/1.5),PlayerNode.global_position.y),260.0)
 					$Att2Timer.start(0.33-(TimeRed*0.08))
 				position.y = lerp(position.y,290.0 + (40.0 * sin(t)) ,0.6)
 				position.x = lerp(position.x,PlayerNode.position.x,0.1)
@@ -61,7 +61,7 @@ func _process(delta):
 				if $Att2Timer.is_stopped() and $PreAtt2Timer.is_stopped():
 					for i in 12+AttVariant:
 						Shoot(global_position, Vector2( cos( ( TAU / (12 + AttVariant) ) * i) + global_position.x 
-						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) ,300.0)
+						, sin( ( TAU / (12 + AttVariant) ) * i ) + global_position.y) ,280.0)
 					$Att2Timer.start(0.4+(0.6*AttVariant)-(TimeRed*0.2))
 					AttVariant += 1
 					AttVariant %= 2

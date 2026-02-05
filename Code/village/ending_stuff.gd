@@ -18,9 +18,6 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 			Globals.ExStatesRecords[ExState][Globals.StateRec.BTime] = Globals.SaveTime
 		if Globals.NumDeaths < Globals.ExStatesRecords[ExState][Globals.StateRec.BDeath] or Globals.ExStatesRecords[ExState][Globals.StateRec.BDeath] == -1:
 			Globals.ExStatesRecords[ExState][Globals.StateRec.BDeath] = Globals.NumDeaths
-		print(Globals.ExStatesRecords[ExState][Globals.StateRec.NumTimesBeat])
-		print(Globals.ExStatesRecords[ExState][Globals.StateRec.BDeath])
-		print(Globals.ExStatesRecords[ExState][Globals.StateRec.BTime])
 	
 	
 	var time = Globals.sec_to_time(Globals.SaveTime)
@@ -31,6 +28,8 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 		$Label.text = "You won!"
 	else:
 		$Label.text = "PERMANENT MEMORY ATTAINED"
+		Globals.TravelingBack = false
+		
 	
 	$Label2.text = "Final time: " + hrs + min + str(time[0]) + " seconds"
 	$Label2.visible = true
@@ -43,3 +42,5 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 	Globals.SaveData(666)
 	if Traveling:
 		Globals.TravelBack()
+	else:
+		Globals.ResetMemoryGlobal(false)

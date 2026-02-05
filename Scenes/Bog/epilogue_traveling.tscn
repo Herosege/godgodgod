@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2uwp6axqbmwq"]
+[gd_scene format=4 uid="uid://b2uwp6axqbmwq"]
 
 [ext_resource type="Script" uid="uid://tuflci6qxkr8" path="res://Code/bog/epilogue_traveling.gd" id="1_ktxo4"]
 [ext_resource type="PackedScene" uid="uid://bkktosj0v2mhs" path="res://Scenes/village/ending_stuff.tscn" id="2_wmaut"]
@@ -47,30 +47,32 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Epilogue-traveling" type="Node2D"]
+[node name="Epilogue-traveling" type="Node2D" unique_id=1133706696]
 script = ExtResource("1_ktxo4")
 
-[node name="EndingStuff" parent="." instance=ExtResource("2_wmaut")]
+[node name="EndingStuff" parent="." unique_id=1183697306 instance=ExtResource("2_wmaut")]
 
-[node name="stuff" type="Node2D" parent="."]
+[node name="stuff" type="Node2D" parent="." unique_id=422059474]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="stuff"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="stuff" unique_id=1816895524]
 stream = SubResource("AudioStreamOggVorbis_o4feo")
 volume_db = -12.0
 autoplay = true
+bus = &"Music"
 
-[node name="MEMORY" type="AudioStreamPlayer" parent="stuff"]
+[node name="MEMORY" type="AudioStreamPlayer" parent="stuff" unique_id=2133924149]
 stream = ExtResource("3_o4feo")
 volume_db = -4.0
+bus = &"Music"
 
-[node name="TextureRect" type="TextureRect" parent="stuff"]
+[node name="TextureRect" type="TextureRect" parent="stuff" unique_id=19195338]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="stuff"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="stuff" unique_id=1323659038]
 sprite_frames = SubResource("SpriteFrames_gxrn4")
 autoplay = "default"
 frame = 4

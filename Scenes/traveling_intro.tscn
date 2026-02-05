@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bklta4lcc36wd"]
+[gd_scene format=4 uid="uid://bklta4lcc36wd"]
 
 [ext_resource type="Script" uid="uid://bi743fhbfugmc" path="res://Code/traveling_intro.gd" id="1_v5lta"]
 [ext_resource type="Texture2D" uid="uid://dtll0evk22k6q" path="res://Assets/LETSGO.png" id="2_a2lls"]
@@ -21,7 +21,7 @@ tags = {
 }
 loop = true
 
-[node name="EpicIntro" type="Control"]
+[node name="EpicIntro" type="Control" unique_id=843136977]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +31,7 @@ grow_vertical = 2
 script = ExtResource("1_v5lta")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1897366284]
 modulate = Color(0.03, 0.03, 0.03, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -44,7 +44,7 @@ texture = ExtResource("2_kqe11")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2045923699]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 1
 anchors_preset = 6
@@ -80,7 +80,7 @@ SOMETHING IS WRONG"
 label_settings = SubResource("LabelSettings_0067c")
 autowrap_mode = 2
 
-[node name="StartButton" type="TextureButton" parent="."]
+[node name="StartButton" type="TextureButton" parent="." unique_id=33925483]
 texture_filter = 4
 layout_mode = 0
 offset_left = 123.0
@@ -93,9 +93,10 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_lock_ = true
 
-[node name="epicMUSIC" type="AudioStreamPlayer" parent="."]
+[node name="epicMUSIC" type="AudioStreamPlayer" parent="." unique_id=2087473230]
 stream = SubResource("AudioStreamOggVorbis_427cu")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

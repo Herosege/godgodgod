@@ -170,7 +170,7 @@ func _on_idk_body_entered(body):
 
 func _on_idk_body_exited(body):
 	if body.is_in_group("player"):
-		SignalBus.emit_signal("SetHudMessage","???",0)
+		SignalBus.emit_signal("SetHudMessage","",0)
 
 
 func RESET():

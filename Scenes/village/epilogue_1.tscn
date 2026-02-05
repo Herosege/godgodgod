@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://wpsflh6atdeb"]
+[gd_scene format=3 uid="uid://wpsflh6atdeb"]
 
 [ext_resource type="Texture2D" uid="uid://djj704b6m5qks" path="res://Assets/EndTriangle/0001.png" id="1_2hbvv"]
 [ext_resource type="Script" uid="uid://c2f0g7et77q58" path="res://Code/epilogue_1.gd" id="1_3t0qa"]
@@ -312,22 +312,23 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="Epilogue1" type="Node2D"]
+[node name="Epilogue1" type="Node2D" unique_id=2123904469]
 script = ExtResource("1_3t0qa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=880805525]
 position = Vector2(320, 240)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_swfbn")
 autoplay = "default"
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2131357263]
 stream = ExtResource("76_r1s3o")
 volume_db = -7.0
 pitch_scale = 1.6
 autoplay = true
+bus = &"Music"
 
-[node name="EndingStuff" parent="." instance=ExtResource("78_nfgeq")]
+[node name="EndingStuff" parent="." unique_id=626686491 instance=ExtResource("78_nfgeq")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

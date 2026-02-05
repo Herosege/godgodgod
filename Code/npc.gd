@@ -86,7 +86,7 @@ var Texts = {
 	You see I am a curse, a synthetic being and I've sealed myself here
 	Away from everything and everyone, for I am about to meet an awful fate
 	
-	I will transform into a red thinkless living mass consuming everything around me
+	I will transform into a red thinkless mass consuming everything around me
 	
 	I've seen other curses turn into that and nothing I have done helped anyone
 	
@@ -97,7 +97,7 @@ var Texts = {
 	"cursegod1":"Well since you are here
 	I have this weird artifact
 	
-	It seems powerful so maybe you will find a use for it",
+	It seems powerful, maybe you will find a use for it",
 	#
 	
 	#"I am the one overseeing this realm
@@ -106,12 +106,12 @@ var Texts = {
 	#Hania, the great creator "
 	
 	"onen":"Hey Othenson 
-It seems some nasty disease like creature has struck our bridge
+It seems some nasty thing has struck the bridge
 and it seems like it's spreading
+
 But don't worry, if you find it's core you could destroy it
 
-Also if you kill these floating things you will
-get their strength and you will regain a jump",
+Also if you kill these floating things you will regain a jump",
 	
 	#
 	

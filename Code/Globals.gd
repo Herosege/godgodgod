@@ -65,7 +65,7 @@ var NumTimesBeatGame : int = 0
 
 enum End {EndingStd,EndingPeace,EndingPain,EndingTravel}
 
-var Endings = [false,false,false,true]
+var Endings = [false,false,false,false]
 
 var BestTime = 0.0
 
@@ -180,8 +180,8 @@ func _ready():
 		#SavedPos[1] = 2
 		
 		#village - EXTRA3
-		#SavedPos[0] = Vector2(9080,-194)
-		#SavedPos[1] = 2
+		SavedPos[0] = Vector2(9080,-194)
+		SavedPos[1] = 2
 		
 		#Bog - start
 		#SavedPos[0] = Vector2(120,400)
@@ -275,6 +275,8 @@ func TravelBack():
 	SavedPos[0] = Vector2(320,320)
 	SavedPos[1] = 0
 	SpecialItem = false
+	NumDeaths = 0
+	SaveTime = 0.0
 	Items = [
 		[false,false,false],#Passives
 		[false,false]#Weapons
@@ -352,7 +354,7 @@ var TimerOn = false
 
 var KeybindList = {}
 
-func ResetMemoryGlobal():
+func ResetMemoryGlobal(BackToIntro:=true):
 	TravelingBack = false
 
 	InDialogue = false
@@ -383,6 +385,6 @@ func ResetMemoryGlobal():
 	]
 	
 	BossKilled = [false,false]
-	if get_tree().current_scene.name != "Intro":
+	if get_tree().current_scene.name != "Intro" and BackToIntro:
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 	STEvents.EventArray = [false,false,false]

@@ -38,10 +38,10 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.Items[ItemType][TempType] = true
 		if ItemType == Weapon and Weapons == Axe:
-			var Message = "Press {0} to swing axe".format([Globals.KeybindList["AttackInp"][1].trim_suffix(" (Physical)")])
+			var Message = "Press {0} to swing axe".format([Globals.KeybindList["AttackInp"][1]])
 			SignalBus.emit_signal("SetHudMessage",Message,1)
 		if ItemType == Weapon and Weapons == Shotgun:
-			var Message = "Press {0} to use the shotgun".format([Globals.KeybindList["ShotgunInp"][1].trim_suffix(" (Physical)")])
+			var Message = "Press {0} to use the shotgun".format([Globals.KeybindList["ShotgunInp"][1]])
 			SignalBus.emit_signal("SetHudMessage",Message,1)
 		if ItemType == Passive and Passives == Milk:
 			SignalBus.emit_signal("SetHudMessage","Use items in the Esc menu",1)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TextRes" load_steps=5 format=3 uid="uid://blf8gww8qit5n"]
+[gd_resource type="Resource" script_class="TextRes" format=3 uid="uid://blf8gww8qit5n"]
 
 [ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_xqr5b"]
 [ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_trmm4"]

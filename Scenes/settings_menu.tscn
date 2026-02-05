@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyb6t4vffx05"]
+[gd_scene format=3 uid="uid://dyb6t4vffx05"]
 
 [ext_resource type="Script" uid="uid://c7ct3snmvtval" path="res://Code/settings_menu.gd" id="1_m0fgx"]
 [ext_resource type="Texture2D" uid="uid://be8sigju7o382" path="res://Assets/Interface/ciucmok.png" id="2_h2y1r"]
@@ -84,7 +84,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=2094724381]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,7 +93,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m0fgx")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1905704559]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.784314)
 
-[node name="Settings" type="Control" parent="."]
+[node name="Settings" type="Control" parent="." unique_id=1713068902]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,7 +110,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Settings"]
+[node name="MarginContainer" type="MarginContainer" parent="Settings" unique_id=229984944]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,27 +123,27 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer" unique_id=1959236822]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer" unique_id=2062210591]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1432077695]
 texture_filter = 1
 layout_mode = 2
 text = "Music volume :"
 
-[node name="Label2" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Label2" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1047274728]
 texture_filter = 1
 custom_minimum_size = Vector2(30, 24)
 layout_mode = 2
 text = "100"
 
-[node name="AVSl" type="HSlider" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="AVSl" type="HSlider" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=79024134]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
@@ -156,21 +156,21 @@ theme_override_styles/grabber_area = SubResource("StyleBoxLine_3etfd")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_3etfd")
 value = 100.0
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer" unique_id=544914725]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1417839382]
 texture_filter = 1
 layout_mode = 2
 text = "Sound effect volume :"
 
-[node name="Label2" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="Label2" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=522328011]
 texture_filter = 1
 custom_minimum_size = Vector2(30, 24)
 layout_mode = 2
 text = "100"
 
-[node name="AVSl2" type="HSlider" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="AVSl2" type="HSlider" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1244738984]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
@@ -183,14 +183,14 @@ theme_override_styles/grabber_area = SubResource("StyleBoxLine_rahb6")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rahb6")
 value = 100.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer" unique_id=806760095]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer" unique_id=920195211]
 layout_mode = 2
 text = "Timer : "
 
-[node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1401308055]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jjs6x")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_fsgis")
@@ -201,14 +201,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rkth2")
 theme_override_icons/checked = ExtResource("3_rahb6")
 theme_override_icons/unchecked = ExtResource("4_fe37x")
 
-[node name="Keybinds" type="Button" parent="Settings/MarginContainer/VBoxContainer"]
+[node name="Keybinds" type="Button" parent="Settings/MarginContainer/VBoxContainer" unique_id=787976255]
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = SubResource("Theme_fe37x")
 text = "Keybinds"
 
-[node name="ExitButton" type="Button" parent="Settings"]
+[node name="ExitButton" type="Button" parent="Settings" unique_id=1365493381]
 z_index = 2
 texture_filter = 1
 custom_minimum_size = Vector2(180, 0)
@@ -224,7 +224,7 @@ grow_horizontal = 0
 theme = SubResource("Theme_fe37x")
 text = "save settings and exit"
 
-[node name="MessageOfTheDay" type="Label" parent="Settings"]
+[node name="MessageOfTheDay" type="Label" parent="Settings" unique_id=2039751670]
 z_index = 1
 layout_mode = 1
 anchors_preset = 3
@@ -243,7 +243,7 @@ label_settings = SubResource("LabelSettings_3fcy6")
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Keybinds" type="Control" parent="."]
+[node name="Keybinds" type="Control" parent="." unique_id=465180611]
 visible = false
 z_index = 5
 layout_mode = 1
@@ -254,7 +254,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_fe37x")
 
-[node name="Panel" type="Panel" parent="Keybinds"]
+[node name="Panel" type="Panel" parent="Keybinds" unique_id=1218547797]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -263,7 +263,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe37x")
 
-[node name="MarginContainer" type="MarginContainer" parent="Keybinds/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Keybinds/Panel" unique_id=1261809930]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -277,182 +277,182 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Keybinds/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Keybinds/Panel/MarginContainer" unique_id=1184157344]
 layout_mode = 2
 
-[node name="ExitBtn" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="ExitBtn" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=756266284]
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 size_flags_horizontal = 8
 theme = SubResource("Theme_fe37x")
 text = "exit"
 
-[node name="Container" type="Container" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="Container" type="Container" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1039445156]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1716166353]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=285570169]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "left: "
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1725173044]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1844165493]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1685233100]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1434620262]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "right:"
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=664381406]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=208296094]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1395237674]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1093245967]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "jump: "
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2084608801]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=945577567]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1846706704]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=77494038]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "axe: "
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=2053531205]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=175529700]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1672394442]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1505763741]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "shotgun: "
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=73335651]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1248385669]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1926601894]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1835557781]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "slowdown: "
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1709150559]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1071873873]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=1693190782]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=2003404202]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "reset:"
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=894937910]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=589379057]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_fe37x")
 text = "rebind"
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer8" type="HBoxContainer" parent="Keybinds/Panel/MarginContainer/VBoxContainer" unique_id=302008257]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8"]
+[node name="Label" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=2091415417]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "save:"
 
-[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8"]
+[node name="Label2" type="Label" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=1879643374]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACTIONNAME"
 
-[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8"]
+[node name="Button" type="Button" parent="Keybinds/Panel/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=645129444]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
