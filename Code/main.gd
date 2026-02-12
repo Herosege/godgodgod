@@ -16,6 +16,8 @@ func _ready():
 	$BloodParticles2.emitting = true
 	$BloodParticles2.visible = false
 	
+	if Globals.SpecialItem:
+		$Stuff/GateBridge.queue_free()
 	
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
 	Globals.CArea = 0 

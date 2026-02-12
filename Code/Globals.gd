@@ -94,7 +94,7 @@ func _ready():
 		#BeerRoom - Curse
 		#SavedPos[0] = Vector2(-600,1290)
 		#SavedPos[1] = 1
-		
+		#SpecialItem = true
 		#Start - Curse
 		
 		
@@ -180,8 +180,8 @@ func _ready():
 		#SavedPos[1] = 2
 		
 		#village - EXTRA3
-		SavedPos[0] = Vector2(9080,-194)
-		SavedPos[1] = 2
+		#SavedPos[0] = Vector2(9080,-194)
+		#SavedPos[1] = 2
 		
 		#Bog - start
 		#SavedPos[0] = Vector2(120,400)
