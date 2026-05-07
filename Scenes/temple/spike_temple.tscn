@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dwei371qpclqu"]
+
+[ext_resource type="Texture2D" uid="uid://cqaf2db1s17o" path="res://Assets/temple/spiken1.png" id="1_qasma"]
+[ext_resource type="Texture2D" uid="uid://cp8sd383uuyw" path="res://Assets/temple/spiken2.png" id="2_ld74o"]
+[ext_resource type="Texture2D" uid="uid://cdhb6i753l72c" path="res://Assets/temple/spiken3.png" id="3_wbx3t"]
+[ext_resource type="Texture2D" uid="uid://yc06owjspx4h" path="res://Assets/temple/spiken4.png" id="4_k2y05"]
+[ext_resource type="Texture2D" uid="uid://cb0nsbv7h4p2h" path="res://Assets/temple/spiken5.png" id="5_chl83"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obe1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qasma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ld74o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wbx3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2y05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_chl83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpikeTemple" type="Area2D" unique_id=1583439881 groups=["killplayer"]]
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=227195345]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-7, 8, 9, 8, 1, -8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1317707759]
+sprite_frames = SubResource("SpriteFrames_obe1g")
+autoplay = "default"
+frame_progress = 0.006066755

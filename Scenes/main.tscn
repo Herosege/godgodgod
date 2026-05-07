@@ -3508,6 +3508,22 @@ z_index = 1
 position = Vector2(6912, -238)
 Passives = 2
 
+[node name="SpikeR80" parent="." unique_id=736893521 instance=ExtResource("4_bega8")]
+position = Vector2(8216, 119)
+SType = 4
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" parent="SpikeR80" index="0"]
+autoplay = "Soul"
+
+[node name="SpikeR81" parent="." unique_id=1954683639 instance=ExtResource("4_bega8")]
+position = Vector2(8232, 119)
+SType = 4
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" parent="SpikeR81" index="0"]
+autoplay = "Soul"
+
 [connection signal="body_entered" from="Stuff/VillageGate/VillagePass" to="." method="_on_village_pass_body_entered"]
 [connection signal="body_entered" from="Stuff/SecretWall/IN" to="Stuff/SecretWall" method="_on_in_body_entered"]
 [connection signal="body_entered" from="Stuff/SecretWall/OUT" to="Stuff/SecretWall" method="_on_out_body_entered"]
@@ -3619,3 +3635,5 @@ Passives = 2
 [editable path="Hazards/SpikesMoving/SpikeR27"]
 [editable path="Npcs/idk"]
 [editable path="Npcs/idk2"]
+[editable path="SpikeR80"]
+[editable path="SpikeR81"]

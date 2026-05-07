@@ -378,7 +378,7 @@ bus = &"Music"
 [node name="Balls" type="Node2D" parent="Stuff" unique_id=869451066 groups=["RESET"]]
 script = ExtResource("10_qgw0b")
 
-[node name="Ball1" type="Area2D" parent="Stuff/Balls" unique_id=1734611574]
+[node name="Ball1" type="Area2D" parent="Stuff/Balls" unique_id=1734611574 groups=["killplayer"]]
 position = Vector2(1600, 1160)
 metadata/_edit_group_ = true
 
@@ -388,7 +388,7 @@ texture = ExtResource("11_i8kco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Balls/Ball1" unique_id=1055515100]
 shape = SubResource("CircleShape2D_q40fk")
 
-[node name="Ball2" type="Area2D" parent="Stuff/Balls" unique_id=2141862163]
+[node name="Ball2" type="Area2D" parent="Stuff/Balls" unique_id=2141862163 groups=["killplayer"]]
 position = Vector2(1600, 1272)
 metadata/_edit_group_ = true
 
@@ -398,7 +398,7 @@ texture = ExtResource("11_i8kco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Balls/Ball2" unique_id=1538636913]
 shape = SubResource("CircleShape2D_q40fk")
 
-[node name="Ball3" type="Area2D" parent="Stuff/Balls" unique_id=706036253]
+[node name="Ball3" type="Area2D" parent="Stuff/Balls" unique_id=706036253 groups=["killplayer"]]
 position = Vector2(1600, 1000)
 metadata/_edit_group_ = true
 
@@ -408,7 +408,7 @@ texture = ExtResource("11_i8kco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Balls/Ball3" unique_id=1449063921]
 shape = SubResource("CircleShape2D_q40fk")
 
-[node name="Ball4" type="Area2D" parent="Stuff/Balls" unique_id=1902064961]
+[node name="Ball4" type="Area2D" parent="Stuff/Balls" unique_id=1902064961 groups=["killplayer"]]
 position = Vector2(1600, 1152)
 metadata/_edit_group_ = true
 
@@ -422,7 +422,7 @@ shape = SubResource("CircleShape2D_q40fk")
 position = Vector2(580, -500)
 script = ExtResource("10_qgw0b")
 
-[node name="Ball1" type="Area2D" parent="Stuff/Balls2" unique_id=470580437]
+[node name="Ball1" type="Area2D" parent="Stuff/Balls2" unique_id=470580437 groups=["killplayer"]]
 position = Vector2(1600, 1160)
 metadata/_edit_group_ = true
 
@@ -432,7 +432,7 @@ texture = ExtResource("11_i8kco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Balls2/Ball1" unique_id=1244369711]
 shape = SubResource("CircleShape2D_q40fk")
 
-[node name="Ball2" type="Area2D" parent="Stuff/Balls2" unique_id=645184367]
+[node name="Ball2" type="Area2D" parent="Stuff/Balls2" unique_id=645184367 groups=["killplayer"]]
 position = Vector2(1600, 1272)
 metadata/_edit_group_ = true
 

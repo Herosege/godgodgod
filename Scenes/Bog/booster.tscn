@@ -1,42 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkn2o2r8e3mcq"]
-
-[ext_resource type="Script" uid="uid://ruhb3013kg36" path="res://Code/bog/booster.gd" id="1_olmgg"]
-[ext_resource type="Texture2D" uid="uid://1jdflcaq6w83" path="res://Assets/Bog/booster.png" id="2_38y8m"]
-[ext_resource type="Texture2D" uid="uid://dlx3jf34yotf" path="res://Assets/Bog/booster_1.png" id="3_a2h8q"]
+[gd_scene format=3 uid="uid://dkn2o2r8e3mcq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0x743"]
-radius = 14.0
+radius = 19.026299
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4k481"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_38y8m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_a2h8q")
-}],
+"frames": [],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 1.5
+}, {
+"frames": [],
+"loop": true,
+"name": &"not_avi",
+"speed": 5.0
 }]
 
-[node name="Booster" type="Node2D" groups=["RESET"]]
-script = ExtResource("1_olmgg")
+[node name="Booster" type="Node2D" unique_id=1506197293 groups=["RESET"]]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1323816573]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1073338871]
 shape = SubResource("CircleShape2D_0x743")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1689109495]
 sprite_frames = SubResource("SpriteFrames_4k481")
+animation = &"not_avi"
 autoplay = "default"
-frame_progress = 0.3064729
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.1999999999999997
+[node name="Timer" type="Timer" parent="." unique_id=1564150083]
+wait_time = 3.3
 one_shot = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

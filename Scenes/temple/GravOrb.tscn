@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bjben2njb8abd"]
+
+[ext_resource type="Script" uid="uid://ruhb3013kg36" path="res://Code/bog/grav_orb.gd" id="1_fwwoc"]
+[ext_resource type="Texture2D" uid="uid://dbwercdd4xnqx" path="res://Assets/village/lamp_light.png" id="2_mrv3i"]
+[ext_resource type="Texture2D" uid="uid://db05a4jl0g4su" path="res://Assets/temple/boost_orb1.png" id="3_oasl3"]
+[ext_resource type="Texture2D" uid="uid://bdn0gltf7gsqo" path="res://Assets/temple/boost_orb2.png" id="4_3ogdr"]
+[ext_resource type="Texture2D" uid="uid://bbk41h4y3tgtf" path="res://Assets/temple/boost_orb3.png" id="5_vrsuu"]
+[ext_resource type="Texture2D" uid="uid://dqkh0b81hkkfi" path="res://Assets/temple/boost_orb_na.png" id="6_e7rmx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0col"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ptxv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oasl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ogdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vrsuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ogdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_e7rmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e7rmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e7rmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e7rmx")
+}],
+"loop": true,
+"name": &"not_avi",
+"speed": 0.0
+}]
+
+[node name="GravOrb" type="Area2D" unique_id=42183383 groups=["RESET"]]
+script = ExtResource("1_fwwoc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=39917489]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_mrv3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973939865]
+shape = SubResource("CircleShape2D_j0col")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=635931005]
+sprite_frames = SubResource("SpriteFrames_8ptxv")
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="." unique_id=2111871991]
+wait_time = 3.3
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

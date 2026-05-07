@@ -15,7 +15,8 @@ var AreaScenes = [
 	"res://Scenes/village/fake_hall.tscn",
 	"res://Scenes/Bog/bog.tscn",
 	"res://Scenes/main-postending.tscn",
-	"res://Scenes/scene_1-postending.tscn"
+	"res://Scenes/scene_1-postending.tscn",
+	"res://Scenes/temple/temple.tscn"
 ]
 
 var TravelingBack = false
@@ -80,7 +81,7 @@ var ExStatesRecords = [
 var LDeaths : int = -1
 
 func _ready():
-	
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	MVol = load_game(PATH_TO_CONFSAVE,"MusicVolume",MVol)
 	SEVol = load_game(PATH_TO_CONFSAVE,"SoundEffectVolume",SEVol)
@@ -206,6 +207,10 @@ func _ready():
 		#Curse world - traveling - boss
 		#SavedPos[0] = Vector2(-1696,540)
 		#SavedPos[1] = 7
+		
+		#HorseTemple - start 
+		SavedPos[0] = Vector2(319,-560)
+		SavedPos[1] = 8
 
 const CAM_ZOOM = 0.05
 
@@ -388,3 +393,10 @@ func ResetMemoryGlobal(BackToIntro:=true):
 	if get_tree().current_scene.name != "Intro" and BackToIntro:
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 	STEvents.EventArray = [false,false,false]
+
+#func FindPlayer(node):
+	#while node != null:
+		#if node.is_in_group("Player"):
+			#return node
+		#node = node.get_parent()
+	#return null

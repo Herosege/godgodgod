@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c4bj4xgj6l01p"]
+[gd_scene format=3 uid="uid://c4bj4xgj6l01p"]
 
 [ext_resource type="Texture2D" uid="uid://b67hblyynrg5w" path="res://Assets/player.png" id="1_dqe2t"]
 [ext_resource type="Script" uid="uid://6b8p1ln4hwpf" path="res://Code/player.gd" id="1_xtj4b"]
@@ -83,13 +83,17 @@ enum {Dmg,Cd}
 
 var Weapons = [
 	[AXE_DMG,0.125],
-	[SHOTGUN_DMG,2.0]
+	[SHOTGUN_DMG,1.5]
 ]
+
+const TIME_FLOOR := 0.5
 
 const AXE_DMG = 1.0
 const SHOTGUN_DMG = 3.0
 
 var AnimTime
+
+var OnFloor = false
 
 var ShotgunBulletsScene = preload(\"res://Scenes/village/shotgun_bullets.tscn\")
 
@@ -106,9 +110,17 @@ func _process(delta):
 		SignalBus.emit_signal(\"ShotgunTimerHudUpdate\",$Cooldown.time_left,$Cooldown.wait_time)
 	if Input.is_action_just_pressed(\"ShotgunInp\") and Globals.Items[Weapon][Shotgun] and $Cooldown.is_stopped():
 		$AnimatedSprite2D.visible = true
+		$Cooldown.start(Weapons[Type][Cd])
+		$CooldownFloor.start(TIME_FLOOR)
 		Attack(Type)
 		AnimationTimer.start()
-		$Cooldown.start(Weapons[Type][Cd])
+
+func _physics_process(delta):
+	if PNode.is_on_floor() and $CooldownFloor.is_stopped():
+		OnFloor = true
+		GotOnFloor()
+	else:
+		OnFloor = false
 
 const SHOTGUN_VEL = 700.0
 
@@ -120,10 +132,9 @@ func Attack(type):
 	$AnimatedSprite2D.frame = 0
 	$HitSE.play()
 	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",false)
-	#HitboxTimer.start()
+	
+	HitboxTimer.start()
 	#await HitboxTimer.timeout
-	await get_tree().process_frame
-	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",true)
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"Enemy\"):
@@ -148,6 +159,25 @@ func MakeBullets():
 func RESET():
 	$HitSE.stop()
 	$Cooldown.stop()
+	$AnimatedSprite2D.visible = false
+
+
+func StopCD():
+	$Cooldown.stop()
+	SignalBus.emit_signal(\"ShotgunTimerHudUpdate\",0.0,$Cooldown.wait_time)
+
+func GotOnFloor():
+	var WTime = $Cooldown.wait_time
+	var TLeft = $Cooldown.time_left
+	var TPass = WTime - TLeft
+	var TLeftGround = TIME_FLOOR - TPass
+	if TLeftGround <= 0.0:
+		StopCD()
+	else:
+		pass
+
+func _on_hitbox_time_timeout():
+	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",true)
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4iuc"]
@@ -217,7 +247,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.246667, 0.746667)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
-[node name="Player" type="CharacterBody2D" groups=["RESET", "player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1634200289 groups=["RESET", "player"]]
 z_index = 1
 collision_layer = 3
 script = ExtResource("1_xtj4b")
@@ -225,97 +255,107 @@ TimePeak = 0.25
 TimeFall = 0.25
 JumpStr = 65.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=555578556]
 sprite_frames = SubResource("SpriteFrames_lo4u0")
 animation = &"standard"
 autoplay = "walking"
 frame_progress = 0.688236
 
-[node name="Weapons" type="Node2D" parent="AnimatedSprite2D"]
+[node name="Weapons" type="Node2D" parent="AnimatedSprite2D" unique_id=1833558879]
 position = Vector2(8, 0)
 
-[node name="Weapon" type="Node2D" parent="AnimatedSprite2D/Weapons"]
+[node name="Weapon" type="Node2D" parent="AnimatedSprite2D/Weapons" unique_id=2077226575]
 script = ExtResource("5_ats0k")
 Type = 0
 
-[node name="HitSE" type="AudioStreamPlayer" parent="AnimatedSprite2D/Weapons/Weapon"]
+[node name="HitSE" type="AudioStreamPlayer" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=1660733092]
 stream = ExtResource("6_3e1ar")
 volume_db = -10.0
 pitch_scale = 1.1
 bus = &"SoundEffect"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Weapon"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=282629899]
 position = Vector2(7, 1)
 sprite_frames = SubResource("SpriteFrames_100fb")
 metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Weapon" groups=["damage"]]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=562225008 groups=["damage"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Weapons/Weapon/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Weapons/Weapon/Area2D" unique_id=2126266721]
 position = Vector2(21, -1)
 shape = SubResource("RectangleShape2D_b5eme")
 
-[node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon"]
+[node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=834407149]
 wait_time = 0.05
 one_shot = true
 
-[node name="AnimationTime" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon"]
+[node name="AnimationTime" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=1884331864]
 one_shot = true
 
-[node name="HitboxTime" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon"]
+[node name="HitboxTime" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=747865221]
 wait_time = 0.05
 one_shot = true
 
-[node name="Shotgun" type="Node2D" parent="AnimatedSprite2D/Weapons" groups=["RESET"]]
+[node name="Shotgun" type="Node2D" parent="AnimatedSprite2D/Weapons" unique_id=4535563 groups=["RESET"]]
 script = SubResource("GDScript_igrcy")
 Type = 1
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Shotgun" groups=["damage", "shotgun"]]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=55642296 groups=["damage", "shotgun"]]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/Weapons/Shotgun/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/Weapons/Shotgun/Area2D" unique_id=1520140392]
 polygon = PackedVector2Array(7, -10, 120, -28, 120, 28, 7, 10)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Shotgun"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=227193044]
 position = Vector2(76, 5)
 sprite_frames = SubResource("SpriteFrames_h4iuc")
 frame = 5
 frame_progress = 1.0
 
-[node name="HitSE" type="AudioStreamPlayer" parent="AnimatedSprite2D/Weapons/Shotgun"]
+[node name="HitSE" type="AudioStreamPlayer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=819407226]
 stream = ExtResource("16_fs7ks")
 volume_db = -10.0
 pitch_scale = 0.9
 bus = &"SoundEffect"
 
-[node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun"]
+[node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=1155020281]
 one_shot = true
 
-[node name="AnimationTime" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun"]
+[node name="CooldownFloor" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=713032835]
+wait_time = 0.75
 one_shot = true
 
-[node name="HitboxTime" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun"]
+[node name="AnimationTime" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=1618623963]
+one_shot = true
+
+[node name="HitboxTime" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=2061714321]
 wait_time = 0.05
 one_shot = true
 
-[node name="Sweater" type="Sprite2D" parent="."]
+[node name="Sweater" type="Sprite2D" parent="." unique_id=1181667105]
 visible = false
 texture = ExtResource("2_hbl7o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833958804]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_dadx3")
 
-[node name="Timers" type="Node" parent="."]
+[node name="Timers" type="Node" parent="." unique_id=396138777]
 
-[node name="CoyoteTimer" type="Timer" parent="Timers"]
+[node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=399372872]
+process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="BufferTimer" type="Timer" parent="Timers"]
+[node name="BufferTimer" type="Timer" parent="Timers" unique_id=1419354407]
 wait_time = 0.1
 one_shot = true
 
-[node name="BloodParticles2" type="GPUParticles2D" parent="."]
+[node name="ReduceGravityTimer" type="Timer" parent="Timers" unique_id=1487653056]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
+
+[node name="BloodParticles2" type="GPUParticles2D" parent="." unique_id=1018539960]
 process_mode = 3
 z_index = 2
 emitting = false
@@ -327,21 +367,21 @@ explosiveness = 1.0
 fixed_fps = 20
 process_material = SubResource("ParticleProcessMaterial_fw6ms")
 
-[node name="JumpSE" type="AudioStreamPlayer" parent="."]
+[node name="JumpSE" type="AudioStreamPlayer" parent="." unique_id=728210235]
 stream = ExtResource("4_u0b8i")
 volume_db = -8.0
 pitch_scale = 1.1
 bus = &"SoundEffect"
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1413768255 groups=["player"]]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1914374229]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ukyrk")
 
-[node name="BloodParticles" type="CPUParticles2D" parent="."]
+[node name="BloodParticles" type="CPUParticles2D" parent="." unique_id=1994865585]
 process_mode = 3
 physics_interpolation_mode = 0
 z_index = 2
@@ -367,6 +407,8 @@ color_ramp = SubResource("Gradient_ukyrk")
 [connection signal="area_entered" from="AnimatedSprite2D/Weapons/Weapon/Area2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Weapons/Weapon/Area2D" to="AnimatedSprite2D/Weapons/Weapon" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="AnimatedSprite2D/Weapons/Shotgun/Area2D" to="AnimatedSprite2D/Weapons/Shotgun" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="AnimatedSprite2D/Weapons/Shotgun/HitboxTime" to="AnimatedSprite2D/Weapons/Shotgun" method="_on_hitbox_time_timeout"]
 [connection signal="timeout" from="Timers/CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/BufferTimer" to="." method="_on_buffer_timer_timeout"]
+[connection signal="timeout" from="Timers/ReduceGravityTimer" to="." method="_on_reduce_gravity_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

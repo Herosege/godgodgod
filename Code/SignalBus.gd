@@ -38,3 +38,5 @@ signal ShotgunTimerHudUpdate(TimeRemaining,MaxTime)
 signal SettingChanged()
 
 signal BossHeartDamage(Dmg)
+
+signal KillPlayer

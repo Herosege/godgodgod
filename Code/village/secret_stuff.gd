@@ -35,7 +35,7 @@ func AxeCutscene():
 	$Balbina/BossWall.global_position.y -= 500
 	CTimer.start(8.0)
 	await CTimer.timeout
-	SignalBus.emit_signal("Death")
+	SignalBus.emit_signal("KillPlayer")
 
 func ShotgunCutscene():
 	Globals.BossKilled[Globals.Balbina] = true

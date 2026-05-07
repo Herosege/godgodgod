@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TextRes" format=3 uid="uid://bldjoq0exq7fo"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_l8lcb"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_glp0s"]
+
+[sub_resource type="Resource" id="Resource_l8lcb"]
+script = ExtResource("1_l8lcb")
+MStr = Array[String](["The wonderous eyes that focus on you
+shall bless you with dark energy renewing your weaponry", "Our Great God Hania blessed us with wonderful objects of grand power such as these", "Though their placement in this world is rather unusual..."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_glp0s"]
+script = ExtResource("1_l8lcb")
+MStr = Array[String](["Praise The Great God Hania, for they created us and keep us safe from ourselves"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_glp0s")
+TextArr = Array[ExtResource("1_l8lcb")]([SubResource("Resource_l8lcb"), SubResource("Resource_glp0s")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

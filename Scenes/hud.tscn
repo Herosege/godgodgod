@@ -170,7 +170,7 @@ vertical_alignment = 1
 visible = false
 
 [node name="ShotGunTimer" type="TextureProgressBar" parent="." unique_id=1558641312]
-modulate = Color(1, 1, 1, 0.431373)
+modulate = Color(1, 1, 1, 0.65882355)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

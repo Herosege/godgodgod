@@ -4,11 +4,12 @@ class_name PlayerMain
 
 @onready var CoyTimer = get_node("Timers/CoyoteTimer")
 @onready var BufTimer = get_node("Timers/BufferTimer")
+@onready var RedGravTimer = get_node("Timers/ReduceGravityTimer")
 
 #Jump
 const MinVelY = 130
 const initVertSpeed = 200
-
+const FPS_PHYS := 60
 const MAX_Y_VELOCITY = 1500
 
 var CanBufferJump = false
@@ -35,7 +36,10 @@ var AdditVel : Vector2
 
 var Immortalix
 
+var ReduceGravity := false
+
 func _ready():
+	SignalBus.KillPlayer.connect(Die)
 	SignalBus.ResetPos.connect(ResetPosition)
 	SignalBus.GetWeapon.connect(GetWeapon)
 	SignalBus.EnemyKilled.connect(OnEnemyKilled)
@@ -52,22 +56,25 @@ func _ready():
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 
-func _process(delta):
+func _physics_process(delta):
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
 	if AddVel:
 		AddVel = AddVel.lerp(Vector2(0,0),0.1)
-	velocity.y += GetGravity() * delta
+	
+	if !ReduceGravity:
+		velocity.y += GetGravity() * delta
+	else:
+		velocity.y += GetGravity() * delta * ((RedGravTimer.wait_time - RedGravTimer.time_left)/RedGravTimer.wait_time)
 	
 	
 	CheckInputs()
-	MoveDirection()
+	MoveDirection(delta)
 	
 	velocity.y = clamp(velocity.y,-MAX_Y_VELOCITY,MAX_Y_VELOCITY)
 	move_and_slide()
-
-func _physics_process(delta):
+	
 	if Immortalix:
 		Immortalix = false
 
@@ -96,7 +103,7 @@ func CheckInputs():
 
 var LastDir := 1.0
 
-func MoveDirection():
+func MoveDirection(delta):
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
 	
@@ -130,12 +137,12 @@ func MoveDirection():
 	if is_on_floor():
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.54)
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.20)
-		AdditVel.y = move_toward(AdditVel.y, 0.0, initVertSpeed/8.0)
+		AdditVel.y = move_toward(AdditVel.y, 0.0, (initVertSpeed/8.0)*(FPS_PHYS*delta))
 	else:
 		MovementVel.x = lerp(MovementVel.x, 0.0, 0.49)
 		#AdditVel.x = lerp(AdditVel.x, 0.0, 0.06)
-		AdditVel.y = move_toward(AdditVel.y, 0.0, initVertSpeed/6.0)
-		AdditVel.x = move_toward(AdditVel.x, 0.0, initVertSpeed/12.0)
+		AdditVel.y = move_toward(AdditVel.y, 0.0, (initVertSpeed/6.0)*(FPS_PHYS*delta))
+		AdditVel.x = move_toward(AdditVel.x, 0.0, (initVertSpeed/12.0)*(FPS_PHYS*delta))
 	if is_on_wall():
 		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
 	if is_on_ceiling():
@@ -200,19 +207,32 @@ const FOrbVelocity = -750
 
 func OnFOrbUse():
 	velocity.y = 0.0
-	AdditVel.y = FOrbVelocity
+	if !ReduceGravity:
+		AdditVel.y = FOrbVelocity
+	else:
+		AdditVel.y = FOrbVelocity * 1.25
+	
 
 func OnShotgunUse(Vel):
 	velocity.y -= 100
-	AdditVel.x = Vel * -LastDir
+	AdditVel.x += Vel * -LastDir
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer") and !Immortalix:
 		Die()
 
+func ActivarReduceGravity():
+	ReduceGravity = true
+	RedGravTimer.start()
+
 func RESET():
+	ReduceGravity = false
 	CanBufferJump = false
 	CanCoyote = false
 	JumpAmount = 1
 	velocity = Vector2.ZERO
 	AdditVel = Vector2.ZERO
+
+
+func _on_reduce_gravity_timer_timeout():
+	ReduceGravity = false

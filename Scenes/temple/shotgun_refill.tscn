@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b5qdnrfnt402c"]
+
+[ext_resource type="Script" uid="uid://clw2i40rdfwhw" path="res://Code/temple/shotgun_refill.gd" id="1_tfus7"]
+[ext_resource type="Texture2D" uid="uid://cpigdlrnjn5q3" path="res://Assets/temple/shotgun_refill.png" id="2_p1xf5"]
+[ext_resource type="Texture2D" uid="uid://ipq66stw6x1t" path="res://Assets/temple/shotgun_refill2.png" id="3_5s5nt"]
+[ext_resource type="Texture2D" uid="uid://bwyxvcop02slw" path="res://Assets/temple/shotgun_refill_na.png" id="4_wkli1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0u2un"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p1xf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5s5nt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wkli1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wkli1")
+}],
+"loop": true,
+"name": &"not_avi",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hke2c"]
+radius = 15.033297
+
+[node name="ShotgunRefill" type="Area2D" unique_id=878818087 groups=["RESET"]]
+script = ExtResource("1_tfus7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1091018906]
+sprite_frames = SubResource("SpriteFrames_0u2un")
+animation = &"not_avi"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240671995]
+shape = SubResource("CircleShape2D_hke2c")
+
+[node name="Timer" type="Timer" parent="." unique_id=1380517846]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
