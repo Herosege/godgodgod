@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bimw6ttqvji4x" path="res://Assets/axe_lowq_4.png" id="8_u4cp5"]
 [ext_resource type="Texture2D" uid="uid://c3fr43sbnfb51" path="res://Assets/axe_lowq_5.png" id="9_c24d2"]
 [ext_resource type="Texture2D" uid="uid://3jn08625fwpl" path="res://Assets/village/Shotgun.png" id="11_7dp3o"]
+[ext_resource type="Script" uid="uid://c7nnjfrh14x4a" path="res://Code/village/shotgun.gd" id="11_l6n3p"]
 [ext_resource type="Texture2D" uid="uid://r1b078tatocf" path="res://Assets/village/Shotgun1.png" id="12_igrcy"]
 [ext_resource type="Texture2D" uid="uid://by8vmq251k3as" path="res://Assets/village/Shotgun2.png" id="13_fs7ks"]
 [ext_resource type="Texture2D" uid="uid://cm4ycmx3mwwur" path="res://Assets/village/Shotgun3.png" id="14_l6n3p"]
@@ -64,121 +65,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5eme"]
 size = Vector2(44, 54)
-
-[sub_resource type="GDScript" id="GDScript_igrcy"]
-script/source = "extends Node2D
-
-@export_enum(\"Axe\",\"Shotgun\") var Type
-
-@onready var AnimationTimer = $AnimationTime
-@onready var HitboxTimer = $HitboxTime
-@onready var PNode = get_tree().get_first_node_in_group(\"player\")
-
-enum {Passive,Weapon}
-enum {Axe,Shotgun}
-
-var CurWeapon = Axe
-
-enum {Dmg,Cd}
-
-var Weapons = [
-	[AXE_DMG,0.125],
-	[SHOTGUN_DMG,1.5]
-]
-
-const TIME_FLOOR := 0.5
-
-const AXE_DMG = 1.0
-const SHOTGUN_DMG = 3.0
-
-var AnimTime
-
-var OnFloor = false
-
-var ShotgunBulletsScene = preload(\"res://Scenes/village/shotgun_bullets.tscn\")
-
-func _ready():
-	AnimTime = $AnimatedSprite2D.sprite_frames.get_frame_count(\"default\") / $AnimatedSprite2D.sprite_frames.get_animation_speed(\"default\")
-	AnimationTimer.wait_time = AnimTime
-	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",true)
-	$AnimatedSprite2D.visible = false
-	
-	AnimationTimer.connect(\"timeout\",AnimTimerTimeout)
-
-func _process(delta):
-	if !$Cooldown.is_stopped():
-		SignalBus.emit_signal(\"ShotgunTimerHudUpdate\",$Cooldown.time_left,$Cooldown.wait_time)
-	if Input.is_action_just_pressed(\"ShotgunInp\") and Globals.Items[Weapon][Shotgun] and $Cooldown.is_stopped():
-		$AnimatedSprite2D.visible = true
-		$Cooldown.start(Weapons[Type][Cd])
-		$CooldownFloor.start(TIME_FLOOR)
-		Attack(Type)
-		AnimationTimer.start()
-
-func _physics_process(delta):
-	if PNode.is_on_floor() and $CooldownFloor.is_stopped():
-		OnFloor = true
-		GotOnFloor()
-	else:
-		OnFloor = false
-
-const SHOTGUN_VEL = 700.0
-
-func Attack(type):
-	MakeBullets()
-	
-	SignalBus.emit_signal(\"ShotgunUse\",SHOTGUN_VEL)
-	$AnimatedSprite2D.play(\"default\")
-	$AnimatedSprite2D.frame = 0
-	$HitSE.play()
-	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",false)
-	
-	HitboxTimer.start()
-	#await HitboxTimer.timeout
-
-func _on_area_2d_area_entered(area):
-	if area.is_in_group(\"Enemy\"):
-		area.get_parent().get_dmg(Weapons[Type][Dmg])
-
-func _on_area_2d_body_entered(body):
-	if body.is_in_group(\"enttree\"):
-		body.queue_free()
-
-func AnimTimerTimeout():
-	$AnimatedSprite2D.visible = false
-
-func MakeBullets():
-	var SBInst = ShotgunBulletsScene.instantiate()
-	SBInst.global_position = global_position
-	if PNode:
-		SBInst.global_scale.x = PNode.LastDir
-	else:
-		PNode = get_tree().get_first_node_in_group(\"player\")
-	get_tree().root.add_child(SBInst)
-
-func RESET():
-	$HitSE.stop()
-	$Cooldown.stop()
-	$AnimatedSprite2D.visible = false
-
-
-func StopCD():
-	$Cooldown.stop()
-	SignalBus.emit_signal(\"ShotgunTimerHudUpdate\",0.0,$Cooldown.wait_time)
-
-func GotOnFloor():
-	var WTime = $Cooldown.wait_time
-	var TLeft = $Cooldown.time_left
-	var TPass = WTime - TLeft
-	var TLeftGround = TIME_FLOOR - TPass
-	if TLeftGround <= 0.0:
-		StopCD()
-	else:
-		pass
-
-func _on_hitbox_time_timeout():
-	$Area2D/CollisionPolygon2D.set_deferred(\"disabled\",true)
-"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4iuc"]
 animations = [{
@@ -297,7 +183,7 @@ wait_time = 0.05
 one_shot = true
 
 [node name="Shotgun" type="Node2D" parent="AnimatedSprite2D/Weapons" unique_id=4535563 groups=["RESET"]]
-script = SubResource("GDScript_igrcy")
+script = ExtResource("11_l6n3p")
 Type = 1
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=55642296 groups=["damage", "shotgun"]]

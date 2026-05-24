@@ -29,7 +29,7 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 	else:
 		$Label.text = "PERMANENT MEMORY ATTAINED"
 		Globals.TravelingBack = false
-		
+		Globals.ResetMemoryGlobal(false)
 	
 	$Label2.text = "Final time: " + hrs + min + str(time[0]) + " seconds"
 	$Label2.visible = true

@@ -38,6 +38,8 @@ func _on_body_entered(body):
 	if body.is_in_group("player") and Available:
 		#body.AdditVel.x += LauchVel * body.LastDir
 		body.ActivarReduceGravity()
+		if body.velocity.y > 0.0:
+			body.velocity.y = 0
 		#if body.velocity.y > 0.0:
 			#body.velocity.y = AddVel
 		#else:

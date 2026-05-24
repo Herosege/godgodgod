@@ -12,7 +12,7 @@ var ActivarHands = false
 
 func _ready():
 	$Stuff/EndStuff/AnimationPlayer.play("RESET")
-	if STEvents.EventArray[STEvents.FakeHallEndCutscene]:
+	if STEvents.EventArray[STEvents.Enums.FakeHallEndCutscene]:
 		DestroyCMaster()
 		$Stuff/EndFHall/CPUParticles2D.emitting = true
 	Globals.CArea = 4
@@ -74,7 +74,7 @@ func _on_animation_player_animation_finished(anim_name):
 		$Stuff/EndStuff/HandAudio.play()
 	if anim_name == "EndAnimAlt":
 		DestroyCMaster()
-		STEvents.EventArray[STEvents.FakeHallEndCutscene] = true
+		STEvents.EventArray[STEvents.Enums.FakeHallEndCutscene] = true
 		$Stuff/EndFHall/CPUParticles2D.emitting = true
 
 func DestroyCMaster():

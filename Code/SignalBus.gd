@@ -7,7 +7,7 @@ signal ResetPos
 #misc
 signal ScreenShaderChange(value,type)
 
-signal SetHudMessage(message)
+signal SetHudMessage(message,type,time)
 
 #combat
 signal TriggerBoss(Type)
@@ -40,3 +40,5 @@ signal SettingChanged()
 signal BossHeartDamage(Dmg)
 
 signal KillPlayer
+
+signal PlaySoundEffect(SoundID)

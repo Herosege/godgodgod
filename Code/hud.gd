@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var ShotgunTimer = $ShotGunTimer
 
+@onready var SoundEffects = {Globals.SEID.RombGet:$SoundEffects/Romb}
+
 func _ready():
 	if Globals.KeybindList:
 		$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1]])
@@ -14,6 +16,7 @@ func _ready():
 	SignalBus.SetHudMessage.connect(SetHudMessage)
 	SignalBus.ShotgunTimerHudUpdate.connect(ShotgunTimerHudUpdate)
 	SignalBus.SettingChanged.connect(OnSettingChanged)
+	SignalBus.PlaySoundEffect.connect(PlaySoundEffect)
 
 func _process(delta):
 	if Globals.TimerOn:
@@ -28,14 +31,14 @@ func _on_die():
 func ResetPosition():
 	$DeadHint.visible = false
 
-func SetHudMessage(message,type):
+func SetHudMessage(message,type,time:=2.5):
 	match type:
 		0:
 			$MessageDown.text = message
 		1:
 			$Message.text = message
-			await get_tree().create_timer(2.0).timeout
-			$Message.text = ""
+			$Message/MessageTimer.start(time)
+			
 
 func ShotgunTimerHudUpdate(TimeLeft,TimeMax):
 	var Value = (1 - (TimeLeft / TimeMax)) * ShotgunTimer.max_value
@@ -58,3 +61,10 @@ func _on_Save(type):
 
 func OnSettingChanged():
 	$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1]])
+
+func PlaySoundEffect(SoundID):
+	SoundEffects[SoundID].play()
+
+
+func _on_message_timer_timeout():
+	$Message.text = ""

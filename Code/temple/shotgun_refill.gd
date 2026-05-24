@@ -17,7 +17,7 @@ func _ready():
 const ExVel := -100.0
 
 func _on_area_entered(area):
-	if area.is_in_group("damage") and Available:
+	if area.is_in_group("damage") and Available and SNode:
 		Available = false
 		if PNode.velocity.y > 0.0:
 			PNode.velocity.y = ExVel
@@ -25,6 +25,8 @@ func _on_area_entered(area):
 			PNode.velocity.y += ExVel
 		
 		SNode.StopCD()
+		SNode.OneTimeAmmo = true
+		
 		$Timer.start()
 		$AnimatedSprite2D.play("not_avi")
 

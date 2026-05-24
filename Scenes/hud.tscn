@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7jndpuwm4mxb" path="res://Code/hud.gd" id="1_doaym"]
 [ext_resource type="PackedScene" uid="uid://d0w50wqi3fr08" path="res://Scenes/village/dialogue_box.tscn" id="2_fccik"]
 [ext_resource type="Texture2D" uid="uid://8acg3hkm7arx" path="res://Assets/Interface/ShotgunTimer.png" id="3_bjfho"]
+[ext_resource type="AudioStream" uid="uid://cpvfieeaucy1g" path="res://Assets/Sound/romb.ogg" id="4_6fbih"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_miau3"]
 font_size = 20
@@ -150,6 +151,10 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_u2uy1")
+horizontal_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="Message" unique_id=830070937]
+one_shot = true
 
 [node name="MessageDown" type="Label" parent="." unique_id=253287370]
 anchors_preset = 7
@@ -193,4 +198,13 @@ label_settings = SubResource("LabelSettings_bjfho")
 [node name="SavedAnim" type="AnimationPlayer" parent="." unique_id=876636090]
 libraries/ = SubResource("AnimationLibrary_6fbih")
 
+[node name="SoundEffects" type="Node" parent="." unique_id=266335606]
+
+[node name="Romb" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1940855792]
+stream = ExtResource("4_6fbih")
+volume_db = 10.0
+pitch_scale = 0.66
+bus = &"SoundEffect"
+
+[connection signal="timeout" from="Message/MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="value_changed" from="ShotGunTimer" to="." method="_on_shot_gun_timer_value_changed"]

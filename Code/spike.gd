@@ -6,7 +6,6 @@ var Anims = ["Flower","Spike","BSpike","Soul","BridgeSpike"]
 
 @onready var PrevPos = position
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.animation = Anims[SType]
 

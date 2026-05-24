@@ -81,6 +81,8 @@
 [ext_resource type="Texture2D" uid="uid://crh7yvnttoawa" path="res://Assets/Bog/keyperma2.png" id="76_ki0jh"]
 [ext_resource type="Texture2D" uid="uid://lwyp0wsa5k3f" path="res://Assets/Bog/keyperma3.png" id="77_eglst"]
 [ext_resource type="Texture2D" uid="uid://be7uwansyxlaq" path="res://Assets/wife.png" id="78_t5j2n"]
+[ext_resource type="AudioStream" uid="uid://by7f8r0jsc7qc" path="res://Assets/Sound/PainEventuallyProducesSomethingMeaningful.ogg" id="82_ki0jh"]
+[ext_resource type="PackedScene" uid="uid://d1qgudhnoyjh6" path="res://Scenes/temple/romb.tscn" id="83_eglst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y20vs"]
 texture = ExtResource("4_tn3v2")
@@ -3699,6 +3701,18 @@ position = Vector2(109, 206)
 [node name="ItemPickup" parent="." unique_id=782113126 instance=ExtResource("29_q070u")]
 position = Vector2(1664, 400)
 ItemType = 1
+
+[node name="Music2" type="AudioStreamPlayer" parent="." unique_id=326421939]
+stream = ExtResource("82_ki0jh")
+volume_db = -3.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Romb" parent="." unique_id=569824841 instance=ExtResource("83_eglst")]
+position = Vector2(3397, 616)
+Message = "THE UNDIGNIFIED ATTEMPT AT
+BECOMING SOMETHING 
+MEANINGFUL"
 
 [connection signal="body_entered" from="Stuff/Npcs/idk" to="." method="_on_idk_body_entered"]
 [connection signal="body_exited" from="Stuff/Npcs/idk" to="." method="_on_idk_body_exited"]

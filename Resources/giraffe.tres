@@ -6,21 +6,26 @@
 [sub_resource type="Resource" id="Resource_0jich"]
 script = ExtResource("1_0jich")
 MStr = Array[String](["Oh... hello...
-Where do you think are we?", "This space does not exist when viewed from outside of the temple, you can't see that huge tower, clouds or anything at all", "This is really weird and now I'm  here and I don't know how can I even leave this place"])
-metadata/_custom_type_script = "uid://chbub80dwb52e"
-
-[sub_resource type="Resource" id="Resource_y2myb"]
-script = ExtResource("1_0jich")
-MStr = Array[String](["How did I even get here?
-How did you get here???", "What will happen if I jump down?"])
+Where do you think are we?", "This space does not exist when viewed from outside of the temple, you can't see that huge tower, clouds or anything at all", "This is really weird and now I'm here and I don't know how can I even leave this place"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_d4xjw"]
 script = ExtResource("1_0jich")
-MStr = Array[String](["...q"])
+MStr = Array[String](["By the way, I know what you want to do
+You want to kill the sun, don't you?", "I am very perceptive and your glare is not hiding that at all", "Okay, listen
+You are probably unaware of that, but if you kill the sun, everyone will die and the world will end
+", "Why did you even want to do it?
+Or maybe, who told you to?"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_y2myb"]
+script = ExtResource("1_0jich")
+MStr = Array[String](["Better question, did you know that killing the sun would end the world?", "If so then, please stop 
+No matter how awful this existence is, there are still those who just want to live", "If you feel like nothing matters, then think about others because things matter to them", "Talk to them and try to see their perspective
+They can change the way you feel for the better", ""])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_y2myb")
-TextArr = Array[ExtResource("1_0jich")]([SubResource("Resource_0jich"), SubResource("Resource_y2myb"), SubResource("Resource_d4xjw")])
+TextArr = Array[ExtResource("1_0jich")]([SubResource("Resource_0jich"), SubResource("Resource_d4xjw"), SubResource("Resource_y2myb")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

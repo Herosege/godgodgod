@@ -91,6 +91,8 @@ func _on_texture_button_pressed():
 	Globals.SpecialItem = Globals.load_game(Globals.PATH_TO_GAMESAVE,"SpecialItem",Globals.SpecialItem)
 	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
 	Globals.RotCKilled = Globals.load_game(Globals.PATH_TO_GAMESAVE,"RotCKilled",Globals.RotCKilled)
+	STEvents.OneTimeJammers = Globals.load_game(Globals.PATH_TO_GAMESAVE,"OneTimeJammers",STEvents.OneTimeJammers)
+	STEvents.RombsGotten = Globals.load_game(Globals.PATH_TO_GAMESAVE,"RombsGotten",STEvents.RombsGotten)
 	Globals.TravelingBack = Globals.load_game(Globals.PATH_TO_GAMESAVE,"TravelingBack",Globals.TravelingBack)
 	
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])
@@ -102,9 +104,11 @@ func _on_texture_button_2_pressed():
 
 var Tooltips = [
 	"Are you really sure that what you are doing is a correct way forward?",
-	"Try to stop smiling sometimes",
+	"Try to stop smiling sometimes, it makes me sick",
 	"If you struggle, remember to give up",
-	"Pain is necessary to improve"
+	"Pain is awful, avoid it at all costs",
+	"Never get out of your comfort zone",
+	"Kill the sun, end it already"
 ]
 
 

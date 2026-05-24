@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://ctfu0gpqn3ap0"]
+
+[ext_resource type="Script" uid="uid://dy2oj116o4c0q" path="res://Code/temple/gun_jam.gd" id="1_jtyd0"]
+[ext_resource type="Texture2D" uid="uid://dnuigegx4dbsl" path="res://Assets/Diamond.png" id="2_twq07"]
+[ext_resource type="Texture2D" uid="uid://dbwercdd4xnqx" path="res://Assets/village/lamp_light.png" id="3_khvr1"]
+[ext_resource type="Texture2D" uid="uid://chbr60uy1p8it" path="res://Assets/temple/shotgun_jammer.png" id="4_ieejl"]
+[ext_resource type="Texture2D" uid="uid://d2edpgjrj1ir7" path="res://Assets/temple/shotgun_jammer1.png" id="5_d5kxp"]
+
+[sub_resource type="Gradient" id="Gradient_k13va"]
+offsets = PackedFloat32Array(0.61079544, 1)
+colors = PackedColorArray(0.81, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4v7j5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ieejl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d5kxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15hq6"]
+radius = 17.029387
+
+[node name="GunJam" type="Node2D" unique_id=353568647 groups=["RESET"]]
+script = ExtResource("1_jtyd0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1909067679]
+emitting = false
+amount = 16
+texture = ExtResource("2_twq07")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+damping_min = 10.0
+damping_max = 30.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_k13va")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1394456227]
+modulate = Color(0.66, 0, 0, 1)
+position = Vector2(0, -5)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_khvr1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1667798736]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_4v7j5")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1869827825]
+position = Vector2(1, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1168150853]
+visible = false
+shape = SubResource("CircleShape2D_15hq6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

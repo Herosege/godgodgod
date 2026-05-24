@@ -1,5 +1,13 @@
 extends Node
 
-enum {MayorSpokenToWithHint,HorseHaluShown,FakeHallEndCutscene}
+enum Enums {MayorSpokenToWithHint,HorseHaluShown,FakeHallEndCutscene,LPassageOpen,RPassageOpen}
 
-var EventArray = [false,false,false]
+var EventArray = []
+
+var OneTimeJammers = []
+
+var RombsGotten = []
+
+func _enter_tree():
+	for i in Enums:
+		EventArray.append(false)

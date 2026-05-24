@@ -144,7 +144,7 @@ func MoveDirection(delta):
 		AdditVel.y = move_toward(AdditVel.y, 0.0, (initVertSpeed/6.0)*(FPS_PHYS*delta))
 		AdditVel.x = move_toward(AdditVel.x, 0.0, (initVertSpeed/12.0)*(FPS_PHYS*delta))
 	if is_on_wall():
-		AdditVel.x = lerp(AdditVel.x, 0.0, 0.50)
+		AdditVel.x = lerp(AdditVel.x, 0.0, 0.65)
 	if is_on_ceiling():
 		AdditVel.y = lerp(AdditVel.y, 0.0, 0.50)
 	#velocity.y += AdditVel.y
@@ -215,7 +215,11 @@ func OnFOrbUse():
 
 func OnShotgunUse(Vel):
 	velocity.y -= 100
-	AdditVel.x += Vel * -LastDir
+	if sign(-LastDir) != sign(AdditVel.x):
+		AdditVel.x = Vel * -LastDir
+	else:
+		AdditVel.x += Vel * -LastDir
+	
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("killplayer") and !Immortalix:

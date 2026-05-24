@@ -78,7 +78,13 @@ var ExStatesRecords = [
 	[0.0,-1,0]
 ]
 
+var VPort = Vector2(640,480)
+
 var LDeaths : int = -1
+
+var Rombs := 0
+
+enum SEID {RombGet}
 
 func _ready():
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
@@ -208,9 +214,27 @@ func _ready():
 		#SavedPos[0] = Vector2(-1696,540)
 		#SavedPos[1] = 7
 		
-		#HorseTemple - start 
+		#Temple - start 
 		SavedPos[0] = Vector2(319,-560)
 		SavedPos[1] = 8
+		
+		#Temple - secret right
+		#SavedPos[0] = Vector2(1590,-980)
+		#SavedPos[1] = 8
+		
+		#Temple - right 4 room
+		#SavedPos[0] = Vector2(2330,-1024)
+		#SavedPos[1] = 8
+		#SavedPos[0] = Vector2(2177,-1490)
+		#SavedPos[1] = 8
+		
+		#Temple - left upper start 
+		#SavedPos[0] = Vector2(-1840,-1040)
+		#SavedPos[1] = 8
+		
+		#Temple - left roof 
+		#SavedPos[0] = Vector2(-720,-1610)
+		#SavedPos[1] = 8
 
 const CAM_ZOOM = 0.05
 
@@ -267,6 +291,8 @@ func SaveData(type):
 			"NumDeaths":NumDeaths,
 			"RotCKilled":RotCKilled,
 			"EventArray":STEvents.EventArray,
+			"OneTimeJammers":STEvents.OneTimeJammers,
+			"RombsGotten":STEvents.RombsGotten,
 			"TravelingBack":TravelingBack
 		})
 	if type == 666:
@@ -392,7 +418,9 @@ func ResetMemoryGlobal(BackToIntro:=true):
 	BossKilled = [false,false]
 	if get_tree().current_scene.name != "Intro" and BackToIntro:
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
-	STEvents.EventArray = [false,false,false]
+	for i in STEvents.EventArray.size():
+		STEvents.EventArray[i] = false
+	STEvents.OneTimeJammers.clear()
 
 #func FindPlayer(node):
 	#while node != null:

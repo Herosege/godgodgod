@@ -6,9 +6,13 @@ var BArr = []
 @onready var BaseCont = $Stuff/Balls
 @onready var PNode = get_tree().get_first_node_in_group("player")
 
+@onready var MusicColl = [null,$Music1,$Music2]
+
 const RotSpeed = 10.0
 
-var PrevRoom
+var CPlaying : int = 0
+
+var PrevRoom : Vector2 
 
 func _ready():
 	PrevRoom = PNode.CRoomPos
@@ -22,16 +26,39 @@ func _ready():
 
 func _process(delta):
 	if PrevRoom != PNode.CRoomPos:
-		MusicStuff()
+		CheckMusic()
+		if MusicColl[CPlaying]:
+			if !MusicColl[CPlaying].playing:
+				UpdateMusic()
+		else:
+			UpdateMusic()
 	PrevRoom = PNode.CRoomPos
 
-func MusicStuff():
-	if PNode.CRoomPos.x <= -3:
-		$Music1.playing = false
-		return
-	if $Music1.playing == false:
-		$Music1.playing = true 
+#func MusicStuff():
+	#if PNode.CRoomPos.x <= -3:
+		#$Music1.playing = false
+		#return
+	#if PNode.CRoomPos.x >= 5:
+		#
+	#if $Music1.playing == false:
+		#$Music1.playing = true 
 
+func CheckMusic():
+	if PNode.CRoomPos.x > -3:
+		CPlaying = 1
+		return
+	if PNode.CRoomPos.x <= -5:
+		CPlaying = 2
+		return
+	if CPlaying:
+		CPlaying = 0
+		return
+
+
+func UpdateMusic():
+	for i in MusicColl.size():
+		if MusicColl[i]:
+			MusicColl[i].playing = i == CPlaying
 
 func GenBalls(BCont,BArr):
 	for i in BCont.get_children():

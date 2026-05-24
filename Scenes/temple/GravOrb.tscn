@@ -56,6 +56,11 @@ modulate = Color(0, 0, 0, 1)
 scale = Vector2(0.19, 0.19)
 texture = ExtResource("2_mrv3i")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1599258548]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_mrv3i")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973939865]
 shape = SubResource("CircleShape2D_j0col")
 

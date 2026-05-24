@@ -11,7 +11,7 @@ var CPlaying : int
 func _ready():
 	await get_tree()
 	OTimer.connect("timeout",OnOpenTimerTimeout)
-	if STEvents.EventArray[STEvents.HorseHaluShown] == false and STEvents.EventArray[STEvents.MayorSpokenToWithHint] == true:
+	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false and STEvents.EventArray[STEvents.Enums.MayorSpokenToWithHint] == true:
 		$Houses/Village/Stuff/HorseHalucination.visible = true
 	Globals.CArea = 2
 	CheckMusic()
@@ -25,16 +25,16 @@ var HandSpawned = false
 const CLOUD_SCREEN_AMOUNT_TRAVEL = 3
 
 func _process(delta):
-	if STEvents.EventArray[STEvents.HorseHaluShown] == false:
+	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false:
 		if PNode.position.x < 640 and PNode.position.x > 0 and PNode.position.y < -5800:
-			STEvents.EventArray[STEvents.HorseHaluShown] = true
+			STEvents.EventArray[STEvents.Enums.HorseHaluShown] = true
 			$Houses/Village/Stuff/HorseHalucination.visible = false
 	
 	if PNode.position.x < 0 and PNode.position.y > -50:
 		Globals.LoadScene("res://Scenes/main.tscn")
 		Globals.PosSetTravel = Vector2(9600+PNode.position.x,-450)
 	
-	if PNode.position.x > 5400 and PNode.position.y < 500 and PNode.position.y > -500 and PNode.CRoomPos.x < 13 and !HandSpawned and STEvents.EventArray[STEvents.FakeHallEndCutscene] == false:
+	if PNode.position.x > 5400 and PNode.position.y < 500 and PNode.position.y > -500 and PNode.CRoomPos.x < 13 and !HandSpawned and STEvents.EventArray[STEvents.Enums.FakeHallEndCutscene] == false:
 		HandSpawned = true
 		HandACTIVAR()
 	

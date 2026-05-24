@@ -12,5 +12,5 @@ func _process(delta):
 	UpdateCam()
 
 func UpdateCam():
-	Cam.global_position.x = (VPort.x / 2) + VPort.x * floor(PNode.global_position.x / VPort.x)
-	Cam.global_position.y = (VPort.y / 2) + VPort.y * floor(PNode.global_position.y / VPort.y)
+	Cam.global_position.x = (VPort.x / 2) + VPort.x * floor(ceil(PNode.global_position.x) / VPort.x)
+	Cam.global_position.y = (VPort.y / 2) + VPort.y * floor(ceil(PNode.global_position.y) / VPort.y)

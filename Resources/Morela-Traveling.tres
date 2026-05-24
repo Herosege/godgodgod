@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_d5wm4"]
 script = ExtResource("1_05obh")
-MStr = Array[String](["I won't help you,  I am not really fit for that sort of thing, I am much more of a creator", "I actually built the bridge and the tower in the east, though the brige got destroyed...", "And the tower is missing it's entrance for some reason..."])
+MStr = Array[String](["I won't help you,  I am not really fit for that sort of thing, I am much more of a creator", "I actually built the bridge and the tower in the east, though the brige got destroyed..."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_godxi"]

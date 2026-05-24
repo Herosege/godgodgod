@@ -18,7 +18,7 @@ func GetInDial(State,Type,Early):
 			if !Early:
 				SpokenTo += 1
 				if SpokenTo >= 2:
-					STEvents.EventArray[STEvents.MayorSpokenToWithHint] = true
+					STEvents.EventArray[STEvents.Enums.MayorSpokenToWithHint] = true
 				SpokenTo = min(2,SpokenTo)
 		if Globals.Items[Globals.Weapon][Globals.Shotgun]:
 			$Stuff/TavernStuff/Mayor/EventNode.Text = AltTexts[EARLY_SHOTGUN]
