@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TextRes" format=3 uid="uid://cfbiloj4hlvj4"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_hk4x4"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_rv385"]
+
+[sub_resource type="Resource" id="Resource_hk4x4"]
+script = ExtResource("1_hk4x4")
+MStr = Array[String](["Hania created us all as painfully imperfect reflection of themself, for gods cannot create something equal or greater tham themselves", "Hania knew that and so they build the sun, the wonderful shining point in the sky, as a way to make us closer to their image", "The sun radiates energy to every part of this world. even if it doesn't seem that way and it makes us happy"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_rv385")
+TextArr = Array[ExtResource("1_hk4x4")]([SubResource("Resource_hk4x4")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

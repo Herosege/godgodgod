@@ -14,6 +14,7 @@ var CPlaying : int = 0
 
 var PrevRoom : Vector2 
 
+
 func _ready():
 	PrevRoom = PNode.CRoomPos
 	Globals.CArea = 7
@@ -25,6 +26,10 @@ func _ready():
 			BArr.resize(0)
 
 func _process(delta):
+	if PNode.CRoomPos == Vector2(1,2) and !STEvents.EventArray[STEvents.Enums.FTTheGreatRotting]:
+		STEvents.EventArray[STEvents.Enums.FTTheGreatRotting] = true
+		SignalBus.ShowAreaIntro.emit("The great rotting",Color.RED)
+	
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
 		if MusicColl[CPlaying]:
@@ -59,6 +64,8 @@ func UpdateMusic():
 	for i in MusicColl.size():
 		if MusicColl[i]:
 			MusicColl[i].playing = i == CPlaying
+
+### ----- Ball2 transform y + 500
 
 func GenBalls(BCont,BArr):
 	for i in BCont.get_children():

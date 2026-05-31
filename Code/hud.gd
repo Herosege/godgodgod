@@ -17,6 +17,7 @@ func _ready():
 	SignalBus.ShotgunTimerHudUpdate.connect(ShotgunTimerHudUpdate)
 	SignalBus.SettingChanged.connect(OnSettingChanged)
 	SignalBus.PlaySoundEffect.connect(PlaySoundEffect)
+	SignalBus.ShowAreaIntro.connect(ShowAreaIntro)
 
 func _process(delta):
 	if Globals.TimerOn:
@@ -65,6 +66,10 @@ func OnSettingChanged():
 func PlaySoundEffect(SoundID):
 	SoundEffects[SoundID].play()
 
+func ShowAreaIntro(text,color=Color.WHITE):
+	$AIntroPanel/AIntroMessage.text = text
+	$AIntroPanel/AIntroMessage.modulate = color
+	$AreaIntro.play("show")
 
 func _on_message_timer_timeout():
 	$Message.text = ""

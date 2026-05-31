@@ -2639,6 +2639,7 @@ volume_db = -14.0
 bus = &"Music"
 
 [node name="DEBUG" parent="." unique_id=307710963 instance=ExtResource("6_gcst1")]
+visible = true
 
 [node name="Pause" parent="." unique_id=382780004 instance=ExtResource("6_rcfmq")]
 

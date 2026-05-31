@@ -42,3 +42,5 @@ signal BossHeartDamage(Dmg)
 signal KillPlayer
 
 signal PlaySoundEffect(SoundID)
+
+signal ShowAreaIntro(text,col)

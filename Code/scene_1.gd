@@ -31,6 +31,10 @@ func _on_Trigger_Boss(type):
 
 
 func _process(delta):
+	if PNode.CRoomPos == Vector2(0,0) and !STEvents.EventArray[STEvents.Enums.FTCurseWorld]:
+		STEvents.EventArray[STEvents.Enums.FTCurseWorld] = true
+		SignalBus.ShowAreaIntro.emit("Curse world")
+	
 	if $Music1.pitch_scale != 0.25:
 		$Music1.pitch_scale = 0.25
 

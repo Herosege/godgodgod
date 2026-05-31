@@ -852,6 +852,43 @@ outline_size = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ki0jh"]
 size = Vector2(121, 381)
 
+[sub_resource type="Animation" id="Animation_1rgna"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eglst"]
+resource_name = "damaged"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.75, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rgna"]
+_data = {
+&"RESET": SubResource("Animation_1rgna"),
+&"damaged": SubResource("Animation_eglst")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rgna"]
 size = Vector2(67, 80)
 
@@ -937,6 +974,7 @@ position = Vector2(320, 240)
 [node name="CameraControl" parent="." unique_id=334038854 instance=ExtResource("6_248vh")]
 
 [node name="DEBUG" parent="." unique_id=1576242470 instance=ExtResource("7_v71fb")]
+visible = true
 
 [node name="Music1" type="AudioStreamPlayer" parent="." unique_id=1622023353 groups=["Audio"]]
 stream = SubResource("AudioStreamOggVorbis_qgwc8")
@@ -1031,7 +1069,7 @@ position = Vector2(98.98979, 38.0267)
 position = Vector2(-1.9589236, -102.0008)
 
 [node name="Ball2" parent="Stuff/Balls" unique_id=1270242619 instance=ExtResource("23_n5d6f")]
-position = Vector2(1589, 1390)
+position = Vector2(1591, 1390)
 
 [node name="Ball1" parent="Stuff/Balls/Ball2" unique_id=858148327 instance=ExtResource("23_n5d6f")]
 position = Vector2(-0.9854902, -109.000244)
@@ -3636,6 +3674,9 @@ texture = ExtResource("78_t5j2n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/BossRotting/Special/SpecialItemGet" unique_id=1367258713]
 position = Vector2(2.5, 7.5)
 shape = SubResource("RectangleShape2D_ki0jh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stuff/BossRotting" unique_id=2100924589]
+libraries/ = SubResource("AnimationLibrary_1rgna")
 
 [node name="Bullets" type="Node2D" parent="Stuff" unique_id=1349430055]
 

@@ -35,6 +35,12 @@ func _ready():
 
 func _process(delta):
 	T+=delta/2
+	if PNode.CRoomPos == Vector2(1,0) and !STEvents.EventArray[STEvents.Enums.FTFlowerFields]:
+		STEvents.EventArray[STEvents.Enums.FTFlowerFields] = true
+		SignalBus.ShowAreaIntro.emit("Flower fields")
+	if PNode.CRoomPos == Vector2(8,-1) and !STEvents.EventArray[STEvents.Enums.FTCollapsedBridge]:
+		STEvents.EventArray[STEvents.Enums.FTCollapsedBridge] = true
+		SignalBus.ShowAreaIntro.emit("Collapsed bridge")
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
 		if MusicColl[CPlaying]:

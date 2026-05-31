@@ -16,10 +16,15 @@ func _ready():
 		DestroyCMaster()
 		$Stuff/EndFHall/CPUParticles2D.emitting = true
 	Globals.CArea = 4
+	CheckMusic()
+	UpdateMusic()
 
 var RotSpeed = 0.2
 
 func _process(delta):
+	if PNode.CRoomPos == Vector2(0,0) and !STEvents.EventArray[STEvents.Enums.FTTheConstruct]:
+		STEvents.EventArray[STEvents.Enums.FTTheConstruct] = true
+		SignalBus.ShowAreaIntro.emit("The construct")
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
 		if MusicColl[CPlaying]:

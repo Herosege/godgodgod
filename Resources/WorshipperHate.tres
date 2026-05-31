@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TextRes" format=3 uid="uid://br1ogti20s8pp"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_b1kjm"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_36vvf"]
+
+[sub_resource type="Resource" id="Resource_b1kjm"]
+script = ExtResource("1_b1kjm")
+MStr = Array[String](["HANIA IS A HATEFUL BEING, AN AWFUL EXISTENCE OF MISERY, THE WORST GOD THAT EVER WAS", "THEY CREATED ALL OF US, BUT I DID NOT WANT THIS AND I HATE FEELING EVERYTHING THAT I DO", "I WAS JUST HAPPY LOOKING UP TO THE HEAVENS WITH ADMIRATION AND IGNORANCE", "WHY DID I BECOME THIS, SOMEONE PLEASE FIX ME, I DID NOT WANT TO KNOW", "PLEASE FIX ME I WANT TO BE HAPPY ONCE AGAIN PLEASE, PLEASE, PLEASE", "WHY DON'T YOU LISTEN TO ME, WHY, WHY, JUST WHY!??!!?!?!!?!"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_36vvf")
+TextArr = Array[ExtResource("1_b1kjm")]([SubResource("Resource_b1kjm")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

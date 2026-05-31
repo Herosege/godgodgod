@@ -215,8 +215,8 @@ func _ready():
 		#SavedPos[1] = 7
 		
 		#Temple - start 
-		SavedPos[0] = Vector2(319,-560)
-		SavedPos[1] = 8
+		#SavedPos[0] = Vector2(319,-560)
+		#SavedPos[1] = 8
 		
 		#Temple - secret right
 		#SavedPos[0] = Vector2(1590,-980)
@@ -234,6 +234,18 @@ func _ready():
 		
 		#Temple - left roof 
 		#SavedPos[0] = Vector2(-720,-1610)
+		#SavedPos[1] = 8
+		
+		#Temple - upper tower 
+		SavedPos[0] = Vector2(670,-2920)
+		SavedPos[1] = 8
+		
+		#Temple - half pyramid tip
+		#SavedPos[0] = Vector2(2446,-2990)
+		#SavedPos[1] = 8
+		
+		#Temple - gungungun
+		#SavedPos[0] = Vector2(4065,-2100)
 		#SavedPos[1] = 8
 
 const CAM_ZOOM = 0.05

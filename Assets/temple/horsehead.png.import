@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4t6t3q7s74t6"
-path="res://.godot/imported/Boss_s1.png-dd82f2cd76cc79c120f120e77f0f040f.ctex"
+uid="uid://se3xuabv0y14"
+path="res://.godot/imported/horsehead.png-2a8de74572d24a3866efc889c7617852.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Boss1/Boss_s1.png"
-dest_files=["res://.godot/imported/Boss_s1.png-dd82f2cd76cc79c120f120e77f0f040f.ctex"]
+source_file="res://Assets/temple/horsehead.png"
+dest_files=["res://.godot/imported/horsehead.png-2a8de74572d24a3866efc889c7617852.ctex"]
 
 [params]
 

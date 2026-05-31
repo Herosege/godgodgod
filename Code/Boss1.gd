@@ -131,6 +131,7 @@ func _on_BossDead(type):
 	BossDeath()
 
 func get_dmg(amt):
+	$AnimationPlayer.play("damaged")
 	Health -= amt
 	HBar.value = (Health / InitHealth) * 100 
 

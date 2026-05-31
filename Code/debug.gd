@@ -7,7 +7,7 @@ var FImg = load("res://Assets/flower1.png")
 
 var VPort = Vector2(640,480)
 
-var Bsize = 20
+var Bsize = 40
 
 
 func _ready():

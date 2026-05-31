@@ -13,8 +13,7 @@ metadata/_custom_type_script = "uid://chbub80dwb52e"
 script = ExtResource("1_0jich")
 MStr = Array[String](["By the way, I know what you want to do
 You want to kill the sun, don't you?", "I am very perceptive and your glare is not hiding that at all", "Okay, listen
-You are probably unaware of that, but if you kill the sun, everyone will die and the world will end
-", "Why did you even want to do it?
+You are probably unaware of that, but if you kill the sun, everyone will die and the world will end", "Why did you even want to do it?
 Or maybe, who told you to?"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d0w50wqi3fr08" path="res://Scenes/village/dialogue_box.tscn" id="2_fccik"]
 [ext_resource type="Texture2D" uid="uid://8acg3hkm7arx" path="res://Assets/Interface/ShotgunTimer.png" id="3_bjfho"]
 [ext_resource type="AudioStream" uid="uid://cpvfieeaucy1g" path="res://Assets/Sound/romb.ogg" id="4_6fbih"]
+[ext_resource type="FontFile" uid="uid://bqi3u7i2qf1og" path="res://Assets/fonts/Castellar Regular.ttf" id="5_t1xeu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_miau3"]
 font_size = 20
@@ -83,6 +84,95 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_6fbih"),
 &"Saved": SubResource("Animation_bjfho")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36asn"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jye8"]
+font = ExtResource("5_t1xeu")
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_t1xeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AIntroPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AIntroPanel:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AIntroPanel:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_36asn"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AIntroPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AIntroPanel:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.165, 0, 0, 0, 0, -0.165, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.01, 1, 4, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AIntroPanel:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(-48, -0.25, 0, 0.12333334, 29.685688, 0, -0.76666665, 0.5976623, 0, 0, 0, 0, 0, 0.4158702, -16.638565, -48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.01, 1, 4, 5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jye8"]
+_data = {
+&"RESET": SubResource("Animation_t1xeu"),
+&"show": SubResource("Animation_36asn")
 }
 
 [node name="Hud" type="CanvasLayer" unique_id=946866656 groups=["RESET"]]
@@ -205,6 +295,34 @@ stream = ExtResource("4_6fbih")
 volume_db = 10.0
 pitch_scale = 0.66
 bus = &"SoundEffect"
+
+[node name="AIntroPanel" type="Panel" parent="." unique_id=611951464]
+process_mode = 3
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -48.0
+offset_bottom = -8.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_36asn")
+
+[node name="AIntroMessage" type="Label" parent="AIntroPanel" unique_id=2145252799]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Flower fields"
+label_settings = SubResource("LabelSettings_8jye8")
+horizontal_alignment = 1
+
+[node name="AreaIntro" type="AnimationPlayer" parent="." unique_id=951856711]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_8jye8")
 
 [connection signal="timeout" from="Message/MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="value_changed" from="ShotGunTimer" to="." method="_on_shot_gun_timer_value_changed"]

@@ -68,7 +68,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("debug") and OS.is_debug_build():
 		get_dmg(20.0)
 	
-	if !skipped and Input.is_action_just_pressed("Confirm") and Killed:
+	if !skipped and Input.is_action_just_pressed("Confirm") and Killed and Globals.Endings[Globals.End.EndingTravel]:
 		$Death/AnimationPlayer.play("Die",-1,1000.0)
 		$Death/Skip.visible = false
 		skipped = true
@@ -153,6 +153,7 @@ func OnBossHeartDamage(Dmg):
 
 func get_dmg(amt):
 	if Fighting:
+		$AnimationPlayer.play("damaged")
 		Health -= amt
 		HBar.value = (Health / InitHealth) * 100 
 	if Health <= 0 and Fighting:

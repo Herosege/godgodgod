@@ -179,7 +179,8 @@ one_shot = true
 one_shot = true
 
 [node name="HitboxTime" type="Timer" parent="AnimatedSprite2D/Weapons/Weapon" unique_id=747865221]
-wait_time = 0.05
+process_callback = 0
+wait_time = 0.04
 one_shot = true
 
 [node name="Shotgun" type="Node2D" parent="AnimatedSprite2D/Weapons" unique_id=4535563 groups=["RESET"]]
@@ -214,7 +215,8 @@ one_shot = true
 one_shot = true
 
 [node name="HitboxTime" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=2061714321]
-wait_time = 0.05
+process_callback = 0
+wait_time = 0.02
 one_shot = true
 
 [node name="Sweater" type="Sprite2D" parent="." unique_id=1181667105]

@@ -25,6 +25,10 @@ var HandSpawned = false
 const CLOUD_SCREEN_AMOUNT_TRAVEL = 3
 
 func _process(delta):
+	if PNode.CRoomPos == Vector2(1,-2) and !STEvents.EventArray[STEvents.Enums.FTTheGreatTower]:
+		STEvents.EventArray[STEvents.Enums.FTTheGreatTower] = true
+		SignalBus.ShowAreaIntro.emit("The great tower")
+	
 	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false:
 		if PNode.position.x < 640 and PNode.position.x > 0 and PNode.position.y < -5800:
 			STEvents.EventArray[STEvents.Enums.HorseHaluShown] = true

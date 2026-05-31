@@ -24,9 +24,15 @@ func _ready():
 		$Stuff/Passages/PassageLeft.queue_free()
 	
 	UpdatePassages()
+	CheckMusic()
+	UpdateMusic()
 
 
 func _process(delta):
+	if PNode.CRoomPos == Vector2(0,-2) and !STEvents.EventArray[STEvents.Enums.FTTheTempleOfHania]:
+		STEvents.EventArray[STEvents.Enums.FTTheTempleOfHania] = true
+		SignalBus.ShowAreaIntro.emit("The temple of Hania")
+	
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
 		if MusicColl[CPlaying]:
@@ -42,14 +48,14 @@ func UpdateMusic():
 			MusicColl[i].playing = i == CPlaying
 
 func CheckMusic():
-	if PNode.CRoomPos.y <=-3 and PNode.CRoomPos.x == 0:
+	if (PNode.CRoomPos.y <=-3 and PNode.CRoomPos.x == 0) or (PNode.CRoomPos.y <=-7):
 		CPlaying = 3
 		return
-	if PNode.CRoomPos.y <= -2:
-		CPlaying = 1
-		return
-	if PNode.CRoomPos.y > -2 and PNode.CRoomPos.y < 2:
+	if (PNode.CRoomPos.y > -2 and PNode.CRoomPos.y < 2) or (PNode.CRoomPos.y <=-5 and PNode.CRoomPos.x >= 2) or (PNode.CRoomPos.x >= 4):
 		CPlaying = 2
+		return
+	if PNode.CRoomPos.y <= -2 and PNode.CRoomPos.x < 4:
+		CPlaying = 1
 		return
 	if CPlaying:
 		CPlaying = 0
@@ -80,3 +86,9 @@ func UpdatePassages():
 	if PasssagesAmnt == 2:
 		$Stuff/Passages/Pass2.visible = true
 		$Stuff/Passages/Pass2.collision_enabled = true
+
+
+func _on_to_curse_world_body_entered(body):
+	if body.is_in_group("player"):
+		Globals.LoadScene("res://Scenes/scene_1.tscn")
+		Globals.PosSetTravel = Vector2(530,-440)
