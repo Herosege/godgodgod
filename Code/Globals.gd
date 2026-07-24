@@ -237,8 +237,8 @@ func _ready():
 		#SavedPos[1] = 8
 		
 		#Temple - upper tower 
-		SavedPos[0] = Vector2(670,-2920)
-		SavedPos[1] = 8
+		#SavedPos[0] = Vector2(670,-2920)
+		#SavedPos[1] = 8
 		
 		#Temple - half pyramid tip
 		#SavedPos[0] = Vector2(2446,-2990)
@@ -247,8 +247,17 @@ func _ready():
 		#Temple - gungungun
 		#SavedPos[0] = Vector2(4065,-2100)
 		#SavedPos[1] = 8
+		
+		#Temple - horse boss 
+		SavedPos[0] = Vector2(1350,-3400)
+		SavedPos[1] = 8
 
 const CAM_ZOOM = 0.05
+
+func _input(event):
+	if event is InputEventKey and OS.is_debug_build():
+		if event.is_pressed() and event.keycode >= 48 and event.keycode <= 58  and not event.is_echo():
+			LoadScene(AreaScenes[event.keycode - 48])
 
 func _process(delta):
 	if !stoptime:
@@ -256,6 +265,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("RESETGAME"):
 		ResetMemoryGlobal()
+	
 	
 	if Input.is_action_just_pressed("debug") and OS.is_debug_build():
 		pass
@@ -387,6 +397,16 @@ func LoadKeybinds():
 			var NInp = InputEventKey.new()
 			NInp.physical_keycode = KeybindList[key][0]
 			InputMap.action_add_event(key,NInp)
+
+
+func GetParentWithMethod(NNode:Node,MethodName:String):
+	if NNode.has_method(MethodName):
+		return NNode
+	while NNode.get_parent() != null:
+		if NNode.has_method(MethodName):
+			return NNode
+		NNode = NNode.get_parent()
+	return null
 
 #settings
 

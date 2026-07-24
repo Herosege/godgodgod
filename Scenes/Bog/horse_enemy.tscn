@@ -202,6 +202,188 @@ _data = {
 &"walking": SubResource("Animation_0kimw")
 }
 
+[sub_resource type="Animation" id="Animation_tsbll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.12830874]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.17963257]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Leg3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15530202]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Leg4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.3202771]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tail:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.83077675]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Head:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0010164225]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8kd0c"]
+resource_name = "walking"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.1),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [0.12830874, -0.52205706, 0.67904365]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.1),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [-0.17963257, -0.54241455, 0.42831388]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Leg3:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.1),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [0.15530202, 0.50181234, -0.56756604]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Leg4:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.1),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [-0.3202771, 0.40700197, -0.6235621]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tail:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.83077675, 0.3490658503988659, 1.3733797]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Head:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0010164225, 0.37092614, -0.34782487]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.106184706, 0.04363323]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsbll"]
+_data = {
+&"RESET": SubResource("Animation_tsbll"),
+&"walking": SubResource("Animation_8kd0c")
+}
+
 [sub_resource type="Animation" id="Animation_k3dmk"]
 length = 0.001
 tracks/0/type = "value"
@@ -284,7 +466,7 @@ position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_idnnj")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=272933708]
-texture_filter = 3
+texture_filter = 4
 position = Vector2(-5, -4.0000005)
 scale = Vector2(0.33, 0.33)
 
@@ -329,8 +511,11 @@ scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("4_k3dmk")
 offset = Vector2(47, -48)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" unique_id=1630036402]
+[node name="AnimationPlayer_or" type="AnimationPlayer" parent="Sprite" unique_id=1630036402]
 libraries/ = SubResource("AnimationLibrary_k3dmk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" unique_id=998778106]
+libraries/ = SubResource("AnimationLibrary_tsbll")
 
 [node name="LoseSightTimer" type="Timer" parent="." unique_id=1135911713]
 wait_time = 2.0

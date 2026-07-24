@@ -12,16 +12,15 @@ metadata/_custom_type_script = "uid://chbub80dwb52e"
 [sub_resource type="Resource" id="Resource_d4xjw"]
 script = ExtResource("1_0jich")
 MStr = Array[String](["By the way, I know what you want to do
-You want to kill the sun, don't you?", "I am very perceptive and your glare is not hiding that at all", "Okay, listen
-You are probably unaware of that, but if you kill the sun, everyone will die and the world will end", "Why did you even want to do it?
-Or maybe, who told you to?"])
+You want to kill the sun", "You may hide that all you want with that smile, but I see right through you", "Okay, listen:
+if you kill the sun, everyone will die and the world will end", "You wouldn't want that
+
+right?"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_y2myb"]
 script = ExtResource("1_0jich")
-MStr = Array[String](["Better question, did you know that killing the sun would end the world?", "If so then, please stop 
-No matter how awful this existence is, there are still those who just want to live", "If you feel like nothing matters, then think about others because things matter to them", "Talk to them and try to see their perspective
-They can change the way you feel for the better", ""])
+MStr = Array[String](["Well, what now...", "I guess we could jump to see what's below"])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]

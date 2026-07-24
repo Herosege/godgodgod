@@ -103,6 +103,15 @@ func CheckInputs():
 
 var LastDir := 1.0
 
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.is_pressed() and event.keycode == KEY_SHIFT and OS.is_debug_build() and not event.is_echo():
+			position.y -= 200
+			velocity.y = 0
+	#if event and not event.is_echo():
+		#print("bark")
+
 func MoveDirection(delta):
 	
 	var direction = Input.get_axis("LeftInp", "RightInp")
@@ -112,10 +121,11 @@ func MoveDirection(delta):
 	
 	#debug
 	
-	if Input.is_action_just_pressed("debug") and OS.is_debug_build():
-		JumpAmount = 9999
-		position.x += 240 * direction
-	
+	if OS.is_debug_build():
+		if Input.is_action_just_pressed("debug"):
+			JumpAmount = 9999
+			position.x += 220 * direction
+
 	#enddebug
 	
 	if Input.is_action_pressed("Slowdown") and Globals.Items[Globals.Passive][Globals.Milk]:

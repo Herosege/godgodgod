@@ -9,7 +9,9 @@ extends CharacterBody2D
 @onready var JGrav = -(-2.0 * JumpStr) / pow(TimePeak,2)
 @onready var FGrav = -(-2.0 * JumpStr) / pow(TimeFall,2)
 
-var VertSpeed = 85
+var InitScale
+
+var VertSpeed = 70
 
 var JumpAmount = 1
 
@@ -24,6 +26,7 @@ var Active := true
 
 func _ready():
 	BasePos = global_position
+	InitScale = $Sprite.scale
 
 func _process(delta):
 	pass
@@ -36,7 +39,7 @@ func _physics_process(delta):
 		if PlayerDetected:
 			Dir = sign(PNode.global_position.x-global_position.x)
 		if Dir != 0:
-			$Sprite.scale.x = Dir * 0.25
+			$Sprite.scale.x = Dir * InitScale.x
 		if PNode:
 			velocity.x = Dir * VertSpeed
 		

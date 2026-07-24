@@ -111,7 +111,7 @@ and it seems like it's spreading
 
 But don't worry, if you find it's core you could destroy it
 
-Also if you kill these floating things you will regain a jump",
+Also if you kill these red floating things you will regain a jump",
 	
 	#
 	

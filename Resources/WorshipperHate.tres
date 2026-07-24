@@ -5,10 +5,15 @@
 
 [sub_resource type="Resource" id="Resource_b1kjm"]
 script = ExtResource("1_b1kjm")
-MStr = Array[String](["HANIA IS A HATEFUL BEING, AN AWFUL EXISTENCE OF MISERY, THE WORST GOD THAT EVER WAS", "THEY CREATED ALL OF US, BUT I DID NOT WANT THIS AND I HATE FEELING EVERYTHING THAT I DO", "I WAS JUST HAPPY LOOKING UP TO THE HEAVENS WITH ADMIRATION AND IGNORANCE", "WHY DID I BECOME THIS, SOMEONE PLEASE FIX ME, I DID NOT WANT TO KNOW", "PLEASE FIX ME I WANT TO BE HAPPY ONCE AGAIN PLEASE, PLEASE, PLEASE", "WHY DON'T YOU LISTEN TO ME, WHY, WHY, JUST WHY!??!!?!?!!?!"])
+MStr = Array[String](["Welcome, what brings you here? I am the hermit.", "I made a decision to be stranded in this place, far away from everyone to become closer to enlightenment.", "But loneliness and boredom really makes you think and reconsider your world view.", "In this time I became very distant to our faith in Hania's love, a faith in their good will and their willingness to help us.", "Originally when Hania discovered our terrible affliction, they built the sun to protect us from it and this temple was built by us to pay homage to them for their wonderful action.", "But what many of us discovered much later, is that the sun only slows down the countdown to our demise.", "We wouldn't have anything against Hania for obstructing that fact but the trade-off for our longer lifespan, was the constant pain that we felt because of sun's radiation.", "And you feel it too, right? The intensity of sun's radiation increased recently and the pain became even worse for everyone.", "Hania didn't ever talk to us, didn't try to reach a conclusion with us, they just did whatever they felt like and at this point I'm afraid that they aren't even working on a solution."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_2i16j"]
+script = ExtResource("1_b1kjm")
+MStr = Array[String](["It's really refreshing, just being able to be free from the temple doctrine.", "To show our devotion, all of us worshippers contort our bodies into smallest shape we could possibly be in.", "It's an incredibly painful process and it's agonizing to remain in it, but after a while you get used to it.", "Still, getting out of that shape for the first time felt wonderful, it was an incredible relief.", "When I stopped beliving for the first time in a very long time I feel free, but I kinda miss the wonderful feeling of hope from our faith."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_36vvf")
-TextArr = Array[ExtResource("1_b1kjm")]([SubResource("Resource_b1kjm")])
+TextArr = Array[ExtResource("1_b1kjm")]([SubResource("Resource_b1kjm"), SubResource("Resource_2i16j")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

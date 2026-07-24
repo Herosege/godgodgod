@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://w12gjb1051hs"]
+
+[ext_resource type="Texture2D" uid="uid://bgufjxhd4hxfn" path="res://Assets/temple/dmg_ball1.png" id="1_2q88s"]
+[ext_resource type="Script" uid="uid://b6b2olyk2kr45" path="res://Code/bullet.gd" id="1_pwtgi"]
+[ext_resource type="Texture2D" uid="uid://bjr5ng1p4qm40" path="res://Assets/temple/dmg_ball2.png" id="2_pwtgi"]
+[ext_resource type="Texture2D" uid="uid://miy4otlwape3" path="res://Assets/temple/dmg_ball3.png" id="3_2erlp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxnrv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2q88s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pwtgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2erlp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hlm8"]
+radius = 15.033297
+
+[node name="BulletBall" type="Area2D" unique_id=598211613 groups=["RESET", "killplayer"]]
+script = ExtResource("1_pwtgi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1503048327]
+sprite_frames = SubResource("SpriteFrames_nxnrv")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469786741]
+shape = SubResource("CircleShape2D_1hlm8")
+
+[node name="Timer" type="Timer" parent="." unique_id=1022432753]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

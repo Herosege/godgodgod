@@ -195,3 +195,12 @@ func _on_rot_kill_coll_area_entered(area: Area2D) -> void:
 			$EndStuff/RotPillarkill.play("Rotkill_axe")
 			UnrotCurse()
 			Globals.RotCKilled = true
+
+
+func _on_idk_3_area_body_entered(body):
+	if body.is_in_group("player"):
+		$Npcs/idk3/Label.visible = true
+
+func _on_idk_3_area_body_exited(body):
+	if body.is_in_group("player"):
+		$Npcs/idk3/Label.visible = false

@@ -27,7 +27,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_dqe2t")
 }],
-"loop": true,
+"loop": 1,
 "name": &"standard",
 "speed": 5.0
 }, {
@@ -38,7 +38,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_uspv3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walking",
 "speed": 10.0
 }]
@@ -58,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_c24d2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 25.0
 }]
@@ -87,7 +87,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_7dp3o")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 12.0
 }]
@@ -205,10 +205,10 @@ pitch_scale = 0.9
 bus = &"SoundEffect"
 
 [node name="Cooldown" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=1155020281]
+wait_time = 2.0
 one_shot = true
 
 [node name="CooldownFloor" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=713032835]
-wait_time = 0.75
 one_shot = true
 
 [node name="AnimationTime" type="Timer" parent="AnimatedSprite2D/Weapons/Shotgun" unique_id=1618623963]

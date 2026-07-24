@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wbilhro3m8w2"]
+[gd_scene format=3 uid="uid://wbilhro3m8w2"]
 
 [ext_resource type="Script" uid="uid://c1iywtccdcso8" path="res://Code/npc.gd" id="1_pjvq1"]
 [ext_resource type="Texture2D" uid="uid://c31sf87uj2dak" path="res://Assets/someone.png" id="2_1t24h"]
@@ -14,7 +14,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_bmj3w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"curse",
 "speed": 5.0
 }, {
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_1t24h")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -33,20 +33,20 @@ font_size = 30
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="idk" type="Node2D"]
+[node name="idk" type="Node2D" unique_id=2041325899]
 script = ExtResource("1_pjvq1")
 type = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=49217746]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1464289130]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_kf1j7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=306753794]
 sprite_frames = SubResource("SpriteFrames_nmfyg")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1946053459]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_8cu3x")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=2086063985]
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -13,12 +13,12 @@ var CurWeapon = Axe
 enum {Dmg,Cd}
 
 var Weapons = [
-	[AXE_DMG,0.125],
+	[AXE_DMG,0.2],
 	[SHOTGUN_DMG,2.5]
 ]
 
 const AXE_DMG = 1.0
-const SHOTGUN_DMG = 3.0
+const SHOTGUN_DMG = 2.0
 
 var AnimTime
 
@@ -51,7 +51,10 @@ func Attack(type):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy"):
-		area.get_parent().get_dmg(Weapons[Type][Dmg])
+		var MNode = Globals.GetParentWithMethod(area,"get_dmg")
+		if MNode == null:
+			return
+		MNode.get_dmg(Weapons[Type][Dmg])
 
 func _on_change_effect(value,type):
 	pass

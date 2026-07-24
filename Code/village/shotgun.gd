@@ -15,10 +15,10 @@ enum {Dmg,Cd}
 
 var Weapons = [
 	[AXE_DMG,0.125],
-	[SHOTGUN_DMG,1.5]
+	[SHOTGUN_DMG,1.75]
 ]
 
-const TIME_FLOOR := 0.5
+const TIME_FLOOR := 0.8
 
 const AXE_DMG = 1.0
 const SHOTGUN_DMG = 3.0
@@ -74,7 +74,10 @@ func Attack(type):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy"):
-		area.get_parent().get_dmg(Weapons[Type][Dmg])
+		var MNode = Globals.GetParentWithMethod(area,"get_dmg")
+		if MNode == null:
+			return
+		MNode.get_dmg(Weapons[Type][Dmg])
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enttree"):
