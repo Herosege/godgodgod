@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://qyrclyy1sn6q"]
+[gd_scene format=3 uid="uid://qyrclyy1sn6q"]
 
 [ext_resource type="Script" uid="uid://cw2xa7x3w8ssc" path="res://Code/Pause.gd" id="1_dwnix"]
 
-[node name="Pause" type="Node2D"]
+[node name="Pause" type="Node2D" unique_id=649556334 groups=["PAUSE"]]
 process_mode = 3
-process_priority = -1
-process_physics_priority = -1
+process_priority = -999
+process_physics_priority = -999
 script = ExtResource("1_dwnix")

@@ -224,7 +224,7 @@ func OnFOrbUse():
 	
 
 func OnShotgunUse(Vel):
-	velocity.y -= 100
+	velocity.y -= 250
 	if sign(-LastDir) != sign(AdditVel.x):
 		AdditVel.x = Vel * -LastDir
 	else:

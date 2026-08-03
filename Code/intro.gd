@@ -55,7 +55,7 @@ func _ready():
 	
 	$StatesOfExistence.visible = Globals.Endings[Globals.End.EndingTravel]
 	
-	$Trophies/StdEnd.visible = Globals.Endings[Globals.End.EndingStd]
+	$Trophies/StdEnd.visible = Globals.Endings[Globals.End.EndingWater]
 	$Trophies/PainEnd.visible = Globals.Endings[Globals.End.EndingPain]
 	$Trophies/PeaceEnd2.emitting = Globals.Endings[Globals.End.EndingPeace]
 	$Trophies/TravelingEnd.visible = Globals.Endings[Globals.End.EndingTravel]

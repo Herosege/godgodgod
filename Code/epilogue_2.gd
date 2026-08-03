@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("Confirm") and Activar and !Activared:
 		SignalBus.emit_signal("SetHudMessage","",0)
-		$EndingStuff.EndGame(Globals.End.EndingStd)
+		$EndingStuff.EndGame(Globals.End.EndingWater)
 		Activared = true
 
 

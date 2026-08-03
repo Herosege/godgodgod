@@ -92,13 +92,16 @@ func UpdateMusic():
 func _on_out_body_entered(body):
 	if body.is_in_group("player"):
 		$SecretStuff/ShotgunPlace/FakeLayer0.modulate.a = 1.0
+		$SecretStuff/ShotgunPlace/Label.visible = false
 
 func _on_in_body_entered(body):
 	if body.is_in_group("player"):
 		$SecretStuff/ShotgunPlace/FakeLayer0.modulate.a = 0.2
+		$SecretStuff/ShotgunPlace/Label.visible = true
 
 func RESET():
 	HandSpawned = false
+	$SecretStuff/ShotgunPlace/Label.visible = false
 	$SecretStuff/ShotgunPlace/FakeLayer0.modulate.a = 1.0
 	$Stuff/MovingStuff/AnimationPlayer.play("RESET")
 	$Stuff/MovingStuff/AnimationPlayer.play("moving")

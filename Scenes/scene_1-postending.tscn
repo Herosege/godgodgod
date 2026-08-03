@@ -330,7 +330,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_gsnnf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 20.0
 }]
@@ -392,7 +392,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dmjpi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -531,7 +531,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("65_4r77t")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
@@ -913,7 +913,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("75_t5j2n")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 7.0
 }]
@@ -974,7 +974,6 @@ position = Vector2(320, 240)
 [node name="CameraControl" parent="." unique_id=334038854 instance=ExtResource("6_248vh")]
 
 [node name="DEBUG" parent="." unique_id=1576242470 instance=ExtResource("7_v71fb")]
-visible = true
 
 [node name="Music1" type="AudioStreamPlayer" parent="." unique_id=1622023353 groups=["Audio"]]
 stream = SubResource("AudioStreamOggVorbis_qgwc8")

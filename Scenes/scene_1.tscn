@@ -220,7 +220,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_gsnnf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 20.0
 }]
@@ -242,7 +242,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_buy65")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Spin",
 "speed": 10.0
 }, {
@@ -256,7 +256,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_tmxyv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
@@ -381,7 +381,7 @@ tile_set = SubResource("TileSet_tam2o")
 metadata/_edit_lock_ = true
 
 [node name="Layer1" type="TileMapLayer" parent="." unique_id=2030395456]
-tile_map_data = PackedByteArray("AAAeAE8AAAAAAAAAAAAeAFAAAAAAAAAAAAAfAE8AAAAAAAAAAAAfAFAAAAAAAAAAAAAbAE8AAAAAAAAAAAAbAFAAAAAAAAAAAAAGAE8AAAAAAAAAAAAGAFAAAAAAAAAAAAAHAE8AAAAAAAAAAAAHAFAAAAAAAAAAAAD+/08AAAAAAAAAAAD+/1AAAAAAAAAAAAD//08AAAAAAAAAAAD//1AAAAAAAAAAAAACAE8AAAAAAAAAAAACAFAAAAAAAAAAAAADAE8AAAAAAAAAAAADAFAAAAAAAAAAAABQADkAAAAAAAAAAAAKAE8AAAAAAAAAAAALAE8AAAAAAAAAAAALAFAAAAAAAAAAAAAOAE8AAAAAAAAAAAAOAFAAAAAAAAAAAAAPAE8AAAAAAAAAAAAPAFAAAAAAAAAAAAASAE8AAAAAAAAAAAASAFAAAAAAAAAAAAATAE8AAAAAAAAAAAATAFAAAAAAAAAAAAAWAE8AAAAAAAAAAAAWAFAAAAAAAAAAAAAXAE8AAAAAAAAAAAAXAFAAAAAAAAAAAAAaAE8AAAAAAAAAAAAaAFAAAAAAAAAAAAAKAFAAAAAAAAAAAAAeAE4AAAAAAAAAAAAfAE4AAAAAAAAAAAAeAE0AAAAAAAAAAAAfAE0AAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAE8AAAAAAAAAAAAHAE8AAAAAAAAAAAD+/08AAAAAAAAAAAD//08AAAAAAAAAAAACAE8AAAAAAAAAAAADAE8AAAAAAAAAAABQADkAAAAAAAAAAAAKAE8AAAAAAAAAAAALAE8AAAAAAAAAAAAOAE8AAAAAAAAAAAAPAE8AAAAAAAAAAAASAE8AAAAAAAAAAAATAE8AAAAAAAAAAAAWAE8AAAAAAAAAAAAXAE8AAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_beaw7")
 metadata/_edit_lock_ = true
 
@@ -412,7 +412,6 @@ position = Vector2(320, 240)
 [node name="CameraControl" parent="." unique_id=207989044 instance=ExtResource("6_248vh")]
 
 [node name="DEBUG" parent="." unique_id=84809652 instance=ExtResource("7_v71fb")]
-visible = true
 
 [node name="Music1" type="AudioStreamPlayer" parent="." unique_id=1610440586 groups=["Audio"]]
 stream = SubResource("AudioStreamOggVorbis_64xv5")
@@ -1478,14 +1477,14 @@ bus = &"Music"
 position = Vector2(-2224, 320)
 type = 2
 
-[node name="CollisionShape2D" parent="idk/Area2D" index="0"]
+[node name="CollisionShape2D" parent="idk/Area2D" parent_id_path=PackedInt32Array(450179721, 49217746) index="0" unique_id=1464289130]
 position = Vector2(0, 72)
 shape = SubResource("RectangleShape2D_8q6ew")
 
-[node name="AnimatedSprite2D" parent="idk" index="1"]
+[node name="AnimatedSprite2D" parent="idk" index="1" unique_id=306753794]
 position = Vector2(0, -100)
 
-[node name="Label" parent="idk" index="2"]
+[node name="Label" parent="idk" index="2" unique_id=1946053459]
 z_index = 1
 offset_left = -330.0
 offset_top = -320.0

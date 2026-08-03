@@ -55,8 +55,8 @@ var Items = [
 	[false,false]#Weapons
 ]
 
-enum {VoidSpaghetti,Balbina}
-var BossKilled = [false,false]
+enum {VoidSpaghetti,Balbina,Horse}
+var BossKilled = [false,false,false]
 
 var EnemiesKilled = 0
 
@@ -64,7 +64,7 @@ var stoptime = true
 
 var NumTimesBeatGame : int = 0
 
-enum End {EndingStd,EndingPeace,EndingPain,EndingTravel}
+enum End {EndingWater,EndingPeace,EndingPain,EndingTravel}
 
 var Endings = [false,false,false,false]
 
@@ -249,8 +249,8 @@ func _ready():
 		#SavedPos[1] = 8
 		
 		#Temple - horse boss 
-		SavedPos[0] = Vector2(1350,-3400)
-		SavedPos[1] = 8
+		#SavedPos[0] = Vector2(1350,-3400)
+		#SavedPos[1] = 8
 
 const CAM_ZOOM = 0.05
 
@@ -287,7 +287,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
 		#TravelBack()
-		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+		#get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+		pass
 		#if CAM:
 			#if CAM.zoom == Vector2(CAM_ZOOM,CAM_ZOOM):
 				#CAM.zoom /= CAM_ZOOM

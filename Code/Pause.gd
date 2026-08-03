@@ -10,11 +10,11 @@ func _process(delta):
 		ResetStuff()
 
 func ResetStuff():
+	SignalBus.emit_signal("ResetPos")
 	await get_tree().physics_frame
 	SignalBus.emit_signal("ResetPos")
 	Globals.DisableAction = false
 	get_tree().paused = false
-	
 	if PlayerNode:
 		PlayerNode.get_node("AnimatedSprite2D").visible = true
 	

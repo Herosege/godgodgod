@@ -1,7 +1,9 @@
 extends Node
 
 enum Enums {MayorSpokenToWithHint,HorseHaluShown,FakeHallEndCutscene,LPassageOpen,RPassageOpen,
-	FTFlowerFields,FTCurseWorld,FTCollapsedBridge,FTTheGreatTower,FTTheVillage,FTTheConstruct,FTTheTempleOfHania,FTRottingFields,FTTheGreatRotting
+	FTFlowerFields,FTCurseWorld,FTCollapsedBridge,FTTheGreatTower,FTTheVillage,FTTheConstruct,FTTheTempleOfHania,FTRottingFields,
+	FTTheGreatRotting,FTFirmamentWaters,FTHouseInstance,
+	SmallHorseKilled
 	}
 
 

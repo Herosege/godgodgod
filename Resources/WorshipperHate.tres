@@ -10,7 +10,7 @@ metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_2i16j"]
 script = ExtResource("1_b1kjm")
-MStr = Array[String](["It's really refreshing, just being able to be free from the temple doctrine.", "To show our devotion, all of us worshippers contort our bodies into smallest shape we could possibly be in.", "It's an incredibly painful process and it's agonizing to remain in it, but after a while you get used to it.", "Still, getting out of that shape for the first time felt wonderful, it was an incredible relief.", "When I stopped beliving for the first time in a very long time I feel free, but I kinda miss the wonderful feeling of hope from our faith."])
+MStr = Array[String](["It's really refreshing, just being able to be free from the temple doctrine.", "To show our devotion, all of us worshippers contort our bodies into smallest shape we could possibly be in.", "It's an incredibly painful process and it's agonizing to remain in it, but after a while you get used to it.", "Still, getting out of that shape for the first time felt wonderful, it was an incredible relief."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]

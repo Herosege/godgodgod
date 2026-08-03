@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var MilkShw = $Collectibles/VBoxContainer/HBoxContainer/TextureRect
 @onready var WaterShw = $Collectibles/VBoxContainer/HBoxContainer2/WaterActivar
 
+@onready var Pause = get_tree().get_first_node_in_group("PAUSE")
+
 func _ready():
 	SignalBus.GetItem.connect(_on_get_item)
 	SignalBus.SettingChanged.connect(OnSettingsChanged)
@@ -61,3 +63,16 @@ func _on_texture_button_pressed():
 
 func OnSettingsChanged():
 	MilkShw.tooltip_text = "Mleko\nAllows you to move slowly with {0}\n(Always active)".format([Globals.KeybindList["Slowdown"][1].trim_suffix(" (Physical)")])
+
+
+func _on_water_activar_pressed():
+	if Globals.Items[Globals.Passive][Globals.Water]:
+		var POSTO = Vector2(210,365)
+		Globals.LoadScene(Globals.AreaScenes[8])
+		Globals.PosSetTravel = POSTO
+		Globals.SavedPos[0] = POSTO
+		Globals.SavedPos[1] = 8
+		Globals.MenuPaused = false
+		visible = false
+		get_tree().paused = false
+		Pause.ResetStuff()

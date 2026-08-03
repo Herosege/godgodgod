@@ -35,7 +35,7 @@ TooltipPanel/styles/panel = SubResource("StyleBoxFlat_taale")
 [sub_resource type="LabelSettings" id="LabelSettings_7e313"]
 font = ExtResource("14_hmnbg")
 font_size = 32
-outline_size = 4
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_taale"]
@@ -149,8 +149,9 @@ layout_mode = 2
 [node name="BottleActivar" type="TextureButton" parent="Collectibles/VBoxContainer/HBoxContainer" unique_id=2013196478]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-tooltip_text = "Piwo
-Your perspective of reality shifts in a weird way, it may also open a pathway to discovery"
+tooltip_text = "Piwo mocne
+(Click to toggle)
+Your perspective of reality shifts in a weird way, it may also open specific pathways"
 theme = SubResource("Theme_q7fiq")
 toggle_mode = true
 texture_normal = ExtResource("4_7fyhd")
@@ -172,11 +173,10 @@ layout_mode = 2
 
 [node name="WaterActivar" type="TextureButton" parent="Collectibles/VBoxContainer/HBoxContainer2" unique_id=1736434483]
 layout_mode = 2
-tooltip_text = "Woda
-Tastes bitter and does nothing
-\"After achieving an endpoint, the state of existence of an individual gets erased.
-But the state of the world will not be erased at that point,
-so if you find a way to regain your senses, you will be able to travel back\" "
+tooltip_text = "Woda święcona
+(Click to activate)
+It has a taste that you hate.
+Use it to teleport to the temple."
 focus_mode = 0
 theme = SubResource("Theme_q7fiq")
 texture_normal = ExtResource("11_taale")
@@ -233,4 +233,5 @@ label_settings = SubResource("LabelSettings_taale")
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="wife/Wife" to="." method="_on_wife_pressed"]
 [connection signal="pressed" from="Collectibles/VBoxContainer/HBoxContainer/BottleActivar" to="." method="_on_bottle_activar_pressed"]
+[connection signal="pressed" from="Collectibles/VBoxContainer/HBoxContainer2/WaterActivar" to="." method="_on_water_activar_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

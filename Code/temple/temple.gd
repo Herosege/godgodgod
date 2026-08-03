@@ -35,7 +35,14 @@ func _process(delta):
 		STEvents.EventArray[STEvents.Enums.FTTheTempleOfHania] = true
 		SignalBus.ShowAreaIntro.emit("The temple of Hania")
 	
+	
+	
 	if PrevRoom != PNode.CRoomPos:
+		if PNode.CRoomPos.y <= -11:
+			$Backdrop/ColorRect.color = Color.WHITE
+		else:
+			$Backdrop/ColorRect.color = Color.BLACK
+		
 		CheckMusic()
 		if MusicColl[CPlaying]:
 			if !MusicColl[CPlaying].playing:
