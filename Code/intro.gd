@@ -16,6 +16,10 @@ func _ready():
 	var TempEndings = Globals.load_game(Globals.PATH_TO_PERMASAVE,"Endings",Globals.Endings)
 	for i in TempEndings.size():
 		Globals.Endings[i] = TempEndings[i] 
+	
+	
+	STEvents.RombsGotten = Globals.load_game(Globals.PATH_TO_PERMASAVE,"RombsGotten",STEvents.RombsGotten)
+	
 	Globals.NumTimesBeatGame = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BGame",Globals.NumTimesBeatGame)
 	Globals.BestTime = Globals.load_game(Globals.PATH_TO_PERMASAVE,"BestTime",Globals.BestTime)
 	Globals.LDeaths = Globals.load_game(Globals.PATH_TO_PERMASAVE,"LDeaths",Globals.LDeaths)
@@ -92,7 +96,7 @@ func _on_texture_button_pressed():
 	Globals.NumDeaths = Globals.load_game(Globals.PATH_TO_GAMESAVE,"NumDeaths",Globals.NumDeaths)
 	Globals.RotCKilled = Globals.load_game(Globals.PATH_TO_GAMESAVE,"RotCKilled",Globals.RotCKilled)
 	STEvents.OneTimeJammers = Globals.load_game(Globals.PATH_TO_GAMESAVE,"OneTimeJammers",STEvents.OneTimeJammers)
-	STEvents.RombsGotten = Globals.load_game(Globals.PATH_TO_GAMESAVE,"RombsGotten",STEvents.RombsGotten)
+
 	Globals.TravelingBack = Globals.load_game(Globals.PATH_TO_GAMESAVE,"TravelingBack",Globals.TravelingBack)
 	
 	get_tree().change_scene_to_file(Globals.AreaScenes[Globals.SavedPos[1]])

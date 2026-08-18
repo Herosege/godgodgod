@@ -1,25 +1,28 @@
 [gd_scene format=4 uid="uid://cy6vpkeg237py"]
 
-[ext_resource type="Script" uid="uid://b2n6y6k1wwr33" path="res://Code/epilogue_2.gd" id="1_x236v"]
-[ext_resource type="PackedScene" uid="uid://dae1op8r72gbi" path="res://Scenes/debug.tscn" id="2_oq56y"]
-[ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="2_rq4m8"]
-[ext_resource type="PackedScene" uid="uid://dj6xpr0fo640s" path="res://Scenes/hud.tscn" id="3_hv7eh"]
-[ext_resource type="PackedScene" uid="uid://bkktosj0v2mhs" path="res://Scenes/village/ending_stuff.tscn" id="6_2smui"]
-[ext_resource type="Texture2D" uid="uid://cnwdwlkaayrd2" path="res://Assets/temple/OceanSand.png" id="7_4ea6h"]
-[ext_resource type="Texture2D" uid="uid://btv7ndr6vifff" path="res://Assets/tilemap_shit.png" id="7_hv7eh"]
-[ext_resource type="Texture2D" uid="uid://cpihtrt45qna8" path="res://Assets/village/water0.png" id="7_oq56y"]
-[ext_resource type="Texture2D" uid="uid://bfbicee0hh3w" path="res://Assets/temple/TILESET_TEMPLATE.png" id="9_pgqpo"]
-[ext_resource type="Texture2D" uid="uid://cp8ihcvv2msgn" path="res://Assets/village/npc_EXTRA.png" id="10_k3pu7"]
-[ext_resource type="Texture2D" uid="uid://8fjm6invn52y" path="res://Assets/temple/TILESET_Temple2.png" id="11_1cdgv"]
-[ext_resource type="AudioStream" uid="uid://b0kjk8k6bq1no" path="res://Assets/Sound/water.ogg" id="12_ei6cx"]
-[ext_resource type="Texture2D" uid="uid://cn5lnqxr62v8d" path="res://Assets/village/tilemap_village.png" id="12_hqbex"]
-[ext_resource type="Texture2D" uid="uid://cv65rdwfmsaoy" path="res://Assets/temple/doorstd.png" id="13_k3pu7"]
-[ext_resource type="Texture2D" uid="uid://cbirhokj74fm2" path="res://Assets/temple/onen_beach.png" id="14_1cdgv"]
-[ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="15_hqbex"]
-[ext_resource type="Shader" uid="uid://d38ou18nqfllj" path="res://Shaders/water.gdshader" id="16_uf5ln"]
+[ext_resource type="Script" uid="uid://b2n6y6k1wwr33" path="res://Code/epilogue_2.gd" id="1_3teww"]
+[ext_resource type="PackedScene" uid="uid://dae1op8r72gbi" path="res://Scenes/debug.tscn" id="2_d1iy2"]
+[ext_resource type="PackedScene" uid="uid://dj6xpr0fo640s" path="res://Scenes/hud.tscn" id="3_spdh5"]
+[ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="4_n876c"]
+[ext_resource type="PackedScene" uid="uid://bkktosj0v2mhs" path="res://Scenes/village/ending_stuff.tscn" id="5_htsoy"]
+[ext_resource type="Texture2D" uid="uid://bfbicee0hh3w" path="res://Assets/temple/TILESET_TEMPLATE.png" id="6_qx5f7"]
+[ext_resource type="Texture2D" uid="uid://cp8ihcvv2msgn" path="res://Assets/village/npc_EXTRA.png" id="7_oqwx4"]
+[ext_resource type="Texture2D" uid="uid://8fjm6invn52y" path="res://Assets/temple/TILESET_Temple2.png" id="8_7xfqx"]
+[ext_resource type="Texture2D" uid="uid://cn5lnqxr62v8d" path="res://Assets/village/tilemap_village.png" id="9_uumkc"]
+[ext_resource type="Texture2D" uid="uid://btv7ndr6vifff" path="res://Assets/tilemap_shit.png" id="10_nh4kv"]
+[ext_resource type="Texture2D" uid="uid://cnwdwlkaayrd2" path="res://Assets/temple/OceanSand.png" id="11_us6pf"]
+[ext_resource type="AudioStream" uid="uid://lcsls3xvnwvf" path="res://Assets/Sound/lake.mp3" id="12_8f04x"]
+[ext_resource type="Texture2D" uid="uid://cpihtrt45qna8" path="res://Assets/village/water0.png" id="13_370ui"]
+[ext_resource type="Texture2D" uid="uid://cv65rdwfmsaoy" path="res://Assets/temple/doorstd.png" id="14_tp4wt"]
+[ext_resource type="Texture2D" uid="uid://cbirhokj74fm2" path="res://Assets/temple/onen_beach.png" id="15_kdma1"]
+[ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="16_xn4gj"]
+[ext_resource type="Shader" uid="uid://d38ou18nqfllj" path="res://Shaders/water.gdshader" id="17_kfu6b"]
+[ext_resource type="Script" uid="uid://u4nerpxo0nyj" path="res://Code/temple/water_area.gd" id="18_0enwc"]
+[ext_resource type="PackedScene" uid="uid://bictivtnhttj1" path="res://Scenes/pause_menu.tscn" id="19_spdh5"]
+[ext_resource type="PackedScene" uid="uid://qyrclyy1sn6q" path="res://Scenes/pause.tscn" id="20_n876c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uf5ln"]
-texture = ExtResource("9_pgqpo")
+texture = ExtResource("6_qx5f7")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -40,7 +43,7 @@ texture = ExtResource("9_pgqpo")
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei6cx"]
-texture = ExtResource("10_k3pu7")
+texture = ExtResource("7_oqwx4")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -51,7 +54,7 @@ texture = ExtResource("10_k3pu7")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b3s3"]
-texture = ExtResource("11_1cdgv")
+texture = ExtResource("8_7xfqx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -94,7 +97,7 @@ texture = ExtResource("11_1cdgv")
 7:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_th327"]
-texture = ExtResource("12_hqbex")
+texture = ExtResource("9_uumkc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -120,12 +123,12 @@ colors = PackedColorArray(0, 0, 0, 0.627451, 0, 0, 0, 0.2509804, 0, 0, 0, 0)
 gradient = SubResource("Gradient_pgqpo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ea6h"]
-texture = ExtResource("7_hv7eh")
+texture = ExtResource("10_nh4kv")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jer1r"]
-texture = ExtResource("7_4ea6h")
+texture = ExtResource("11_us6pf")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -151,7 +154,7 @@ sources/0 = SubResource("TileSetAtlasSource_4ea6h")
 sources/1 = SubResource("TileSetAtlasSource_jer1r")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv7eh"]
-texture = ExtResource("7_oq56y")
+texture = ExtResource("13_370ui")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 6
 0:0/animation_frame_0/duration = 1.0
@@ -171,10 +174,11 @@ size = Vector2(73, 47)
 
 [sub_resource type="LabelSettings" id="LabelSettings_uf5ln"]
 line_spacing = -4.0
-font = ExtResource("15_hqbex")
+font = ExtResource("16_xn4gj")
 font_size = 18
 font_color = Color(0, 0, 0, 1)
-outline_size = 4
+outline_size = 8
+outline_color = Color(0.83, 0.83, 0.83, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ei6cx"]
 noise_type = 5
@@ -194,7 +198,7 @@ height = 128
 fill_to = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_57qmd"]
-shader = ExtResource("16_uf5ln")
+shader = ExtResource("17_kfu6b")
 shader_parameter/Texture = SubResource("GradientTexture2D_th327")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_uf5ln")
 
@@ -215,7 +219,7 @@ void fragment() {
 	vec4 Noise = texture(NoiseTexture,UV);
 	
 	float amplitude = 0.06;
-	float frequency = 15.0;
+	float frequency = 10.0;
 	float speed = 2.0
 	;
 	float wave = sin(uv.x * frequency + time * speed+uv.y*5.0) * amplitude * Noise.x;
@@ -260,10 +264,13 @@ gradient = SubResource("Gradient_ei6cx")
 height = 160
 fill_from = Vector2(1, 1)
 
-[node name="epilogue2" type="Node2D" unique_id=5493254]
-script = ExtResource("1_x236v")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(640, 80)
 
-[node name="DEBUG" parent="." unique_id=1788019269 instance=ExtResource("2_oq56y")]
+[node name="FirmamentWaters" type="Node2D" unique_id=5493254]
+script = ExtResource("1_3teww")
+
+[node name="DEBUG" parent="." unique_id=1788019269 instance=ExtResource("2_d1iy2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=401121932]
 layer = -2
@@ -276,12 +283,12 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="Hud" parent="." unique_id=480891568 instance=ExtResource("3_hv7eh")]
+[node name="Hud" parent="." unique_id=480891568 instance=ExtResource("3_spdh5")]
 
-[node name="Player" parent="." unique_id=1552177289 instance=ExtResource("2_rq4m8")]
+[node name="Player" parent="." unique_id=1552177289 instance=ExtResource("4_n876c")]
 position = Vector2(299, 132)
 
-[node name="EndingStuff" parent="." unique_id=289815747 instance=ExtResource("6_2smui")]
+[node name="EndingStuff" parent="." unique_id=289815747 instance=ExtResource("5_htsoy")]
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=2002855575]
 self_modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
@@ -332,8 +339,9 @@ tile_set = SubResource("TileSet_jer1r")
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1678898946]
-stream = ExtResource("12_ei6cx")
-volume_db = -5.0
+stream = ExtResource("12_8f04x")
+volume_db = -10.0
+pitch_scale = 0.75
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -358,13 +366,13 @@ metadata/_edit_lock_ = true
 
 [node name="Gate" type="Sprite2D" parent="Stuff" unique_id=81124675]
 position = Vector2(304, 128)
-texture = ExtResource("13_k3pu7")
+texture = ExtResource("14_tp4wt")
 
 [node name="Onen" type="Node2D" parent="Stuff" unique_id=1971469061]
 position = Vector2(427, 352)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/Onen" unique_id=2126464585]
-texture = ExtResource("14_1cdgv")
+texture = ExtResource("15_kdma1")
 
 [node name="Area2D" type="Area2D" parent="Stuff/Onen" unique_id=1763111865]
 
@@ -382,12 +390,11 @@ offset_bottom = -238.0
 text = "Hey, wanna talk?
 I've got some things on my mind.
 It's fine if you don't want to,
-but there is nothing else,
+but there is nothing else to do here,
 all that's left is to mark this as an end...
-well, at least until there will be more.
 
-So if you are ready to, give me a sign
-and you can.
+So if you are ready to stop, 
+give me a sign.
 "
 label_settings = SubResource("LabelSettings_uf5ln")
 
@@ -412,3 +419,17 @@ offset_right = 640.0
 offset_bottom = 480.0
 texture = SubResource("GradientTexture2D_yf5fn")
 metadata/_edit_lock_ = true
+
+[node name="WaterArea" type="Area2D" parent="Stuff" unique_id=560581385]
+script = ExtResource("18_0enwc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/WaterArea" unique_id=1210811711]
+position = Vector2(320, 430)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="PauseMenu" parent="." unique_id=1868492807 instance=ExtResource("19_spdh5")]
+
+[node name="Pause" parent="." unique_id=649556334 instance=ExtResource("20_n876c")]
+
+[connection signal="body_entered" from="Stuff/Onen/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Stuff/Onen/Area2D" to="." method="_on_area_2d_body_exited"]

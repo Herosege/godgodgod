@@ -15,7 +15,7 @@ void fragment() {
 	vec4 Noise = texture(NoiseTexture,UV);
 	
 	float amplitude = 0.06;
-	float frequency = 15.0;
+	float frequency = 10.0;
 	float speed = 2.0
 	;
 	float wave = sin(uv.x * frequency + time * speed+uv.y * 5.0) * amplitude * Noise.x;

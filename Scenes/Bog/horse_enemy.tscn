@@ -12,7 +12,7 @@ size = Vector2(36, 33)
 size = Vector2(60, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d4jj"]
-size = Vector2(15, 22)
+size = Vector2(39, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5n3ku"]
 radius = 101.607086
@@ -441,7 +441,7 @@ shape = SubResource("RectangleShape2D_5n3ku")
 [node name="Area2D_TakeDamage" type="Area2D" parent="." unique_id=2045787157]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_TakeDamage" unique_id=846959988]
-position = Vector2(-3.5, 6)
+position = Vector2(-4.5, 1.5)
 shape = SubResource("RectangleShape2D_0d4jj")
 
 [node name="RayCasts" type="Node2D" parent="." unique_id=399935327]

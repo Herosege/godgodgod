@@ -5,15 +5,13 @@
 
 [sub_resource type="Resource" id="Resource_xsf5u"]
 script = ExtResource("1_xsf5u")
-MStr = Array[String](["These orbs with their awful bleeding glares 
-hate you
-", "They block any dark energy in an area
-and guess what your shotgun is using as ammo", "The good thing is that most of them can be killed and the red variant doesn't reappear when slain"])
+MStr = Array[String](["Welcome to the temple of our wonderful God.", "If you are here for your pilgrimage, accept the pain from throwing yourself at the obstacles laid before you.", "With enough pain, you may become ever closer to enlightenment, so you may be accepted by our God Hania to be the sun guardian."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_riupx"]
 script = ExtResource("1_xsf5u")
-MStr = Array[String](["We don't know what any of these eyes are, or what they were made for, but we don't need to", "Because we trust in our wonderful Great God Hania's vision of reality "])
+MStr = Array[String](["Okay, since you are a new here, I will give you a hint for the start.", "These red orbs with bleeding glares will block your dark energy when you percieve them.
+And that makes you unable to use firearms.", "Well, that is unless you kill these orbs and once you do, most of them don't reappear for you again."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]

@@ -4,13 +4,10 @@ extends Node2D
 
 @onready var MusicColl = [null,$Music,$Music2,$Music3,$Music4]
 
-@onready var OTimer = $Houses/Village/Buildings/HorseTemple/OpenTimer
-
 var CPlaying : int
 
 func _ready():
-	await get_tree()
-	OTimer.connect("timeout",OnOpenTimerTimeout)
+	await get_tree().physics_frame
 	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false and STEvents.EventArray[STEvents.Enums.MayorSpokenToWithHint] == true:
 		$Houses/Village/Stuff/HorseHalucination.visible = true
 	Globals.CArea = 2
@@ -122,8 +119,6 @@ func GetInDial(State,Type,Early):
 func _on_onen_coll_body_entered(body):
 	if body.is_in_group("player"):
 		$Houses/Village/OnenBTower/Label.visible = true
-		if OTimer.is_stopped():
-			OTimer.start()
 
 func _on_onen_coll_body_exited(body):
 	if body.is_in_group("player"):
@@ -136,12 +131,12 @@ func _on_fh_pass_body_entered(body):
 
 var HTempOpen = preload("res://Assets/village/HorseTemple_open.png")
 
-func OnOpenTimerTimeout():
-	$Houses/Village/Buildings/HorseTemple/HTemple.texture = HTempOpen
-	$Houses/Village/Buildings/HorseTemple/HTempleTele.position = Vector2(-3000,-6350)
+#func OnOpenTimerTimeout():
+	#$Houses/Village/Buildings/HorseTemple/HTemple.texture = HTempOpen
+	#$Houses/Village/Buildings/HorseTemple/HTempleTele.position = Vector2(-3000,-6350)
 
-func _on_h_temple_tele_body_entered(body):
-	Globals.LoadScene("res://Scenes/village/abba.tscn")
+#func _on_h_temple_tele_body_entered(body):
+	#Globals.LoadScene("res://Scenes/village/abba.tscn")
 
 var ExAwaitInp = false
 

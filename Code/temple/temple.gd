@@ -38,7 +38,7 @@ func _process(delta):
 	
 	
 	if PrevRoom != PNode.CRoomPos:
-		if PNode.CRoomPos.y <= -11:
+		if PNode.CRoomPos.y <= -10 and PNode.CRoomPos.y > -14:
 			$Backdrop/ColorRect.color = Color.WHITE
 		else:
 			$Backdrop/ColorRect.color = Color.BLACK

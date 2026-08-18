@@ -23,6 +23,8 @@ var JumpAmount = 1
 @onready var JGrav = -(-2.0 * JumpStr) / pow(TimePeak,2)
 @onready var FGrav = -(-2.0 * JumpStr) / pow(TimeFall,2)
 
+var GravMultiplier  := 1.0
+
 var VertSpeed = 200
 var AddVel : Vector2
 
@@ -57,6 +59,7 @@ func _ready():
 	CRoomPos.y = floor(global_position.y / VPort.y)
 
 func _physics_process(delta):
+	print(CRoomPos)
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
@@ -64,9 +67,9 @@ func _physics_process(delta):
 		AddVel = AddVel.lerp(Vector2(0,0),0.1)
 	
 	if !ReduceGravity:
-		velocity.y += GetGravity() * delta
+		velocity.y += GetGravity() * delta * GravMultiplier
 	else:
-		velocity.y += GetGravity() * delta * ((RedGravTimer.wait_time - RedGravTimer.time_left)/RedGravTimer.wait_time)
+		velocity.y += GetGravity() * delta * ((RedGravTimer.wait_time - RedGravTimer.time_left)/RedGravTimer.wait_time) * GravMultiplier
 	
 	
 	CheckInputs()
@@ -224,7 +227,7 @@ func OnFOrbUse():
 	
 
 func OnShotgunUse(Vel):
-	velocity.y -= 250
+	velocity.y -= 200
 	if sign(-LastDir) != sign(AdditVel.x):
 		AdditVel.x = Vel * -LastDir
 	else:

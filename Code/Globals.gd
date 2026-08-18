@@ -1,7 +1,7 @@
 extends Node
 
-const PATH_TO_PERMASAVE = "user://perma_v2.save"
-const PATH_TO_GAMESAVE = "user://dinomemories_v2.save"
+const PATH_TO_PERMASAVE = "user://perma_v3.save"
+const PATH_TO_GAMESAVE = "user://dinomemories_v3.save"
 const PATH_TO_CONFSAVE = "user://config.conf"
 
 
@@ -315,7 +315,7 @@ func SaveData(type):
 			"RotCKilled":RotCKilled,
 			"EventArray":STEvents.EventArray,
 			"OneTimeJammers":STEvents.OneTimeJammers,
-			"RombsGotten":STEvents.RombsGotten,
+			
 			"TravelingBack":TravelingBack
 		})
 	if type == 666:
@@ -342,7 +342,8 @@ func SavePerma():
 		"BGame":NumTimesBeatGame,
 		"BestTime":BestTime,
 		"LDeaths":LDeaths,
-		"ExStatesRecords":ExStatesRecords
+		"ExStatesRecords":ExStatesRecords,
+		"RombsGotten":STEvents.RombsGotten
 	})
 
 func load_game(file,DataName,def):
@@ -414,7 +415,7 @@ func GetParentWithMethod(NNode:Node,MethodName:String):
 var SEVol = 60.0
 var MVol = 40.0
 
-var TimerOn = false
+var TimerOn := false
 
 var KeybindList = {}
 

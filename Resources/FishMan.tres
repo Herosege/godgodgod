@@ -5,20 +5,27 @@
 
 [sub_resource type="Resource" id="Resource_3gvs5"]
 script = ExtResource("1_3gvs5")
-MStr = Array[String](["Dang, I been sitting here for hours and only catched a measly grapefish!", "I gotta say, the west side has way better catches", "...Oh, good day to you", "Are you planning to jump off to the east here?", "Well I don't think it's a really good idea", "Through the clouds I've seen some weird floating hands moving at huge speeds there"])
-metadata/_custom_type_script = "uid://chbub80dwb52e"
-
-[sub_resource type="Resource" id="Resource_bknqj"]
-script = ExtResource("1_3gvs5")
-MStr = Array[String](["Anyway, are you looking for something?", "There is a huge hole in the ground below, that's where a lot of things go"])
+MStr = Array[String](["...Oh, good day to you.
+Are looking for something?", "Well, the expression on your face tells me you're full of sin and agony, so you're probably looking for the way to the temple, right?", "Unfortunately for you, when the horse attacked our village, it also broke the entrance to the temple and don't ask me how is that even possible.", "But do not worry, there is another way.
+Far to the east, there is the holy fountain, it shall grant you the passage.", "Though I saw some strange things floating above the ground on the path there, so maybe you should find another way down there."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_gxx8i"]
 script = ExtResource("1_3gvs5")
-MStr = Array[String](["Fishing is really the greatest thing there is, maybe you can join me?", "I don't have a spare fishing pole but you can stay here, some company is always welcomed"])
+MStr = Array[String](["Some time ago the horse attacked our village and I was able to scare it off by attacking it with my fishing rod.", "Unfortunately the horse killed three of our people, but I will be honest, I am glad they are finally able to rest.", "The pain of life has been weighting down on all of us and it was and it still is getting worse day by day.", "I am able to endure it, but many others could not and I've seen their suffering, their fear and their desperate prayers.", "But nobody who could meaningfully help them ever heard their pleads and so all of their hope was eradicated."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_bknqj"]
+script = ExtResource("1_3gvs5")
+MStr = Array[String](["Death is a scary thing, but I think it's not entirely bad. We often run away from it just for the sake of prolonging our existence, but accepting it is in some cases the best choice.", "Though, it's not easy."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_oh5jq"]
+script = ExtResource("1_3gvs5")
+MStr = Array[String](["Well, good luck in your journey to the temple. May you find the thing you were looking for."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_bknqj")
-TextArr = Array[ExtResource("1_3gvs5")]([SubResource("Resource_3gvs5"), SubResource("Resource_bknqj"), SubResource("Resource_gxx8i")])
+TextArr = Array[ExtResource("1_3gvs5")]([SubResource("Resource_3gvs5"), SubResource("Resource_gxx8i"), SubResource("Resource_bknqj"), SubResource("Resource_oh5jq")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

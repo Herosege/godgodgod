@@ -2,13 +2,30 @@
 
 [ext_resource type="Script" uid="uid://cfns56hw8ly2i" path="res://Code/village/ending_stuff.gd" id="1_67hbp"]
 
+[sub_resource type="SystemFont" id="SystemFont_0b3s3"]
+font_names = PackedStringArray("Cambria")
+
 [sub_resource type="LabelSettings" id="LabelSettings_v0ulv"]
+font = SubResource("SystemFont_0b3s3")
 font_size = 38
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_oyly5"]
-font_size = 18
+[sub_resource type="SystemFont" id="SystemFont_67hbp"]
+font_names = PackedStringArray("Cambria")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1a6p0"]
+font = SubResource("SystemFont_67hbp")
+font_size = 24
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_d5uwf"]
+font_names = PackedStringArray("Cambria")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0sa1d"]
+font = SubResource("SystemFont_d5uwf")
+font_size = 24
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
@@ -46,7 +63,7 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "12"
-label_settings = SubResource("LabelSettings_oyly5")
+label_settings = SubResource("LabelSettings_1a6p0")
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="." unique_id=2145233612]
@@ -63,5 +80,5 @@ offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "12"
-label_settings = SubResource("LabelSettings_oyly5")
+label_settings = SubResource("LabelSettings_0sa1d")
 horizontal_alignment = 1

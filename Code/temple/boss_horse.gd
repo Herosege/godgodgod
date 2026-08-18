@@ -19,7 +19,7 @@ extends Node2D
 
 @onready var PassBlock = $BlockPassage
 
-const BASE_HEALTH := 33.0
+const BASE_HEALTH := 27.0
 
 enum Att {AttackWalk,AttackMid,AttackSideCover,AttackCrossInit,AttackCross}
 #,AttackCross
@@ -87,7 +87,7 @@ const ATTSCOVER_BALL_DISTANCE : float = 320/ATTSCOVER_BALL_INIT_LAUNCH
 
 const ATTCROSS_INIT_TIME := 3.5
 
-const ATTCROSS_TIME := 2.15
+const ATTCROSS_TIME := 2.3
 const ATTCROSS_SUBTIME := 0.6
 
 const ATTCROSS_BALL_VELOCITY := 500.0
@@ -404,12 +404,14 @@ func KILLHORSE():
 	Globals.BossKilled[Globals.Horse] = true
 	$BossMusic.stop()
 	Anim.play("RESET")
-	Anim.play("die")
 	AnimPos.play("RESET")
 	$HorseDeath.play("HorseDeath")
 	HorsePivot.position = Vector2.ZERO
 	for i in $Bullets.get_children():
 		i.queue_free()
+	
+	await get_tree().physics_frame
+	Anim.play("die")
 
 func AfterHorseKill():
 	queue_free()
