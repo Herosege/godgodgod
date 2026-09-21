@@ -8,13 +8,15 @@ extends Control
 
 
 var CoolMsg = [
-	"There are secrets all around you",
-	"The sun is shining",
-	"Reality is subjective",
-	"Hania is always watching",
-	"Horses are weak in this world",
-	"Flowers are hateful",
-	"Your mind is a beautiful world"
+	"The sun is watching",
+	"All is vanity",
+	"The world is a wonderful place",
+	"Horses are dangerous",
+	"Flowers are stingy",
+	"Your mind is a beautiful world",
+	"Think about light",
+	"You are in the present",
+	"What if it's all meaningless?"
 ]
 
 func _ready():

@@ -5,16 +5,28 @@
 
 [sub_resource type="Resource" id="Resource_05obh"]
 script = ExtResource("1_05obh")
-MStr = Array[String](["Today is not really a good day... don't you think?", "I knew this would come to be, but I never thought that it would happen so soon and to this degree.", "The sun was specifically made by our god to make sure this would never happen again.", "But... well, I guess we aren't safe from rotting after all, that is...", "Well, before the sun was build, I accepted that this would happen to me, but now after all this time, after learning so much sbout the world and meeting many people, I am just terrified of it.", "It's inconceivable how I was even able to put up with this, that knowledge of impending doom, it's awful, absolutely terrible!"])
+MStr = Array[String](["Today is not really a good day... don't you think?", "I knew this would come to be, but I never thought that it would happen so soon and to this degree.", "The sun was specifically made by our god to make sure this would never happen again.", "But... well, I guess we aren't safe from rotting after all, that is...", "Well, before the sun was build, I accepted that this would happen to me, but now after all this time, after learning so much about the world and meeting many people, I am just terrified of it.", "It's inconceivable how I was even able to put up with this, that knowledge of impending doom, it's awful, absolutely terrible."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_cx217"]
 script = ExtResource("1_05obh")
-MStr = Array[String](["So... now we will all have to endure all this and accept our deaths once again. If we succed, our fate may be a peaceful one.", "The road of acceptance is not an easy one, but there is also an another way, a way worse one,
-losing all hope and will to exist.", "Both paths strive to make our end a one that does not continue after, but getting rid of your hope and will is not a pleasant experience.", ""])
+MStr = Array[String](["So... now we will all have to endure all this and accept our eventual rotting once again.", "But... there is also an another way, a one which prevents you from continuing onwards after your death.", "Though I would argue it's even worse that the other one, that is because you have to get rid of all your hope and will to live.", "Though I wouldn't wish it for anyone to experience it, I've seen people go through it and they suffer so much and you can't help them at all.", "Eventually they lose all that made them the person you once knew,
+all that once defined them and ultimately they stop doing anything.", "When they are at that state, when they die nothing remains, they never come back."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_83vg2"]
+script = ExtResource("1_05obh")
+MStr = Array[String](["Because of the sun, the constant pain we've been subject to has been especially awful for some of us way less tolerant to it and you might imagine how they ended up.", "All I can say is that there is way less of us now and only the strongest of us remain now.", "You know, I had a lot of friends and I loved them all very much. 
+But now I'm alone.", "Life really does suck, but there is still hope, if we find Hania, we could maybe talk to them and maybe they can do something, anything to make this better."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_d5wm4"]
+script = ExtResource("1_05obh")
+MStr = Array[String](["Thanks for listening to me.
+Othenson, I hope you're doing well. Stay strong, don't lose hope and maybe we can all live through this."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_cx217")
-TextArr = Array[ExtResource("1_05obh")]([SubResource("Resource_05obh"), SubResource("Resource_cx217")])
+TextArr = Array[ExtResource("1_05obh")]([SubResource("Resource_05obh"), SubResource("Resource_cx217"), SubResource("Resource_83vg2"), SubResource("Resource_d5wm4")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

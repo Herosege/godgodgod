@@ -15,9 +15,9 @@ script = ExtResource("1_3gvs5")
 MStr = Array[String](["Some time ago the horse attacked our village and I was able to scare it off by attacking it with my fishing rod.", "Unfortunately the horse killed three of our people, but I will be honest, I am glad they are finally able to rest.", "The pain of life has been weighting down on all of us and it was and it still is getting worse day by day.", "I am able to endure it, but many others could not and I've seen their suffering, their fear and their desperate prayers.", "But nobody who could meaningfully help them ever heard their pleads and so all of their hope was eradicated."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
-[sub_resource type="Resource" id="Resource_bknqj"]
+[sub_resource type="Resource" id="Resource_uyd5e"]
 script = ExtResource("1_3gvs5")
-MStr = Array[String](["Death is a scary thing, but I think it's not entirely bad. We often run away from it just for the sake of prolonging our existence, but accepting it is in some cases the best choice.", "Though, it's not easy."])
+MStr = Array[String](["There were way more people in the village back in the day, but they're all gone now.", "We couldn't even make graves for most of them, because our god forbid us to make memorials for those who took their lives and never came back.", "And trust me, we didn't respect these idiotic burial rules made by our god, but when they discovered that we weren't following them, they destroyed all the graves and we were harshly punished.", "But the three that died because of the horse, could have graves made for them and so they are the only ones that have them now."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_oh5jq"]
@@ -27,5 +27,5 @@ metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_bknqj")
-TextArr = Array[ExtResource("1_3gvs5")]([SubResource("Resource_3gvs5"), SubResource("Resource_gxx8i"), SubResource("Resource_bknqj"), SubResource("Resource_oh5jq")])
+TextArr = Array[ExtResource("1_3gvs5")]([SubResource("Resource_3gvs5"), SubResource("Resource_gxx8i"), SubResource("Resource_uyd5e"), SubResource("Resource_oh5jq")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

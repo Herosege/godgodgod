@@ -4,7 +4,13 @@ extends CanvasLayer
 
 @onready var SoundEffects = {Globals.SEID.RombGet:$SoundEffects/Romb}
 
+@onready var ExBoxLabel = $ExtraBox/Panel/MarginContainer/Label
+@onready var ExTextLabel = $ExTextUp/Label
+
 func _ready():
+	$ExtraBox.visible = false
+	$ExTextUp.visible = false
+	
 	if Globals.KeybindList:
 		$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1]])
 	SignalBus.SettingChanged.connect(OnSettingChange)
@@ -18,6 +24,8 @@ func _ready():
 	SignalBus.SettingChanged.connect(OnSettingChanged)
 	SignalBus.PlaySoundEffect.connect(PlaySoundEffect)
 	SignalBus.ShowAreaIntro.connect(ShowAreaIntro)
+	SignalBus.HudSignShow.connect(HudSignShow)
+	SignalBus.ExTextShow.connect(ExTextShow)
 
 func _process(delta):
 	if Globals.TimerOn:
@@ -61,7 +69,7 @@ func _on_Save(type):
 	$SavedAnim.play("Saved")
 
 func OnSettingChanged():
-	$DeadHint.text = "press {0} to restart".format([Globals.KeybindList["ResetInp"][1]])
+	$DeadHint.text = "press {0} to try again".format([Globals.KeybindList["ResetInp"][1]])
 
 func PlaySoundEffect(SoundID):
 	SoundEffects[SoundID].play()
@@ -73,3 +81,11 @@ func ShowAreaIntro(text,color=Color.WHITE):
 
 func _on_message_timer_timeout():
 	$Message.text = ""
+
+func HudSignShow(Text:String):
+	ExBoxLabel.text = Text
+	$ExtraBox.visible = not Text.is_empty()
+
+func ExTextShow(Text:String):
+	ExTextLabel.text = Text
+	$ExTextUp.visible = not Text.is_empty()

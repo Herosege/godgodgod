@@ -31,6 +31,7 @@ driver/output_latency.web=100
 
 [autoload]
 
+DebugCode="*uid://c3r3sqrjkfy3f"
 SignalBus="*res://Code/SignalBus.gd"
 Globals="*res://Code/Globals.gd"
 STEvents="*res://Code/SingleTimeEvents.gd"
@@ -48,6 +49,17 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "blue",
+"res://Code/": "red",
+"res://Misc/": "orange",
+"res://Resources/": "pink",
+"res://Scenes/": "purple",
+"res://Shaders/": "yellow"
+}
 
 [global_group]
 

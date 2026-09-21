@@ -14,6 +14,8 @@ func _ready():
 	CheckMusic()
 	UpdateMusic()
 	SignalBus.GetInDial.connect(GetInDial)
+	
+	
 
 var PrevRoom : Vector2
 
@@ -25,6 +27,14 @@ func _process(delta):
 	if PNode.CRoomPos == Vector2(1,-2) and !STEvents.EventArray[STEvents.Enums.FTTheGreatTower]:
 		STEvents.EventArray[STEvents.Enums.FTTheGreatTower] = true
 		SignalBus.ShowAreaIntro.emit("The great tower")
+		
+	if PNode.CRoomPos == Vector2(1,-13) and !STEvents.EventArray[STEvents.Enums.FTTheVillage]:
+		STEvents.EventArray[STEvents.Enums.FTTheVillage] = true
+		SignalBus.ShowAreaIntro.emit("The village")
+	
+	if PNode.position.y > 2864.0:
+		Globals.LoadScene("res://Scenes/village/fake_hall.tscn")
+		Globals.PosSetTravel = Vector2(PNode.global_position.x-640*7,-420)
 	
 	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false:
 		if PNode.position.x < 640 and PNode.position.x > 0 and PNode.position.y < -5800:
@@ -73,9 +83,9 @@ func CheckMusic():
 	if PNode.CRoomPos.y >= 4 and PNode.CRoomPos.x < 13:
 		CPlaying = 3
 		return
-	if PNode.CRoomPos.x >= 13:
-		CPlaying = 4
-		return
+	#if PNode.CRoomPos.x >= 13:
+		#CPlaying = 4
+		#return
 	if CPlaying:
 		CPlaying = 0
 		return

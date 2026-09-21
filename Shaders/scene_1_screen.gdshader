@@ -9,9 +9,9 @@ void fragment() {
 		vec2 uv = SCREEN_UV;
 		float time = TIME;
 
-		float amplitude = 0.03;
-		float frequency = 18.0;
-		float speed = 1.5;
+		float amplitude = 0.012;
+		float frequency = 12.0;
+		float speed = 0.7;
 		float wave = sin(uv.x * frequency + time * speed) * amplitude;
 
 		vec2 displaced_uv = vec2(uv.x, uv.y + wave);

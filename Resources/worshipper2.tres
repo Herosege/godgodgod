@@ -5,10 +5,15 @@
 
 [sub_resource type="Resource" id="Resource_hk4x4"]
 script = ExtResource("1_hk4x4")
-MStr = Array[String](["Hania created us all as painfully imperfect reflection of themself, for gods cannot create something equal or greater tham themselves", "Hania knew that and so they build the sun, the wonderful shining point in the sky, as a way to make us closer to their image", "The sun radiates energy to every part of this world. even if it doesn't seem that way and it makes us happy"])
+MStr = Array[String](["Hania's last gift to us was the sun, a point in the sky that made us immortal, at the cost of it radiating a lot of suffering onto us.", "We thought that the constant pain that made our lives so much harder, the unbearable pain that sometimes made us unable to do anything at all, was a drawback to the gift of eternal life.", "But after a lot of time, we finally understood that this pain is an another gift from Hania, it's a way for us to become closer to them, a way to become a god.", "They've not said it directly, but I belive it's what they wanted us to understand, since all they've ever done is help us.", "Sometime ago they left us to ourselves and never came back. I am sure Hania trusted us, that we would understand what our suffering will lead to.", "And so all of us worshippers try to amplify our pain, so that we might one day ascend beyond to godhood and meet Hania once again to thank them for all they've done for us."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_rv385"]
+script = ExtResource("1_hk4x4")
+MStr = Array[String](["All we can so now is endure it and stay in faith, one day all will be paid off and we will all meet again, full of relief and happiness."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_rv385")
-TextArr = Array[ExtResource("1_hk4x4")]([SubResource("Resource_hk4x4")])
+TextArr = Array[ExtResource("1_hk4x4")]([SubResource("Resource_hk4x4"), SubResource("Resource_rv385")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

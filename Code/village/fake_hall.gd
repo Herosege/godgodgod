@@ -25,6 +25,12 @@ func _process(delta):
 	if PNode.CRoomPos == Vector2(0,0) and !STEvents.EventArray[STEvents.Enums.FTTheConstruct]:
 		STEvents.EventArray[STEvents.Enums.FTTheConstruct] = true
 		SignalBus.ShowAreaIntro.emit("The construct")
+	
+	if PNode.position.y < -479.0:
+		Globals.LoadScene("res://Scenes/village_1.tscn")
+		Globals.PosSetTravel = Vector2(11662.0,2848.0)
+	
+	
 	if PrevRoom != PNode.CRoomPos:
 		CheckMusic()
 		if MusicColl[CPlaying]:

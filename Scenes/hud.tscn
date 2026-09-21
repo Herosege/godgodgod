@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://8acg3hkm7arx" path="res://Assets/Interface/ShotgunTimer.png" id="3_bjfho"]
 [ext_resource type="AudioStream" uid="uid://cpvfieeaucy1g" path="res://Assets/Sound/romb.ogg" id="4_6fbih"]
 [ext_resource type="FontFile" uid="uid://bqi3u7i2qf1og" path="res://Assets/fonts/Castellar Regular.ttf" id="5_t1xeu"]
+[ext_resource type="FontFile" uid="uid://m4vpe2dflp8s" path="res://Assets/fonts/Lora-VariableFont_wght.ttf" id="6_36asn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_miau3"]
 font_size = 20
@@ -175,6 +176,33 @@ _data = {
 &"show": SubResource("Animation_36asn")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43w4t"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_36asn"]
+line_spacing = 2.0
+font = ExtResource("6_36asn")
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_36asn"]
+offsets = PackedFloat32Array(0, 0.525, 0.9861111)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_36asn"]
+gradient = SubResource("Gradient_36asn")
+width = 300
+height = 40
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7gr8i"]
+font = ExtResource("6_36asn")
+font_size = 24
+
 [node name="Hud" type="CanvasLayer" unique_id=946866656 groups=["RESET"]]
 process_mode = 3
 script = ExtResource("1_doaym")
@@ -323,6 +351,69 @@ horizontal_alignment = 1
 [node name="AreaIntro" type="AnimationPlayer" parent="." unique_id=951856711]
 process_mode = 3
 libraries/ = SubResource("AnimationLibrary_8jye8")
+
+[node name="ExtraBox" type="MarginContainer" parent="." unique_id=2060997285]
+visible = false
+anchors_preset = -1
+anchor_top = 0.667
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.160034
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="ExtraBox" unique_id=972897213]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_43w4t")
+
+[node name="MarginContainer" type="MarginContainer" parent="ExtraBox/Panel" unique_id=1553662799]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="ExtraBox/Panel/MarginContainer" unique_id=2092660950]
+custom_minimum_size = Vector2(602, 0)
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_36asn")
+autowrap_mode = 3
+
+[node name="ExTextUp" type="TextureRect" parent="." unique_id=1242700505]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -32.0
+offset_right = 320.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_36asn")
+
+[node name="Label" type="Label" parent="ExTextUp" unique_id=1080842864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_7gr8i")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Message/MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="value_changed" from="ShotGunTimer" to="." method="_on_shot_gun_timer_value_changed"]

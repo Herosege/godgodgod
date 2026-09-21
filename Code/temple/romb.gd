@@ -6,7 +6,7 @@ var ID : String
 
 func _enter_tree():
 	ID = get_path()
-	if STEvents.OneTimeJammers.has(ID):
+	if STEvents.RombsGotten.has(ID):
 		queue_free()
 
 func _on_body_entered(body):
@@ -15,5 +15,5 @@ func _on_body_entered(body):
 		Globals.Rombs = STEvents.RombsGotten.size()
 		SignalBus.PlaySoundEffect.emit(Globals.SEID.RombGet)
 		SignalBus.SetHudMessage.emit("ROMB FOUND\n"+Message,1,5.0)
-		
+		Globals.SavePerma()
 		queue_free()

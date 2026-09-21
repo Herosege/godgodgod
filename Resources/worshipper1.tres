@@ -5,13 +5,12 @@
 
 [sub_resource type="Resource" id="Resource_l8lcb"]
 script = ExtResource("1_l8lcb")
-MStr = Array[String](["The wonderous eyes that focus on you
-shall bless you with dark energy renewing your weaponry", "Our Great God Hania blessed us with wonderful objects of grand power such as these", "Though their placement in this world is rather unusual..."])
+MStr = Array[String](["When creating us, our Great God Hania blessed us with the gift of free thought, creativity and rational thinking. We made wonderful creations, such as these purple eye devices.", "They are used to store dark energy, so breaking them will replenish your firearm's ammunition."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_glp0s"]
 script = ExtResource("1_l8lcb")
-MStr = Array[String](["Praise The Great God Hania, for they created us and keep us safe from ourselves"])
+MStr = Array[String](["Praise The Great God Hania."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]

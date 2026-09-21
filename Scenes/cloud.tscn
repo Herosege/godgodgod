@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjo3tyrcnwg8"]
+[gd_scene format=3 uid="uid://bjo3tyrcnwg8"]
 
 [ext_resource type="Script" uid="uid://duq3nwm8px1pm" path="res://Code/Cloud.gd" id="1_idrcn"]
 [ext_resource type="Texture2D" uid="uid://dntco8bqge61y" path="res://Assets/Cloud1.png" id="2_8we18"]
@@ -14,7 +14,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_pbxyo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"angry",
 "speed": 5.0
 }, {
@@ -25,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_c5veu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -33,20 +33,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7nxa"]
 size = Vector2(88, 18)
 
-[node name="Cloud" type="StaticBody2D"]
+[node name="Cloud" type="StaticBody2D" unique_id=201949309]
 position = Vector2(94, 60)
 script = ExtResource("1_idrcn")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=16248676]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1759529602]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_60x7f")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1601800562]
 sprite_frames = SubResource("SpriteFrames_wd8hy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=293809186]
 position = Vector2(-2, 13)
 shape = SubResource("RectangleShape2D_d7nxa")
 

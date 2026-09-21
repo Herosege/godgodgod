@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://cfikvtg0sekwm"]
+
+[ext_resource type="Texture2D" uid="uid://dkdlloxrmq41g" path="res://Assets/Achievements/ach_deathrun.png" id="1_fhej8"]
+[ext_resource type="Script" uid="uid://c4v387sglca2h" path="res://Code/temple/achievement.gd" id="1_w8at8"]
+
+[resource]
+script = ExtResource("1_w8at8")
+Name = "Beat the game with 0 deaths"
+Description = "The natural weight of death stopped having meaning to me, the pain stopped mattering and when I died, I just felt frustrated, nothing more.
+But achieving the perfection was an incredible moment, the feeling of all your suffering culminating in this exact moment."
+AchImage = ExtResource("1_fhej8")
+metadata/_custom_type_script = "uid://c4v387sglca2h"

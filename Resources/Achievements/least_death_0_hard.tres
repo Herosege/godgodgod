@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://d0fd2l7wi021p"]
+
+[ext_resource type="Script" uid="uid://c4v387sglca2h" path="res://Code/temple/achievement.gd" id="1_w838s"]
+
+[resource]
+script = ExtResource("1_w838s")
+Name = "Beat the great rotting with 0 deaths"
+Description = "I mastered it all.
+Nothing can stop me now.
+I am god."
+metadata/_custom_type_script = "uid://c4v387sglca2h"

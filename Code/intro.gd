@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	
+	Globals.SavedPos[1] = -1
 	$AudioStreamPlayer.pitch_scale = 0.3
 	$AudioStreamPlayer.play()
 	Globals.stoptime = true
@@ -17,6 +17,9 @@ func _ready():
 	for i in TempEndings.size():
 		Globals.Endings[i] = TempEndings[i] 
 	
+	var TempAchiev = Globals.load_game(Globals.PATH_TO_PERMASAVE,"Achievements",STEvents.Achiev_complete)
+	for i in TempAchiev.size():
+		STEvents.Achievements[i].Achieved = TempAchiev[i]
 	
 	STEvents.RombsGotten = Globals.load_game(Globals.PATH_TO_PERMASAVE,"RombsGotten",STEvents.RombsGotten)
 	
@@ -58,11 +61,6 @@ func _ready():
 		$Says/Label.text = "I can beat the game with\nonly " + str(int(Globals.LDeaths)) + " deaths!!!" if Globals.LDeaths > 0 else "I am the one true GOD!"
 	
 	$StatesOfExistence.visible = Globals.Endings[Globals.End.EndingTravel]
-	
-	$Trophies/StdEnd.visible = Globals.Endings[Globals.End.EndingWater]
-	$Trophies/PainEnd.visible = Globals.Endings[Globals.End.EndingPain]
-	$Trophies/PeaceEnd2.emitting = Globals.Endings[Globals.End.EndingPeace]
-	$Trophies/TravelingEnd.visible = Globals.Endings[Globals.End.EndingTravel]
 
 var DelSaveCount = 0
 

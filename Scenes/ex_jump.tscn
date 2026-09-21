@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdo52cggixso6"]
+[gd_scene format=3 uid="uid://bdo52cggixso6"]
 
 [ext_resource type="Texture2D" uid="uid://clxir35e0pi6l" path="res://Assets/balljump.png" id="1_qqju3"]
 [ext_resource type="Script" uid="uid://f5yk6x25molv" path="res://Code/ex_jump.gd" id="1_s6ewa"]
@@ -20,26 +20,27 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_71lj2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
 
-[node name="ExJump" type="Area2D" groups=["RESET"]]
+[node name="ExJump" type="Area2D" unique_id=928888055 groups=["RESET"]]
 script = ExtResource("1_s6ewa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1802038999]
 shape = SubResource("CircleShape2D_nd0rn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=765486748]
 sprite_frames = SubResource("SpriteFrames_ki3u6")
 autoplay = "default"
 frame = 2
 frame_progress = 0.514213
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=200195232]
 wait_time = 3.2
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

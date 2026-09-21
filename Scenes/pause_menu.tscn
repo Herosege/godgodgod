@@ -151,7 +151,8 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 tooltip_text = "Piwo mocne
 (Click to toggle)
-Your perspective of reality shifts in a weird way, it may also open specific pathways"
+Your perspective of reality shifts in a weird way,
+it may also open specific pathways and it protects you from clouds."
 theme = SubResource("Theme_q7fiq")
 toggle_mode = true
 texture_normal = ExtResource("4_7fyhd")
@@ -161,6 +162,7 @@ texture_pressed = ExtResource("6_uu4f6")
 layout_mode = 2
 tooltip_text = "Mleko
 Allows you to move slowly with ctrl
+on ground and along walls.
 (Always active)"
 focus_mode = 2
 mouse_filter = 0

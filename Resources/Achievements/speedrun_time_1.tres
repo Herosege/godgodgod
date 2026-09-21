@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://vge8bmc1qi7i"]
+
+[ext_resource type="Script" uid="uid://c4v387sglca2h" path="res://Code/temple/achievement.gd" id="1_4ibrq"]
+[ext_resource type="Texture2D" uid="uid://cv2xgnngvnm55" path="res://Assets/Achievements/ach_speedrun_low.png" id="1_scg1n"]
+
+[resource]
+script = ExtResource("1_4ibrq")
+Name = "Beat the game in under 25 minutes"
+Description = "In these repetitions, I ask myself: How fast can I reach an end?
+Well, let's find out."
+AchImage = ExtResource("1_scg1n")
+metadata/_custom_type_script = "uid://c4v387sglca2h"

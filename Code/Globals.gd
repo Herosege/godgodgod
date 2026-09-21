@@ -86,6 +86,8 @@ var Rombs := 0
 
 enum SEID {RombGet}
 
+var InHouse := false
+
 func _ready():
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	RenderingServer.set_default_clear_color(Color.BLACK)
@@ -97,160 +99,7 @@ func _ready():
 	
 	### DEBUG POSITIONS
 	if OS.is_debug_build():
-		pass
-		#BeerRoom - Curse
-		#SavedPos[0] = Vector2(-600,1290)
-		#SavedPos[1] = 1
-		#SpecialItem = true
-		#Start - Curse
-		
-		
-		#onen - main
-		#SavedPos[0] = Vector2(4200,-100)
-		
-		#Bridge - main
-		#SavedPos[0] = Vector2(5200,-220)
-		
-		#henryk - main
-		#SavedPos[0] = Vector2(3600,800)
-		#
-		#SecretMilk - main
-		#SavedPos[0] = Vector2(1664,-96)
-		
-		#connector - main
-		#SavedPos[0] = Vector2(1860,290)
-		
-		#Boss - curse
-		#SavedPos[0] = Vector2(1480,380)
-		#SavedPos[1] = 1
-		
-		#UnderBridge - main
-		#SavedPos[0] = Vector2(7700,400)
-		
-		#UnderBridge2 - main
-		#SavedPos[0] = Vector2(8400,320)
-		
-		#SECRET BRIDGE - main
-		#SavedPos[0] = Vector2(7050,-125)
-		
-		
-		#start - village
-		#SavedPos[0] = Vector2(60,400)
-		#SavedPos[1] = 2
-		
-		#tower clouds - village
-		#SavedPos[0] = Vector2(935,-632)
-		#SavedPos[1] = 2
-		
-		#first island - village
-		#SavedPos[0] = Vector2(570,-1624)
-		#SavedPos[1] = 2
-		
-		#back to tower after island - village
-		#SavedPos[0] = Vector2(980,-2010)
-		#SavedPos[1] = 2
-		
-		#Tower after chain jumping - villagze
-		#SavedPos[0] = Vector2(790,-3495)
-		#SavedPos[1] = 2
-		
-		#tower moving objects start - village
-		#SavedPos[0] = Vector2(662,-4053)
-		#SavedPos[1] = 2
-		
-		#tower last challenge - village
-		#SavedPos[0] = Vector2(101,-4863)
-		#SavedPos[1] = 2
-		
-		#village - village 
-		#SavedPos[0] = Vector2(1101,-5883)
-		#SavedPos[1] = 2
-		
-		#FakeHall - start
-		#SavedPos[0] = Vector2(530,-440)
-		#SavedPos[1] = 4
-		
-		#FakeHall - third obstacle
-		#SavedPos[0] = Vector2(1980,375)
-		#SavedPos[1] = 4
-		
-		#FakeHall - sixth obstacle
-		#SavedPos[0] = Vector2(3880+640,375)
-		#SavedPos[1] = 4
-		
-		#village - EXTRA
-		#SavedPos[0] = Vector2(9043,-26)
-		#SavedPos[1] = 2
-		
-		#village - EXTRA2
-		#SavedPos[0] = Vector2(9146,-97)
-		#SavedPos[1] = 2
-		
-		#village - EXTRA3
-		#SavedPos[0] = Vector2(9080,-194)
-		#SavedPos[1] = 2
-		
-		#Bog - start
-		#SavedPos[0] = Vector2(120,400)
-		#SavedPos[1] = 5
-		
-		#main - traveling - past moving spikes
-		#SavedPos[0] = Vector2(1664,-96)
-		#SavedPos[1] = 6
-		
-		#Curse world - traveling - past balls
-		#SavedPos[0] = Vector2(2000,1160)
-		#SavedPos[1] = 7
-		
-		#Curse world - traveling - past exjumps
-		#SavedPos[0] = Vector2(2600,940)
-		#SavedPos[1] = 7
-		
-		#Curse world - traveling - past gate
-		#SavedPos[0] = Vector2(-126,908)
-		#SavedPos[1] = 7
-		
-		#Curse world - traveling - boss
-		#SavedPos[0] = Vector2(-1696,540)
-		#SavedPos[1] = 7
-		
-		#Temple - start 
-		#SavedPos[0] = Vector2(319,-560)
-		#SavedPos[1] = 8
-		
-		#Temple - secret right
-		#SavedPos[0] = Vector2(1590,-980)
-		#SavedPos[1] = 8
-		
-		#Temple - right 4 room
-		#SavedPos[0] = Vector2(2330,-1024)
-		#SavedPos[1] = 8
-		#SavedPos[0] = Vector2(2177,-1490)
-		#SavedPos[1] = 8
-		
-		#Temple - left upper start 
-		#SavedPos[0] = Vector2(-1840,-1040)
-		#SavedPos[1] = 8
-		
-		#Temple - left roof 
-		#SavedPos[0] = Vector2(-720,-1610)
-		#SavedPos[1] = 8
-		
-		#Temple - upper tower 
-		#SavedPos[0] = Vector2(670,-2920)
-		#SavedPos[1] = 8
-		
-		#Temple - half pyramid tip
-		#SavedPos[0] = Vector2(2446,-2990)
-		#SavedPos[1] = 8
-		
-		#Temple - gungungun
-		#SavedPos[0] = Vector2(4065,-2100)
-		#SavedPos[1] = 8
-		
-		#Temple - horse boss 
-		#SavedPos[0] = Vector2(1350,-3400)
-		#SavedPos[1] = 8
+		SavedPos = DebugCode.DebugSaveLoc
 
 const CAM_ZOOM = 0.05
 
@@ -287,6 +136,16 @@ func _process(delta):
 	if Input.is_action_just_pressed("debug2"):
 		#var CAM = get_tree().get_first_node_in_group("cam")
 		#TravelBack()
+		if !InHouse:
+			LoadScene("res://Scenes/temple/house.tscn")
+			InHouse = true
+		else:
+			if SavedPos[1] != -1:
+				SignalBus.emit_signal("ResetPos")
+				Globals.LoadScene(Globals.AreaScenes[Globals.SavedPos[1]])
+			else:
+				get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+			InHouse = false
 		#get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 		pass
 		#if CAM:
@@ -337,13 +196,15 @@ func TravelBack():
 	]
 
 func SavePerma():
+	
 	save_game(PATH_TO_PERMASAVE,{
 		"Endings":Endings,
 		"BGame":NumTimesBeatGame,
 		"BestTime":BestTime,
 		"LDeaths":LDeaths,
 		"ExStatesRecords":ExStatesRecords,
-		"RombsGotten":STEvents.RombsGotten
+		"RombsGotten":STEvents.RombsGotten,
+		"Achievements":STEvents.Achiev_complete
 	})
 
 func load_game(file,DataName,def):
@@ -420,8 +281,11 @@ var TimerOn := false
 var KeybindList = {}
 
 func ResetMemoryGlobal(BackToIntro:=true):
+	#OS.set_restart_on_exit(true)
+	#get_tree().quit()
+	
 	TravelingBack = false
-
+	
 	InDialogue = false
 	MenuPaused = false
 	CArea = 0
@@ -455,10 +319,12 @@ func ResetMemoryGlobal(BackToIntro:=true):
 	for i in STEvents.EventArray.size():
 		STEvents.EventArray[i] = false
 	STEvents.OneTimeJammers.clear()
+	
+	InHouse = false
 
-#func FindPlayer(node):
-	#while node != null:
-		#if node.is_in_group("Player"):
-			#return node
-		#node = node.get_parent()
-	#return null
+func FindPlayer(node):
+	while node != null:
+		if node.is_in_group("Player"):
+			return node
+		node = node.get_parent()
+	return null

@@ -40,6 +40,10 @@ var Immortalix
 
 var ReduceGravity := false
 
+const SHOTGUN_FLOOR_MULT := 1.23
+
+const SHOTGUN_AIR_Y_VEL_ADD := 150
+
 func _ready():
 	SignalBus.KillPlayer.connect(Die)
 	SignalBus.ResetPos.connect(ResetPosition)
@@ -49,6 +53,7 @@ func _ready():
 	SignalBus.FOrbUse.connect(OnFOrbUse)
 	SignalBus.SetPlayerPosition.connect(SetPos)
 	SignalBus.ShotgunUse.connect(OnShotgunUse)
+	SignalBus.ScreenShaderChange.connect(OnScreenShaderChange)
 	
 	if !Globals.PosSetTravel:
 		position = Globals.SavedPos[0]
@@ -59,7 +64,6 @@ func _ready():
 	CRoomPos.y = floor(global_position.y / VPort.y)
 
 func _physics_process(delta):
-	print(CRoomPos)
 	CRoomPos.x = floor(global_position.x / VPort.x)
 	CRoomPos.y = floor(global_position.y / VPort.y)
 	
@@ -69,13 +73,13 @@ func _physics_process(delta):
 	if !ReduceGravity:
 		velocity.y += GetGravity() * delta * GravMultiplier
 	else:
-		velocity.y += GetGravity() * delta * ((RedGravTimer.wait_time - RedGravTimer.time_left)/RedGravTimer.wait_time) * GravMultiplier
+		velocity.y += GetGravity() * delta * ((RedGravTimer.wait_time - RedGravTimer.time_left)/RedGravTimer.wait_time) * GravMultiplier * 0.9
 	
 	
 	CheckInputs()
 	MoveDirection(delta)
 	
-	velocity.y = clamp(velocity.y,-MAX_Y_VELOCITY,MAX_Y_VELOCITY)
+	velocity.y = clamp(velocity.y,-MAX_Y_VELOCITY,MAX_Y_VELOCITY*GravMultiplier)
 	move_and_slide()
 	
 	if Immortalix:
@@ -132,7 +136,9 @@ func MoveDirection(delta):
 	#enddebug
 	
 	if Input.is_action_pressed("Slowdown") and Globals.Items[Globals.Passive][Globals.Milk]:
-		VertSpeed = 25
+		VertSpeed = 50
+		if is_on_wall() and velocity.y>0:
+			velocity.y=GetGravity()*delta*2.0
 	else:
 		VertSpeed = 200
 	
@@ -227,7 +233,12 @@ func OnFOrbUse():
 	
 
 func OnShotgunUse(Vel):
-	velocity.y -= 200
+	
+	if is_on_floor():
+		Vel*=SHOTGUN_FLOOR_MULT
+	else:
+		velocity.y -= SHOTGUN_AIR_Y_VEL_ADD
+	
 	if sign(-LastDir) != sign(AdditVel.x):
 		AdditVel.x = Vel * -LastDir
 	else:
@@ -253,3 +264,6 @@ func RESET():
 
 func _on_reduce_gravity_timer_timeout():
 	ReduceGravity = false
+
+func OnScreenShaderChange(val,eff):
+	pass

@@ -44,3 +44,10 @@ signal KillPlayer
 signal PlaySoundEffect(SoundID)
 
 signal ShowAreaIntro(text,col)
+
+signal GetInHouse(Entering)
+
+signal GetAchievement(type)
+
+signal HudSignShow(text)
+signal ExTextShow(text)

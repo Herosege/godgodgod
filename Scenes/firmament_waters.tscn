@@ -404,6 +404,7 @@ material = SubResource("ShaderMaterial_57qmd")
 offset_top = 321.0
 offset_right = 640.0
 offset_bottom = 480.0
+metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Stuff" unique_id=184236859]
 z_index = -2
@@ -411,6 +412,7 @@ material = SubResource("ShaderMaterial_uf5ln")
 offset_top = 321.0
 offset_right = 640.0
 offset_bottom = 480.0
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Stuff" unique_id=1807323538]
 z_index = 3
@@ -426,6 +428,7 @@ script = ExtResource("18_0enwc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/WaterArea" unique_id=1210811711]
 position = Vector2(320, 430)
 shape = SubResource("RectangleShape2D_yf5fn")
+metadata/_edit_lock_ = true
 
 [node name="PauseMenu" parent="." unique_id=1868492807 instance=ExtResource("19_spdh5")]
 

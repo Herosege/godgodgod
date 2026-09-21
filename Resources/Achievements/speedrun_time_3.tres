@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://dtkp8oyd71q32"]
+
+[ext_resource type="Script" uid="uid://c4v387sglca2h" path="res://Code/temple/achievement.gd" id="1_6m12i"]
+[ext_resource type="Texture2D" uid="uid://dolkv2yfmb54o" path="res://Assets/Achievements/ach_speedrun.png" id="1_x8aje"]
+
+[resource]
+script = ExtResource("1_6m12i")
+Name = "Beat the game in under 10 minutes"
+Description = "All of these patterns are burned into my memory.
+I repeat myself, trying and trying to get a better time, to maybe try and shave off a second, to discover something that makes me reach an end even slightly faster. 
+A beautiful repetition, an incredible dedication, my purpose."
+AchImage = ExtResource("1_x8aje")
+metadata/_custom_type_script = "uid://c4v387sglca2h"

@@ -7,32 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://bpdyjtvu5gsl8" path="res://Assets/Sound/FORGET.ogg" id="5_j35tj"]
 [ext_resource type="PackedScene" uid="uid://dyb6t4vffx05" path="res://Scenes/settings_menu.tscn" id="6_2b17b"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="7_8q6d0"]
-[ext_resource type="Texture2D" uid="uid://oj3lw17ugv5p" path="res://Assets/village/light_source.png" id="8_tiwhh"]
-[ext_resource type="Texture2D" uid="uid://d2dhha4ao7sct" path="res://Assets/village/GreatHallRotmaster_light1.png" id="9_yl2l6"]
-[ext_resource type="Texture2D" uid="uid://cq1famr6ja8jq" path="res://Assets/village/particle_dust.png" id="10_sb6eq"]
 [ext_resource type="Texture2D" uid="uid://s8fjv76da75w" path="res://Assets/dymek.png" id="10_sy41w"]
-[ext_resource type="FontFile" uid="uid://cm8ak4cr0kfyr" path="res://Assets/fonts/LexendDeca-VariableFont_wght.ttf" id="11_a7jvs"]
-[ext_resource type="Texture2D" uid="uid://ubxhen7vgde5" path="res://Assets/TriangleGOd/0001.png" id="11_ff4s0"]
-[ext_resource type="Texture2D" uid="uid://c5ovvkelot8th" path="res://Assets/TriangleGOd/0007.png" id="12_x4krp"]
-[ext_resource type="Texture2D" uid="uid://bem2b2gjbhvds" path="res://Assets/TriangleGOd/0013.png" id="13_h2abu"]
-[ext_resource type="Texture2D" uid="uid://bjongphm0qv4a" path="res://Assets/TriangleGOd/0019.png" id="14_pr6kk"]
-[ext_resource type="Texture2D" uid="uid://buw7bee5h7oc1" path="res://Assets/TriangleGOd/0025.png" id="15_fhahs"]
-[ext_resource type="Texture2D" uid="uid://cmy20frqwjgmy" path="res://Assets/TriangleGOd/0031.png" id="16_diap3"]
-[ext_resource type="Texture2D" uid="uid://tsjwmigtsxk3" path="res://Assets/TriangleGOd/0037.png" id="17_xoeko"]
-[ext_resource type="Texture2D" uid="uid://021iakkpo8mc" path="res://Assets/TriangleGOd/0043.png" id="18_lo8tf"]
-[ext_resource type="Texture2D" uid="uid://cbw15lwlkttlv" path="res://Assets/TriangleGOd/0049.png" id="19_v5koe"]
-[ext_resource type="Texture2D" uid="uid://55gplm70q87y" path="res://Assets/TriangleGOd/0055.png" id="20_woidq"]
-[ext_resource type="Texture2D" uid="uid://bsx1y4bvn5o01" path="res://Assets/TriangleGOd/0061.png" id="21_4k4yg"]
-[ext_resource type="Texture2D" uid="uid://l6vhoborn11i" path="res://Assets/TriangleGOd/0067.png" id="22_xvlcq"]
-[ext_resource type="Texture2D" uid="uid://ln1g4f2akalt" path="res://Assets/TriangleGOd/0073.png" id="23_olvit"]
-[ext_resource type="Texture2D" uid="uid://bhun77bc8p767" path="res://Assets/TriangleGOd/0079.png" id="24_sbhin"]
-[ext_resource type="Texture2D" uid="uid://ctljrr2spdse4" path="res://Assets/TriangleGOd/0085.png" id="25_lmkkq"]
-[ext_resource type="Texture2D" uid="uid://d2txrr1n15iwc" path="res://Assets/Bog/keyperma.png" id="26_ff4s0"]
-[ext_resource type="Texture2D" uid="uid://bw3k8ep3ybqa8" path="res://Assets/Bog/keyperma1.png" id="27_pr6kk"]
-[ext_resource type="Texture2D" uid="uid://crh7yvnttoawa" path="res://Assets/Bog/keyperma2.png" id="28_fhahs"]
+[ext_resource type="Texture2D" uid="uid://c4ai5erhhm6ko" path="res://Assets/temple/version3.png" id="17_b6uv1"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="28_sb6eq"]
 [ext_resource type="Texture2D" uid="uid://cuha04m303p6o" path="res://Assets/village/beer.png" id="28_yl2l6"]
-[ext_resource type="Texture2D" uid="uid://lwyp0wsa5k3f" path="res://Assets/Bog/keyperma3.png" id="29_diap3"]
 [ext_resource type="Texture2D" uid="uid://bymkfhv2oeetv" path="res://Assets/state.png" id="34_fhahs"]
 [ext_resource type="Texture2D" uid="uid://v8j0wppnot7a" path="res://Assets/Interface/checkbox_checked.png" id="34_lo8tf"]
 [ext_resource type="Script" uid="uid://cl4b5egxt2exq" path="res://Code/bog/states_menu.gd" id="34_woidq"]
@@ -52,102 +30,16 @@ tags = {
 }
 loop = true
 
+[sub_resource type="SystemFont" id="SystemFont_36asn"]
+font_names = PackedStringArray("Calibri")
+
 [sub_resource type="LabelSettings" id="LabelSettings_swr0f"]
-font_size = 10
+font = SubResource("SystemFont_36asn")
+font_size = 14
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pjaqf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_ff4s0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_x4krp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_h2abu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_pr6kk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_fhahs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_diap3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_xoeko")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_lo8tf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_v5koe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_woidq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_4k4yg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_xvlcq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_olvit")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_sbhin")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_lmkkq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.5
-}]
-
-[sub_resource type="Gradient" id="Gradient_tiwhh"]
-offsets = PackedFloat32Array(0.7702703, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sb6eq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("26_ff4s0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_pr6kk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_fhahs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_diap3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_diap3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_fhahs")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kggt"]
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_pgam6"]
-font = ExtResource("11_a7jvs")
-font_size = 32
-font_color = Color(1, 0, 0, 1)
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.61960787)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_taale"]
 content_margin_left = 4.0
@@ -256,41 +148,41 @@ pitch_scale = 0.3
 autoplay = true
 bus = &"Music"
 
-[node name="Label" type="Label" parent="." unique_id=881539538]
+[node name="hoverhint" type="Label" parent="." unique_id=881539538]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -206.0
-offset_top = -17.0
-offset_right = -2.0
-offset_bottom = 6.0
+offset_left = -246.0
+offset_top = -16.0
+offset_right = -42.0
+offset_bottom = 7.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Hover over this to get save info -->"
+text = "Hover over this with mouse to get save info -->"
 label_settings = SubResource("LabelSettings_swr0f")
 
-[node name="Label2" type="Label" parent="." unique_id=1565362824]
+[node name="controls" type="Label" parent="." unique_id=1565362824]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
-offset_top = -73.0
-offset_right = 64.0
-offset_bottom = -16.0
+offset_left = -222.0
+offset_top = -69.0
+offset_right = 31.0
+offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "controls: arrow keys and z
 F5 to restart the game
-Home key to return to menu"
+Home key to get to your house"
 label_settings = SubResource("LabelSettings_swr0f")
 
-[node name="Label3" type="Label" parent="." unique_id=1200339847]
+[node name="createdby" type="Label" parent="." unique_id=1200339847]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -325,74 +217,6 @@ texture_normal = ExtResource("7_8q6d0")
 visible = false
 z_index = 1
 layout_mode = 1
-
-[node name="Trophies" type="Control" parent="." unique_id=247971283]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="StdEnd" type="TextureRect" parent="Trophies" unique_id=560585783]
-z_index = 1
-layout_mode = 0
-offset_left = 277.0
-offset_top = 480.0
-offset_right = 317.0
-offset_bottom = 520.0
-rotation = 3.1415927
-texture = ExtResource("8_tiwhh")
-expand_mode = 1
-metadata/_edit_lock_ = true
-
-[node name="TextureRect3" type="TextureRect" parent="Trophies/StdEnd" unique_id=1381568479]
-z_as_relative = false
-layout_mode = 0
-offset_left = -27.0
-offset_top = -39.000004
-offset_right = 65.13959
-offset_bottom = 43.39639
-texture = ExtResource("9_yl2l6")
-expand_mode = 1
-metadata/_edit_lock_ = true
-
-[node name="PainEnd" type="AnimatedSprite2D" parent="Trophies" unique_id=527270893]
-position = Vector2(327, 463)
-sprite_frames = SubResource("SpriteFrames_pjaqf")
-autoplay = "default"
-frame_progress = 0.5143686
-metadata/_edit_lock_ = true
-
-[node name="PeaceEnd2" type="CPUParticles2D" parent="Trophies" unique_id=277433869]
-z_index = 2
-position = Vector2(317, 482)
-emitting = false
-texture = ExtResource("10_sb6eq")
-lifetime = 6.0
-randomness = 0.33
-emission_shape = 3
-emission_rect_extents = Vector2(320, 1)
-direction = Vector2(0.5, -1)
-spread = 20.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 60.0
-angular_velocity_min = -90.0
-angular_velocity_max = 90.0
-tangential_accel_max = 5.0
-scale_amount_min = 3.0
-scale_amount_max = 3.0
-color_ramp = SubResource("Gradient_tiwhh")
-
-[node name="TravelingEnd" type="AnimatedSprite2D" parent="Trophies" unique_id=1386750156]
-position = Vector2(403, 455)
-scale = Vector2(0.5208333, 0.5208333)
-sprite_frames = SubResource("SpriteFrames_sb6eq")
-autoplay = "default"
-frame_progress = 0.7213423
 
 [node name="Label4" type="Label" parent="." unique_id=2075095447]
 visible = false
@@ -435,16 +259,6 @@ text = "I can beat the game with
 only deaths!!!"
 label_settings = SubResource("LabelSettings_1kggt")
 
-[node name="Label6" type="Label" parent="." unique_id=772108265]
-layout_mode = 0
-offset_left = 51.0
-offset_top = 410.0
-offset_right = 192.0
-offset_bottom = 455.0
-text = "version 2.5"
-label_settings = SubResource("LabelSettings_pgam6")
-metadata/_edit_lock_ = true
-
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1595540529]
 layout_mode = 0
 offset_left = 592.0
@@ -459,10 +273,10 @@ texture = ExtResource("28_yl2l6")
 
 [node name="StatesOfExistence" type="TextureButton" parent="." unique_id=134259194]
 layout_mode = 0
-offset_left = 211.0
-offset_top = 355.0
-offset_right = 306.0
-offset_bottom = 403.0
+offset_left = 297.0
+offset_top = 401.0
+offset_right = 392.0
+offset_bottom = 449.0
 texture_normal = ExtResource("34_fhahs")
 texture_hover = ExtResource("35_diap3")
 
@@ -529,6 +343,16 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = SubResource("Theme_woidq")
 text = "EXIT"
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=988716987]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 364.0
+offset_right = 202.0
+offset_bottom = 460.0
+mouse_filter = 2
+texture = ExtResource("17_b6uv1")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]

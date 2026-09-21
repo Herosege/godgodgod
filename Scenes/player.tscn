@@ -136,6 +136,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 [node name="Player" type="CharacterBody2D" unique_id=1634200289 groups=["RESET", "player"]]
 z_index = 1
 collision_layer = 3
+safe_margin = 0.32
 script = ExtResource("1_xtj4b")
 TimePeak = 0.25
 TimeFall = 0.25
@@ -151,6 +152,7 @@ frame_progress = 0.688236
 position = Vector2(8, 0)
 
 [node name="Weapon" type="Node2D" parent="AnimatedSprite2D/Weapons" unique_id=2077226575]
+z_index = 1
 script = ExtResource("5_ats0k")
 Type = 0
 
@@ -184,6 +186,7 @@ wait_time = 0.04
 one_shot = true
 
 [node name="Shotgun" type="Node2D" parent="AnimatedSprite2D/Weapons" unique_id=4535563 groups=["RESET"]]
+z_index = 1
 script = ExtResource("11_l6n3p")
 Type = 1
 
@@ -219,7 +222,7 @@ process_callback = 0
 wait_time = 0.02
 one_shot = true
 
-[node name="Sweater" type="Sprite2D" parent="." unique_id=1181667105]
+[node name="Sweater" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1181667105]
 visible = false
 texture = ExtResource("2_hbl7o")
 

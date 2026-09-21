@@ -9,10 +9,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("Confirm") and Activar and !Activared:
+	if Input.is_action_just_pressed("debug") and Activar and !Activared:
 		SignalBus.emit_signal("SetHudMessage","",0)
 		$EndingStuff.EndGame(Globals.End.EndingWater)
 		Activared = true
+	if Input.is_action_just_pressed("Confirm") and Activar and !Activared:
+		pass
 
 
 func _on_area_2d_body_entered(body):

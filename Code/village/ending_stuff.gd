@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const SPEEDRUNTIMES = [1200,800,500]
+
 func EndGame(EndType,Traveling:=true,ExState:=-1):
 	
 	Globals.stoptime = true
@@ -23,6 +25,17 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 	var time = Globals.sec_to_time(Globals.SaveTime)
 	var hrs = "" if !time[2] else str(time[2]) + " hours "
 	var min = "" if !time[1] else str(time[1]) + " minutes "
+	
+	###Achievements
+	
+	if Globals.SaveTime <= SPEEDRUNTIMES[0]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.SPEEDRUN_1].Achieved = true
+	if Globals.SaveTime <= SPEEDRUNTIMES[1]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.SPEEDRUN_2].Achieved = true
+	if Globals.SaveTime <= SPEEDRUNTIMES[2]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.SPEEDRUN_3].Achieved = true
+	
+	###---
 	
 	if Traveling:
 		$Label.text = "You won!"
