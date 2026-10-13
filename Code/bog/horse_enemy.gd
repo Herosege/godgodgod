@@ -17,7 +17,7 @@ var JumpAmount = 1
 
 var BasePos
 
-var Health := 3
+var Health := 4
 
 var PlayerDetected = false
 var PlayerInSight = false
@@ -120,6 +120,9 @@ func Die():
 	PlayerDetected = false
 	global_position = BasePos
 	velocity = Vector2.ZERO
+	
+	if Globals.CArea == Globals.Areas.Temple and not STEvents.EventArray[STEvents.Enums.SmallHorseKilled]:
+		SignalBus.SetHudMessage.emit("Congrats!\nYou killed a horse!",1,4.0)
 	
 
 

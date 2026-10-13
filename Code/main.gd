@@ -25,9 +25,12 @@ func _ready():
 		Pos = G1[i].position.y
 	if Globals.RotCKilled:
 		$Npcs/henryk2.visible = false
+		$Npcs/idk3.visible = false
 		UnrotCurse()
 		$Npcs/npc.queue_free()
 		$Npcs/idk.queue_free()
+	if STEvents.EventArray[STEvents.Enums.FTTheVillage]:
+		$Npcs/idk2.queue_free()
 
 	CheckMusic()
 	UpdateMusic()

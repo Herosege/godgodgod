@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dmu4scvc1ynjk" path="res://Assets/MilkAnim/0001.png" id="10_8i5ii"]
 [ext_resource type="Texture2D" uid="uid://cyqo2ojajvn1j" path="res://Assets/WaterBottle/0001.png" id="11_taale"]
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="12_4ka14"]
+[ext_resource type="Texture2D" uid="uid://pubn74vrfnfb" path="res://Assets/temple/key.png" id="12_q7fiq"]
 [ext_resource type="Texture2D" uid="uid://hko61fuv430q" path="res://Assets/youdied.png" id="13_cpmml"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="14_hmnbg"]
 
@@ -95,6 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="wife" unique_id=531974148]
 z_index = 11
@@ -178,7 +180,8 @@ layout_mode = 2
 tooltip_text = "Woda święcona
 (Click to activate)
 It has a taste that you hate.
-Use it to teleport to the temple."
+Use it to teleport to the temple.
+Saves your game when you teleport."
 focus_mode = 0
 theme = SubResource("Theme_q7fiq")
 texture_normal = ExtResource("11_taale")
@@ -186,6 +189,20 @@ texture_pressed = ExtResource("11_taale")
 texture_hover = ExtResource("11_taale")
 texture_disabled = ExtResource("11_taale")
 texture_focused = ExtResource("11_taale")
+
+[node name="TextureRect2" type="TextureRect" parent="Collectibles/VBoxContainer/HBoxContainer2" unique_id=1765878601]
+layout_mode = 2
+tooltip_text = "Klucz wrót pustki
+Does this thing even exist?
+One thing is certain, it opens a gate.
+(Always active)
+
+"
+focus_mode = 2
+mouse_filter = 0
+theme = SubResource("Theme_q7fiq")
+texture = ExtResource("12_q7fiq")
+stretch_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=636450931]
 z_index = 11
@@ -209,6 +226,7 @@ mouse_filter = 2
 texture = ExtResource("13_cpmml")
 expand_mode = 1
 stretch_mode = 4
+metadata/_edit_lock_ = true
 
 [node name="DeathAmt" type="Label" parent="." unique_id=1267464057]
 z_index = 11

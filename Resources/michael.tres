@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="TextRes" format=3 uid="uid://c6l7ida7khudh"]
+
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="1_ocnl1"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="2_vo28d"]
+
+[sub_resource type="Resource" id="Resource_3x55j"]
+script = ExtResource("1_ocnl1")
+MStr = Array[String](["Hello, I am Michal.
+You seem new here, I certainly haven't seen you around these parts.", "Well it's good to see new faces travel here.
+To be honest, I haven't seen anyone for a long time. Probably because of the weird hands flying around these parts, killing people.", "Since you are here, that must mean they are gone. That's great, I really hope to see some  familiar faces, well... as long as any of them are still alive.", "How many of us are even left? Lately it has become really silent in general, I don't hear any signs of life from the distance. It really feels like end times."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_ocnl1"]
+script = ExtResource("1_ocnl1")
+MStr = Array[String](["If you want to know what's to the east of this tavern, it is the barrier that divides our land from the void, an empty place where if you took a step, you would fall for eternity.", "Well... unless you wanted to come back to the sun save point.", "Anyway, the void is the home of gods, a place where higher beings make their creations, our land was probably void at some point too.", "There actually existed other gods from Hania, but they all seemingly disappeared by the time we were created.", "We know these things, because of the many artifacts and other stuff left in this land, that were completely different from anything Hania has ever created.", "We also have texts written by those gods that describe the past, though I have not seen them, since they are located above the firmament of the world, so getting there is not easy."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_2dnq3"]
+script = ExtResource("1_ocnl1")
+MStr = Array[String](["If you are troubled, have a drink, it kinda helps with pain."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[resource]
+script = ExtResource("2_vo28d")
+TextArr = Array[ExtResource("1_ocnl1")]([SubResource("Resource_3x55j"), SubResource("Resource_ocnl1"), SubResource("Resource_2dnq3")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

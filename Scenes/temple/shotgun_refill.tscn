@@ -14,7 +14,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_5s5nt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 0.0
 }, {
@@ -25,13 +25,13 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_wkli1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"not_avi",
 "speed": 0.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hke2c"]
-radius = 15.033297
+radius = 18.0
 
 [node name="ShotgunRefill" type="Area2D" unique_id=878818087 groups=["RESET"]]
 script = ExtResource("1_tfus7")

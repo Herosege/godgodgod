@@ -3244,6 +3244,7 @@ position = Vector2(2827, -803)
 position = Vector2(4078, -771)
 Message = "STORM BEFORE 
 THE APOCALYPSE"
+RombType = 9
 
 [connection signal="body_entered" from="Stuff/Gate" to="." method="_on_gate_body_entered"]
 [connection signal="area_entered" from="Stuff/GateBlocking/GateArea" to="." method="_on_gate_area_area_entered"]

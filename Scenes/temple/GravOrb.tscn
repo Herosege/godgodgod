@@ -25,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_3ogdr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 0.0
 }, {
@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_e7rmx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"not_avi",
 "speed": 0.0
 }]

@@ -82,9 +82,13 @@ func ShowAreaIntro(text,color=Color.WHITE):
 func _on_message_timer_timeout():
 	$Message.text = ""
 
-func HudSignShow(Text:String):
+func HudSignShow(Text:String,OnBottom:=true):
 	ExBoxLabel.text = Text
 	$ExtraBox.visible = not Text.is_empty()
+	if OnBottom:
+		$ExtraBox.position.y = 300.0
+	else:
+		$ExtraBox.position.y = 0.0
 
 func ExTextShow(Text:String):
 	ExTextLabel.text = Text

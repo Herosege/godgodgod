@@ -23,7 +23,7 @@ signal ShotgunUse(Vel)
 
 signal LaunchPlayer(Vel)
 
-signal FOrbUse
+signal FOrbUse(SMom)
 
 signal ShowDialogue(TextArr,OnBottom,ID,IsPaused,Skippable,OptionalTimer)
 signal DialStop
@@ -49,5 +49,5 @@ signal GetInHouse(Entering)
 
 signal GetAchievement(type)
 
-signal HudSignShow(text)
+signal HudSignShow(text,OnBottom)
 signal ExTextShow(text)

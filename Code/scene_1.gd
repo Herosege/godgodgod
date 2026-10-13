@@ -39,10 +39,6 @@ func _process(delta):
 	if PNode.CRoomPos == Vector2(0,0) and !STEvents.EventArray[STEvents.Enums.FTCurseWorld]:
 		STEvents.EventArray[STEvents.Enums.FTCurseWorld] = true
 		SignalBus.ShowAreaIntro.emit("Curse world")
-	
-	
-	if $Music1.pitch_scale != 0.25:
-		$Music1.pitch_scale = 0.25
 
 
 func _on_EffectChange(value,type):
@@ -91,3 +87,9 @@ func _on_curse_guy_body_entered(body):
 func _on_curse_guy_body_exited(body):
 	if body.is_in_group("player"):
 		$Secrets/CurseGuy/text.visible = false
+
+
+func _on_gate_temple_body_entered(body):
+	if body.is_in_group("player"):
+		Globals.LoadScene("res://Scenes/temple/temple.tscn")
+		Globals.PosSetTravel = Vector2(19150,-425)

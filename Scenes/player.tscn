@@ -243,7 +243,7 @@ one_shot = true
 
 [node name="ReduceGravityTimer" type="Timer" parent="Timers" unique_id=1487653056]
 process_callback = 0
-wait_time = 0.5
+wait_time = 0.6
 one_shot = true
 
 [node name="BloodParticles2" type="GPUParticles2D" parent="." unique_id=1018539960]

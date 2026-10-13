@@ -3,10 +3,13 @@ extends Area2D
 enum {Dialogue,ChangeScene}
 @export_enum("Dialogue","ChangeScene") var Type 
 
+@export var ShowTextHint := true
+
 @export_group("Dialogue")
 @export var Dial : TextRes
 
 @export_group("ChangeScene")
+@export var ToChangeScene := true
 @export var WhereTo : String
 @export var Coords : Vector2
 
@@ -27,11 +30,14 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("Confirm") and Activar and CanDial and !Globals.InDialogue:
-		SignalBus.emit_signal("GetInDial",true,self,false)
-		if Type == Dialogue:
-			TextSend()
-		if Type == ChangeScene:
-			SceneChange()
+		EventActivate()
+
+func EventActivate():
+	SignalBus.emit_signal("GetInDial",true,self,false)
+	if Type == Dialogue:
+		TextSend()
+	if Type == ChangeScene:
+		SceneChange()
 
 func TextSend():
 	if !Text:
@@ -45,11 +51,12 @@ func TextSend():
 		else:
 			OnBottom = pos > (PNode.VPort.y / 2)
 	SignalBus.emit_signal("ShowDialogue",Text[CDialIndex],self,OnBottom)
-	SignalBus.emit_signal("SetHudMessage","",0)
+	if ShowTextHint:
+		SignalBus.emit_signal("SetHudMessage","",0)
 	CanDial = false
 
 func OnDialFinish(Early):
-	if !Early:
+	if !Early and ShowTextHint:
 		SignalBus.emit_signal("SetHudMessage","Press space to interact",0)
 	await get_tree().create_timer(0.1).timeout
 	SignalBus.emit_signal("GetInDial",false,self,Early)
@@ -60,7 +67,7 @@ func OnDialFinish(Early):
 func SceneChange():
 	if !WhereTo:
 		return
-	if !Globals.CArea == Globals.AreaScenes.find(WhereTo):
+	if ToChangeScene:
 		Globals.LoadScene(WhereTo)
 		Globals.PosSetTravel = Coords
 	else:
@@ -68,12 +75,14 @@ func SceneChange():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
-		SignalBus.emit_signal("SetHudMessage","Press space to interact",0)
+		if ShowTextHint:
+			SignalBus.emit_signal("SetHudMessage","Press space to interact",0)
 		Activar = true
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		Activar = false
-		SignalBus.emit_signal("SetHudMessage","",0)
+		if ShowTextHint:
+			SignalBus.emit_signal("SetHudMessage","",0)
 		if Globals.InDialogue:
 			SignalBus.emit_signal("DialStop",true)

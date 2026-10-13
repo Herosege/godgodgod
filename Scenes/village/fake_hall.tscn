@@ -795,7 +795,7 @@ size = Vector2(10, 320)
 font = ExtResource("29_g1cjk")
 font_size = 12
 outline_size = 3
-outline_color = Color(0.21, 0.21, 0.21, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bg3u"]
 size = Vector2(20, 331)
@@ -804,7 +804,7 @@ size = Vector2(20, 331)
 size = Vector2(20, 339)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqqhg"]
-size = Vector2(20, 207)
+size = Vector2(20, 197)
 
 [sub_resource type="Animation" id="Animation_t1p2u"]
 resource_name = "EndAnim"
@@ -1504,6 +1504,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(17, 335)
+
 [sub_resource type="LabelSettings" id="LabelSettings_lj2dl"]
 font = ExtResource("47_b8461")
 font_color = Color(0, 0, 0, 1)
@@ -1585,7 +1588,6 @@ position = Vector2(530, -438)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1962485914 groups=["cam"]]
 
 [node name="DEBUG" parent="." unique_id=754129142 instance=ExtResource("14_70nbi")]
-visible = true
 
 [node name="CameraControl" parent="." unique_id=1395073711 instance=ExtResource("13_i20yw")]
 
@@ -3800,17 +3802,19 @@ offset_top = -122.0
 offset_right = -2.0
 offset_bottom = 155.0
 text = "THIS PLACE
-THE CREATION OF MY MASTER 
+THE WORK OF A SINGLE GOD
 
-THERE EXIST A PLACE 
+THEY DISCOVERED SOMETHING
+THAT THERE EXIST A PLACE 
 SO INFINITELY COMPLICATED
-SO GRAND
+SO ABSURDLY INCOMPREHENSIBLE
 
 THEY SAW IT AND GAVE UP EVERYTHING
-THEY WANTED TO STUDY AND RECREATE IT
+THEY WANTED TO STUDY AND UNDERSTAND
+TO RECREATE IT
 
 SACRIFICING ALL THEIR 
-TIME, RESOURCES AND EFFORT"
+TIME, FOCUS AND EFFORT"
 label_settings = SubResource("LabelSettings_kadud")
 metadata/_edit_lock_ = true
 
@@ -3820,16 +3824,19 @@ offset_top = -112.0
 offset_right = 309.0
 offset_bottom = 165.0
 text = "AT FIRST THEY WERE SO ECSTATIC
-AND EAGER TO CREATE
+AND EAGER TO LEARN AND MAKE IT
 
 BUT AFTER TIME THEY DISCOVERED
-ALL THEIR EFFORTS WERE IMPERFECT
+THAT THEY COULD NOT DO IT
 
+THEY TRIED AND TRIED AND TRIED
+BUT IT THE END ALL ATTEMPTS FAILED
 
-THEY TRIED EVERYTHING BUT IN THE END
-IT WAS JUST A MEDIOCRE IMITATION
+IT WAS THE THING THAT MADE THEM REALIZE
+THEY WERE NOT ALL-POWERFUL
+THEY WERE NOT GOOD ENOUGH
 
-THEY HATED THEMSELVES"
+AND THEY HATED THEMSELVES BECAUSE OF IT"
 label_settings = SubResource("LabelSettings_kadud")
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
@@ -3926,13 +3933,13 @@ position = Vector2(6391, 249)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/EndStuff/Blockade2" unique_id=1662550742]
-position = Vector2(0, 56.5)
+position = Vector2(0, 61.5)
 shape = SubResource("RectangleShape2D_iqqhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/EndStuff/Blockade2" unique_id=1673894750]
-modulate = Color(0.05, 0.05, 0.05, 1)
-position = Vector2(0, 56)
-scale = Vector2(0.3, 3.2073977)
+modulate = Color(0.1, 0.1, 0.1, 1)
+position = Vector2(0, 61.31836)
+scale = Vector2(0.3, 3.041199)
 texture = ExtResource("53_orbr8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Stuff/EndStuff" unique_id=1958435598]
@@ -3948,6 +3955,81 @@ autoplay = "default"
 position = Vector2(6112, 250)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("35_hrivq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=246918961]
+position = Vector2(-323.33334, -203.33333)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1836404121]
+position = Vector2(-195.00002, -318.3333)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1899656526]
+position = Vector2(-425, -358.33328)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=909590024]
+position = Vector2(11.6666565, -318.3333)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1027460308]
+position = Vector2(154.99998, -368.33328)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=973022805]
+position = Vector2(340, -306.66663)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=664717309]
+position = Vector2(175, -248.33331)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1403055391]
+position = Vector2(75, -271.66666)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1609737957]
+position = Vector2(-255, -241.66669)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1996461236]
+position = Vector2(-353.3333, -405)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=2101181043]
+position = Vector2(-378.3333, -301.66663)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=633181763]
+position = Vector2(-78.33335, -250)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1300297121]
+position = Vector2(-108.33335, -375)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1390539189]
+position = Vector2(123.33331, -168.33334)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Stuff/EndStuff/RottingMaster" unique_id=1680157858]
+position = Vector2(294.99997, -258.3333)
+rotation = 1.5707941
+texture = ExtResource("39_nivqm")
 
 [node name="Label" type="Label" parent="Stuff/EndStuff" unique_id=1693361723]
 offset_left = 5928.0
@@ -4044,8 +4126,15 @@ sprite_frames = SubResource("SpriteFrames_yf5fn")
 [node name="Slash" type="AudioStreamPlayer" parent="Stuff/EndStuff" unique_id=717717308]
 stream = ExtResource("59_iqqhg")
 volume_db = -12.0
-pitch_scale = 0.33
+pitch_scale = 0.4
 bus = &"SoundEffect"
+
+[node name="SkipTrigger" type="Area2D" parent="Stuff/EndStuff" unique_id=185290404]
+position = Vector2(7040, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/EndStuff/SkipTrigger" unique_id=1670910590]
+position = Vector2(-1.5, 157.5)
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="EndFHall" type="Node2D" parent="Stuff" unique_id=1150152084]
 
@@ -4173,5 +4262,6 @@ Passives = 2
 [connection signal="body_entered" from="Stuff/EndStuff/CutsceneTrigger" to="." method="_on_cutscene_trigger_body_entered"]
 [connection signal="animation_finished" from="Stuff/EndStuff/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Stuff/EndStuff/HandTimer" to="." method="_on_hand_timer_timeout"]
+[connection signal="body_entered" from="Stuff/EndStuff/SkipTrigger" to="." method="_on_skip_trigger_body_entered"]
 [connection signal="body_entered" from="Stuff/EndFHall/FountainL/FountainL" to="." method="_on_fountain_l_body_entered"]
 [connection signal="body_exited" from="Stuff/EndFHall/FountainL/FountainL" to="." method="_on_fountain_l_body_exited"]

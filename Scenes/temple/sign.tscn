@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cd8bqq81ox6ws"]
+
+[ext_resource type="Script" uid="uid://b6u0jo0np8gn4" path="res://Code/temple/sign.gd" id="1_ua8ss"]
+
+[node name="Sign" type="Area2D" unique_id=69983407]
+script = ExtResource("1_ua8ss")

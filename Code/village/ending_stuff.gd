@@ -1,8 +1,10 @@
 extends CanvasLayer
 
 const SPEEDRUNTIMES = [1200,800,500]
+const DEATH_AMNT = [100,20,0]
+const NUMTIMESBEATGAME = [1,2,30]
 
-func EndGame(EndType,Traveling:=true,ExState:=-1):
+func EndGame(EndType,NormalEnd:=true,ExState:=-1):
 	
 	Globals.stoptime = true
 	
@@ -35,9 +37,23 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 	if Globals.SaveTime <= SPEEDRUNTIMES[2]:
 		STEvents.Achievements[STEvents.ACHIEVEMENT.SPEEDRUN_3].Achieved = true
 	
+	if Globals.NumDeaths <= DEATH_AMNT[0]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.LEAST_DEATH_1].Achieved = true
+	if Globals.NumDeaths <= DEATH_AMNT[1]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.LEAST_DEATH_2].Achieved = true
+	if Globals.NumDeaths <= DEATH_AMNT[2]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.LEAST_DEATH_3].Achieved = true
+	
+	if Globals.NumTimesBeatGame >= NUMTIMESBEATGAME[0]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.BEAT_THE_GAME_1].Achieved = true
+	if Globals.NumTimesBeatGame >= NUMTIMESBEATGAME[1]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.BEAT_THE_GAME_2].Achieved = true
+	if Globals.NumTimesBeatGame >= NUMTIMESBEATGAME[2]:
+		STEvents.Achievements[STEvents.ACHIEVEMENT.BEAT_THE_GAME_3].Achieved = true
+	
 	###---
 	
-	if Traveling:
+	if NormalEnd:
 		$Label.text = "You won!"
 	else:
 		$Label.text = "PERMANENT MEMORY ATTAINED"
@@ -53,7 +69,4 @@ func EndGame(EndType,Traveling:=true,ExState:=-1):
 	
 	Globals.SavePerma()
 	Globals.SaveData(666)
-	if Traveling:
-		Globals.TravelBack()
-	else:
-		Globals.ResetMemoryGlobal(false)
+	Globals.ResetMemoryGlobal(false)

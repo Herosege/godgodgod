@@ -15,6 +15,7 @@ func _process(delta):
 		$SaveCD.start()
 		$SaveSE.play()
 		SignalBus.emit_signal("Save",0)
+		Globals.SavePerma()
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):

@@ -5,16 +5,20 @@
 
 [sub_resource type="Resource" id="Resource_xqr5b"]
 script = ExtResource("1_xqr5b")
-MStr = Array[String](["Oh hello you funny lizard", "Are you from the flower fields?
-I can tell by the look at your face", "I recently moved out of there, It's kinda weird how I didn't do that for such a long time", "You know, now that I am here I am really suprised how I even managed to stay in the flower fields for so long", "That place is miserable, breathing hurts, everything is too bright and the flowers...", "Actually... I kinda like the flowers, they are pretty and fascinating", "I studied them and learned that you can change their color!", "Don't try it though, it's a really, REALLY painful process"])
+MStr = Array[String](["Hello you funny lizard.", "Are you from the flower fields? You, certainly have that look on your face saying \"I am a proud flower fielder!\", whatever that means.", "To be honest, I loathe that place, that is why I moved here. You know, now that I am in this place, I can hardly imagine how I even lasted this long in these fields.", "Well... maybe it is because of the flowers. I may have an unhealthy obsession with them.", "Normally, flowers cause pain so powerful that it kills you, but I was made by god with an ability to resist the suffering flowers cause.", "I don't know why or how, but I cherished that certain ability of mine and I became consumed by the world of flowers.", "Flowers became my reason to live, without them I surely would have given up along the way."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_trmm4"]
 script = ExtResource("1_xqr5b")
-MStr = Array[String](["Oh, have you been to the village?", "It's pretty far up in the sky but it's really great up there, lots of fun people", "Although I heard the rumors that The Horse has been seen around there recently", "I wouldn't trust that though, especially beacuse of the amounts of alcohol people consume there daily"])
+MStr = Array[String](["By the way, have you been to the village?", "It's pretty far up in the sky but it's really great up there, lots of fun people.", "Although I heard the rumors that The Horse has been seen around there recently.", "I wouldn't trust that though, especially beacuse of the amounts of alcohol people consume there daily.", "Though, I have not been to the village since the first day when I moved here, but I keep contact with the fisher, who resides there.", "Be sure to say hello to them for me when you get there."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_ypb6c"]
+script = ExtResource("1_xqr5b")
+MStr = Array[String](["By the way, do you know Morela? They are also from the flower fields, they kinda look like a bunny.", "I really admired Morela, even if I did not speak to them very much, their work was incredible.", "One of Morela's greatest achievements is making the bridge to the west, which connected flower fields to the boring plains (this place).", "They also made art, though most was not shown by them to the public.", "I wonder how are they doing now. Since the time the bridge was destroyed by something, I have not been recieving any messages from them.", "I hope they are alright."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_trmm4")
-TextArr = Array[ExtResource("1_xqr5b")]([SubResource("Resource_xqr5b"), SubResource("Resource_trmm4")])
+TextArr = Array[ExtResource("1_xqr5b")]([SubResource("Resource_xqr5b"), SubResource("Resource_trmm4"), SubResource("Resource_ypb6c")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

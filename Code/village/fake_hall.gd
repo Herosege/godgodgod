@@ -11,6 +11,9 @@ var PrevRoom : Vector2
 var ActivarHands = false
 
 func _ready():
+	if Globals.Endings[Globals.End.EndingTravel]:
+		$Stuff/Gate.queue_free()
+	
 	$Stuff/EndStuff/AnimationPlayer.play("RESET")
 	if STEvents.EventArray[STEvents.Enums.FakeHallEndCutscene] == true:
 		DestroyCMaster()
@@ -29,6 +32,10 @@ func _process(delta):
 	if PNode.position.y < -479.0:
 		Globals.LoadScene("res://Scenes/village_1.tscn")
 		Globals.PosSetTravel = Vector2(11662.0,2848.0)
+	
+	if PNode.position.y >= 960.0 or PNode.position.x >= 10240.0:
+		Globals.LoadScene("res://Scenes/temple/void.tscn")
+		Globals.PosSetTravel = Vector2(320,240)
 	
 	
 	if PrevRoom != PNode.CRoomPos:
@@ -123,3 +130,11 @@ func _on_fountain_l_body_exited(body):
 		$Stuff/EndFHall/FountainL/Labels.visible = false
 		#SignalBus.emit_signal("SetHudMessage","",0)
 		#FountainActivar = false
+
+
+func _on_skip_trigger_body_entered(body):
+	if body.is_in_group("player"):
+		if $Stuff/EndStuff/AnimationPlayer.is_playing():
+			$Stuff/EndStuff/KillAudio.volume_db = -80.0
+			#$Stuff/EndStuff/Slash.volume_db = -80.0
+			$Stuff/EndStuff/AnimationPlayer.speed_scale = 999.0

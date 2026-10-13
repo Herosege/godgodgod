@@ -8,7 +8,9 @@ var InAxeCutscene = false
 
 func _ready():
 	if Globals.BossKilled[Globals.Balbina] == true:
-		$Balbina.queue_free()
+		$Balbina/Label.text = "Oh, hello again haha...
+		I didn't know you had that shotgun haha...
+		Well.. go on, I won't bother you"
 		$Gate.queue_free()
 
 func _on_cliff_bottom_body_entered(body):
@@ -26,7 +28,7 @@ func _on_cliff_bottom_area_entered(area):
 		if area.is_in_group("shotgun"):
 			ShotgunCutscene()
 			return
-		if !InAxeCutscene:
+		if !InAxeCutscene and not Globals.BossKilled[Globals.Balbina]:
 			AxeCutscene()
 
 func AxeCutscene():
@@ -42,7 +44,8 @@ func ShotgunCutscene():
 	$Balbina.queue_free()
 	$RatStuff/DeathSound.play()
 	$RatStuff/RatParticle.emitting = true
-	$RatStuff/AnimationPlayer.play("GateOpen")
+	if not Globals.BossKilled[Globals.Balbina]:
+		$RatStuff/AnimationPlayer.play("GateOpen")
 
 func RESET():
 	if Globals.BossKilled[Globals.Balbina] == false:

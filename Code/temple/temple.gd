@@ -35,7 +35,8 @@ func _process(delta):
 		STEvents.EventArray[STEvents.Enums.FTTheTempleOfHania] = true
 		SignalBus.ShowAreaIntro.emit("The temple of Hania")
 	
-	
+	if PNode.position.y > 500000.0:
+		Globals.LoadScene("res://Scenes/temple/wormending.tscn")
 	
 	if PrevRoom != PNode.CRoomPos:
 		if PNode.CRoomPos.y <= -10 and PNode.CRoomPos.y > -14:
@@ -100,7 +101,7 @@ func UpdatePassages():
 func _on_to_curse_world_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.LoadScene("res://Scenes/scene_1.tscn")
-		Globals.PosSetTravel = Vector2(530,-440)
+		Globals.PosSetTravel = Vector2(-3136,5350)
 
 func GetInDial(State,Type,Early):
 	if Type.is_in_group("Wex"):

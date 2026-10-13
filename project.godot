@@ -27,6 +27,7 @@ boot_splash/minimum_display_time=1500
 
 [audio]
 
+general/default_playback_type.web=0
 driver/output_latency.web=100
 
 [autoload]
@@ -58,7 +59,8 @@ folder_colors={
 "res://Misc/": "orange",
 "res://Resources/": "pink",
 "res://Scenes/": "purple",
-"res://Shaders/": "yellow"
+"res://Shaders/": "yellow",
+"res://TemplatesNStuff/": "gray"
 }
 
 [global_group]

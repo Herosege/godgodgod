@@ -5,17 +5,18 @@
 
 [sub_resource type="Resource" id="Resource_ju4ml"]
 script = ExtResource("1_ju4ml")
-MStr = Array[String](["Oh.... it's you...", "Fucking hell man, The Horse... That thing just appeared out of nowhere... everything, everyone is gone...", "God damned bastard, I was just enjoying my midnight drink, It happened so quickly, I couldn't do anything..."])
+MStr = Array[String](["Oh... hello.
+Welcome to the village... or at least what's left of it.", "The Horse... that thing just appeared out of nowhere... everything, everyone is gone...", "God damned bastard, I was just enjoying my midnight drink, It happened so quickly, I couldn't do anything...", "The only ones that survived are me and my pal fisher, who's to the east of the village and they are... you know... fishing. ", "Honestly, I don't know how they've been able to remain so calm and do stuff after what happened."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_181yh"]
 script = ExtResource("1_ju4ml")
-MStr = Array[String](["Heh, at least you are here, maybe we can do something about that piece of shit", "You are clearly good at jumping and killing stuff and that sorta thing, so you could do it", "Though, you are gonna need something with a bit more punch than that axe of yours", "I have a really strong shotgun, you can take it, but please help me decimate The Horse", "It's hidden on the west side of the island, right where the ground ends, you will need to fall and jump to the side and you will get it", "Best of lucks to ya"])
+MStr = Array[String](["Hey, so, can I ask you for a favor? You seem pretty good at jumping, killing stuff and that sort of things.", "So, can you please kill that god damned horse, for us and for all the people that died from it.", "But first, you are gonna need something with a bit more punch than that axe of yours.", "There is a really powerful shotgun to the west, take it, but please annihilate the horse.", "Good luck."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_u6qfs"]
 script = ExtResource("1_ju4ml")
-MStr = Array[String](["Hmm... when I squint my eyes, you kinda look like a horse....", "Ah whatever, just go", "The shotgun is hidden on the left side of the island, right where the ground ends, you will need to fall and jump to the side to get it"])
+MStr = Array[String](["Hmm... when I squint my eyes, you kinda look like a horse.", "Ah whatever, just go."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]

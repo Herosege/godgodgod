@@ -422,6 +422,7 @@ _data = {
 }
 
 [node name="HorseEnemy" type="CharacterBody2D" unique_id=502925360 groups=["RESET"]]
+collision_mask = 5
 script = ExtResource("1_idnnj")
 TimePeak = 0.5
 TimeFall = 0.5

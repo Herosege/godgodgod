@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtll0evk22k6q" path="res://Assets/LETSGO.png" id="2_a2lls"]
 [ext_resource type="Texture2D" uid="uid://b7qm7xbm030ob" path="res://Assets/abc.png" id="2_kqe11"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="3_wrx7g"]
+[ext_resource type="Texture2D" uid="uid://b0jkto6wrvdpu" path="res://Assets/temple/sun_bleed.png" id="6_rf1k4"]
 [ext_resource type="Texture2D" uid="uid://cybwuf8k1f2mx" path="res://Assets/LETSGO1.png" id="6_wrx7g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0067c"]
@@ -32,7 +33,7 @@ script = ExtResource("1_v5lta")
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1897366284]
-modulate = Color(0.03, 0.03, 0.03, 1)
+modulate = Color(0.11, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,31 +53,22 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -206.0
-offset_top = -248.0
-offset_right = -19.0
-offset_bottom = 252.0
+offset_left = -342.0
+offset_top = -234.0
+offset_right = -20.0
+offset_bottom = 266.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG
-SOMETHING IS WRONG"
+text = "AS YOU SLEPT IN THE FLOWER FIELDS
+SUDDENLY YOU FELT
+A HUGE URGE TO KILL THE SUN RIGHT NOW 
+
+BUT WITH YOUR POWERFUL
+WILL, YOU MANAGED TO IGNORE IT AND YOU ONCE AGAIN DRIFTED INTO DREAMS
+
+AFTER 473 HOURS, YOU FELT THE GROUND SHAKE, BUT YOU IGNORED IT
+
+AFTER 22 HOURS FROM THAT, A FEELING OF IMMENSE DREAD WOKE YOU UP"
 label_settings = SubResource("LabelSettings_0067c")
 autowrap_mode = 2
 
@@ -98,5 +90,35 @@ stream = SubResource("AudioStreamOggVorbis_427cu")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1643768442]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 692.0
+texture = ExtResource("6_rf1k4")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1747798993]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -200.0
+offset_right = 158.0
+offset_bottom = 492.0
+texture = ExtResource("6_rf1k4")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=339276395]
+layout_mode = 0
+offset_left = 122.0
+offset_top = -347.0
+offset_right = 242.0
+offset_bottom = 345.0
+texture = ExtResource("6_rf1k4")
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=457544440]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 213.0
+offset_right = 196.0
+offset_bottom = 905.0
+texture = ExtResource("6_rf1k4")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

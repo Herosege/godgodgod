@@ -6,24 +6,21 @@
 [sub_resource type="Resource" id="Resource_0jich"]
 script = ExtResource("1_0jich")
 MStr = Array[String](["Oh... hello...
-Where do you think are we?", "This space does not exist when viewed from outside of the temple, you can't see that huge tower, clouds or anything at all", "This is really weird and now I'm here and I don't know how can I even leave this place"])
-metadata/_custom_type_script = "uid://chbub80dwb52e"
-
-[sub_resource type="Resource" id="Resource_d4xjw"]
-script = ExtResource("1_0jich")
-MStr = Array[String](["By the way, I know what you want to do
-You want to kill the sun", "You may hide that all you want with that smile, but I see right through you", "Okay, listen:
-if you kill the sun, everyone will die and the world will end", "You wouldn't want that
-
-right?"])
+Where do you think are we?", "This space does not exist when viewed from outside of the temple, you can't see that huge tower, clouds or anything at all.", "Looking down, all I can see is darkness.
+But looking up, you can see the firmament of the world.", "That's really high up, I think if you jumped, you would fall for days."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_y2myb"]
 script = ExtResource("1_0jich")
-MStr = Array[String](["Well, what now...", "I guess we could jump to see what's below"])
+MStr = Array[String](["Anyway, I've been thinking, you know, the sun is above us, so why is it so dark here, isn't sun supposed to emit light?", "Why does the light reach the surface but not here? Or is the sun not emitting light? Man, this does not make any sense.", "This world is certainly an ugly mess, but it's also a kind of mess I love."])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_d4xjw"]
+script = ExtResource("1_0jich")
+MStr = Array[String](["Uhh... so how long have I been here already? To be honest I kinda lost the track of time."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [resource]
 script = ExtResource("2_y2myb")
-TextArr = Array[ExtResource("1_0jich")]([SubResource("Resource_0jich"), SubResource("Resource_d4xjw"), SubResource("Resource_y2myb")])
+TextArr = Array[ExtResource("1_0jich")]([SubResource("Resource_0jich"), SubResource("Resource_y2myb"), SubResource("Resource_d4xjw")])
 metadata/_custom_type_script = "uid://bhml0hyw4dw0u"

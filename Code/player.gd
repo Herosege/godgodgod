@@ -79,7 +79,7 @@ func _physics_process(delta):
 	CheckInputs()
 	MoveDirection(delta)
 	
-	velocity.y = clamp(velocity.y,-MAX_Y_VELOCITY,MAX_Y_VELOCITY*GravMultiplier)
+	velocity.y = clamp(velocity.y,-MAX_Y_VELOCITY*20.0,MAX_Y_VELOCITY*GravMultiplier)
 	move_and_slide()
 	
 	if Immortalix:
@@ -224,13 +224,12 @@ func OnLaunchPlayer(Vel,Str):
 
 const FOrbVelocity = -750
 
-func OnFOrbUse():
+func OnFOrbUse(StackMomentum:bool):
 	velocity.y = 0.0
-	if !ReduceGravity:
-		AdditVel.y = FOrbVelocity
+	if !StackMomentum or AdditVel.y > 0.0:
+		AdditVel.y = FOrbVelocity * (1 + (0.25 * int(ReduceGravity)))
 	else:
-		AdditVel.y = FOrbVelocity * 1.25
-	
+		AdditVel.y += FOrbVelocity * (1 + (0.25 * int(ReduceGravity)))
 
 func OnShotgunUse(Vel):
 	

@@ -345,7 +345,7 @@ func AttMidTimeout():
 			var LaunchAt = Vector2(sin(CalcAngle)*CalcVal,-1)
 			Shoot(From,LaunchAt,ATTMID_BALL_VELOCITY,4.0,TowAccel,ATTMID_BALL_ACCEL/1.3)
 		
-		CalcAngle = ATTMID_BALL_INIT_LAUNCH_ANGLE_RAD*0.25
+		CalcAngle = ATTMID_BALL_INIT_LAUNCH_ANGLE_RAD*0.24
 		MID_LAUNCH2 = ATTMID_BALL_INIT_LAUNCH
 		
 		

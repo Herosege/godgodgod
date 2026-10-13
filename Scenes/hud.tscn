@@ -177,17 +177,21 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43w4t"]
-bg_color = Color(0, 0, 0, 0.5882353)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_36asn"]
-line_spacing = 2.0
-font = ExtResource("6_36asn")
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="SystemFont" id="SystemFont_36asn"]
+font_names = PackedStringArray("Sitka Small")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_8jye8"]
+font_names = PackedStringArray("Sitka Small")
+font_italic = true
+subpixel_positioning = 0
 
 [sub_resource type="Gradient" id="Gradient_36asn"]
 offsets = PackedFloat32Array(0, 0.525, 0.9861111)
@@ -358,7 +362,7 @@ anchors_preset = -1
 anchor_top = 0.667
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.160034
+offset_top = -20.160004
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 5
@@ -382,12 +386,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="ExtraBox/Panel/MarginContainer" unique_id=2092660950]
+[node name="Label" type="RichTextLabel" parent="ExtraBox/Panel/MarginContainer" unique_id=210638836]
 custom_minimum_size = Vector2(602, 0)
 layout_mode = 2
-size_flags_vertical = 0
-label_settings = SubResource("LabelSettings_36asn")
-autowrap_mode = 3
+theme_override_fonts/normal_font = SubResource("SystemFont_36asn")
+theme_override_fonts/italics_font = SubResource("SystemFont_8jye8")
+bbcode_enabled = true
 
 [node name="ExTextUp" type="TextureRect" parent="." unique_id=1242700505]
 visible = false

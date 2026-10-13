@@ -7,6 +7,20 @@ const PATH_TO_CONFSAVE = "user://config.conf"
 
 var FirstTime = true
 
+enum Areas {
+	FlowerFields,
+	CurseWorld,
+	Village,
+	InsidePlaces,
+	Construct,
+	Bog,
+	RottingFields,
+	GreatRotting,
+	Temple,
+	Void,
+	FirmamentWaters
+}
+
 var AreaScenes = [
 	"res://Scenes/main.tscn",
 	"res://Scenes/scene_1.tscn",
@@ -16,7 +30,9 @@ var AreaScenes = [
 	"res://Scenes/Bog/bog.tscn",
 	"res://Scenes/main-postending.tscn",
 	"res://Scenes/scene_1-postending.tscn",
-	"res://Scenes/temple/temple.tscn"
+	"res://Scenes/temple/temple.tscn",
+	"res://Scenes/temple/void.tscn",
+	"res://Scenes/firmament_waters.tscn"
 ]
 
 var TravelingBack = false
@@ -64,7 +80,7 @@ var stoptime = true
 
 var NumTimesBeatGame : int = 0
 
-enum End {EndingWater,EndingPeace,EndingPain,EndingTravel}
+enum End {EndingWater,EndingVoid,EndingPain,EndingTravel}
 
 var Endings = [false,false,false,false]
 
@@ -89,6 +105,7 @@ enum SEID {RombGet}
 var InHouse := false
 
 func _ready():
+	
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	MVol = load_game(PATH_TO_CONFSAVE,"MusicVolume",MVol)
@@ -184,16 +201,18 @@ func SaveData(type):
 		ResetMemoryGlobal()
 
 func TravelBack():
+	#TravelingBack = true
+	#SavedPos[0] = Vector2(320,320)
+	#SavedPos[1] = 0
+	#SpecialItem = false
+	#NumDeaths = 0
+	#SaveTime = 0.0
+	#Items = [
+		#[false,false,false],#Passives
+		#[false,false]#Weapons
+	#]
+	ResetMemoryGlobal(false)
 	TravelingBack = true
-	SavedPos[0] = Vector2(320,320)
-	SavedPos[1] = 0
-	SpecialItem = false
-	NumDeaths = 0
-	SaveTime = 0.0
-	Items = [
-		[false,false,false],#Passives
-		[false,false]#Weapons
-	]
 
 func SavePerma():
 	

@@ -73,8 +73,8 @@ func _ready():
 		#DebugSaveLoc[1] = 2
 		
 		#village - village 
-		#DebugSaveLoc[0] = Vector2(1101,-5883)
-		#DebugSaveLoc[1] = 2
+		DebugSaveLoc[0] = Vector2(1101,-5883)
+		DebugSaveLoc[1] = 2
 		
 		#FakeHall - start
 		#DebugSaveLoc[0] = Vector2(530,-440)
@@ -87,18 +87,6 @@ func _ready():
 		#FakeHall - sixth obstacle
 		#DebugSaveLoc[0] = Vector2(3880+640,375)
 		#DebugSaveLoc[1] = 4
-		
-		#village - EXTRA
-		#DebugSaveLoc[0] = Vector2(9043,-26)
-		#DebugSaveLoc[1] = 2
-		
-		#village - EXTRA2
-		#DebugSaveLoc[0] = Vector2(9146,-97)
-		#DebugSaveLoc[1] = 2
-		
-		#village - EXTRA3
-		#DebugSaveLoc[0] = Vector2(9080,-194)
-		#DebugSaveLoc[1] = 2
 		
 		#Bog - start
 		#DebugSaveLoc[0] = Vector2(120,400)
@@ -135,13 +123,13 @@ func _ready():
 		#Temple - start 
 		#DebugSaveLoc[0] = Vector2(319,-560)
 		#DebugSaveLoc[1] = 8
-		
+		#
 		#Temple - secret right
 		#DebugSaveLoc[0] = Vector2(1590,-980)
 		#DebugSaveLoc[1] = 8
 		
 		#Temple - right 4 room
-		#DebugSaveLoc[0] = Vector2(2330,-1024)
+		#DebugSaveLoc[0] = Vector2(2330,-824)
 		#DebugSaveLoc[1] = 8
 		#DebugSaveLoc[0] = Vector2(2177,-1490)
 		#DebugSaveLoc[1] = 8
@@ -171,6 +159,14 @@ func _ready():
 		#DebugSaveLoc[1] = 8
 		
 		#Village - World's edge
-		DebugSaveLoc[0] = Vector2(11600,700)
-		DebugSaveLoc[1] = 8
-		STEvents.EventArray[STEvents.Enums.FakeHallEndCutscene] = true
+		#DebugSaveLoc[0] = Vector2(11600,700)
+		#DebugSaveLoc[1] = 2
+		#STEvents.EventArray[STEvents.Enums.FakeHallEndCutscene] = true
+		
+		#Void - start
+		#DebugSaveLoc[0] = Vector2(320,240)
+		#DebugSaveLoc[1] = 9
+		
+		#Curse world - tower 
+		#DebugSaveLoc[0] = Vector2(-3130,5340)
+		#DebugSaveLoc[1] = 1

@@ -7,6 +7,8 @@ extends Node2D
 var CPlaying : int
 
 func _ready():
+	if Globals.Items[Globals.Passive][Globals.Water]:
+		$Houses/Village/OnenBTower.queue_free()
 	await get_tree().physics_frame
 	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false and STEvents.EventArray[STEvents.Enums.MayorSpokenToWithHint] == true:
 		$Houses/Village/Stuff/HorseHalucination.visible = true
@@ -32,9 +34,13 @@ func _process(delta):
 		STEvents.EventArray[STEvents.Enums.FTTheVillage] = true
 		SignalBus.ShowAreaIntro.emit("The village")
 	
-	if PNode.position.y > 2864.0:
+	if PNode.position.y >= 2864.0:
 		Globals.LoadScene("res://Scenes/village/fake_hall.tscn")
 		Globals.PosSetTravel = Vector2(PNode.global_position.x-640*7,-420)
+	
+	if PNode.position.x >= 14720.0:
+		Globals.LoadScene("res://Scenes/temple/void.tscn")
+		Globals.PosSetTravel = Vector2(320,240)
 	
 	if STEvents.EventArray[STEvents.Enums.HorseHaluShown] == false:
 		if PNode.position.x < 640 and PNode.position.x > 0 and PNode.position.y < -5800:
@@ -125,6 +131,12 @@ func GetInDial(State,Type,Early):
 			$Houses/Village/Fisher/FisherAnim.play("default")
 		else:
 			$Houses/Village/Fisher/FisherAnim.stop()
+	
+	if Type.is_in_group("mayor"):
+		if State:
+			$Stuff/Mayor/AnimatedSprite2D.play("default")
+		else:
+			$Stuff/Mayor/AnimatedSprite2D.stop()
 
 func _on_onen_coll_body_entered(body):
 	if body.is_in_group("player"):

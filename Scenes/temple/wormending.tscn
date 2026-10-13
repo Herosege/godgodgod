@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dwpmt0tg7jcsg"]
+
+[ext_resource type="Texture2D" uid="uid://eubjvk3pomw7" path="res://Assets/temple/crawling2.png" id="1_r2tu2"]
+[ext_resource type="Texture2D" uid="uid://djkp0uf7e0ohw" path="res://Assets/temple/crawling3.png" id="2_vyrx7"]
+[ext_resource type="Texture2D" uid="uid://c502ks7fght3v" path="res://Assets/temple/crawling4.png" id="3_rbsnw"]
+[ext_resource type="Texture2D" uid="uid://cpxcdqr8uo0b6" path="res://Assets/temple/crawling5.png" id="4_ic4yi"]
+[ext_resource type="AudioStream" uid="uid://b4h1wmlvnj4op" path="res://Assets/Sound/ineedtogetsomefood1.ogg" id="5_vyrx7"]
+
+[sub_resource type="SystemFont" id="SystemFont_yf5fn"]
+font_names = PackedStringArray("Bookman Old Style")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = SubResource("SystemFont_yf5fn")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkkk3"]
+font = SubResource("SystemFont_yf5fn")
+font_size = 14
+
+[node name="WORMENDING" type="Control" unique_id=859943859]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="." unique_id=1755070154]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 20.0
+offset_right = 231.0
+offset_bottom = 49.0
+text = "WORM ENDING"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Label3" type="Label" parent="." unique_id=444107568]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 186.0
+offset_right = 544.0
+offset_bottom = 375.0
+text = "You decided to fall from the temple
+out of curiosity.
+But, you discovered the wormland.
+Hell is a light description for what you
+experienced there.
+The worms had no mercy.
+There was nothing left of you after the things
+they did to you."
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Label2" type="Label" parent="." unique_id=1288020786]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 58.0
+offset_right = 270.0
+offset_bottom = 97.0
+text = "you fell for the oldest
+worm in the book"
+label_settings = SubResource("LabelSettings_pkkk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=853745554]
+position = Vector2(59, 215)
+texture = ExtResource("1_r2tu2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1663340260]
+position = Vector2(385, 108)
+texture = ExtResource("2_vyrx7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1169604668]
+position = Vector2(587, 40)
+texture = ExtResource("3_rbsnw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=753969283]
+position = Vector2(548, 155)
+texture = ExtResource("4_ic4yi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=426541756]
+stream = ExtResource("5_vyrx7")
+volume_db = -5.0
+pitch_scale = 0.1
+autoplay = true
+parameters/looping = true

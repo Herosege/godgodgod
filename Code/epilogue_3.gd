@@ -11,11 +11,11 @@ func _on_animated_sprite_2d_animation_finished():
 		Activare = true
 		$AnimatedSprite2D.play("sleeping")
 
-func _on_timer_timeout():
-	$CPUParticles2D.emitting = true
-
-
-func _on_animated_sprite_2d_animation_looped():
-	if !Activared:
-		Activared = true
-		$EndingStuff.EndGame(Globals.End.EndingPeace)
+#func _on_timer_timeout():
+	#$CPUParticles2D.emitting = true
+#
+#
+#func _on_animated_sprite_2d_animation_looped():
+	#if !Activared:
+		#Activared = true
+		#$EndingStuff.EndGame(Globals.End.EndingPeace)

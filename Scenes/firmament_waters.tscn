@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cy6vpkeg237py"]
 
-[ext_resource type="Script" uid="uid://b2n6y6k1wwr33" path="res://Code/epilogue_2.gd" id="1_3teww"]
+[ext_resource type="Script" uid="uid://b2n6y6k1wwr33" path="res://Code/firmament_waters.gd" id="1_3teww"]
 [ext_resource type="PackedScene" uid="uid://dae1op8r72gbi" path="res://Scenes/debug.tscn" id="2_d1iy2"]
 [ext_resource type="PackedScene" uid="uid://dj6xpr0fo640s" path="res://Scenes/hud.tscn" id="3_spdh5"]
 [ext_resource type="PackedScene" uid="uid://c4bj4xgj6l01p" path="res://Scenes/player.tscn" id="4_n876c"]
@@ -17,7 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://cbirhokj74fm2" path="res://Assets/temple/onen_beach.png" id="15_kdma1"]
 [ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="16_xn4gj"]
 [ext_resource type="Shader" uid="uid://d38ou18nqfllj" path="res://Shaders/water.gdshader" id="17_kfu6b"]
+[ext_resource type="PackedScene" uid="uid://cs6shg8k52pem" path="res://Scenes/village/event_node.tscn" id="17_n876c"]
 [ext_resource type="Script" uid="uid://u4nerpxo0nyj" path="res://Code/temple/water_area.gd" id="18_0enwc"]
+[ext_resource type="Script" uid="uid://chbub80dwb52e" path="res://Misc/MultilineStringArray.gd" id="18_qx5f7"]
+[ext_resource type="Script" uid="uid://bhml0hyw4dw0u" path="res://Misc/Text.gd" id="19_oqwx4"]
 [ext_resource type="PackedScene" uid="uid://bictivtnhttj1" path="res://Scenes/pause_menu.tscn" id="19_spdh5"]
 [ext_resource type="PackedScene" uid="uid://qyrclyy1sn6q" path="res://Scenes/pause.tscn" id="20_n876c"]
 
@@ -169,6 +172,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_hv7eh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx5f7"]
+size = Vector2(50, 23)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(73, 47)
 
@@ -179,6 +185,21 @@ font_size = 18
 font_color = Color(0, 0, 0, 1)
 outline_size = 8
 outline_color = Color(0.83, 0.83, 0.83, 1)
+
+[sub_resource type="Resource" id="Resource_htsoy"]
+script = ExtResource("18_qx5f7")
+MStr = Array[String](["abba", "a122"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_qx5f7"]
+script = ExtResource("18_qx5f7")
+MStr = Array[String](["bobo", "123123"])
+metadata/_custom_type_script = "uid://chbub80dwb52e"
+
+[sub_resource type="Resource" id="Resource_n876c"]
+script = ExtResource("19_oqwx4")
+TextArr = Array[ExtResource("18_qx5f7")]([SubResource("Resource_htsoy"), SubResource("Resource_qx5f7")])
+metadata/_custom_type_script = "uid://bhml0hyw4dw0u"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ei6cx"]
 noise_type = 5
@@ -364,9 +385,18 @@ metadata/_edit_lock_ = true
 
 [node name="Stuff" type="Node2D" parent="." unique_id=1620743121]
 
-[node name="Gate" type="Sprite2D" parent="Stuff" unique_id=81124675]
+[node name="EventNode" parent="Stuff" unique_id=300086300 instance=ExtResource("17_n876c")]
 position = Vector2(304, 128)
+Type = 1
+WhereTo = "res://Scenes/temple/temple.tscn"
+Coords = Vector2(320, -6555)
+
+[node name="Gate" type="Sprite2D" parent="Stuff/EventNode" unique_id=81124675]
 texture = ExtResource("14_tp4wt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/EventNode" unique_id=250946853]
+position = Vector2(0, 37.5)
+shape = SubResource("RectangleShape2D_qx5f7")
 
 [node name="Onen" type="Node2D" parent="Stuff" unique_id=1971469061]
 position = Vector2(427, 352)
@@ -393,10 +423,19 @@ It's fine if you don't want to,
 but there is nothing else to do here,
 all that's left is to mark this as an end...
 
-So if you are ready to stop, 
+So if you are ready, 
 give me a sign.
 "
 label_settings = SubResource("LabelSettings_uf5ln")
+
+[node name="EventNode" parent="Stuff/Onen" unique_id=1850715705 instance=ExtResource("17_n876c")]
+Type = 0
+ShowTextHint = false
+Dial = SubResource("Resource_n876c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Onen/EventNode" unique_id=1455002936]
+position = Vector2(-6.5, -7.5)
+shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ColorRect" type="ColorRect" parent="Stuff" unique_id=1612661293]
 z_index = 2

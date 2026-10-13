@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var BeerBtn = $Collectibles/VBoxContainer/HBoxContainer/BottleActivar
 @onready var MilkShw = $Collectibles/VBoxContainer/HBoxContainer/TextureRect
 @onready var WaterShw = $Collectibles/VBoxContainer/HBoxContainer2/WaterActivar
+@onready var KeyShw = $Collectibles/VBoxContainer/HBoxContainer2/TextureRect2
 
 @onready var Pause = get_tree().get_first_node_in_group("PAUSE")
 
@@ -10,7 +11,7 @@ var BGImageNormal = load("res://Assets/painting1.png")
 var BGImageHouse = load("res://Assets/temple/pause_housebg_1.png")
 
 func _ready():
-	
+	visible = false
 	SignalBus.GetItem.connect(_on_get_item)
 	SignalBus.SettingChanged.connect(OnSettingsChanged)
 	SignalBus.GetInHouse.connect(OnGetInHouse)
@@ -26,7 +27,7 @@ func _process(delta):
 			$DeathAmt.text = str(int(Globals.NumDeaths))
 			
 			BeerBtn.button_pressed = Globals.EffectActive[Globals.Beer]
-			
+			KeyShw.visible = Globals.Endings[Globals.End.EndingTravel]
 			
 			MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]
 			BeerBtn.visible = Globals.Items[Globals.Passive][Globals.Beer]
@@ -101,6 +102,7 @@ func StartStuff():
 		MilkShw.tooltip_text = "Mleko\nAllows you to move slowly with {0}\non ground and along walls\n(Always active)".format([Globals.KeybindList["Slowdown"][1].trim_suffix(" (Physical)")])
 	$wife.visible = Globals.SpecialItem
 	$DeathAmt.text = str(int(Globals.NumDeaths))
+	KeyShw.visible = Globals.Endings[Globals.End.EndingTravel]
 	MilkShw.visible = Globals.Items[Globals.Passive][Globals.Milk]
 	BeerBtn.visible = Globals.Items[Globals.Passive][Globals.Beer]
 	WaterShw.visible = Globals.Items[Globals.Passive][Globals.Water]
