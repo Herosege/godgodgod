@@ -73,8 +73,8 @@ func _ready():
 		#DebugSaveLoc[1] = 2
 		
 		#village - village 
-		DebugSaveLoc[0] = Vector2(1101,-5883)
-		DebugSaveLoc[1] = 2
+		#DebugSaveLoc[0] = Vector2(1101,-5883)
+		#DebugSaveLoc[1] = 2
 		
 		#FakeHall - start
 		#DebugSaveLoc[0] = Vector2(530,-440)

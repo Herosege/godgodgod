@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wpsflh6atdeb"]
 
 [ext_resource type="Script" uid="uid://c2f0g7et77q58" path="res://Code/epilogue_1.gd" id="1_3t0qa"]
-[ext_resource type="AudioStream" uid="uid://d2msln3qfo2me" path="res://Assets/Sound/ImpossibilityOfReality_nd.ogg" id="2_8m27q"]
+[ext_resource type="AudioStream" uid="uid://dwt1p512k0avo" path="res://Assets/Sound/ImpossibilityOfReality_nd_rev.ogg" id="2_8m27q"]
 [ext_resource type="Texture2D" uid="uid://cxky2tyqxx6ci" path="res://Assets/temple/end1.png" id="3_fgqe2"]
 [ext_resource type="Texture2D" uid="uid://dbwercdd4xnqx" path="res://Assets/village/lamp_light.png" id="4_0ses7"]
 [ext_resource type="Texture2D" uid="uid://b7u5akbh3k352" path="res://Assets/temple/sun0.png" id="5_mkqns"]
@@ -13,7 +13,7 @@ script = ExtResource("1_3t0qa")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2131357263]
 stream = ExtResource("2_8m27q")
-volume_db = -7.0
+pitch_scale = 1.33
 autoplay = true
 bus = &"Music"
 

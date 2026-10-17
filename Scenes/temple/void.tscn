@@ -255,5 +255,6 @@ position = Vector2(2223, 885)
 Message = "EVERYTHING
 IS
 NOTHING"
+RombType = 8
 
 [connection signal="body_entered" from="Stuff/Onen" to="." method="_on_onen_body_entered"]

@@ -155,6 +155,7 @@ func _process(delta):
 		#TravelBack()
 		if !InHouse:
 			LoadScene("res://Scenes/temple/house.tscn")
+			stoptime = true
 			InHouse = true
 		else:
 			if SavedPos[1] != -1:
@@ -162,6 +163,7 @@ func _process(delta):
 				Globals.LoadScene(Globals.AreaScenes[Globals.SavedPos[1]])
 			else:
 				get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+			stoptime = false
 			InHouse = false
 		#get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 		pass

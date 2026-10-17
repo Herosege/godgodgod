@@ -612,6 +612,21 @@ modulate = Color(0.81, 0.47790003, 0.47790003, 1)
 position = Vector2(823, -318)
 SType = 4
 
+[node name="Spike79" parent="Hazards/Flowers" unique_id=550991384 instance=ExtResource("4_bega8")]
+modulate = Color(0.81, 0.47790003, 0.47790003, 1)
+position = Vector2(812, -311)
+SType = 4
+
+[node name="Spike80" parent="Hazards/Flowers" unique_id=623387390 instance=ExtResource("4_bega8")]
+modulate = Color(0.81, 0.47790003, 0.47790003, 1)
+position = Vector2(822, -304)
+SType = 4
+
+[node name="Spike81" parent="Hazards/Flowers" unique_id=882951845 instance=ExtResource("4_bega8")]
+modulate = Color(0.81, 0.47790003, 0.47790003, 1)
+position = Vector2(813, -396)
+SType = 4
+
 [node name="Spike72" parent="Hazards/Flowers" unique_id=1319708517 instance=ExtResource("4_bega8")]
 modulate = Color(0.81, 0.47790003, 0.47790003, 1)
 position = Vector2(808, -329)
@@ -1204,7 +1219,7 @@ autoplay = "Soul"
 
 [node name="SpikeR7" parent="Hazards/SpikesMoving/Down" unique_id=1772616748 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1480, 362)
+position = Vector2(1480, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1213,7 +1228,7 @@ autoplay = "Spike"
 
 [node name="SpikeR8" parent="Hazards/SpikesMoving/Down" unique_id=1299468945 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1512, 362)
+position = Vector2(1512, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1222,7 +1237,7 @@ autoplay = "Spike"
 
 [node name="SpikeR9" parent="Hazards/SpikesMoving/Down" unique_id=1101317940 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1544, 362)
+position = Vector2(1544, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1231,7 +1246,7 @@ autoplay = "Spike"
 
 [node name="SpikeR10" parent="Hazards/SpikesMoving/Down" unique_id=109529909 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1576, 362)
+position = Vector2(1576, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1240,7 +1255,7 @@ autoplay = "Spike"
 
 [node name="SpikeR11" parent="Hazards/SpikesMoving/Down" unique_id=59182443 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1608, 362)
+position = Vector2(1608, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1249,7 +1264,7 @@ autoplay = "Spike"
 
 [node name="SpikeR12" parent="Hazards/SpikesMoving/Down" unique_id=1628502012 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1640, 362)
+position = Vector2(1640, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1258,7 +1273,7 @@ autoplay = "Spike"
 
 [node name="SpikeR23" parent="Hazards/SpikesMoving/Down" unique_id=389632386 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1656, 362)
+position = Vector2(1656, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1267,7 +1282,7 @@ autoplay = "Spike"
 
 [node name="SpikeR18" parent="Hazards/SpikesMoving/Down" unique_id=276383706 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1496, 362)
+position = Vector2(1496, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1276,7 +1291,7 @@ autoplay = "Spike"
 
 [node name="SpikeR19" parent="Hazards/SpikesMoving/Down" unique_id=1553164569 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1528, 362)
+position = Vector2(1528, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1285,7 +1300,7 @@ autoplay = "Spike"
 
 [node name="SpikeR20" parent="Hazards/SpikesMoving/Down" unique_id=1218419997 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1560, 362)
+position = Vector2(1560, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1294,7 +1309,7 @@ autoplay = "Spike"
 
 [node name="SpikeR21" parent="Hazards/SpikesMoving/Down" unique_id=2117540652 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1592, 362)
+position = Vector2(1592, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1303,7 +1318,7 @@ autoplay = "Spike"
 
 [node name="SpikeR22" parent="Hazards/SpikesMoving/Down" unique_id=845519665 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1624, 362)
+position = Vector2(1624, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1312,7 +1327,7 @@ autoplay = "Spike"
 
 [node name="SpikeR24" parent="Hazards/SpikesMoving/Down" unique_id=1396877633 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1672, 362)
+position = Vector2(1672, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1321,7 +1336,7 @@ autoplay = "Spike"
 
 [node name="SpikeR25" parent="Hazards/SpikesMoving/Down" unique_id=36219033 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1704, 362)
+position = Vector2(1704, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1330,7 +1345,7 @@ autoplay = "Spike"
 
 [node name="SpikeR26" parent="Hazards/SpikesMoving/Down" unique_id=1279787086 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1715, 362)
+position = Vector2(1715, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -1339,7 +1354,7 @@ autoplay = "Spike"
 
 [node name="SpikeR27" parent="Hazards/SpikesMoving/Down" unique_id=40455119 instance=ExtResource("4_bega8")]
 modulate = Color(0.8117647, 0.47843137, 0.47843137, 1)
-position = Vector2(1688, 362)
+position = Vector2(1688, 365)
 SType = 1
 metadata/_edit_group_ = true
 
@@ -2326,7 +2341,7 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_cv3jb")
 
 [node name="Spike222" type="Area2D" parent="Hazards/Spikes2" unique_id=1445285836 groups=["killplayer"]]
-position = Vector2(3046, -191)
+position = Vector2(3048, -191)
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hazards/Spikes2/Spike222" unique_id=280444028]
@@ -2352,7 +2367,7 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_cv3jb")
 
 [node name="Spike178" type="Area2D" parent="Hazards/Spikes2" unique_id=1098462824 groups=["killplayer"]]
-position = Vector2(2987, -172)
+position = Vector2(2990, -172)
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hazards/Spikes2/Spike178" unique_id=802230597]
@@ -2365,7 +2380,7 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_cv3jb")
 
 [node name="Spike234" type="Area2D" parent="Hazards/Spikes2" unique_id=1582173602 groups=["killplayer"]]
-position = Vector2(2986, -161)
+position = Vector2(2989, -161)
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hazards/Spikes2/Spike234" unique_id=1840411565]
@@ -2926,15 +2941,15 @@ position = Vector2(1505, 325)
 monitorable = false
 
 [node name="ExJump3" parent="Stuff/ExJumps" unique_id=544340342 instance=ExtResource("6_1pu70")]
-position = Vector2(1561, 324)
+position = Vector2(1561, 329)
 monitorable = false
 
 [node name="ExJump8" parent="Stuff/ExJumps" unique_id=1951220659 instance=ExtResource("6_1pu70")]
-position = Vector2(1626, 324)
+position = Vector2(1626, 329)
 monitorable = false
 
 [node name="ExJump9" parent="Stuff/ExJumps" unique_id=385709509 instance=ExtResource("6_1pu70")]
-position = Vector2(1684, 327)
+position = Vector2(1685, 331)
 monitorable = false
 
 [node name="ExJump10" parent="Stuff/ExJumps" unique_id=2038028761 instance=ExtResource("6_1pu70")]

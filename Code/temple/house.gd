@@ -8,7 +8,7 @@ var AchCompleted := 0
 const HARDMODE_ACH_REQ := 3
 
 func _ready():
-	
+	Globals.stoptime = true
 	SetSignText()
 	
 	#var Achs = $Achievements.get_children()

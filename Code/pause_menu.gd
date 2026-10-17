@@ -74,8 +74,8 @@ func _on_water_activar_pressed():
 		var POSTO = Vector2(210,365)
 		Globals.LoadScene(Globals.AreaScenes[8])
 		Globals.PosSetTravel = POSTO
-		Globals.SavedPos[0] = POSTO
-		Globals.SavedPos[1] = 8
+		#Globals.SavedPos[0] = POSTO
+		#Globals.SavedPos[1] = 8
 		Globals.MenuPaused = false
 		visible = false
 		get_tree().paused = false

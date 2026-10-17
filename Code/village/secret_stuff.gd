@@ -40,12 +40,12 @@ func AxeCutscene():
 	SignalBus.emit_signal("KillPlayer")
 
 func ShotgunCutscene():
+	if not Globals.BossKilled[Globals.Balbina]:
+		$RatStuff/AnimationPlayer.play("GateOpen")
 	Globals.BossKilled[Globals.Balbina] = true
 	$Balbina.queue_free()
 	$RatStuff/DeathSound.play()
 	$RatStuff/RatParticle.emitting = true
-	if not Globals.BossKilled[Globals.Balbina]:
-		$RatStuff/AnimationPlayer.play("GateOpen")
 
 func RESET():
 	if Globals.BossKilled[Globals.Balbina] == false:
