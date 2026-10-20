@@ -19,7 +19,7 @@ func _ready():
 			#i.UpdateVisual()
 	
 	SignalBus.GetInHouse.emit(true)
-	PNode.global_position = Vector2(640,480)/2
+	PNode.global_position = Vector2(560,550)
 	for i in STEvents.Achievements:
 		if i.Achieved:
 			AchCompleted += 1

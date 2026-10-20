@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_g5bfc")
-Name = "Beat the game in under 18 minutes"
+Name = "Beat the game in under 13 minutes"
 Description = "I didn't really think about this, but this world stopped being something hostile to me and I became so familiar with it, that I started challenging myself with it, seeking fun in optimizing my paths and getting better and better at going through it."
 AchImage = ExtResource("1_exmhx")
 metadata/_custom_type_script = "uid://c4v387sglca2h"

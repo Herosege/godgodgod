@@ -10,10 +10,6 @@ var t = 0.0
 
 func _ready():
 	Globals.stoptime = true
-	EM.pitch_scale = 0.2
 
 func _process(delta):
-	t+=delta
-	if t > 0.1:
-		t-=0.1
-		EM.pitch_scale = (0.24 * (randf())+0.1)
+	pass

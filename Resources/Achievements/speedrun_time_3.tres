@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_6m12i")
-Name = "Beat the game in under 10 minutes"
+Name = "Beat the game in under 8 minutes"
 Description = "All of these patterns are burned into my memory.
 I repeat myself, trying and trying to get a better time, to maybe try and shave off a second, to discover something that makes me reach an end even slightly faster. 
-A beautiful repetition, an incredible dedication, my purpose."
+Optimization after optimization the world crubles before my eyes."
 AchImage = ExtResource("1_x8aje")
 metadata/_custom_type_script = "uid://c4v387sglca2h"

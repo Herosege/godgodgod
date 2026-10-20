@@ -1049,6 +1049,14 @@ height = 256
 fill_from = Vector2(0, 0.995726)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Gradient" id="Gradient_kksmy"]
+colors = PackedColorArray(0.1221, 0.23991, 0.33, 1, 0.329928, 0.435542, 0.509968, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aa8k8"]
+gradient = SubResource("Gradient_kksmy")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
 [sub_resource type="Gradient" id="Gradient_rmwoo"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
@@ -1451,7 +1459,7 @@ shape = SubResource("CapsuleShape2D_aa8k8")
 position = Vector2(6456, 240)
 
 [node name="Enemy6" parent="Enemies" unique_id=476323874 instance=ExtResource("6_612g2")]
-position = Vector2(7352, 112)
+position = Vector2(7352, 120)
 
 [node name="Enemy7" parent="Enemies" unique_id=487379439 instance=ExtResource("6_612g2")]
 position = Vector2(7474, 124)
@@ -1547,6 +1555,39 @@ position = Vector2(-1000, -41)
 
 [node name="Spike67" parent="Hazards/Flowers" unique_id=382127052 instance=ExtResource("4_bega8")]
 position = Vector2(-984, -41)
+
+[node name="Spike69" parent="Hazards/Flowers" unique_id=1519160898 instance=ExtResource("4_bega8")]
+position = Vector2(-1112, -57)
+
+[node name="Spike70" parent="Hazards/Flowers" unique_id=1672560341 instance=ExtResource("4_bega8")]
+position = Vector2(-1096, -57)
+
+[node name="Spike71" parent="Hazards/Flowers" unique_id=1543169662 instance=ExtResource("4_bega8")]
+position = Vector2(-1080, -57)
+
+[node name="Spike72" parent="Hazards/Flowers" unique_id=90823792 instance=ExtResource("4_bega8")]
+position = Vector2(-1064, -57)
+
+[node name="Spike79" parent="Hazards/Flowers" unique_id=1514435165 instance=ExtResource("4_bega8")]
+position = Vector2(-1055, -47)
+
+[node name="Spike73" parent="Hazards/Flowers" unique_id=1404265470 instance=ExtResource("4_bega8")]
+position = Vector2(-1176, -57)
+
+[node name="Spike74" parent="Hazards/Flowers" unique_id=1273053192 instance=ExtResource("4_bega8")]
+position = Vector2(-1192, -57)
+
+[node name="Spike78" parent="Hazards/Flowers" unique_id=25726407 instance=ExtResource("4_bega8")]
+position = Vector2(-1208, -57)
+
+[node name="Spike75" parent="Hazards/Flowers" unique_id=1334669217 instance=ExtResource("4_bega8")]
+position = Vector2(-1160, -57)
+
+[node name="Spike76" parent="Hazards/Flowers" unique_id=233753870 instance=ExtResource("4_bega8")]
+position = Vector2(-1144, -57)
+
+[node name="Spike77" parent="Hazards/Flowers" unique_id=1302284125 instance=ExtResource("4_bega8")]
+position = Vector2(-1128, -57)
 
 [node name="Spike47" parent="Hazards/Flowers" unique_id=432585879 instance=ExtResource("4_bega8")]
 position = Vector2(824, -200)
@@ -3271,6 +3312,19 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_0pmr0")
 metadata/_edit_lock_ = true
 
+[node name="TextureRect5" type="TextureRect" parent="Background/Bridge" unique_id=411536563]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4480.0
+offset_top = -960.0
+offset_right = 15680.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_aa8k8")
+metadata/_edit_lock_ = true
+
 [node name="Tree" type="Node2D" parent="Background" unique_id=1530389770]
 
 [node name="TextureRect" type="TextureRect" parent="Background/Tree" unique_id=2038737882]
@@ -3467,7 +3521,7 @@ offset_left = -384.0
 offset_top = -90.0
 offset_right = -70.0
 offset_bottom = 267.0
-text = "Hello
+text = "Hello, my name is Onen.
 You must be Othenson, right?
 Hmm, you seem to want to kill the sun.
 Well that seems like a fun goal! 

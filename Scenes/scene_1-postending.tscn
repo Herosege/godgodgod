@@ -3840,7 +3840,7 @@ ItemType = 1
 
 [node name="Music2" type="AudioStreamPlayer" parent="." unique_id=326421939]
 stream = ExtResource("82_ki0jh")
-volume_db = -3.0
+volume_db = -6.0
 bus = &"Music"
 parameters/looping = true
 

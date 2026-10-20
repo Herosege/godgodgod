@@ -1,12 +1,13 @@
 extends CanvasLayer
 
-const SPEEDRUNTIMES = [1200,800,500]
+const SPEEDRUNTIMES = [60*20,60*13,60*8]
 const DEATH_AMNT = [100,20,0]
 const NUMTIMESBEATGAME = [1,2,30]
 
 func EndGame(EndType,NormalEnd:=true,ExState:=-1):
 	
 	Globals.stoptime = true
+	
 	
 	Globals.Endings[EndType] = true
 	if ExState==-1:

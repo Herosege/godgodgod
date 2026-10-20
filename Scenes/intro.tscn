@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cxgdib5vb3b17" path="res://Assets/cogwheel.png" id="7_8q6d0"]
 [ext_resource type="Texture2D" uid="uid://s8fjv76da75w" path="res://Assets/dymek.png" id="10_sy41w"]
 [ext_resource type="Texture2D" uid="uid://c4ai5erhhm6ko" path="res://Assets/temple/version3.png" id="17_b6uv1"]
-[ext_resource type="FontFile" uid="uid://dpi25g85u4maq" path="res://Assets/fonts/GowunBatang-Regular.ttf" id="28_sb6eq"]
-[ext_resource type="Texture2D" uid="uid://cuha04m303p6o" path="res://Assets/village/beer.png" id="28_yl2l6"]
+[ext_resource type="Texture2D" uid="uid://p0upe6oy1r2w" path="res://Assets/temple/thing.png" id="17_et3xt"]
+[ext_resource type="Texture2D" uid="uid://dmn2mpnax3rq" path="res://Assets/temple/manual_button.png" id="18_et3xt"]
+[ext_resource type="Script" uid="uid://bvvjjbjkky12l" path="res://Code/temple/manual.gd" id="18_jfi4t"]
 [ext_resource type="Texture2D" uid="uid://bymkfhv2oeetv" path="res://Assets/state.png" id="34_fhahs"]
 [ext_resource type="Texture2D" uid="uid://v8j0wppnot7a" path="res://Assets/Interface/checkbox_checked.png" id="34_lo8tf"]
 [ext_resource type="Script" uid="uid://cl4b5egxt2exq" path="res://Code/bog/states_menu.gd" id="34_woidq"]
@@ -36,27 +37,13 @@ font_names = PackedStringArray("Calibri")
 [sub_resource type="LabelSettings" id="LabelSettings_swr0f"]
 font = SubResource("SystemFont_36asn")
 font_size = 14
-font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(1, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kggt"]
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_taale"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Theme" id="Theme_ff4s0"]
-default_font = ExtResource("28_sb6eq")
-default_font_size = 16
-TooltipPanel/styles/panel = SubResource("StyleBoxFlat_taale")
 
 [sub_resource type="LabelSettings" id="LabelSettings_woidq"]
 font_size = 12
@@ -101,6 +88,10 @@ Button/styles/normal = SubResource("StyleBoxFlat_rahb6")
 Button/styles/normal_mirrored = null
 Button/styles/pressed = SubResource("StyleBoxFlat_vv31b")
 Button/styles/pressed_mirrored = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [node name="Intro" type="Control" unique_id=210126407]
 layout_mode = 3
@@ -148,40 +139,6 @@ pitch_scale = 0.3
 autoplay = true
 bus = &"Music"
 
-[node name="hoverhint" type="Label" parent="." unique_id=881539538]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -246.0
-offset_top = -16.0
-offset_right = -42.0
-offset_bottom = 7.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Hover over this with mouse to get save info -->"
-label_settings = SubResource("LabelSettings_swr0f")
-
-[node name="controls" type="Label" parent="." unique_id=1565362824]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -222.0
-offset_top = -69.0
-offset_right = 31.0
-offset_bottom = -12.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "controls: arrow keys and z
-F5 to restart the game
-Home key to get to your house"
-label_settings = SubResource("LabelSettings_swr0f")
-
 [node name="createdby" type="Label" parent="." unique_id=1200339847]
 layout_mode = 1
 anchors_preset = 3
@@ -215,7 +172,7 @@ texture_normal = ExtResource("7_8q6d0")
 
 [node name="SettingsMenu" parent="." unique_id=292576966 instance=ExtResource("6_2b17b")]
 visible = false
-z_index = 1
+z_index = 7
 layout_mode = 1
 
 [node name="Label4" type="Label" parent="." unique_id=2075095447]
@@ -259,24 +216,12 @@ text = "I can beat the game with
 only deaths!!!"
 label_settings = SubResource("LabelSettings_1kggt")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1595540529]
-layout_mode = 0
-offset_left = 592.0
-offset_top = 435.0
-offset_right = 632.0
-offset_bottom = 475.0
-tooltip_text = "press delete key 3 times to delete game save data (does NOT delete the permanent save data like best time etc)
-
-all saves except config are different files on major versions"
-theme = SubResource("Theme_ff4s0")
-texture = ExtResource("28_yl2l6")
-
 [node name="StatesOfExistence" type="TextureButton" parent="." unique_id=134259194]
 layout_mode = 0
-offset_left = 297.0
-offset_top = 401.0
-offset_right = 392.0
-offset_bottom = 449.0
+offset_left = 229.0
+offset_top = 398.0
+offset_right = 324.0
+offset_bottom = 446.0
 texture_normal = ExtResource("34_fhahs")
 texture_hover = ExtResource("35_diap3")
 
@@ -354,8 +299,98 @@ mouse_filter = 2
 texture = ExtResource("17_b6uv1")
 metadata/_edit_lock_ = true
 
+[node name="Manual" type="Control" parent="." unique_id=1771823881]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_jfi4t")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Manual" unique_id=2070067936]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8666667)
+metadata/_edit_lock_ = true
+
+[node name="controls" type="Label" parent="Manual" unique_id=1565362824]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 25.0
+offset_right = 276.0
+offset_bottom = 112.0
+text = "Default controls: 
+Arrow keys to move
+Z to jump
+F5 to restart the game
+Home key to get to your house, where you can rest :)
+Esc key or F1 to enter the pause menu"
+label_settings = SubResource("LabelSettings_swr0f")
+
+[node name="controls2" type="Label" parent="Manual" unique_id=1223246597]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 155.0
+offset_right = 648.0
+offset_bottom = 278.0
+text = "Save stuff:
+The game does not have an autosave,
+so remember to save when you do something important and you want to quit.
+
+Press delete key 3 times to delete game save data 
+(does NOT delete the permanent save data like achievements, rombs etc)
+
+all saves except config are different files on major versions."
+label_settings = SubResource("LabelSettings_swr0f")
+
+[node name="Label" type="Label" parent="Manual" unique_id=770741814]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 444.0
+offset_right = 267.0
+offset_bottom = 493.0
+text = "???"
+
+[node name="TextureRect" type="TextureRect" parent="Manual" unique_id=1055172148]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 395.0
+offset_right = 283.0
+offset_bottom = 473.0
+texture = ExtResource("17_et3xt")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ManBut" type="TextureButton" parent="." unique_id=808258455]
+z_index = 6
+layout_mode = 0
+offset_left = 531.0
+offset_top = 421.0
+offset_right = 626.0
+offset_bottom = 469.0
+texture_normal = ExtResource("18_et3xt")
+
+[node name="Label" type="Label" parent="." unique_id=1700076524]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 429.0
+offset_right = 564.0
+offset_bottom = 478.0
+text = "Click if you don't know
+how to play       -------->"
+label_settings = SubResource("LabelSettings_g4v7s")
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="StatesOfExistence" to="." method="_on_states_of_existence_pressed"]
 [connection signal="toggled" from="StatesMenu/Bg/MarginContainer/VBoxContainer/Hardmode/HMCheckBox" to="StatesMenu" method="_on_hm_check_box_toggled"]
 [connection signal="pressed" from="StatesMenu/Bg/MarginContainer/ExitBtn" to="StatesMenu" method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="ManBut" to="Manual" method="_on_man_but_pressed"]

@@ -7,7 +7,7 @@
 script = ExtResource("1_0jich")
 MStr = Array[String](["Oh... hello...
 Where do you think are we?", "This space does not exist when viewed from outside of the temple, you can't see that huge tower, clouds or anything at all.", "Looking down, all I can see is darkness.
-But looking up, you can see the firmament of the world.", "That's really high up, I think if you jumped, you would fall for days."])
+But looking up, you can see the firmament of the world.", "I think if you jumped from here, you would fall for days until you reached the ground."])
 metadata/_custom_type_script = "uid://chbub80dwb52e"
 
 [sub_resource type="Resource" id="Resource_y2myb"]

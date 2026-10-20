@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_4e0ln")
 Name = "Reach an endpoint 30 times"
-Description = "I suffer through these obstacles and at the end I come back to where I was at the start, but I am enojoying this. Doing the same thing over and over can make some people insane, but I seem to have found a purpose in it. "
+Description = "I suffer through these patterned trials and at the end I come back to the start where I do it all again,
+it seems pointless, but I am enjoying this. Doing the same thing over and over can make some people insane, but I seem to have found a purpose in it. "
 AchImage = ExtResource("1_g4mkx")
 metadata/_custom_type_script = "uid://c4v387sglca2h"

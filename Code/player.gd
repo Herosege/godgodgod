@@ -75,6 +75,11 @@ func _physics_process(delta):
 	else:
 		velocity.y += GetGravity() * delta * ((RedGravTimer.wait_time - RedGravTimer.time_left)/RedGravTimer.wait_time) * GravMultiplier * 0.9
 	
+	if Input.is_action_just_pressed("DEBUG3") and OS.is_debug_build():
+		Globals.SavedPos[0] = global_position
+		Globals.SavedPos[1] = Globals.CArea
+		SignalBus.emit_signal("Save",0)
+		Globals.SavePerma()
 	
 	CheckInputs()
 	MoveDirection(delta)

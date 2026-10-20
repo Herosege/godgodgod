@@ -172,6 +172,7 @@ func _process(delta):
 				#CAM.zoom /= CAM_ZOOM
 			#else:
 				#CAM.zoom *= CAM_ZOOM
+	
 
 var SceneToLoad : String
 
@@ -312,7 +313,7 @@ func ResetMemoryGlobal(BackToIntro:=true):
 	CArea = 0
 	SavedPos = [
 		Vector2(109,206), #Coords
-		0 #Area
+		-1 #Area
 	]
 	
 	PosSetTravel = Vector2.ZERO
@@ -334,7 +335,7 @@ func ResetMemoryGlobal(BackToIntro:=true):
 		[false,false]#Weapons
 	]
 	
-	BossKilled = [false,false]
+	BossKilled = [false,false,false]
 	if get_tree().current_scene.name != "Intro" and BackToIntro:
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 	for i in STEvents.EventArray.size():
@@ -345,7 +346,7 @@ func ResetMemoryGlobal(BackToIntro:=true):
 
 func FindPlayer(node):
 	while node != null:
-		if node.is_in_group("Player"):
+		if node.is_in_group("player"):
 			return node
 		node = node.get_parent()
 	return null

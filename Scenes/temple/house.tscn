@@ -501,7 +501,7 @@ shape = SubResource("RectangleShape2D_57qmd")
 
 [node name="URomb" parent="Stuff/Rombs" unique_id=1586862326 instance=ExtResource("15_smgbm")]
 position = Vector2(-486, 578)
-Text = "Avoid the door.
+Text = "Backtracking all the way.
 -flower fields-"
 metadata/_edit_group_ = true
 
@@ -522,7 +522,7 @@ shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="URomb2" parent="Stuff/Rombs" unique_id=1236110565 instance=ExtResource("15_smgbm")]
 position = Vector2(-437, 578)
-Text = "There was something in-between.
+Text = "Avoid the door.
 -flower fields-"
 metadata/_edit_group_ = true
 
@@ -543,7 +543,7 @@ shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="URomb3" parent="Stuff/Rombs" unique_id=1145911014 instance=ExtResource("15_smgbm")]
 position = Vector2(-388, 578)
-Text = "Backtracking all the way.
+Text = "There was something in-between.
 -flower fields-"
 metadata/_edit_group_ = true
 

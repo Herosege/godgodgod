@@ -81,23 +81,24 @@ func _on_timer_timeout():
 var Texts = {
 	"cursegod":"Hello little being
 	
-	I don't know how you managed to get here, but please get out
+	I don't know how you managed to get here, but please get out.
 	
-	You see I am a curse, a synthetic being and I've sealed myself here
-	Away from everything and everyone, for I am about to meet an awful fate
+	You see I've sealed myself here, away from everything and everyone, 
+	for I am about to meet an awful fate.
 	
-	I will transform into a red thinkless mass consuming everything around me
+	Soon I will transform into a red thinkless mass consuming everything around me.
+	I've seen others turn into that and nothing I have done helped them.
 	
-	I've seen other curses turn into that and nothing I have done helped anyone
-	
-	I think that's just our fate",
-	
+	I think that's just our fate.",
 	
 	
-	"cursegod1":"Well since you are here
-	I have this weird artifact
 	
-	It seems powerful, maybe you will find a use for it",
+	"cursegod1":"Well since you are here, I have this weird thing,
+	maybe you will find a use for it.
+	
+	Why am I giving it to you?
+	Well, I just don't want it, it gives me a weird feeling,
+	though it seems important, so just have it.",
 	#
 	
 	#"I am the one overseeing this realm
